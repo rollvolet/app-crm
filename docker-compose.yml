@@ -10,6 +10,7 @@ services:
       - database:database
     volumes:
       - ./config/backend/config.json:/app/config.json
+      - ./data/shared:/data
   documents:
     image: rollvolet/document-generation-service
     volumes:
