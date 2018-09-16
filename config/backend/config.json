@@ -1,0 +1,21 @@
+{
+  "DatabaseConfiguration": {
+    "ConnectionString": ""
+  },
+  "Authentication": {
+    "ClientId": "",
+    "ClientSecret": "",
+    "BaseUri": "",
+    "TenantId": "",
+    "RedirectUri": ""
+  },
+  "Calendar": {
+    "KlantenbezoekCalendarId": "",
+    "PlanningCalendarId": ""
+  },
+  "DocumentGeneration": {
+    "BaseUrl": "",
+    "OfferStorageLocation": "",
+    "ProductionTicketStorageLocation": ""
+  }
+}

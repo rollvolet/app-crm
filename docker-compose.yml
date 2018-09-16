@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  frontend:
+    image: rollvolet/crm-frontend
+    links:
+      - backend:backend
+  backend:
+    image: rollvolet/crm-api
+    links:
+      - db:database
+    volumes:
+      - ./config/backend/config.json:/app/config.json
+  documents:
+    image: rollvolet/document-generation-service
+    volumes:
+      - ./config/templates:/templates
+  db:
+    image: microsoft/mssql-server-linux:2017-GA
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'secret'
+    volumes:
+      - ./data/db:/var/opt/mssql/data
+

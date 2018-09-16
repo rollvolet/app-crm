@@ -1,0 +1,223 @@
+<html>
+  <head>
+    <style type="text/css">
+     body {
+         width: 21cm;
+         background: white;
+         font: 8pt "Arial";
+         color: #5f6368;
+         margin: 0;
+         padding-left: 1.4cm;
+         padding-right: 1.4cm;         
+         box-sizing: border-box;
+         position: relative;
+     }
+     
+     header {
+         width: 100%;
+     }
+
+     header .col-1 {
+         width: 8cm;
+     }
+     
+     header .col-1 img {
+         width: 3.5cm;
+     }
+
+     header .col-1 .logo {
+         margin-bottom: 5mm;
+     }
+     
+     header .col-2 {
+         width: 5cm;
+     }
+
+     header .col-2 img {
+         width: 5cm;
+     }
+
+     header .col-2 .website {
+         font-weight: bold;
+         margin-top: 2mm;
+     }
+     
+     header .col-3 {
+         width: 5cm;
+         text-align: right;
+     }
+
+     header .col-1 .title {
+         font-size: 14pt;
+         font-weight: bold;
+         color: #C43831;
+         text-transform: uppercase;
+         letter-spacing: -0.1em;
+     }
+
+     .subheader {
+         width: 100%;
+         margin-top: 7.5mm;
+     }
+
+     .subheader .col.col-1 {
+         width: 8.5cm;
+     }
+
+     .subheader .col.col-2 {
+         width: 9cm;
+     }
+
+     .subheader .col-1 .building {
+         margin-top: 3mm;
+     }
+
+     .subheader .col-1 .building span {
+         margin-left: 18mm;
+     }
+
+     .subheader .col-2 .datum {
+         margin-left: 2cm;
+         margin-bottom: 5mm;
+     }
+
+     .subheader .col-2 .address {
+         margin-bottom: 1cm;
+     }
+
+     .subheader .col-2 .contact .contactline--telephone {
+         margin-right: 4mm;
+     }
+
+     .subheader .note {
+         font-size: 8pt;
+         font-style: italic;
+     }
+     
+     header .col,
+     .subheader .col {
+         display: inline-block;
+         vertical-align: top;
+     }
+
+     ul {
+         margin: 0
+     }
+
+     .signature {
+         margin-left: 10cm;
+         margin-top: 1cm;
+     }
+
+     .introduction,
+     .outroduction,
+     .pricing,
+     .offerlines {
+         margin-top: 1cm;
+     }
+
+     .offerline {
+         width: 100%;
+         margin-top: 3mm;
+         padding-top: 3mm;
+         padding-left: 2mm;
+         border-top: 1px solid #a5aeba;
+     }
+
+     .offerline.offerline-header {
+         text-transform: uppercase;
+         font-weight: bold;
+         border-top: 0;
+     }
+
+     .offerline:nth-child(2) {
+         border-color: #5f6368;
+     }
+
+     .offerline div.col {
+         display: inline-block;
+         vertical-align: top;
+     }
+
+     .offerline .col-1 {
+         width: 12cm;
+     }
+
+     .offerline .col-2,
+     .offerline .col-3 {
+         width: 2.5cm;
+         text-align: right;
+     }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="col col-1">
+        <div class="logo"><img src="/templates/images/rollvolet-logo.jpg"></div>
+        <div class="title">Rolluiken en zonwering</div>
+        <div>gesticht in 1920</div>
+      </div>
+      <div class="col col-2">
+        <img src="/templates/images/rollvolet-name.jpg">
+        <div>BVBA</div>
+        <br/>
+        <div class="website">www.rollvolet.be</div>
+      </div>
+      <div class="col col-3">
+        Mechelsesteenweg 666<br/>
+        B-1800 Vilvoorde<br/>
+        <b>Tel.:</b> 02-251 03 23<br/>
+        <b>Fax:</b> 02-252 55 93<br/>
+        <b>E-mail:</b> info@rollvolet.be
+      </div>        
+    </header>
+
+    <section class="subheader">
+      <div class="col col-1">
+        <div class="references">
+          <!-- {{REFERENCES}} -->
+        </div>
+        <!-- {{BUILDING}} -->
+      </div>
+      <div class="col col-2">
+        <div class="address">
+          <!-- {{ADDRESSLINES}} -->
+        </div>
+        <div class="contact">
+          <!-- {{CONTACTLINES}} -->
+        </div>
+      </div>
+    </section>
+
+    <section class="introduction">
+      <p class="aanhef">Geachte Heer, Mevrouw,</p>
+
+      <!-- {{INTRO}} -->
+    </section>
+
+    <section class="offerlines">
+      <div class="offerline offerline-header">
+        <div class="col col-1">Omschrijving</div>
+        <div class="col col-2">Netto</div>
+        <div class="col col-3">BTW</div>        
+      </div>
+      <!-- {{OFFERLINES}} -->
+    </section>
+
+    <section class="pricing">
+      <p>Totale prijs: <b><u><!-- {{TOTAL}} --></u></b> + BTW</p>
+      <!-- {{CONDITIONS}} -->
+    </section>
+
+    <section class="outroduction">
+      <p class="outro">
+        Uw order met belangstelling tegemoet ziende, tekenen wij inmiddels
+      </p>
+      <p class="signature">
+        Hoogachtend<br/>
+        <br/>
+        "ROLLVOLET"
+      </p>
+    </section>
+  </body>
+</html>
