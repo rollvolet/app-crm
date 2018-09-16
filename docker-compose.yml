@@ -7,14 +7,14 @@ services:
   backend:
     image: rollvolet/crm-api
     links:
-      - db:database
+      - database:database
     volumes:
       - ./config/backend/config.json:/app/config.json
   documents:
     image: rollvolet/document-generation-service
     volumes:
       - ./config/templates:/templates
-  db:
+  database:
     image: microsoft/mssql-server-linux:2017-GA
     environment:
       ACCEPT_EULA: 'Y'
