@@ -8,19 +8,19 @@ x-logging:
     max-file: "3"
 
 services:
-  # frontend:
-  #   image: rollvolet/crm-frontend
-  #   links:
-  #     - backend:backend
-  #   logging: *default-logging
-  # backend:
-  #   image: rollvolet/crm-api
-  #   links:
-  #     - database:database
-  #   volumes:
-  #     - ./config/backend/config.json:/app/config.json
-  #     - ./data/shared:/data
-  #   logging: *default-logging
+  frontend:
+    image: rollvolet/crm-frontend
+    links:
+      - backend:backend
+    logging: *default-logging
+  backend:
+    image: rollvolet/crm-api
+    links:
+      - database:database
+    volumes:
+      - ./config/backend/config.json:/app/config.json
+      - ./data/shared:/data
+    logging: *default-logging
   documents:
     image: rollvolet/document-generation-service
     volumes:
