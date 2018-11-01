@@ -99,6 +99,10 @@ header .col-1 .title {
     font-style: italic;
 }
 
+.subheader .col-1 h3 {
+    padding-left: 1px;
+}
+
 header .col,
 .subheader .col {
     display: inline-block;
@@ -117,11 +121,13 @@ ul {
 .introduction,
 .outroduction,
 .pricing,
-.offerlines {
+.offerlines,
+.invoicelines {
     margin-top: 1cm;
 }
 
-.offerline {
+.offerline,
+.invoiceline {
     width: 100%;
     margin-top: 3mm;
     padding-top: 3mm;
@@ -129,17 +135,20 @@ ul {
     border-top: 1px solid #a5aeba;
 }
 
-.offerline.offerline-header {
+.offerline.offerline-header,
+.invoiceline.invoiceline-header {
     text-transform: uppercase;
     font-weight: bold;
     border-top: 0;
 }
 
-.offerline:nth-child(2) {
+.offerline:nth-child(2),
+.invoiceline:nth-child(2) {
     border-color: #5f6368;
 }
 
-.offerline div.col {
+.offerline div.col,
+.invoiceline div.col {
     display: inline-block;
     vertical-align: top;
 }
@@ -148,8 +157,27 @@ ul {
     width: 12cm;
 }
 
+.invoiceline .col-1 {
+    width: 14cm;
+}
+
 .offerline .col-2,
-.offerline .col-3 {
+.offerline .col-3,
+.invoiceline .col-2 {
     width: 2.5cm;
     text-align: right;
+}
+
+.invoiceline.priceline {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 1mm;
+}
+
+.invoiceline.priceline .col-1 {
+    text-align: right;
+}
+
+.invoiceline.priceline.priceline-total-gross {
+    font-weight: bold;
 }

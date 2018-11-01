@@ -1,7 +1,10 @@
 <html>
   <head>
     <head>
-      <link rel="stylesheet" type="text/css" href="/templates/styles/offer.css">
+      <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
+      <style>
+       <!-- {{INLINE_CSS}} -->
+      </style>
     </head>
   </head>
   <body>
@@ -29,9 +32,29 @@
     <section class="subheader">
       <div class="col col-1">
         <div class="references">
-          <!-- {{REFERENCES}} -->
+          <table>
+            <tr class="references--date">
+              <td class='key'>Offertedatum:</td>
+              <td><!-- {{DATE}} --></td>
+            </tr>
+            <tr class="references--own_reference">
+              <td class='key'>Onze referentie:</td>
+              <td><!-- {{OWN_REFERENCE}} --></td>
+            </tr>
+            <tr class="references--ext_reference">
+              <td class='key'>Uw referentie:</td>
+              <td><!-- {{EXT_REFERENCE}} --></td>
+            </tr>
+          </table>
         </div>
-        <!-- {{BUILDING}} -->
+        <div class='building'>
+          <table>
+            <tr>
+              <td class="key">Betreft:</td>
+              <td><!-- {{BUILDING}} --></td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="col col-2">
         <div class="address">
