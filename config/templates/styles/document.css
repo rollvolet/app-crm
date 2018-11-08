@@ -118,6 +118,11 @@ ul {
     margin-top: 1cm;
 }
 
+.signature-blank-field {
+    margin-left: 10cm;
+    margin-bottom: 4cm;
+}
+
 .introduction,
 .outroduction,
 .pricing,
@@ -184,4 +189,16 @@ ul {
 
 .invoiceline.priceline.priceline-total-gross {
     font-weight: bold;
+}
+
+form div {
+    margin-top: 5mm;
+}
+
+form div.input-field {
+    margin-left: 1cm;
+}
+
+.footnote {
+    border-top: 1px solid #5f6368;
 }
