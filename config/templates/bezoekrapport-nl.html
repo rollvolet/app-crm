@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <head>
+      <style>
+       body {
+           width: 21cm;
+           background: white;
+           font: 9pt "Arial";
+           color: #5f6368;
+           margin: 0;
+           padding-left: 1.4cm;
+           padding-right: 1.4cm;         
+           box-sizing: border-box;
+           position: relative;
+       }
+
+       table {
+           font: 9pt "Arial";
+       }
+
+       table tr {
+
+       }
+
+       header {
+           border-bottom: 1px solid;
+       }
+
+       header table {
+           width: 100%;
+       }
+
+       header table col-1 {
+           width: 70%;
+       }
+       
+       header table col-2 {
+           width: 15%;
+       }
+       
+       header table col-3 {
+           width: 15%;
+       }
+       
+       .rekenblad .col-1 {
+           width: 14cm;
+           min-height: 20cm;
+           border-right: 1px solid;
+       }
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <table>
+        <tbody>
+          <tr">
+            <td class="col-1"><!-- {{CUSTOMER_NAME}} --></td>
+            <td class="col-2">Aanvraag: <!-- {{DATE}} --></td>
+            <td class="col-3">Nr. AD<!-- {{NUMBER}} --></td>
+          </tr>
+          <tr>
+            <td><!-- {{CUSTOMER_ADDRESS}} --></td>
+            <td>Bezoek: <!-- {{VISIT}} --></td>
+            <td>Taal: <!-- {{LANGUAGE}} --></td>
+          </tr>
+          <tr>
+            <td>Gebouw: <!-- {{BUILDING_ADDRESS}} --></td>
+            <td>Aanmelding: <!-- {{WAY_OF_ENTRY}} --></td>
+            <td>&#9744; Post<br>&#9744; E-post</td>
+          </tr>
+          <tr>
+            <td><!-- {{CONTACTLINES}} --></td>
+            <td>Bezoeker: <!-- {{VISITOR}} --></td>
+            <td>BTW tarief: </td>
+          </tr>
+        </tbody>
+      </table>
+    </header>
+    <section class="rekenblad">
+      <div class="col-1">
+        <p>E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --><br>
+          E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></p>
+        <p><!-- {{EMPLOYEE}} --> noteerde: <!-- {{COMMENT}} --></p>        
+      </div>
+    </section>
+  </body>
+</html>
