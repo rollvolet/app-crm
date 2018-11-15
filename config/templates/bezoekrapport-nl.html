@@ -14,74 +14,96 @@
            position: relative;
        }
 
-       table {
-           font: 9pt "Arial";
-       }
-
-       table tr {
-
-       }
-
        header {
            border-bottom: 1px solid;
        }
 
-       header table {
-           width: 100%;
+       .table .col,
+       .table div.contactline {
+           display: inline-block;
+           vertical-align: top;
        }
 
-       header table col-1 {
-           width: 70%;
+       header .table .col-1 {
+           width: 33%;
        }
        
-       header table col-2 {
-           width: 15%;
+       header .table .col-2 {
+           width: 30%;
        }
        
-       header table col-3 {
-           width: 15%;
+       header .table .col-3 {
+           width: 22%;
        }
        
+       header .table .col-4 {
+           width: 12%;
+       }
+
+       header .contactline--telephones {
+           padding-left: 5mm;
+       }
+
        .rekenblad .col-1 {
            width: 14cm;
            min-height: 20cm;
            border-right: 1px solid;
        }
+
+       .u-spacer--top {
+           margin-top: 1.5mm;
+       }
+
+       <!-- {{INLINE_CSS}} -->
       </style>
     </head>
   </head>
   <body>
     <header>
-      <table>
-        <tbody>
-          <tr">
-            <td class="col-1"><!-- {{CUSTOMER_NAME}} --></td>
-            <td class="col-2">Aanvraag: <!-- {{DATE}} --></td>
-            <td class="col-3">Nr. AD<!-- {{NUMBER}} --></td>
-          </tr>
-          <tr>
-            <td><!-- {{CUSTOMER_ADDRESS}} --></td>
-            <td>Bezoek: <!-- {{VISIT}} --></td>
-            <td>Taal: <!-- {{LANGUAGE}} --></td>
-          </tr>
-          <tr>
-            <td>Gebouw: <!-- {{BUILDING_ADDRESS}} --></td>
-            <td>Aanmelding: <!-- {{WAY_OF_ENTRY}} --></td>
-            <td>&#9744; Post<br>&#9744; E-post</td>
-          </tr>
-          <tr>
-            <td><!-- {{CONTACTLINES}} --></td>
-            <td>Bezoeker: <!-- {{VISITOR}} --></td>
-            <td>BTW tarief: </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table">
+        <div class="col col-1">
+          <!-- {{CUSTOMER_NAME}} --><br>
+          <!-- {{CUSTOMER_ADDRESS}} -->
+        </div>
+        <div class="col col-2">
+          <div class="building-address">
+            Gebouw:<br>
+            <!-- {{BUILDING_ADDRESS}} -->
+          </div>
+        </div>
+        <div class="col col-3">
+          <div>
+            Aanvraag: <!-- {{DATE}} --><br>
+            Aanmelding: <!-- {{WAY_OF_ENTRY}} -->
+          </div>
+          <div class="u-spacer--top">
+            Bezoek: <!-- {{VISIT}} --><br>
+            Bezoeker: <!-- {{VISITOR}} -->
+          </div>
+        </div>
+        <div class="col col-4">
+          <div>
+            Nr. AD<!-- {{NUMBER}} --><br>
+            Taal: <!-- {{LANGUAGE}} -->
+          </div>
+          <div class="u-spacer--top">
+            &#9744; Post<br>
+            &#9744; E-post
+          </div>
+        </div>
+      </div>
+      <div class="table">
+        <!-- {{CONTACTLINES}} -->
+      </div>
     </header>
-    <section class="rekenblad">
-      <div class="col-1">
+    <section class="table rekenblad">
+      <div class="col col-1">
         <p>E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --><br>
           E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></p>
         <p><!-- {{EMPLOYEE}} --> noteerde: <!-- {{COMMENT}} --></p>        
+      </div>
+      <div class="col col-2">
+        <p>BTW tarief: </p>
       </div>
     </section>
   </body>
