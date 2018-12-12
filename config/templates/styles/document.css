@@ -202,3 +202,19 @@ form div.input-field {
 .footnote {
     border-top: 1px solid #5f6368;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.certificate--description {
+    border-top: 1px solid #5f6368;
+    border-bottom: 1px solid #5f6368;
+    margin-bottom: 3mm;
+    padding: 2mm 0;
+    line-height: 1.5;
+}
+
+.certificate--content {
+    line-height: 1.5;
+}
