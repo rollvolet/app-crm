@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
+      <style>
+       <!-- {{INLINE_CSS}} -->
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <div class="col col-1">
+        <div class="logo"><img src="/templates/images/rollvolet-logo.jpg"></div>
+        <div class="title">Rolluiken en zonwering</div>
+        <div>gesticht in 1920</div>
+      </div>
+      <div class="col col-2">
+        <img src="/templates/images/rollvolet-name.jpg">
+        <div>BVBA</div>
+        <br/>
+        <div class="website">www.rollvolet.be</div>
+      </div>
+      <div class="col col-3">
+        Mechelsesteenweg 666<br/>
+        B-1800 Vilvoorde<br/>
+        <b>Tel.:</b> 02-251 03 23<br/>
+        <b>E-mail:</b> info@rollvolet.be
+      </div>
+    </header>
+
+    <section class="subheader">
+      <div class="col col-1">
+        <h3>FACTUUR <!-- {{NUMBER}} --></h3>
+        <div class="references">
+          <table>
+            <tr class="references--date">
+              <td class='key'>Factuurdatum:</td>
+              <td><!-- {{DATE}} --></td>
+            </tr>
+            <tr class="references--customer_number">
+              <td class='key'>Klantnummer:</td>
+              <td><!-- {{CUSTOMER_NUMBER}} --></td>
+            </tr>
+            <tr class="references--own_reference">
+              <td class='key'>Onze referentie:</td>
+              <td><!-- {{OWN_REFERENCE}} --></td>
+            </tr>
+            <tr class="references--ext_reference">
+              <td class='key'>Uw referentie:</td>
+              <td><!-- {{EXT_REFERENCE}} --></td>
+            </tr>
+          </table>
+        </div>
+        <div class='building'>
+          <table>
+            <tr>
+              <td class="key">Betreft:</td>
+              <td><!-- {{BUILDING}} --></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-2">
+        <div class="address">
+          <!-- {{ADDRESSLINES}} -->
+        </div>
+        <div class="contact">
+          <!-- {{CONTACTLINES}} -->
+        </div>
+      </div>
+    </section>
+
+    <section class="introduction">
+      <p class="introduction--reference"><i>Voorschotfactuur voor offerte <!-- {{REQUEST_NUMBER}} --></i></p>
+    </section>
+
+    <section class="invoicelines">
+      <div class="invoiceline invoiceline-header">
+        <div class="col col-1">Omschrijving</div>
+        <div class="col col-2">Netto</div>
+      </div>
+      <!-- {{INVOICELINES}} -->
+      <div class="invoiceline priceline priceline-total-net">
+        <div class="col col-1">Netto totale bestelling</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET_PRICE}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-vat">
+        <div class="col col-1"><!-- {{VAT_RATE}} -->% BTW</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_VAT}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-total-deposit-invoice">
+        <div class="col col-1">Te betalen voorschot</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_DEPOSIT_INVOICE}} --></div>
+      </div>
+    </section>
+
+    <section class="outroduction">
+      <p class="payment-notification">Wij verzoeken u vriendelijk het bedrag <span class="payment-notification--deadline">voor <!-- {{PAYMENT_DUE_DATE}} --> </span>over te maken op rekeningnummer BE24 4347 1829 8138 onder vermelding van het factuurnummer.</p>
+      <p class="certificate-notification">Gelieve bijgevoegd attest ondertekend terug te sturen via e-mail naar info@rollvolet.be of per post naar Rollvolet bvba, Mechelsesteenweg 666, 1800 Vilvoorde.</p>
+      <p class="outro">
+        Rollvolet zal gesloten zijn vanaf 25/12/2018 tot 2/1/2019.
+      </p>
+    </section>
+  </body>
+</html>

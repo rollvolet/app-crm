@@ -191,6 +191,11 @@ ul {
     font-weight: bold;
 }
 
+.invoiceline.priceline.priceline-total-deposit-invoice {
+    font-weight: bold;
+    margin-top: 3mm;
+}
+
 form div {
     margin-top: 5mm;
 }
