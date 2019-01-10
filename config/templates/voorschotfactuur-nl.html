@@ -3,6 +3,11 @@
     <head>
       <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
       <style>
+       .invoiceline.priceline.priceline-total-deposit-invoice {
+           border: 2px solid #5f6368;
+           text-align: center;
+           padding: 1.2mm;
+       }
        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
@@ -30,7 +35,7 @@
 
     <section class="subheader">
       <div class="col col-1">
-        <h3>FACTUUR <!-- {{NUMBER}} --></h3>
+        <h3>VOORSCHOTFACTUUR <!-- {{NUMBER}} --></h3>
         <div class="references">
           <table>
             <tr class="references--date">
@@ -89,14 +94,13 @@
         <div class="col col-2">&euro; <!-- {{TOTAL_VAT}} --></div>
       </div>
       <div class="invoiceline priceline priceline-total-deposit-invoice">
-        <div class="col col-1">Te betalen voorschot</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_DEPOSIT_INVOICE}} --></div>
+        Te betalen voorschot: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --> (&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --> + <!-- {{VAT_RATE}} -->% BTW)
       </div>
     </section>
 
     <section class="outroduction">
-      <p class="payment-notification">Wij verzoeken u vriendelijk het bedrag <span class="payment-notification--deadline">voor <!-- {{PAYMENT_DUE_DATE}} --> </span>over te maken op rekeningnummer BE24 4347 1829 8138 onder vermelding van het factuurnummer.</p>
-      <p class="certificate-notification">Gelieve bijgevoegd attest ondertekend terug te sturen via e-mail naar info@rollvolet.be of per post naar Rollvolet bvba, Mechelsesteenweg 666, 1800 Vilvoorde.</p>
+      <p class="payment-notification">Wij verzoeken u vriendelijk het bedrag <span class="payment-notification--deadline"><b>v&oacute;&oacute;r <!-- {{PAYMENT_DUE_DATE}} --> </b></span>over te maken op rekeningnummer <b>BE24 4347 1829 8138</b> onder vermelding van het factuurnummer <!-- {{NUMBER}} -->.</p>
+      <p class="certificate-notification">Gelieve bijgevoegd attest ondertekend terug te sturen via e-mail naar admin@rollvolet.be of per post naar Rollvolet bvba, Mechelsesteenweg 666, 1800 Vilvoorde.</p>
       <p class="outro">
         Rollvolet zal gesloten zijn vanaf 25/12/2018 tot 2/1/2019.
       </p>
