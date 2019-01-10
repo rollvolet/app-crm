@@ -208,6 +208,11 @@ form div.input-field {
     border-top: 1px solid #5f6368;
 }
 
+.footnote-explanations {
+    font-size: 8pt;
+    font-style: italic;
+}
+
 .text-center {
     text-align: center;
 }
