@@ -33,6 +33,7 @@ services:
       SA_PASSWORD: 'secret'
     volumes:
       - ./data/db:/var/opt/mssql/data
+      - ./data/backups:/backups
       - ./config/migrations:/migrations
     logging: *default-logging
 
