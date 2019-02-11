@@ -8,32 +8,9 @@ x-logging:
     max-file: "3"
 
 services:
-  frontend:
-    image: rollvolet/crm-frontend
-    links:
-      - backend:backend
-    logging: *default-logging
-  backend:
-    image: rollvolet/crm-api
-    links:
-      - database:database
-    volumes:
-      - ./config/backend/config.json:/app/config.json
-      - ./data/shared:/data
-    logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service
+    image: rollvolet/document-generation-service:0.1.0
     volumes:
       - ./config/templates:/templates
+    restart: always      
     logging: *default-logging
-  database:
-    image: microsoft/mssql-server-linux:2017-GA
-    environment:
-      ACCEPT_EULA: 'Y'
-      SA_PASSWORD: 'secret'
-    volumes:
-      - ./data/db:/var/opt/mssql/data
-      - ./data/backups:/backups
-      - ./config/migrations:/migrations
-    logging: *default-logging
-

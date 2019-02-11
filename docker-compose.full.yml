@@ -1,0 +1,37 @@
+version: '3.4'
+
+x-logging:
+  &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  frontend:
+    image: rollvolet/crm-frontend:0.1.0
+    links:
+      - backend:backend
+    restart: always      
+    logging: *default-logging
+  backend:
+    image: rollvolet/crm-api:0.1.0
+    links:
+      - database:database
+    volumes:
+      - ./config/backend/config.json:/app/config.json
+      - ./data/shared:/data
+    restart: always      
+    logging: *default-logging
+  database:
+    image: microsoft/mssql-server-linux:2017-GA
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'secret'
+    volumes:
+      - ./data/db:/var/opt/mssql/data
+      - ./data/backups:/backups
+      - ./config/migrations:/migrations
+    restart: always      
+    logging: *default-logging
+
