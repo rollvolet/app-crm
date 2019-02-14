@@ -1,7 +1,8 @@
 body {
     width: 21cm;
     background: white;
-    font: 8pt "Arial";
+    font-family: "Carlito", "Calibri", "Arial", sans-serif;
+    font-size: 8pt;
     color: #5f6368;
     margin: 0;
     padding-left: 1.4cm;
@@ -11,7 +12,8 @@ body {
 }
 
 table {
-    font: 8pt "Arial";
+    font-family: "Carlito", "Calibri", "Arial", sans-serif;
+    font-size: 8pt;
 }
 
 table td.key {
