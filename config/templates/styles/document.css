@@ -137,7 +137,7 @@ ul {
 .invoiceline {
     width: 100%;
     margin-top: 3mm;
-    padding-top: 3mm;
+    padding-top: 3mm;y
     padding-left: 2mm;
     border-top: 1px solid #a5aeba;
 }
@@ -173,6 +173,23 @@ ul {
 .invoiceline .col-2 {
     width: 2.5cm;
     text-align: right;
+}
+
+.offerline .col-3.taxfree-nl:after {
+    content: 'btw verlegd';
+    display: block;
+    font-style: italic;
+}
+
+.offerline .col-3.taxfree-fr:after {
+    content: 'autoliquidation';
+    display: block;
+    font-style: italic;
+}
+
+.invoiceline .taxfree {
+    display: none;
+    font-style: italic;
 }
 
 .invoiceline.priceline {
