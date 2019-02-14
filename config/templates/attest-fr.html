@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
+      <style>
+       .certificate-document .introduction {
+           margin-top: 2cm;
+       }
+      </style>
+    </head>
+  </head>
+  <body class="certificate-document">
+    <section class="introduction">
+      <p><i>Pour pouvoir b&eacute;n&eacute;ficier du taux de TVA de 6%, veuillez renvoyer ce document &agrave;:</i></p>
+      <div class="text-center">Rollvolet<br>Mechelsesteenweg 666<br>1800 Vilvoorde<br><br>admin@rollvolet.be</div>
+      <p>Merci d'avance.</p>
+    </section>
+    <section class="certificate--description">
+      <h1 class="text-center">ATTESTATION</h1>
+      <p><i>Application du taux de T.V.A. de 6% &agrave; des travaux immobiliers effectu&eacute;s &agrave; des logements priv&eacute;s en vertu des dispositions des rubriques XXXI et XXXVIII de l'arr&ecirc;te n°20 du 20 juillet 1970 fixant les taux de la taxe sur la valeur ajout&eacute;e et d&eacute;terminant la r&eacute;partition des biens et des services selon ces taux.</i></p>
+    </section>
+    <form>
+      <table>
+        <tr>
+          <td>Le/la soussign&eacute;(e):</td>
+          <td><!-- {{CUSTOMER_NAME}} --></td>
+        </tr>
+        <tr>
+          <td>domicili&eacute;:</td>
+          <td><!-- {{CUSTOMER_ADDRESS}} --></td>
+        </tr>
+      </table>
+      <div>
+        <p>d&eacute;clare qu'il/elle est:</p>
+        <p>&#9744; propri&eacute;taire</p>
+        <p>&#9744; locataire</p>
+        <p>&#9744; usufruitier</p>
+        <p>&#9744; g&eacute;rant</p>
+        <p>&#9744; .....................................................................</p>
+        <p>du b&acirc;timent-ci:</p>
+      </div>
+      <div class="input-field"><!-- {{BUILDING_ADDRESS}} --></div>
+      <div>
+        <p>et il/elle d&eacute;clare que ce b&acirc;timent:</p>
+        <ul class="certificate--content">
+          <li>aura effectivement &eacute;t&eacute; occup&eacute; depuis dix ans au moins &agrave; la premi&egrave;re date d'exigibilit&eacute; de la TVA relative aux travaux qui y seront entrepris conform&eacute;ment la facture n&deg; <!-- {{INVOICE_NUMBER}} --> en date du <!-- {{INVOICE_DATE}} -->.</li>
+          <li>sera effectivement et exclusivement / principalement utilis&eacute; comme logement priv&eacute; apr&egrave;s l'ex&eacute;cution desdits travaux.</li>
+        </ul>
+      </div>
+    </form>
+    <section class="outroduction">
+      <p>Fait &agrave; .................................................................., <i>(commune)</i></p>
+      <p>le  ................................ .</p>
+      <br>
+      <p class="signature-blank-field">
+        Signature
+      </p>      
+    </section>
+    <section class="footnote-explanations">
+
+    </section>
+  </body>
+</html>
