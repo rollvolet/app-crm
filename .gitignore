@@ -4,3 +4,4 @@
 /data/documents/*
 /data/backups/*
 docker-compose.override.yml
+.env
