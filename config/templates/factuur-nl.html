@@ -86,17 +86,21 @@
         <div class="col col-1"><!-- {{VAT_RATE}} -->% btw <span class="taxfree">(btw verlegd)</span></div>
         <div class="col col-2">&euro; <!-- {{TOTAL_VAT}} --></div>
       </div>
+      <div class="invoiceline priceline priceline-total-gross">
+        <div class="col col-1">Totaal</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_PRICE}} --></div>
+      </div>
       <div class="invoiceline priceline priceline-deposit">
         <div class="col col-1">Voorschot betaald</div>
-        <div class="col col-2">- &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
+        <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
       </div>
       <div class="invoiceline priceline priceline-deposit-invoice">
         <div class="col col-1">Voorschotfactuur</div>
-        <div class="col col-2">- &euro; <!-- {{TOTAL_DEPOSIT_INVOICES}} --></div>
+        <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSIT_INVOICES}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-total-gross">
+      <div class="invoiceline priceline priceline-to-pay">
         <div class="col col-1">Te betalen</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_PRICE}} --></div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_TO_PAY}} --></div>
       </div>
     </section>
 
