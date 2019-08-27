@@ -3,7 +3,7 @@ body {
     background: white;
     font-family: "Carlito", "Calibri", "Arial", sans-serif;
     font-size: 10pt;
-    color: #333333;
+    color: #1A1A1A;
     margin: 0;
     padding-left: 1.4cm;
     padding-right: 1.4cm;
@@ -139,7 +139,7 @@ ul {
     margin-top: 3mm;
     padding-top: 3mm;y
     padding-left: 2mm;
-    border-top: 1px solid #a5aeba;
+    border-top: 0.5mm solid #4D4D4D;
 }
 
 .offerline.offerline-header,
@@ -151,7 +151,7 @@ ul {
 
 .offerline:nth-child(2),
 .invoiceline:nth-child(2) {
-    border-color: #333333;
+   
 }
 
 .offerline div.col,
@@ -204,12 +204,12 @@ ul {
 
 .offerline:last-child {
     padding-bottom: 3mm;
-    border-bottom: 1px solid #a5aeba;
+    border-bottom: 1px solid #4D4D4D;
 }
 
 .invoiceline.priceline.priceline-total-net {
     margin-top: 3mm;
-    border-top: 1px solid #a5aeba;
+    border-top: 1px solid #4D4D4D;
     padding-top: 3mm;
 }
 
@@ -237,7 +237,7 @@ form div.input-field {
 }
 
 .footnote {
-    border-top: 1px solid #333333;
+    border-top: 1px solid #1A1A1A;
 }
 
 .footnote-explanations {
@@ -250,8 +250,8 @@ form div.input-field {
 }
 
 .certificate--description {
-    border-top: 1px solid #333333;
-    border-bottom: 1px solid #333333;
+    border-top: 1px solid #1A1A1A;
+    border-bottom: 1px solid #1A1A1A;
     margin-bottom: 3mm;
     padding: 2mm 0;
     line-height: 1.5;
