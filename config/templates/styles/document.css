@@ -217,15 +217,15 @@ ul {
     border-bottom: 1px solid #4D4D4D;
 }
 
-.invoiceline.priceline.priceline-total-net {
+.invoiceline.priceline.priceline-total-order {
     margin-top: 3mm;
     border-top: 1px solid #4D4D4D;
     padding-top: 3mm;
 }
 
-.invoiceline.priceline.priceline-total-gross {
+.invoiceline.priceline.priceline-total-net {
     font-style: italic;
-    margin-bottom: 2mm;
+    margin-top: 2mm;
 }
 
 .invoiceline.priceline.priceline-to-pay {
