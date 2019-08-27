@@ -186,13 +186,13 @@ ul {
 
 .offerline .col-3.taxfree-nl:after {
     content: 'btw verlegd';
-    display: block;
+    display: inline;
     font-style: italic;
 }
 
 .offerline .col-3.taxfree-fr:after {
     content: 'autoliquidation';
-    display: block;
+    display: inline;
     font-style: italic;
 }
 
