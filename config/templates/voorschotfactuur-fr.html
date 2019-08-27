@@ -4,7 +4,7 @@
       <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
       <style>
        .invoiceline.priceline.priceline-total-deposit-invoice {
-           border: 2px solid #5f6368;
+           border: 2px solid #4D4D4D;
            text-align: center;
            padding: 1.2mm;
        }
@@ -77,26 +77,27 @@
       </div>
     </section>
 
-    <section class="introduction">
-      <p class="introduction--reference"><i>Facture d'acompte pour notre offre <!-- {{REQUEST_NUMBER}} --></i></p>
-    </section>
-
     <section class="invoicelines">
       <div class="invoiceline invoiceline-header">
-        <div class="col col-1">D&eacute;scription</div>
-        <div class="col col-2">Net</div>
+        <div class="col col-1-2">Facture d'acompte pour notre offre <!-- {{REQUEST_NUMBER}} --></div>
+        <div class="invoiceline-subheader"><i>Prix net de la commande compl&egrave;te: &euro; <!-- {{TOTAL_NET_PRICE}} --></i></div>
       </div>
       <!-- {{INVOICELINES}} -->
       <div class="invoiceline priceline priceline-total-net">
-        <div class="col col-1">Prix net de la commande compl&egrave;te</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_NET_PRICE}} --></div>
+        <div class="col col-1">Prix net de la facture d'acompte</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --></div>
       </div>
       <div class="invoiceline priceline priceline-vat">
-        <div class="col col-1"><!-- {{VAT_RATE}} -->% TVA <span class="taxfree">(autoliquidation)</span></div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_VAT}} --></div>
+        <div class="col col-1-2 taxfree">autoliquidation</div>
+        <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% TVA</div>
+        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICE}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-total-gross">
+        <div class="col col-1">Total de la facture d'acompte</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --></div>
       </div>
       <div class="invoiceline priceline priceline-total-deposit-invoice">
-        Acompte &agrave; payer: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --> (&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --> + TVA <!-- {{VAT_RATE}} -->%)
+        Montant &agrave; payer: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} -->
       </div>
     </section>
 

@@ -4,7 +4,7 @@
       <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
       <style>
        .invoiceline.priceline.priceline-total-deposit-invoice {
-           border: 2px solid #5f6368;
+           border: 2px solid #4D4D4D;
            text-align: center;
            padding: 1.2mm;
        }
@@ -77,26 +77,29 @@
       </div>
     </section>
 
-    <section class="introduction">
-      <p class="introduction--reference"><i>Voorschotfactuur voor offerte <!-- {{REQUEST_NUMBER}} --></i></p>
-    </section>
-
     <section class="invoicelines">
       <div class="invoiceline invoiceline-header">
-        <div class="col col-1">Omschrijving</div>
-        <div class="col col-2">Netto</div>
+        <div class="col col-1-2">
+          <div>Voorschotfactuur voor offerte <!-- {{REQUEST_NUMBER}} --></div>
+          <div class="invoiceline-subheader"><i>Netto totale bestelling: &euro; <!-- {{TOTAL_NET_PRICE}} --></i></div>
+        </div>
       </div>
       <!-- {{INVOICELINES}} -->
       <div class="invoiceline priceline priceline-total-net">
-        <div class="col col-1">Netto totale bestelling</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_NET_PRICE}} --></div>
+        <div class="col col-1">Netto voorschotfactuur</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --></div>
       </div>
       <div class="invoiceline priceline priceline-vat">
-        <div class="col col-1"><!-- {{VAT_RATE}} -->% btw <span class="taxfree">(btw verlegd)</span></div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_VAT}} --></div>
+        <div class="col col-1-2 taxfree">btw verlegd</div>
+        <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% btw</div>
+        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICE}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-total-gross">
+        <div class="col col-1">Totaal voorschotfactuur</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --></div>
       </div>
       <div class="invoiceline priceline priceline-total-deposit-invoice">
-        Te betalen voorschot: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --> (&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --> + <!-- {{VAT_RATE}} -->% btw)
+        Te betalen bedrag: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} -->
       </div>
     </section>
 
