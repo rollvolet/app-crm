@@ -223,14 +223,17 @@ ul {
     padding-top: 3mm;
 }
 
-.invoiceline.priceline.priceline-total-net {
-    font-style: italic;
+.invoiceline.priceline.priceline-total-net,
+.invoiceline.priceline.priceline-deposit {
     margin-top: 2mm;
+}
+
+.invoiceline.priceline.priceline-total-gross {
+    font-style: italic;
 }
 
 .invoiceline.priceline.priceline-to-pay {
     font-weight: bold;
-    margin-top: 2mm;
 }
 
 .invoiceline.priceline.priceline-total-deposit-invoice {

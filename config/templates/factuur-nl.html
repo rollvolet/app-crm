@@ -86,18 +86,22 @@
         <div class="col col-1">Netto voorschotfactuur <!-- {{DEPOSIT_INVOICE_NUMBERS}} --></div>
         <div class="col col-2">&minus; &euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICES}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-deposit">
-        <div class="col col-1">Voorschot betaald</div>
-        <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
-      </div>
       <div class="invoiceline priceline priceline-total-net">
         <div class="col col-1">Totaal netto</div>
-        <div class="col col-2">&euro; <!-- {{NET_SUBTOTAL}} --></div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET}} --></div>
       </div>
       <div class="invoiceline priceline priceline-vat">
         <div class="col col-1-2 taxfree">btw verlegd</div>
         <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% btw</div>
         <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-total-gross">
+        <div class="col col-1">Totaal</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-deposit">
+        <div class="col col-1">Voorschot betaald</div>
+        <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
       </div>
       <div class="invoiceline priceline priceline-to-pay">
         <div class="col col-1">Te betalen</div>
