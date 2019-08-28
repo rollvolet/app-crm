@@ -9,7 +9,7 @@ x-logging:
 
 services:
   frontend:
-    image: rollvolet/crm-frontend:0.2.5
+    image: rollvolet/crm-frontend:0.2.6
     links:
       - backend:backend
     restart: always
