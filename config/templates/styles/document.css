@@ -144,7 +144,6 @@ ul {
 
 .offerline.offerline-header,
 .invoiceline.invoiceline-header {
-    text-transform: uppercase;
     font-weight: bold;
     border-top: 0;
 }
@@ -156,7 +155,7 @@ ul {
 
 .offerline:nth-child(2),
 .invoiceline:nth-child(2) {
-   
+
 }
 
 .offerline div.col,
