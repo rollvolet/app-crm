@@ -9,13 +9,13 @@ x-logging:
 
 services:
   frontend:
-    image: rollvolet/crm-frontend:0.2.9
+    image: rollvolet/crm-frontend:0.2.10
     links:
       - backend:backend
     restart: always
     logging: *default-logging
   backend:
-    image: rollvolet/crm-api:0.3.4
+    image: rollvolet/crm-api:0.3.5
     links:
       - database:database
     volumes:
