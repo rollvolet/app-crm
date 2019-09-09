@@ -126,9 +126,12 @@ ul {
 }
 
 .introduction,
+.offerlines {
+    margin-top: 5mm;
+}
+
 .outroduction,
 .pricing,
-.offerlines,
 .invoicelines {
     margin-top: 1cm;
 }
