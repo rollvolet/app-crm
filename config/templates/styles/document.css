@@ -272,3 +272,20 @@ form div.input-field {
 .certificate--content {
     line-height: 1.5;
 }
+
+
+
+
+/* Wicked PDF helpers */
+
+div.alwaysbreak {
+    page-break-before: always;
+}
+
+div.nobreak:before {
+    clear:both;
+}
+
+div.nobreak {
+    page-break-inside: avoid;
+}
