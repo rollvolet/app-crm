@@ -280,15 +280,17 @@ form div.input-field {
 
 
 /* Wicked PDF helpers */
-
+section.alwaysbreak,
 div.alwaysbreak {
     page-break-before: always;
 }
 
+section.nobreak:before,
 div.nobreak:before {
     clear:both;
 }
 
+section.nobreak,
 div.nobreak {
     page-break-inside: avoid;
 }
