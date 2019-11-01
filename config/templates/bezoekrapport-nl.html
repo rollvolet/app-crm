@@ -58,6 +58,11 @@
            margin-top: 1.5mm;
        }
 
+       .history {
+           float: right;
+           margin: 3mm;
+       }
+
        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
@@ -103,8 +108,13 @@
     </header>
     <section class="table rekenblad">
       <div class="col col-1">
-        <p><span class="email--customer">E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --></span><br>
-          <span class="email--contact">E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></span></p>
+        <div class="history">
+          <!-- {{ORDER_HISTORY}} -->
+        </div>
+        <p>
+          <span class="email--customer">E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --></span><br>
+          <span class="email--contact">E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></span>
+        </p>
         <p><span class="employee--name"><!-- {{EMPLOYEE}} --> noteerde: </span><!-- {{COMMENT}} --></p>
       </div>
       <div class="col col-2">
