@@ -24,7 +24,7 @@ services:
     restart: always      
     logging: *default-logging
   database:
-    image: microsoft/mssql-server-linux:2017-GA
+    image: mcr.microsoft.com/mssql/server:2017-GA-ubuntu
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'secret'
