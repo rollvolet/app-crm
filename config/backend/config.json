@@ -11,11 +11,23 @@
   },
   "Calendar": {
     "KlantenbezoekCalendarId": "",
-    "PlanningCalendarId": ""
+    "PlanningCalendarId": "",
+    "PostponeWithYears": null
   },
   "DocumentGeneration": {
     "BaseUrl": "",
     "OfferStorageLocation": "",
-    "ProductionTicketStorageLocation": ""
+    "InvoiceStorageLocation": "",
+    "ProductionTicketStorageLocation": "",
+    "GeneratedCertificateStorageLocation": "",
+    "ReceivedCertificateStorageLocation": ""
+  },
+  "Accountancy": {
+    "WinbooksExportLocation": "",
+    "WinbooksInvoicesFile": "",
+    "WinbooksCustomersfile": "",
+    "WinbooksDiary": "",
+    "WinbooksBookYear": "",
+    "WinbooksStart": ""
   }
 }

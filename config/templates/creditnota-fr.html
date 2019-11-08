@@ -3,11 +3,6 @@
     <head>
       <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
       <style>
-       .invoiceline.priceline.priceline-total-deposit-invoice {
-           border: 2px solid #4D4D4D;
-           text-align: center;
-           padding: 1.2mm;
-       }
        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
@@ -37,7 +32,7 @@
 
     <section class="subheader">
       <div class="col col-1">
-        <h3>FACTURE D'ACOMPTE <!-- {{NUMBER}} --></h3>
+        <h3>NOTE DE CR&Eacute;DIT <!-- {{NUMBER}} --></h3>
         <div class="references">
           <table>
             <tr class="references--date">
@@ -79,31 +74,27 @@
 
     <section class="invoicelines">
       <div class="invoiceline invoiceline-header">
-        <div class="col col-1-2">Facture d'acompte pour notre offre <!-- {{REQUEST_NUMBER}} --></div>
-        <div class="invoiceline-subheader"><i>Montant HT de la commande compl&egrave;te: &euro; <!-- {{TOTAL_NET_PRICE}} --></i></div>
+        <div class="col col-1">D&eacute;signation</div>
+        <div class="col col-2">Prix unitaire HT</div>
       </div>
       <!-- {{INVOICELINES}} -->
       <div class="invoiceline priceline priceline-total-net">
         <div class="col col-1">Total HT</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --></div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET}} --></div>
       </div>
       <div class="invoiceline priceline priceline-vat">
         <div class="col col-1-2 taxfree">autoliquidation</div>
         <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% TVA</div>
-        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICE}} --></div>
+        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT}} --></div>
       </div>
       <div class="invoiceline priceline priceline-total-gross">
         <div class="col col-1">Total TTC</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --></div>
-      </div>
-      <div class="invoiceline priceline priceline-total-deposit-invoice">
-        Net &agrave; payer: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} -->
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS}} --></div>
       </div>
     </section>
 
     <section class="outroduction nobreak">
-      <p class="payment-notification">Nous vous prions de verser la solde <span class="payment-notification--deadline"><b>avant le <!-- {{PAYMENT_DUE_DATE}} --> </b></span>sur notre compte <b>BE24 4347 1829 8138</b> en mentionnant le num&eacute;ro de facture <!-- {{NUMBER}} -->.</p>
-      <p class="certificate-notification">Veuillez signer et nous renvoyer l'attestation ci-jointe par mail &agrave; admin@rollvolet.be ou par poste &agrave; Rollvolet bvba, Mechelsesteenweg 666, 1800 Vilvoorde.</p>
+      <p><!-- {{OUTRO}} --></p>
       <p class="outro">
 
       </p>

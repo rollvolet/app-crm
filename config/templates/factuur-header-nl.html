@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+     // copied from https://github.com/mileszs/wicked_pdf#page-numbering
+     function number_pages() {
+         var vars = {};
+         var queryParams = document.location.search.substring(1).split('&');
+         for (var i in queryParams) {
+             var q = queryParams[i].split('=', 2);
+             vars[q[0]] = decodeURIComponent(q[1]);
+         }
+         var placeholders = ['frompage','topage','page','webpage','section','subsection','subsubsection'];
+         for (var i in placeholders) {
+             var elements = document.getElementsByClassName(placeholders[i]);
+             for (var j = 0; j < elements.length; ++j) {
+                 elements[j].textContent = vars[placeholders[i]];
+             }
+         }
+
+         var currentPageNumber = vars['page'];
+         var pageHeaders = document.getElementsByClassName('page-header');
+         for (var i = 0; i < pageHeaders.length; i++) {
+             var element = pageHeaders[i];
+             element.setAttribute('data-page-number', currentPageNumber);
+         }
+     }
+    </script>
+    <style>
+     div[data-page-number='1'] {
+         display: none;
+     }
+    </style>
+  </head>
+  <body onload="number_pages()">
+    <div class="page-header" style="padding-bottom:0.5mm;">
+      <div class="page-header--content" style="font-family: 'Carlito', 'Calibri', 'Arial', sans-serif; font-size:10pt;color:#333333;border-bottom: 0.5mm solid #C43831;padding-top:2mm;margin-left:1.2cm;margin-right:1.2cm;margin-bottom:5mm;">
+        <div class="col col-1" style="display:inline-block;vertical-align:top;width:12cm">
+          Factuur <!-- {{NUMBER}} -->
+        </div>
+        <div class="col col-3" style="display:inline-block;vertical-align:top;text-align:right;min-width:6cm">
+          <span class="page"></span>/<span class="topage"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -5,8 +5,9 @@
        body {
            width: 21cm;
            background: white;
-           font: 9pt "Arial";
-           color: #5f6368;
+           font-family: "Carlito", "Calibri", "Arial", sans-serif;
+           font-size: 10pt;
+           color: #1A1A1A;
            margin: 0;
            padding-left: 1.4cm;
            padding-right: 1.4cm;
@@ -22,6 +23,10 @@
        .table div.contactline {
            display: inline-block;
            vertical-align: top;
+       }
+
+       .table .visit--time {
+           padding-left: 1.2cm;
        }
 
        header .table .col-1 {
@@ -54,6 +59,11 @@
            margin-top: 1.5mm;
        }
 
+       .history {
+           float: right;
+           margin: 3mm;
+       }
+
        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
@@ -77,7 +87,8 @@
             Aanmelding: <!-- {{WAY_OF_ENTRY}} -->
           </div>
           <div class="u-spacer--top">
-            Bezoek: <!-- {{VISIT}} --><br>
+            Bezoek: <!-- {{VISIT_DATE}} --><br>
+            <span class="visit--time"><!-- {{VISIT_TIME}} --></span><br>
             Bezoeker: <!-- {{VISITOR}} -->
           </div>
         </div>
@@ -98,9 +109,14 @@
     </header>
     <section class="table rekenblad">
       <div class="col col-1">
-        <p><span class="email--customer">E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --></span><br>
-          <span class="email--contact">E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></span></p>
-        <p><!-- {{EMPLOYEE}} --> noteerde: <!-- {{COMMENT}} --></p>
+        <div class="history">
+          <!-- {{ORDER_HISTORY}} -->
+        </div>
+        <p>
+          <span class="email--customer">E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --></span><br>
+          <span class="email--contact">E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></span>
+        </p>
+        <p><span class="employee--name"><!-- {{EMPLOYEE}} --> noteerde: </span><!-- {{COMMENT}} --></p>
       </div>
       <div class="col col-2">
         <p>BTW tarief: </p>
