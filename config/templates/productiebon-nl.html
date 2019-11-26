@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <head>
+      <style>
+       body {
+           width: 297mm;
+           background: white;
+           font-family: "Carlito", "Calibri", "Arial", sans-serif;
+           font-size: 12pt;
+           color: #1A1A1A;
+           margin: 0;
+           padding: 0.1cm;
+           position: relative;
+           height: 20.7cm;
+       }
+
+       header {
+
+       }
+
+       .table .col {
+           display: inline-block;
+           vertical-align: top;
+       }
+
+       .table .row {
+           display: inline-block;
+           vertical-align: top;
+           line-height: 7mm;
+       }
+
+       .table .row--key {
+           text-align: right;
+           font-weight: bold;
+       }
+
+       .table .row--value {
+
+       }
+
+       header .table .col-1 {
+           width: 3cm;
+       }
+
+       header .table .col-2 {
+           width: 12cm;
+       }
+
+       header .table .col-3 {
+           width: 4cm;
+       }
+
+       header .table .col-4 {
+           width: 6cm;
+           border-left: 0.5mm solid #000;
+       }
+
+       header .table .col-2 .row--key,
+       header .table .col-3 .row--key {
+           width: 2cm;
+       }
+
+       header .table .col-4 .row--key {
+           width: 3cm;
+       }
+
+       .logo {
+           padding: 1mm;
+       }
+
+       .logo img {
+           height: 2cm;
+       }
+
+       .rekenblad .rekenblad--header {
+           height: 1cm;
+           border-top: 0.5mm solid #000;
+           border-bottom: 0.5mm solid #000;
+       }
+
+       .rekenblad .rekenblad--header .col {
+           display: inline-block;
+           border-left: 0.5mm solid #000;
+           text-align: center;
+           height: 100%;
+           vertical-align: top;
+           padding-top: 1mm;
+       }
+
+       .rekenblad .rekenblad--content {
+           border-top: 0.5mm solid #000;
+           border-bottom: 0.5mm solid #000;
+       }
+
+       .rekenblad .rekenblad--content .col {
+           height: 13.5cm;
+           display: inline-block;
+           border-left: 0.5mm solid #000;
+       }
+
+       .rekenblad .col-1 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-2 {
+           width: 7.5cm;
+       }
+
+       .rekenblad .col-3 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-4 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-5 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-6 {
+           width: 2.5cm;
+       }
+
+       .rekenblad .col-7 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-8 {
+           width: 1.7cm;
+       }
+
+       .rekenblad .col-9 {
+           width: 7.35cm;
+       }
+
+       .rekenblad .unit {
+           font-size: 9pt;
+       }
+
+       .rekenblad .rekenblad--header .col-1,
+       .rekenblad .rekenblad--content .col-1 {
+           border-left: 0;
+       }
+
+       .options .options--option {
+           line-height: 1cm;
+           margin-left: 2.5cm;
+       }
+
+       footer {
+           margin-top: 5mm;
+       }
+
+       footer .col {
+           display: inline-block;
+       }
+
+       footer .col-1 {
+           width: 22cm;
+           font-size: 10pt;
+       }
+
+       footer .col-2 {
+
+       }
+
+       <!-- {{INLINE_CSS}} -->
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <div class="table">
+        <div class="col col-1">
+          <div class="logo">
+            <img src="/templates/images/rollvolet-logo-zwart.png">
+          </div>
+        </div>
+        <div class="col col-2">
+          <div class="row--customer">
+            <div class="row row--key">KLANT:</div>
+            <div class="row row--value">
+              <!-- {{CUSTOMER}} -->
+            </div>
+          </div>
+          <div class="row--building">
+            <div class="row row--key">GEBOUW:</div>
+            <div class="row row--value">
+              <!-- {{BUILDING}} -->
+            </div>
+          </div>
+        </div>
+        <div class="col col-3">
+          <div class="row--telephones">
+            <div class="row row--key">TELEFOON:</div>
+            <div class="row row--value">
+              <!-- {{TELEPHONES}} -->
+            </div>
+          </div>
+        </div>
+        <div class="col col-4">
+          <div class="row row--date-in">
+            <div class="row row--key">IN:</div>
+            <div class="row row--value"><!-- {{ORDER_DATE}} --></div>
+          </div>
+          <div class="row row--date-out">
+            <div class="row row--key">UIT:</div>
+            <div class="row row--value">_________</div>
+          </div>
+          <div class="row row--request-number">
+            <div class="row row--key">AANVRAAG:</div>
+            <div class="row row--value"><!-- {{REQUEST_NUMBER}} --></div>
+          </div>
+          <div class="row row--offer-number">
+            <div class="row row--key">OFFERTE:</div>
+            <div class="row row--value"><!-- {{OFFER_NUMBER}} --></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="rekenblad">
+      <div class="rekenblad--header">
+        <div class="col col-1">Aantal</div>
+        <div class="col col-2">Aard</div>
+        <div class="col col-3">Breedte <div class="unit">(cm)</div></div>
+        <div class="col col-4">Hoogte <div class="unit">(cm)</div></div>
+        <div class="col col-5"># lat</div>
+        <div class="col col-6">Beweging</div>
+        <div class="col col-7">Rol <div class="unit">(cm)</div></div>
+        <div class="col col-8">U <div class="unit">(cm)</div></div>
+        <div class="col col-9">Aanmerkingen</div>
+      </div>
+      <div class="rekenblad--content">
+        <div class="col col-1"></div>
+        <div class="col col-2"></div>
+        <div class="col col-3"></div>
+        <div class="col col-4"></div>
+        <div class="col col-5"></div>
+        <div class="col col-6"></div>
+        <div class="col col-7"></div>
+        <div class="col col-8"></div>
+        <div class="col col-9"></div>
+      </div>
+    </section>
+    <section>
+      <div class="options">
+        <div class="options--option">
+          &#9744; openen en sluiten van de kast
+        </div>
+        <div class="options--option">
+          &#9744; demonteren + afvoeren van bestaande rolluik
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="col col-1">
+        Rollvolet bvba - Mechelsesteenweg 666, 1800 Vilvoorde - T: 02 251 03 23 - F: 02 252 55 93 - BTW BE 0400.699.872
+      </div>
+      <div class="col col-2">
+        <div class="row row--rek">
+          <div class="row row--key">REK:</div>
+          <div class="row row--value"></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -276,7 +276,11 @@ form div.input-field {
     line-height: 1.5;
 }
 
-
+.comment-area {
+    border: 1px solid #1A1A1A;
+    height: 3cm;
+    padding: 2mm;
+}
 
 
 /* Wicked PDF helpers */
