@@ -1,0 +1,9 @@
+ALTER TABLE dbo.TblFactuur ALTER COLUMN KlantPrefix VARCHAR (100);
+ALTER TABLE dbo.TblFactuur ALTER COLUMN KlantSuffix VARCHAR (100);
+
+ALTER TABLE dbo.TblFactuur ALTER COLUMN ContactPrefix VARCHAR (100);
+ALTER TABLE dbo.TblFactuur ALTER COLUMN ContactSuffix VARCHAR (100);
+
+ALTER TABLE dbo.TblFactuur ALTER COLUMN GebouwPrefix VARCHAR (100);
+ALTER TABLE dbo.TblFactuur ALTER COLUMN GebouwSuffix VARCHAR (100);
+
