@@ -19,8 +19,7 @@
            border-bottom: 1px solid;
        }
 
-       .table .col,
-       .table div.contactline {
+       .table .col {
            display: inline-block;
            vertical-align: top;
        }
@@ -72,13 +71,16 @@
     <header>
       <div class="table">
         <div class="col col-1">
-          <!-- {{CUSTOMER_NAME}} --><br>
-          <!-- {{CUSTOMER_ADDRESS}} -->
+          <div class="customer">
+            <div><!-- {{CUSTOMER}} --></div>
+            <div class="email--customer"><!-- {{CUSTOMER_EMAIL_ADDRESS}} --></div>
+          </div>
         </div>
         <div class="col col-2">
-          <div class="building-address">
-            Gebouw:<br>
-            <!-- {{BUILDING_ADDRESS}} -->
+          <div class="contact">
+            <div>Contact:</div>
+            <div><!-- {{CONTACTLINES}} --></div>
+            <div class="email--contact"><!-- {{CONTACT_EMAIL_ADDRESS}} --></div>
           </div>
         </div>
         <div class="col col-3">
@@ -101,10 +103,10 @@
             &#9744; Post<br>
             &#9744; E-post
           </div>
+          <div class="u-spacer--top">
+            BTW tarief:
+          </div>
         </div>
-      </div>
-      <div class="contact">
-        <!-- {{CONTACTLINES}} -->
       </div>
     </header>
     <section class="table rekenblad">
@@ -112,14 +114,14 @@
         <div class="history">
           <!-- {{ORDER_HISTORY}} -->
         </div>
-        <p>
-          <span class="email--customer">E-mail klant: <!-- {{CUSTOMER_EMAIL_ADDRESS}} --></span><br>
-          <span class="email--contact">E-mail contact: <!-- {{CONTACT_EMAIL_ADDRESS}} --></span>
-        </p>
+        <div class="building-address">
+          Gebouw:<br>
+          <!-- {{BUILDING_ADDRESS}} -->
+        </div>
         <p><span class="employee--name"><!-- {{EMPLOYEE}} --> noteerde: </span><!-- {{COMMENT}} --></p>
       </div>
       <div class="col col-2">
-        <p>BTW tarief: </p>
+
       </div>
     </section>
   </body>
