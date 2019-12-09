@@ -9,7 +9,7 @@ x-logging:
 
 services:
   documents:
-    image: rollvolet/document-generation-service:0.8.1
+    image: rollvolet/document-generation-service:0.9.0
     volumes:
       - ./config/templates:/templates
     restart: always
