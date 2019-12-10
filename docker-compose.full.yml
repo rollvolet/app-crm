@@ -9,7 +9,7 @@ x-logging:
 
 services:
   frontend:
-    image: rollvolet/crm-frontend:0.7.0
+    image: rollvolet/crm-frontend:0.7.1
     links:
       - backend:backend
     environment:
