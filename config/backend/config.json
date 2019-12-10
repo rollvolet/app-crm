@@ -17,10 +17,14 @@
   "DocumentGeneration": {
     "BaseUrl": "",
     "OfferStorageLocation": "",
+    "OrderStorageLocation": "",
+    "DeliveryNoteStorageLocation": "",
+    "GeneratedProductionTicketStorageLocation": "",
+    "ReceivedProductionTicketStorageLocation": "",
     "InvoiceStorageLocation": "",
-    "ProductionTicketStorageLocation": "",
     "GeneratedCertificateStorageLocation": "",
-    "ReceivedCertificateStorageLocation": ""
+    "ReceivedCertificateStorageLocation": "",
+    "CertificateUploadSourceLocation": ""
   },
   "Accountancy": {
     "WinbooksExportLocation": "",
