@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
+      <style>
+       <!-- {{INLINE_CSS}} -->
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <div class="col col-1">
+        <div class="logo"><img src="/templates/images/rollvolet-logo.jpg"></div>
+      </div>
+      <div class="col col-2">
+        <img src="/templates/images/rollvolet-name.jpg">
+        <div>SPRL</div>
+        <br/>
+        <div class="website">www.rollvolet.be</div>
+      </div>
+      <div class="col col-3">
+        Mechelsesteenweg 666<br/>
+        B-1800 Vilvoorde<br/>
+        <b>T&eacute;l.:</b> 02 251 03 23<br/>
+        <b>E-mail:</b> info@rollvolet.be
+      </div>
+      <div>
+        <div class="title">Volets - Stores pare soleil - portes sectionnelles</div>
+        <div>fond&eacute;e en 1920</div>
+      </div>
+    </header>
+
+    <section class="subheader">
+      <div class="col col-1">
+        <h3>BON DE COMMANDE</h3>
+        <div class="references">
+          <table>
+            <tr class="references--date">
+              <td class='key'>Date:</td>
+              <td><!-- {{DATE}} --></td>
+            </tr>
+            <tr class="references--own_reference">
+              <td class='key'>Notre r&eacute;f&eacute;rence:</td>
+              <td><!-- {{OWN_REFERENCE}} --></td>
+            </tr>
+            <tr class="references--ext_reference">
+              <td class='key'>Votre r&eacute;f&eacute;rence:</td>
+              <td><!-- {{EXT_REFERENCE}} --></td>
+            </tr>
+          </table>
+        </div>
+        <div class='building'>
+          <table>
+            <tr>
+              <td class="key">Concerne:</td>
+              <td><!-- {{BUILDING}} --></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-2">
+        <div class="address">
+          <!-- {{ADDRESSLINES}} -->
+        </div>
+        <div class="contact">
+          <!-- {{CONTACTLINES}} -->
+        </div>
+      </div>
+    </section>
+
+    <section class="introduction">
+      <p>Madame, Monsieur,</p>
+      <p>Nous vous remercions pour la commande de:</p>
+    </section>
+
+    <section class="offerlines">
+      <div class="offerline offerline-header">
+        <div class="col col-1">D&eacute;signation</div>
+        <div class="col col-2">Montant HT</div>
+        <div class="col col-3">TVA</div>
+      </div>
+      <!-- {{ORDERLINES}} -->
+    </section>
+
+    <div class="nobreak expected-date">
+      <section class="outroduction">
+        <p>D&eacute;lai de livraison indicatif: <!-- {{EXPECTED_DATE}} --></p>
+      </section>
+    </div>
+  </body>
+</html>
