@@ -51,7 +51,7 @@
        }
 
        header .table .col-4 {
-           width: 6cm;
+           width: 10cm;
            border-left: 0.5mm solid #000;
        }
 
@@ -72,6 +72,12 @@
            height: 2cm;
        }
 
+       .planning-date {
+           border: 0.75mm solid;
+           padding: 0.5mm;
+           font-weight: bold;
+       }
+
        .rekenblad .rekenblad--header {
            height: 1cm;
            border-top: 0.5mm solid #000;
@@ -89,11 +95,32 @@
 
        .rekenblad .rekenblad--content {
            border-top: 0.5mm solid #000;
-           border-bottom: 0.5mm solid #000;
+
+           background: #fff;
+           background: -webkit-gradient(linear, 0 0, 0 100%, from(#aaa), color-stop(4%, #fff)) 0 4px;
+           background: -webkit-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+           background: -moz-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+           background: -ms-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+           background: -o-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+           background: linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+
+           -webkit-background-size: 100% 0.8cm;
+           -moz-background-size: 100% 0.8cm;
+           -ms-background-size: 100% 0.8cm;
+           -o-background-size: 100% 0.8cm;
+           background-size: 100% 0.8cm;
+
+           -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+           border-radius: 3px;
+
+           -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+           box-shadow: 0 1px 2px rgba(0,0,0,0.07);
        }
 
        .rekenblad .rekenblad--content .col {
-           height: 13.5cm;
+           height: 13cm;
            display: inline-block;
            border-left: 0.5mm solid #000;
        }
@@ -150,6 +177,9 @@
 
        footer {
            margin-top: 5mm;
+           position: absolute;
+           bottom: 0;
+           left: 2mm;
        }
 
        footer .col {
@@ -206,7 +236,7 @@
           </div>
           <div class="row row--date-out">
             <div class="row row--key">UIT:</div>
-            <div class="row row--value">_________</div>
+            <div class="row row--value"><!-- {{DATE_OUT}} --></div>
           </div>
           <div class="row row--request-number">
             <div class="row row--key">AANVRAAG:</div>
