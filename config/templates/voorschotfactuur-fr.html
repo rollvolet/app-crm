@@ -3,11 +3,6 @@
     <head>
       <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
       <style>
-       .invoiceline.priceline.priceline-total-deposit-invoice {
-           border: 2px solid #4D4D4D;
-           text-align: center;
-           padding: 1.2mm;
-       }
        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
@@ -96,7 +91,7 @@
         <div class="col col-1">Total TTC</div>
         <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-total-deposit-invoice">
+      <div class="invoiceline priceline priceline-to-pay">
         Net &agrave; payer: &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} -->
       </div>
     </section>
@@ -104,9 +99,6 @@
     <section class="outroduction nobreak">
       <p class="payment-notification">Nous vous prions de verser la solde <span class="payment-notification--deadline"><b>avant le <!-- {{PAYMENT_DUE_DATE}} --> </b></span>sur notre compte <b>BE24 4347 1829 8138</b> en mentionnant le num&eacute;ro de facture <!-- {{NUMBER}} -->.</p>
       <p class="certificate-notification">Veuillez signer et nous renvoyer l'attestation ci-jointe par mail &agrave; admin@rollvolet.be ou par poste &agrave; Rollvolet bvba, Mechelsesteenweg 666, 1800 Vilvoorde.</p>
-      <p class="outro">
-
-      </p>
     </section>
   </body>
 </html>

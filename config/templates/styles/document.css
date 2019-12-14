@@ -235,12 +235,11 @@ ul {
 }
 
 .invoiceline.priceline.priceline-to-pay {
-    font-weight: bold;
-}
-
-.invoiceline.priceline.priceline-total-deposit-invoice {
-    font-weight: bold;
+    border: 2px solid #4D4D4D;
+    padding: 1.2mm;
     margin-top: 3mm;
+    text-align: center;
+    font-weight: bold;
 }
 
 form div {
