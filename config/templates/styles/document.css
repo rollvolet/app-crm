@@ -216,12 +216,15 @@ ul {
     font-style: italic;
 }
 
+.orderline.priceline,
 .invoiceline.priceline {
     border-top: 0;
     margin-top: 0;
     padding-top: 1mm;
 }
 
+.orderline.priceline .col-1,
+.orderline.priceline .col-1-2,
 .invoiceline.priceline .col-1,
 .invoiceline.priceline .col-1-2 {
     text-align: right;
@@ -234,6 +237,7 @@ ul {
     border-bottom: 1px solid #4D4D4D;
 }
 
+.orderline.priceline.priceline-total-order,
 .invoiceline.priceline.priceline-total-order {
     margin-top: 3mm;
     border-top: 1px solid #4D4D4D;
