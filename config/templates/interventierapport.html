@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <head>
+      <style>
+       body {
+           width: 21cm;
+           background: white;
+           font-family: "Carlito", "Calibri", "Arial", sans-serif;
+           font-size: 10pt;
+           color: #1A1A1A;
+           margin: 0;
+           padding-left: 1.4cm;
+           padding-right: 1.4cm;
+           box-sizing: border-box;
+           position: relative;
+       }
+
+       header {
+           border-bottom: 1px solid;
+       }
+
+       .table .col {
+           display: inline-block;
+           vertical-align: top;
+       }
+
+       .table .visit--time {
+           padding-left: 1.2cm;
+       }
+
+       header .table .col-1 {
+           width: 33%;
+       }
+
+       header .table .col-2 {
+           width: 28%;
+       }
+
+       header .table .col-3 {
+           width: 22%;
+       }
+
+       header .table .col-4 {
+           width: 14%;
+       }
+
+       header .contact .contactline--telephone {
+           margin-right: 4mm;
+       }
+
+       .rekenblad .col-1 {
+           width: 14cm;
+           min-height: 20cm;
+           border-right: 1px solid;
+       }
+
+       .u-spacer--top {
+           margin-top: 1.5mm;
+       }
+
+       .history {
+           float: right;
+           margin: 3mm;
+       }
+
+       <!-- {{INLINE_CSS}} -->
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <div class="table">
+        <div class="col col-1">
+          <div class="customer">
+            <div><!-- {{CUSTOMER}} --></div>
+            <div class="email--customer"><!-- {{CUSTOMER_EMAIL_ADDRESS}} --></div>
+          </div>
+        </div>
+        <div class="col col-2">
+          <div class="contact">
+            <div>Contact:</div>
+            <div><!-- {{CONTACTLINES}} --></div>
+            <div class="email--contact"><!-- {{CONTACT_EMAIL_ADDRESS}} --></div>
+          </div>
+        </div>
+        <div class="col col-3">
+          <div>
+            Interventie: <!-- {{DATE}} --><br>
+            Aanmelding: <!-- {{WAY_OF_ENTRY}} -->
+          </div>
+          <div class="u-spacer--top">
+            Bezoek: <!-- {{VISIT_DATE}} --><br>
+            <span class="visit--time"><!-- {{VISIT_TIME}} --></span><br>
+            Techniekers: <!-- {{TECHNICIANS}} -->
+          </div>
+        </div>
+        <div class="col col-4">
+          <div>
+            Nr. IR<!-- {{NUMBER}} --><br>
+            Taal: <!-- {{LANGUAGE}} -->
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="table rekenblad">
+      <div class="col col-1">
+        <div class="building-address u-spacer--top">
+          Gebouw:<br>
+          <!-- {{BUILDING_ADDRESS}} -->
+        </div>
+        <p><span class="employee--name"><!-- {{EMPLOYEE}} --> noteerde: </span><!-- {{COMMENT}} --></p>
+      </div>
+      <div class="col col-2">
+
+      </div>
+    </section>
+  </body>
+</html>
