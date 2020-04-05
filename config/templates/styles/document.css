@@ -253,6 +253,12 @@ ul {
     font-style: italic;
 }
 
+.invoiceline.priceline.priceline-already-paid {
+    display: none;
+    font-weight: bold;
+    margin-top: 2mm;
+}
+
 .invoiceline.priceline.priceline-to-pay {
     border: 2px solid #4D4D4D;
     padding: 1.2mm;
