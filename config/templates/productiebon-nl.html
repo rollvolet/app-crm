@@ -14,8 +14,9 @@
            height: 20.7cm;
        }
 
-       header {
-
+       header .table {
+           /** Workaround to fill full height of parent */
+           overflow: hidden;
        }
 
        .table .col {
@@ -47,12 +48,16 @@
        }
 
        header .table .col-3 {
-           width: 4cm;
+           width: 6.5cm;
        }
 
        header .table .col-4 {
-           width: 10cm;
+           width: 7.5cm;
            border-left: 0.5mm solid #000;
+
+           /** Workaround to fill full height of parent */
+           margin-bottom: -1000px;
+           padding-bottom: 1000px;
        }
 
        header .table .col-2 .row--key,
@@ -62,6 +67,13 @@
 
        header .table .col-4 .row--key {
            width: 3cm;
+       }
+
+       header .table .col-2 .row--key,
+       header .table .col-2 .row--value,
+       header .table .col-3 .row--key,
+       header .table .col-3 .row--value {
+           line-height: 1.4
        }
 
        .logo {
@@ -222,10 +234,10 @@
           </div>
         </div>
         <div class="col col-3">
-          <div class="row--telephones">
-            <div class="row row--key">TELEFOON:</div>
+          <div class="row--contact">
+            <div class="row row--key">CONTACT:</div>
             <div class="row row--value">
-              <!-- {{TELEPHONES}} -->
+              <!-- {{CONTACT}} -->
             </div>
           </div>
         </div>
