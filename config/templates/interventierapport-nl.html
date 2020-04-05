@@ -15,6 +15,10 @@
            position: relative;
        }
 
+       h1 {
+           font-size: 16pt;
+       }
+
        header {
            border-bottom: 1px solid;
        }
@@ -24,8 +28,12 @@
            vertical-align: top;
        }
 
+       .table .way-of-entry {
+           padding-left: 1.8cm;
+       }
+
        .table .visit--time {
-           padding-left: 1.2cm;
+           padding-left: 1.8cm;
        }
 
        header .table .col-1 {
@@ -37,30 +45,23 @@
        }
 
        header .table .col-3 {
-           width: 22%;
+           width: 36%;
        }
 
-       header .table .col-4 {
-           width: 14%;
+       header .table .col-3-1 {
+           width: 65%;
+       }
+
+       header .table .col-3-2 {
+
        }
 
        header .contact .contactline--telephone {
            margin-right: 4mm;
        }
 
-       .rekenblad .col-1 {
-           width: 14cm;
-           min-height: 20cm;
-           border-right: 1px solid;
-       }
-
        .u-spacer--top {
            margin-top: 1.5mm;
-       }
-
-       .history {
-           float: right;
-           margin: 3mm;
        }
 
        <!-- {{INLINE_CSS}} -->
@@ -69,6 +70,7 @@
   </head>
   <body>
     <header>
+      <h1>INTERVENTIE IR<!-- {{NUMBER}} --></h1>
       <div class="table">
         <div class="col col-1">
           <div class="customer">
@@ -84,25 +86,31 @@
           </div>
         </div>
         <div class="col col-3">
-          <div>
-            Interventie: <!-- {{DATE}} --><br>
-            Aanmelding: <!-- {{WAY_OF_ENTRY}} -->
+          <div class="col col-3-1">
+            <div>
+              Aanmelding: <!-- {{DATE}} --><br>
+              <span class="way-of-entry"><!-- {{WAY_OF_ENTRY}} --></span>
+            </div>
+            <div class="u-spacer--top">
+              Interventie: <!-- {{VISIT_DATE}} --><br>
+              <span class="visit--time"><!-- {{VISIT_TIME}} --></span><br>
+            </div>
           </div>
-          <div class="u-spacer--top">
-            Bezoek: <!-- {{VISIT_DATE}} --><br>
-            <span class="visit--time"><!-- {{VISIT_TIME}} --></span><br>
-            Techniekers: <!-- {{TECHNICIANS}} -->
+          <div class="col col-3-2">
+            <div>
+              Nr. IR<!-- {{NUMBER}} --><br>
+              Taal: <!-- {{LANGUAGE}} -->
+            </div>
           </div>
-        </div>
-        <div class="col col-4">
-          <div>
-            Nr. IR<!-- {{NUMBER}} --><br>
-            Taal: <!-- {{LANGUAGE}} -->
+          <div class="col">
+            <div>
+              Techniekers: <!-- {{TECHNICIANS}} -->
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <section class="table rekenblad">
+    <section class="table">
       <div class="col col-1">
         <div class="building-address u-spacer--top">
           Gebouw:<br>
