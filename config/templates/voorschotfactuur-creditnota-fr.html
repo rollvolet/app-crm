@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" type="text/css" href="/templates/styles/document.css">
+      <style>
+       <!-- {{INLINE_CSS}} -->
+      </style>
+    </head>
+  </head>
+  <body>
+    <header>
+      <div class="col col-1">
+        <div class="logo"><img src="/templates/images/rollvolet-logo.jpg"></div>
+      </div>
+      <div class="col col-2">
+        <img src="/templates/images/rollvolet-name.jpg">
+        <div>SRL</div>
+        <br/>
+        <div class="website">www.rollvolet.be</div>
+      </div>
+      <div class="col col-3">
+        Mechelsesteenweg 666<br/>
+        B-1800 Vilvoorde<br/>
+        <b>T&eacute;l.:</b> 02 251 03 23<br/>
+        <b>E-mail:</b> info@rollvolet.be
+      </div>
+      <div>
+        <div class="title">Volets - Stores pare soleil - portes sectionnelles</div>
+        <div>fond&eacute;e en 1920</div>
+      </div>
+    </header>
+
+    <section class="subheader">
+      <div class="col col-1">
+        <h3>NOTE DE CR&Eacute;DIT <!-- {{NUMBER}} --></h3>
+        <div class="references">
+          <table>
+            <tr class="references--date">
+              <td class='key'>Date:</td>
+              <td><!-- {{DATE}} --></td>
+            </tr>
+            <tr class="references--customer_number">
+              <td class='key'>Num&eacute;ro de client:</td>
+              <td><!-- {{CUSTOMER_NUMBER}} --></td>
+            </tr>
+            <tr class="references--own_reference">
+              <td class='key'>Notre r&eacute;f&eacute;rence:</td>
+              <td><!-- {{OWN_REFERENCE}} --></td>
+            </tr>
+            <tr class="references--ext_reference">
+              <td class='key'>Votre r&eacute;f&eacute;rence:</td>
+              <td><!-- {{EXT_REFERENCE}} --></td>
+            </tr>
+          </table>
+        </div>
+        <div class='building'>
+          <table>
+            <tr>
+              <td class="key">Concerne:</td>
+              <td><!-- {{BUILDING}} --></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-2">
+        <div class="address">
+          <!-- {{ADDRESSLINES}} -->
+        </div>
+        <div class="contact">
+          <!-- {{CONTACTLINES}} -->
+        </div>
+      </div>
+    </section>
+
+    <section class="invoicelines">
+      <div class="invoiceline invoiceline-header">
+        <div class="col col-1-2">Note de cr&eactute;dit pour notre offre <!-- {{REQUEST_NUMBER}} --></div>
+        <div class="invoiceline-subheader"><i>Montant HT de la commande compl&egrave;te: &euro; <!-- {{TOTAL_NET_PRICE}} --></i></div>
+      </div>
+      <!-- {{INVOICELINES}} -->
+      <div class="invoiceline priceline priceline-total-net">
+        <div class="col col-1">Total HT</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICE}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-vat">
+        <div class="col col-1-2 taxfree">autoliquidation</div>
+        <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% TVA</div>
+        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICE}} --></div>
+      </div>
+      <div class="invoiceline priceline priceline-total-gross">
+        <div class="col col-1">Total TTC</div>
+        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICE}} --></div>
+      </div>
+    </section>
+  </body>
+</html>
