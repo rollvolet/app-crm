@@ -9,8 +9,9 @@ x-logging:
 
 services:
   documents:
-    image: rollvolet/document-generation-service:0.11.0
+    image: rollvolet/document-generation-service:1.3.0
     volumes:
       - ./config/templates:/templates
+      - ./config/watermarks:/watermarks
     restart: always
     logging: *default-logging

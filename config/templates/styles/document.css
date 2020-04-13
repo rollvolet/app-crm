@@ -126,7 +126,9 @@ ul {
 }
 
 .introduction,
-.offerlines {
+.offerlines,
+.orderlines,
+.deliverylines {
     margin-top: 5mm;
 }
 
@@ -137,6 +139,8 @@ ul {
 }
 
 .offerline,
+.orderline,
+.deliveryline,
 .invoiceline {
     width: 100%;
     margin-top: 3mm;
@@ -146,6 +150,8 @@ ul {
 }
 
 .offerline.offerline-header,
+.orderline.orderline-header,
+.deliveryline.deliveryline-header,
 .invoiceline.invoiceline-header {
     font-weight: bold;
     border-top: 0;
@@ -156,18 +162,17 @@ ul {
     font-weight: normal;
 }
 
-.offerline:nth-child(2),
-.invoiceline:nth-child(2) {
-
-}
-
 .offerline div.col,
+.orderline div.col,
+.deliveryline div.col,
 .invoiceline div.col {
     display: inline-block;
     vertical-align: top;
 }
 
-.offerline .col-1 {
+.offerline .col-1,
+.orderline .col-1,
+.deliveryline .col-1 {
     width: 12cm;
 }
 
@@ -181,18 +186,26 @@ ul {
 
 .offerline .col-2,
 .offerline .col-3,
+.orderline .col-2,
+.orderline .col-3,
+.deliveryline .col-2,
+.deliveryline .col-3,
 .invoiceline .col-2 {
     width: 2.5cm;
     text-align: right;
 }
 
-.offerline .col-3.taxfree-nl:after {
+.offerline .col-3.taxfree-nl:after,
+.orderline .col-3.taxfree-nl:after,
+.deliveryline .col-3.taxfree-nl:after {
     content: 'btw verlegd';
     display: inline;
     font-style: italic;
 }
 
-.offerline .col-3.taxfree-fr:after {
+.offerline .col-3.taxfree-fr:after,
+.orderline .col-3.taxfree-fr:after,
+.deliveryline .col-3.taxfree-fr:after {
     content: 'autoliquidation';
     display: inline;
     font-style: italic;
@@ -203,22 +216,28 @@ ul {
     font-style: italic;
 }
 
+.orderline.priceline,
 .invoiceline.priceline {
     border-top: 0;
     margin-top: 0;
     padding-top: 1mm;
 }
 
+.orderline.priceline .col-1,
+.orderline.priceline .col-1-2,
 .invoiceline.priceline .col-1,
 .invoiceline.priceline .col-1-2 {
     text-align: right;
 }
 
-.offerline:last-child {
+.offerline:last-child,
+.orderline:last-child,
+.deliveryline:last-child {
     padding-bottom: 3mm;
     border-bottom: 1px solid #4D4D4D;
 }
 
+.orderline.priceline.priceline-total-order,
 .invoiceline.priceline.priceline-total-order {
     margin-top: 3mm;
     border-top: 1px solid #4D4D4D;
@@ -232,6 +251,12 @@ ul {
 
 .invoiceline.priceline.priceline-total-gross {
     font-style: italic;
+}
+
+.invoiceline.priceline.priceline-already-paid {
+    display: none;
+    font-weight: bold;
+    margin-top: 2mm;
 }
 
 .invoiceline.priceline.priceline-to-pay {
