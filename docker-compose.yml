@@ -9,7 +9,7 @@ x-logging:
 
 services:
   documents:
-    image: rollvolet/document-generation-service:1.4.0
+    image: rollvolet/document-generation-service:1.5.0
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
