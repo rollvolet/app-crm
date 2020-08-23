@@ -2,12 +2,11 @@
   "DatabaseConfiguration": {
     "ConnectionString": ""
   },
-  "Authentication": {
-    "ClientId": "",
-    "ClientSecret": "",
-    "BaseUri": "",
+  "AzureAd": {
+    "Instance": "",
     "TenantId": "",
-    "RedirectUri": ""
+    "ClientId": "",
+    "ClientSecret": ""
   },
   "Calendar": {
     "KlantenbezoekCalendarId": "",
@@ -17,6 +16,7 @@
   "DocumentGeneration": {
     "BaseUrl": "",
     "VisitReportStorageLocation": "",
+    "InterventionReportStorageLocation": "",
     "OfferStorageLocation": "",
     "OrderStorageLocation": "",
     "DeliveryNoteStorageLocation": "",
@@ -26,6 +26,10 @@
     "GeneratedCertificateStorageLocation": "",
     "ReceivedCertificateStorageLocation": "",
     "CertificateUploadSourceLocation": ""
+  },
+  "FileStorage": {
+    "Location": "",
+    "DriveId": ""
   },
   "Accountancy": {
     "WinbooksExportLocation": "",
