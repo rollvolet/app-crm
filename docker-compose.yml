@@ -23,7 +23,7 @@ services:
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
-      - ./data/shared:/data
+      - ./data/files:/data
     restart: always
     logging: *default-logging
   database:
