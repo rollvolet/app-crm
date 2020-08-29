@@ -34,6 +34,7 @@ services:
       - ./data/db:/var/opt/mssql/data
       - ./data/backups:/backups
       - ./config/migrations:/migrations
+      - ./scripts/database:/scripts
     restart: always
     logging: *default-logging
   documents:

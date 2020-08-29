@@ -27,7 +27,26 @@ Location: `./config/backend`
 JSON configuration used by the [backend service providing a JSONAPI](https://github.com/rollvolet/crm-api). Default configuration is set in `./config/backend/config.json`. Environment specific settings can be configured in `./config/backend/config.override.json`.
 
 ## Admin tasks
-### Executing a migration in the database container
+### Create a backup
+Execute the following script
+```bash
+docker-compose exec database /bin/bash /scripts/backup.sh
 ```
-docker-compose exec database /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P secret -d klanten -i /migrations/20180731182300-add-offerline-table.sql
+The backup is written to `./data/backups/YYMMDDThhmmss-klanten.bak`
+
+### Restore a backup
+Put the backup to be restored in `./data/backups/klanten.bak`
+
+Execute the following script
+```bash
+docker-compose exec database /bin/bash /scripts/restore.sh
 ```
+
+### Executing a migration
+Make sure the migration is available in `./config/migrations`
+
+Execute the following script
+```bash
+docker-compose exec database /bin/bash /scripts/migrate.sh name-of-the-migration.sql
+```
+
