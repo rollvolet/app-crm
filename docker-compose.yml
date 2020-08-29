@@ -22,7 +22,7 @@ services:
       - database:database
     volumes:
       - ./config/backend/config.json:/app/config.json
-      - ./logs:/app/logs
+      - ./logs/backend:/app/logs
       - ./data/shared:/data
     restart: always
     logging: *default-logging
@@ -33,6 +33,7 @@ services:
       SA_PASSWORD: 'secret'
     volumes:
       - ./data/db:/var/opt/mssql/data
+      - ./logs/database:/var/opt/mssql/log
       - ./data/backups:/backups
       - ./config/migrations:/migrations
       - ./scripts/database:/scripts
