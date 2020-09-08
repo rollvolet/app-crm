@@ -14,6 +14,9 @@ services:
       - backend:backend
     environment:
       STATIC_FOLDERS_REGEX: ^/(assets|font|api/files)/
+      EMBER_OAUTH_API_KEY: '552ea087-fcd9-4d53-911b-19b11ff6631a'
+      EMBER_OAUTH_SCOPE: 'api://552ea087-fcd9-4d53-911b-19b11ff6631a/access_as_user offline_access'
+      EMBER_OAUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
     restart: always
     logging: *default-logging
   backend:
