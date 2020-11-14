@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+
+UPDATE tblOfferte
+SET MuntOfferte = 'EUR'
+WHERE MuntOfferte = 'BEF' AND MuntBestel = 'EUR'
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
