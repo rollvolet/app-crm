@@ -8,37 +8,85 @@ x-logging:
     max-file: "3"
 
 services:
+  identifier:
+    image: semtech/mu-identifier:1.9.1
+    environment:
+      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"name\":\"clean\", \"variables\":[]}, {\"name\":\"rollvolet\", \"variables\":[]}]"
+    restart: always
+    logging: *default-logging
+  dispatcher:
+    image: semtech/mu-dispatcher:2.1.0-beta.1
+    volumes:
+      - ./config/dispatcher:/config
+    restart: always
+    logging: *default-logging
   frontend:
     image: rollvolet/crm-frontend:1.9.2
-    links:
-      - backend:backend
     environment:
-      STATIC_FOLDERS_REGEX: ^/(assets|font|api/files)/
       EMBER_OAUTH_API_KEY: '552ea087-fcd9-4d53-911b-19b11ff6631a'
       EMBER_OAUTH_SCOPE: 'api://552ea087-fcd9-4d53-911b-19b11ff6631a/access_as_user offline_access'
       EMBER_OAUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
     restart: always
     logging: *default-logging
-  backend:
-    image: rollvolet/crm-api:1.8.1
+  database:
+    image: semtech/mu-authorization:0.6.0-beta.6
+    environment:
+      MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
+    volumes:
+      - ./config/authorization:/config
+    restart: always
+    logging: *default-logging
+  virtuoso:
+    image: tenforce/virtuoso:1.3.2-virtuoso7.2.5.1
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://mu.semte.ch/graphs/rollvolet"
+    volumes:
+      - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+      - ./data/db:/data
+    restart: always
+    logging: *default-logging
+  delta-notifier:
+    image: semtech/mu-delta-notifier:0.1.0
+    volumes:
+      - ./config/delta:/config
+    restart: always
+    logging: *default-logging
+  migrations:
+    image: semtech/mu-migrations-service:0.7.0
     links:
-      - database:database
+      - virtuoso:database
+    volumes:
+      - ./config/migrations:/data/migrations
+    restart: always
+    logging: *default-logging
+  msal-login:
+    image: rollvolet/msal-login-service
+    environment:
+      AUTH_SCOPES: "User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All"
+      AUTH_REFRESH_TOKENS: "true"
+    volumes:
+      - ./data/token-cache:/cache
+    restart: always
+    logging: *default-logging
+  monolith-backend:
+    image: rollvolet/crm-api:1.8.1
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
       - ./data/files:/data
     restart: always
     logging: *default-logging
-  database:
+  sql-database:
     image: mcr.microsoft.com/mssql/server:2017-GA-ubuntu
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'secret'
     volumes:
-      - ./data/db:/var/opt/mssql/data
-      - ./logs/database:/var/opt/mssql/log
+      - ./data/sql-db:/var/opt/mssql/data
+      - ./logs/sql-database:/var/opt/mssql/log
       - ./data/backups:/backups
-      - ./config/migrations:/migrations
+      - ./config/sql-migrations:/migrations
       - ./scripts/database:/scripts
     restart: always
     logging: *default-logging

@@ -1,8 +1,12 @@
 *~
 /data/db/*
+!/data/db/toLoad
+!/data/db/toLoad/*
+/data/sql-db/*
 /data/shared/*
 /data/documents/*
 /data/backups/*
+/data/token-cache
 docker-compose.override.yml
 .env
 /config/backend/config.override.json
