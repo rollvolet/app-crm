@@ -35,7 +35,7 @@ services:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'secret'
     volumes:
-      - ./data/db:/var/opt/mssql/data
+      - ./data/sql-db:/var/opt/mssql/data
       - ./logs/database:/var/opt/mssql/log
       - ./data/backups:/backups
       - ./config/migrations:/migrations
