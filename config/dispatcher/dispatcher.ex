@@ -7,11 +7,7 @@ defmodule Dispatcher do
     any: [ "*/*" ]
   ]
 
-  define_layers [ :static, :frontend, :api ]
-
-  @json_service %{ layer: :api, accept: %{ json: true } }
-  @any_service %{ layer: :api, accept: %{ any: true } }
-  @html_pages %{ layer: :frontend, accept: %{ html: true } }
+  define_layers [ :static, :monolith, :services ]
 
   get "/assets/*path", %{ layer: :static } do
     Proxy.forward conn, path, "http://frontend/assets/"
@@ -21,16 +17,16 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://frontend/torii/redirect.html"
   end
 
-  get "/*_path", @html_pages do
+  match "/api/*path", %{ layer: :monolith, accept: %{ any: true } } do
+    Proxy.forward conn, path, "http://monolith-backend/api/"
+  end
+
+  get "/*_path", %{ layer: :services, accept: %{ html: true } } do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
 
-  match "/sessions/*path", @json_service do
+  match "/sessions/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://msal-login/sessions/"
-  end
-
-  match "/api/*path", @any_service do
-    Proxy.forward conn, path, "http://monolith-backend/api/"
   end
 
   match "/*_path", %{ last_call: true, accept: %{ json: true } } do
