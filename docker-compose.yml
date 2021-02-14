@@ -20,7 +20,7 @@ services:
     restart: always
     logging: *default-logging
   backend:
-    image: rollvolet/crm-api:1.8.2
+    image: rollvolet/crm-api:1.8.3
     links:
       - database:database
     volumes:
@@ -43,7 +43,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:1.5.0
+    image: rollvolet/document-generation-service:1.5.1
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
