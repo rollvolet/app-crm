@@ -21,7 +21,7 @@ services:
     restart: always
     logging: *default-logging
   frontend:
-    image: rollvolet/crm-frontend:1.9.3
+    image: rollvolet/crm-frontend:1.9.4
     environment:
       EMBER_OAUTH_API_KEY: '552ea087-fcd9-4d53-911b-19b11ff6631a'
       EMBER_OAUTH_SCOPE: 'offline_access User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All'
@@ -70,7 +70,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:1.8.3
+    image: rollvolet/crm-api:1.8.5
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
