@@ -20,7 +20,7 @@ services:
     restart: always
     logging: *default-logging
   backend:
-    image: rollvolet/crm-api:1.8.3
+    image: rollvolet/crm-api:1.8.5
     links:
       - database:database
     volumes:
