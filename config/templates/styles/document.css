@@ -128,7 +128,8 @@ ul {
 .introduction,
 .offerlines,
 .orderlines,
-.deliverylines {
+.deliverylines,
+.pricelines {
     margin-top: 5mm;
 }
 
@@ -138,21 +139,32 @@ ul {
     margin-top: 1cm;
 }
 
+.pricelines {
+    padding-top: 3mm;
+    border-top: 0.5mm solid #4D4D4D;
+}
+
 .offerline,
 .orderline,
 .deliveryline,
 .invoiceline {
     width: 100%;
     margin-top: 3mm;
-    padding-top: 3mm;y
+    padding-top: 3mm;
     padding-left: 2mm;
     border-top: 0.5mm solid #4D4D4D;
+}
+
+.priceline {
+    width: 100%;
+    padding-top: 1mm;
 }
 
 .offerline.offerline-header,
 .orderline.orderline-header,
 .deliveryline.deliveryline-header,
-.invoiceline.invoiceline-header {
+.invoiceline.invoiceline-header,
+.priceline.priceline-header {
     font-weight: bold;
     border-top: 0;
 }
@@ -165,7 +177,8 @@ ul {
 .offerline div.col,
 .orderline div.col,
 .deliveryline div.col,
-.invoiceline div.col {
+.invoiceline div.col,
+.priceline div.col {
     display: inline-block;
     vertical-align: top;
 }
@@ -184,13 +197,20 @@ ul {
     width: 16.5cm;
 }
 
+.priceline .col-1 {
+    width: 10cm;
+}
+
 .offerline .col-2,
 .offerline .col-3,
 .orderline .col-2,
 .orderline .col-3,
 .deliveryline .col-2,
 .deliveryline .col-3,
-.invoiceline .col-2 {
+.invoiceline .col-2,
+.priceline .col-2,
+.priceline .col-3,
+.priceline .col-4 {
     width: 2.5cm;
     text-align: right;
 }
@@ -211,13 +231,14 @@ ul {
     font-style: italic;
 }
 
-.invoiceline .col.taxfree {
+.invoiceline.summary .col.taxfree,
+.priceline .col.taxfree {
     display: none;
     font-style: italic;
 }
 
 .orderline.priceline,
-.invoiceline.priceline {
+.invoiceline.summary {
     border-top: 0;
     margin-top: 0;
     padding-top: 1mm;
@@ -225,8 +246,9 @@ ul {
 
 .orderline.priceline .col-1,
 .orderline.priceline .col-1-2,
-.invoiceline.priceline .col-1,
-.invoiceline.priceline .col-1-2 {
+.invoiceline.summary .col-1,
+.invoiceline.summary .col-1-2,
+.priceline .col-1 {
     text-align: right;
 }
 
@@ -238,28 +260,30 @@ ul {
 }
 
 .orderline.priceline.priceline-total-order,
-.invoiceline.priceline.priceline-total-order {
+.invoiceline.summary.priceline-total-order {
     margin-top: 3mm;
     border-top: 1px solid #4D4D4D;
     padding-top: 3mm;
 }
 
-.invoiceline.priceline.priceline-total-net,
-.invoiceline.priceline.priceline-deposit {
+.invoiceline.summary.priceline-total-net,
+.invoiceline.summary.priceline-deposit {
     margin-top: 2mm;
 }
 
-.invoiceline.priceline.priceline-total-gross {
+.invoiceline.summary.priceline-total-gross {
     font-style: italic;
 }
 
-.invoiceline.priceline.priceline-already-paid {
+.invoiceline.summary.priceline-already-paid,
+.priceline.priceline-already-paid {
     display: none;
     font-weight: bold;
     margin-top: 2mm;
 }
 
-.invoiceline.priceline.priceline-to-pay {
+.invoiceline.summary.priceline-to-pay,
+.priceline.priceline-to-pay {
     border: 2px solid #4D4D4D;
     padding: 1.2mm;
     margin-top: 3mm;
