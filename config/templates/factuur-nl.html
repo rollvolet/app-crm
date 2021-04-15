@@ -78,35 +78,47 @@
         <div class="col col-2">Excl. btw</div>
       </div>
       <!-- {{INVOICELINES}} -->
-      <div class="invoiceline priceline priceline-total-order">
-        <div class="col col-1">Totaal <span class="order-key">bestelling</span><span class="intervention-key">interventie</span> excl. btw</div>
+    </section>
+
+    <section class="pricelines">
+      <div class="priceline priceline-header">
+        <div class="col col-1"></div>
+        <div class="col col-2">Excl. btw</div>
+        <div class="col col-3 taxfree">btw verlegd</div>
+        <div class="col col-3 not-taxfree"><!-- {{VAT_RATE}} -->% btw</div>
+        <div class="col col-4">Incl. btw</div>
+      </div>
+      <div class="priceline priceline-total-order">
+        <div class="col col-1">Totaal <span class="order-key">bestelling</span><span class="intervention-key">interventie</span></div>
         <div class="col col-2">&euro; <!-- {{TOTAL_NET_ORDER_PRICE}} --></div>
+        <div class="col col-3">&euro; <!-- {{TOTAL_VAT_ORDER_PRICE}} --></div>
+        <div class="col col-4">&euro; <!-- {{TOTAL_GROSS_ORDER_PRICE}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-deposit-invoice">
-        <div class="col col-1">Voorschotfactuur <!-- {{DEPOSIT_INVOICE_NUMBERS}} --> excl. btw</div>
+      <div class="priceline priceline-deposit-invoice">
+        <div class="col col-1">Voorschotfactuur <!-- {{DEPOSIT_INVOICE_NUMBERS}} --></div>
         <div class="col col-2">&minus; &euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICES}} --></div>
+        <div class="col col-3">&minus; &euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICES}} --></div>
+        <div class="col col-4">&minus; &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICES}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-total-net">
-        <div class="col col-1">Subtotaal</div>
+      <div class="priceline priceline-total-net">
+        <div class="col col-1">Totaal</div>
         <div class="col col-2">&euro; <!-- {{TOTAL_NET}} --></div>
+        <div class="col col-3">&euro; <!-- {{TOTAL_VAT}} --></div>
+        <div class="col col-4">&euro; <!-- {{TOTAL_GROSS}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-vat">
-        <div class="col col-1-2 taxfree">btw verlegd</div>
-        <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% btw</div>
-        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT}} --></div>
-      </div>
-      <div class="invoiceline priceline priceline-total-gross">
-        <div class="col col-1">Totaal incl. btw</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS}} --></div>
-      </div>
-      <div class="invoiceline priceline priceline-deposit">
+      <div class="priceline priceline-deposit">
         <div class="col col-1">Reeds betaald</div>
+        <div class="col col-2"></div>
+        <div class="col col-3"></div>
         <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-already-paid">
-        <div class="col col-1-2">REEDS VOLDAAN</div>
+      <div class="priceline priceline-already-paid">
+        <div class="col col-1"></div>
+        <div class="col col-2"></div>
+        <div class="col col-3"></div>
+        <div class="col col-4">REEDS VOLDAAN</div>
       </div>
-      <div class="invoiceline priceline priceline-to-pay">
+      <div class="priceline priceline-to-pay">
         Te betalen bedrag: &euro; <!-- {{TOTAL_TO_PAY}} -->
       </div>
     </section>

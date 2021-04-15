@@ -18,7 +18,8 @@ defmodule Dispatcher do
   end
 
   match "/api/*path", %{ layer: :monolith, accept: %{ any: true } } do
-    Proxy.forward conn, path, "http://monolith-backend/api/"
+#    Proxy.forward conn, path, "http://monolith-backend/api/"
+    Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
   end
 
   get "/*_path", %{ layer: :services, accept: %{ html: true } } do

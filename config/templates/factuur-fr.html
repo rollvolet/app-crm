@@ -78,35 +78,47 @@
         <div class="col col-2">Prix unitaire HT</div>
       </div>
       <!-- {{INVOICELINES}} -->
-      <div class="invoiceline priceline priceline-total-order">
-        <div class="col col-1">Montant HT de <span class="order-key">la commande</span><span class="intervention-key">la r&eacute;paration</span> compl&egrave;te</div>
+    </section>
+
+    <section class="pricelines">
+      <div class="priceline priceline-header">
+        <div class="col col-1"></div>
+        <div class="col col-2">Base HT</div>
+        <div class="col col-3 taxfree">autoliquidation</div>
+        <div class="col col-3 not-taxfree"><!-- {{VAT_RATE}} -->% TVA</div>
+        <div class="col col-4">Montant TTC</div>
+      </div>
+      <div class="priceline priceline-total-order">
+        <div class="col col-1">Montant de <span class="order-key">la commande</span><span class="intervention-key">la r&eacute;paration</span> compl&egrave;te</div>
         <div class="col col-2">&euro; <!-- {{TOTAL_NET_ORDER_PRICE}} --></div>
+        <div class="col col-3">&euro; <!-- {{TOTAL_VAT_ORDER_PRICE}} --></div>
+        <div class="col col-4">&euro; <!-- {{TOTAL_GROSS_ORDER_PRICE}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-deposit-invoice">
-        <div class="col col-1">Montant HT de la facture d'acompte  <!-- {{DEPOSIT_INVOICE_NUMBERS}} --></div>
+      <div class="priceline priceline-deposit-invoice">
+        <div class="col col-1">Montant de la facture d'acompte <!-- {{DEPOSIT_INVOICE_NUMBERS}} --></div>
         <div class="col col-2">&minus; &euro; <!-- {{TOTAL_NET_DEPOSIT_INVOICES}} --></div>
+        <div class="col col-3">&minus; &euro; <!-- {{TOTAL_VAT_DEPOSIT_INVOICES}} --></div>
+        <div class="col col-4">&minus; &euro; <!-- {{TOTAL_GROSS_DEPOSIT_INVOICES}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-total-net">
-        <div class="col col-1">Total HT</div>
+      <div class="priceline priceline-total-net">
+        <div class="col col-1">Total</div>
         <div class="col col-2">&euro; <!-- {{TOTAL_NET}} --></div>
+        <div class="col col-3">&euro; <!-- {{TOTAL_VAT}} --></div>
+        <div class="col col-4">&euro; <!-- {{TOTAL_GROSS}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-vat">
-        <div class="col col-1-2 taxfree">autoliquidation</div>
-        <div class="col col-1 not-taxfree"><!-- {{VAT_RATE}} -->% TVA</div>
-        <div class="col col-2 not-taxfree">&euro; <!-- {{TOTAL_VAT}} --></div>
-      </div>
-      <div class="invoiceline priceline priceline-total-gross">
-        <div class="col col-1">Total TTC</div>
-        <div class="col col-2">&euro; <!-- {{TOTAL_GROSS}} --></div>
-      </div>
-      <div class="invoiceline priceline priceline-deposit">
+      <div class="priceline priceline-deposit">
         <div class="col col-1">Acompte pay&eacute;</div>
+        <div class="col col-2"></div>
+        <div class="col col-3"></div>
         <div class="col col-2">&minus; &euro; <!-- {{TOTAL_DEPOSITS}} --></div>
       </div>
-      <div class="invoiceline priceline priceline-already-paid">
-        <div class="col col-1-2">D&Eacute;J&Agrave; PAY&Eacute;E</div>
+      <div class="priceline priceline-already-paid">
+        <div class="col col-1"></div>
+        <div class="col col-2"></div>
+        <div class="col col-3"></div>
+        <div class="col col-4">D&Eacute;J&Agrave; PAY&Eacute;E</div>
       </div>
-      <div class="invoiceline priceline priceline-to-pay">
+      <div class="priceline priceline-to-pay">
         Net &agrave; payer: &euro; <!-- {{TOTAL_TO_PAY}} -->
       </div>
     </section>
