@@ -2,212 +2,223 @@
   <head>
     <head>
       <style>
-       body {
-           width: 297mm;
-           background: white;
-           font-family: "Carlito", "Calibri", "Arial", sans-serif;
-           font-size: 12pt;
-           color: #1A1A1A;
-           margin: 0;
-           padding: 0.1cm;
-           position: relative;
-           height: 20.7cm;
-       }
+        body {
+          width: 297mm;
+          background: white;
+          font-family: "Carlito", "Calibri", "Arial", sans-serif;
+          font-size: 12pt;
+          color: #1A1A1A;
+          margin: 0;
+          padding: 0.1cm;
+          position: relative;
+          height: 20.7cm;
+        }
 
-       header .table {
-           /** Workaround to fill full height of parent */
-           overflow: hidden;
-       }
+        header .table {
+          /** Workaround to fill full height of parent */
+          overflow: hidden;
+        }
 
-       .table .col {
-           display: inline-block;
-           vertical-align: top;
-       }
+        .table .col {
+          display: inline-block;
+          vertical-align: top;
+        }
 
-       .table .row {
-           display: inline-block;
-           vertical-align: top;
-           line-height: 7mm;
-       }
+        .table .row {
+          display: inline-block;
+          vertical-align: top;
+          line-height: 7mm;
+        }
 
-       .table .row--key {
-           text-align: right;
-           font-weight: bold;
-       }
+        .table .row--key {
+          text-align: right;
+          font-weight: bold;
+        }
 
-       .table .row--value {
+        .table .row--value {
 
-       }
+        }
 
-       header .table .col-1 {
-           width: 3cm;
-       }
+        header .table .col-1 {
+          width: 3cm;
+        }
 
-       header .table .col-2 {
-           width: 12cm;
-       }
+        header .table .col-2 {
+          width: 12cm;
+        }
 
-       header .table .col-3 {
-           width: 6.5cm;
-       }
+        header .table .col-3 {
+          width: 6.5cm;
+        }
 
-       header .table .col-4 {
-           width: 7.5cm;
-           border-left: 0.5mm solid #000;
+        header .table .col-4 {
+          width: 7.5cm;
+          border-left: 0.5mm solid #000;
 
-           /** Workaround to fill full height of parent */
-           margin-bottom: -1000px;
-           padding-bottom: 1000px;
-       }
+          /** Workaround to fill full height of parent */
+          margin-bottom: -1000px;
+          padding-bottom: 1000px;
+        }
 
-       header .table .col-2 .row--key,
-       header .table .col-3 .row--key {
-           width: 2cm;
-       }
+        header .table .col-2 .row--key,
+        header .table .col-3 .row--key {
+          width: 2cm;
+        }
 
-       header .table .col-4 .row--key {
-           width: 3cm;
-       }
+        header .table .col-4 .row--key {
+          width: 3cm;
+        }
 
-       header .table .col-2 .row--key,
-       header .table .col-2 .row--value,
-       header .table .col-3 .row--key,
-       header .table .col-3 .row--value {
-           line-height: 1.4
-       }
+        header .table .col-2 .row--key,
+        header .table .col-2 .row--value,
+        header .table .col-3 .row--key,
+        header .table .col-3 .row--value {
+          line-height: 1.4
+        }
 
-       .logo {
-           padding: 1mm;
-       }
+        .logo {
+          padding: 1mm;
+        }
 
-       .logo img {
-           height: 2cm;
-       }
+        .logo img {
+          height: 2cm;
+        }
 
-       .planning-date {
-           border: 0.75mm solid;
-           padding: 0.5mm;
-           font-weight: bold;
-       }
+        .planning-date {
+          border: 0.75mm solid;
+          padding: 0.5mm;
+          font-weight: bold;
+        }
 
-       .rekenblad .rekenblad--header {
-           height: 1cm;
-           border-top: 0.5mm solid #000;
-           border-bottom: 0.5mm solid #000;
-       }
+        .row--execution {
+          text-align: right;
+          margin-bottom: 4mm;
+        }
 
-       .rekenblad .rekenblad--header .col {
-           display: inline-block;
-           border-left: 0.5mm solid #000;
-           text-align: center;
-           height: 100%;
-           vertical-align: top;
-           padding-top: 1mm;
-       }
+        .row--execution .row--value {
+          padding: 1mm 2mm;
+          border: 1px solid;
+          text-transform: uppercase;
+        }
 
-       .rekenblad .rekenblad--content {
-           border-top: 0.5mm solid #000;
+        .rekenblad .rekenblad--header {
+          height: 1cm;
+          border-top: 0.5mm solid #000;
+          border-bottom: 0.5mm solid #000;
+        }
 
-           background: #fff;
-           background: -webkit-gradient(linear, 0 0, 0 100%, from(#aaa), color-stop(4%, #fff)) 0 4px;
-           background: -webkit-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
-           background: -moz-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
-           background: -ms-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
-           background: -o-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
-           background: linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+        .rekenblad .rekenblad--header .col {
+          display: inline-block;
+          border-left: 0.5mm solid #000;
+          text-align: center;
+          height: 100%;
+          vertical-align: top;
+          padding-top: 1mm;
+        }
 
-           -webkit-background-size: 100% 0.8cm;
-           -moz-background-size: 100% 0.8cm;
-           -ms-background-size: 100% 0.8cm;
-           -o-background-size: 100% 0.8cm;
-           background-size: 100% 0.8cm;
+        .rekenblad .rekenblad--content {
+          border-top: 0.5mm solid #000;
 
-           -webkit-border-radius: 3px;
-           -moz-border-radius: 3px;
-           border-radius: 3px;
+          background: #fff;
+          background: -webkit-gradient(linear, 0 0, 0 100%, from(#aaa), color-stop(4%, #fff)) 0 4px;
+          background: -webkit-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+          background: -moz-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+          background: -ms-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+          background: -o-linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
+          background: linear-gradient(top, #aaa 0%, #fff 8%) 0 4px;
 
-           -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-           box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-       }
+          -webkit-background-size: 100% 0.8cm;
+          -moz-background-size: 100% 0.8cm;
+          -ms-background-size: 100% 0.8cm;
+          -o-background-size: 100% 0.8cm;
+          background-size: 100% 0.8cm;
 
-       .rekenblad .rekenblad--content .col {
-           height: 13cm;
-           display: inline-block;
-           border-left: 0.5mm solid #000;
-       }
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
 
-       .rekenblad .col-1 {
-           width: 1.7cm;
-       }
+          -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+          -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+        }
 
-       .rekenblad .col-2 {
-           width: 7.5cm;
-       }
+        .rekenblad .rekenblad--content .col {
+          height: 13cm;
+          display: inline-block;
+          border-left: 0.5mm solid #000;
+        }
 
-       .rekenblad .col-3 {
-           width: 1.7cm;
-       }
+        .rekenblad .col-1 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .col-4 {
-           width: 1.7cm;
-       }
+        .rekenblad .col-2 {
+          width: 7.5cm;
+        }
 
-       .rekenblad .col-5 {
-           width: 1.7cm;
-       }
+        .rekenblad .col-3 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .col-6 {
-           width: 2.5cm;
-       }
+        .rekenblad .col-4 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .col-7 {
-           width: 1.7cm;
-       }
+        .rekenblad .col-5 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .col-8 {
-           width: 1.7cm;
-       }
+        .rekenblad .col-6 {
+          width: 2.5cm;
+        }
 
-       .rekenblad .col-9 {
-           width: 7.35cm;
-       }
+        .rekenblad .col-7 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .unit {
-           font-size: 9pt;
-       }
+        .rekenblad .col-8 {
+          width: 1.7cm;
+        }
 
-       .rekenblad .rekenblad--header .col-1,
-       .rekenblad .rekenblad--content .col-1 {
-           border-left: 0;
-       }
+        .rekenblad .col-9 {
+          width: 7.35cm;
+        }
 
-       .options .options--option {
-           line-height: 1cm;
-           margin-left: 2.5cm;
-       }
+        .rekenblad .unit {
+          font-size: 9pt;
+        }
 
-       footer {
-           margin-top: 5mm;
-           position: absolute;
-           bottom: 0;
-           left: 2mm;
-       }
+        .rekenblad .rekenblad--header .col-1,
+        .rekenblad .rekenblad--content .col-1 {
+          border-left: 0;
+        }
 
-       footer .col {
-           display: inline-block;
-       }
+        .options .options--option {
+          line-height: 1cm;
+          margin-left: 2.5cm;
+        }
 
-       footer .col-1 {
-           width: 22cm;
-           font-size: 10pt;
-       }
+        footer {
+          margin-top: 5mm;
+          position: absolute;
+          bottom: 0;
+          left: 2mm;
+        }
 
-       footer .col-2 {
+        footer .col {
+          display: inline-block;
+        }
 
-       }
+        footer .col-1 {
+          width: 22cm;
+          font-size: 10pt;
+        }
 
-       <!-- {{INLINE_CSS}} -->
+        footer .col-2 {
+
+        }
+
+        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
   </head>
@@ -234,6 +245,11 @@
           </div>
         </div>
         <div class="col col-3">
+          <div class="row--execution">
+            <span class="row row--value">
+              <!-- {{EXECUTION}} -->
+            </span>
+          </div>
           <div class="row--contact">
             <div class="row row--key">CONTACT:</div>
             <div class="row row--value">
