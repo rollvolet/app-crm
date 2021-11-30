@@ -5,6 +5,7 @@
 /data/sql-db/*
 /data/shared/*
 /data/documents/*
+/data/files/*
 /data/backups/*
 /data/token-cache
 docker-compose.override.yml
