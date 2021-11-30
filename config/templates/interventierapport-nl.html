@@ -2,69 +2,74 @@
   <head>
     <head>
       <style>
-       body {
-           width: 21cm;
-           background: white;
-           font-family: "Carlito", "Calibri", "Arial", sans-serif;
-           font-size: 10pt;
-           color: #1A1A1A;
-           margin: 0;
-           padding-left: 1.4cm;
-           padding-right: 1.4cm;
-           box-sizing: border-box;
-           position: relative;
-       }
+        body {
+          width: 21cm;
+          background: white;
+          font-family: "Carlito", "Calibri", "Arial", sans-serif;
+          font-size: 12pt;
+          color: #1A1A1A;
+          margin: 0;
+          padding-left: 1.4cm;
+          padding-right: 1.4cm;
+          box-sizing: border-box;
+          position: relative;
+        }
 
-       h1 {
-           font-size: 28pt;
-       }
+        h1 {
+          font-size: 28pt;
+        }
 
-       header {
-           border-bottom: 1px solid;
-       }
+        header {
+          border-bottom: 1px solid;
+        }
 
-       .table .col {
-           display: inline-block;
-           vertical-align: top;
-       }
+        .table .col {
+          display: inline-block;
+          vertical-align: top;
+        }
 
-       .table .way-of-entry {
-           padding-left: 1.8cm;
-       }
+        .table .way-of-entry {
+          padding-left: 2.3cm;
+        }
 
-       .table .visit--time {
-           padding-left: 1.8cm;
-       }
+        .table .visit--time {
+          padding-left: 1.8cm;
+        }
 
-       header .table .col-1 {
-           width: 33%;
-       }
+        header .table .col-1 {
+          width: 33%;
+        }
 
-       header .table .col-2 {
-           width: 28%;
-       }
+        header .table .col-2 {
+          width: 28%;
+        }
 
-       header .table .col-3 {
-           width: 36%;
-       }
+        header .table .col-3 {
+          width: 36%;
+        }
 
-       header .table .col-3-1 {
-           width: 65%;
-       }
+        header .table .col-3-1 {
+          width: 68%;
+        }
 
-       header .table .col-3-2 {
+        header .table .col-3-2 {
 
-       }
+        }
 
-       header .contact .contactline--telephone {
-           margin-right: 4mm;
-       }
+        header .contact .contactline--telephone {
+          margin-right: 4mm;
+        }
 
-       .u-spacer--top {
-           margin-top: 1.5mm;
-       }
+        .u-spacer--top {
+          margin-top: 1.5mm;
+        }
 
-       <!-- {{INLINE_CSS}} -->
+        .building--subtitle {
+          font-size: 18pt;
+          font-weight: bold;
+        }
+
+        <!-- {{INLINE_CSS}} -->
       </style>
     </head>
   </head>
@@ -113,7 +118,7 @@
     <section class="table">
       <div class="col col-1">
         <div class="building-address u-spacer--top">
-          Gebouw:<br>
+          <span class="building--subtitle">Gebouw:</span><br>
           <!-- {{BUILDING_ADDRESS}} -->
         </div>
         <p><span class="employee--name"><!-- {{EMPLOYEE}} --> noteerde: </span><!-- {{DESCRIPTION}} --></p>
