@@ -70,7 +70,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:1.9.0
+    image: rollvolet/crm-api:1.10.0
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
@@ -91,7 +91,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:1.7.0
+    image: rollvolet/document-generation-service:1.8.0
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
