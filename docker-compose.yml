@@ -91,7 +91,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:1.8.0
+    image: rollvolet/document-generation-service:1.8.1
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
