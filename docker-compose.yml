@@ -21,7 +21,7 @@ services:
     restart: always
     logging: *default-logging
   frontend:
-    image: rollvolet/crm-frontend:1.10.0
+    image: rollvolet/crm-frontend:2.0.0-beta.1
     environment:
       EMBER_OAUTH_API_KEY: '552ea087-fcd9-4d53-911b-19b11ff6631a'
       EMBER_OAUTH_SCOPE: 'offline_access User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All'
@@ -29,7 +29,7 @@ services:
     restart: always
     logging: *default-logging
   database:
-    image: semtech/mu-authorization:0.6.0-beta.6
+    image: semtech/mu-authorization:0.6.0-beta.7
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
     volumes:
@@ -70,7 +70,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:1.10.0
+    image: rollvolet/crm-api:2.0.0-beta.1
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
