@@ -23,9 +23,8 @@ services:
   frontend:
     image: rollvolet/crm-frontend:2.0.0-beta.1
     environment:
-      EMBER_OAUTH_API_KEY: '552ea087-fcd9-4d53-911b-19b11ff6631a'
-      EMBER_OAUTH_SCOPE: 'offline_access User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All'
-      EMBER_OAUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
+      EMBER_AUTH_CLIENT_ID: '552ea087-fcd9-4d53-911b-19b11ff6631a'
+      EMBER_AUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
     restart: always
     logging: *default-logging
   database:
