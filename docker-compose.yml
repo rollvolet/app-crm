@@ -36,12 +36,13 @@ services:
     restart: always
     logging: *default-logging
   virtuoso:
-    image: tenforce/virtuoso:1.3.2-virtuoso7.2.5.1
+    image: redpencil/virtuoso:1.0.0
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/graphs/rollvolet"
     volumes:
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini
+      - ./config/db/:/opt/virtuoso-scripts
       - ./data/db:/data
     restart: always
     logging: *default-logging
