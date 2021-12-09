@@ -17,6 +17,10 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://frontend/torii/redirect.html"
   end
 
+  match "/api/calculation-lines/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calculation-lines/"
+  end
+
   match "/api/*path", %{ layer: :monolith, accept: %{ any: true } } do
     Proxy.forward conn, path, "http://monolith-backend/api/"
   end

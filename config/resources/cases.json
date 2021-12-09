@@ -24,7 +24,9 @@
           "predicate": "dct:isPartOf",
           "_comment": "TODO Refactor to relation once offerline is defined as a resource"
         }
-      }
+      },
+      "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
+      "features": ["include-uri"]
     }
   }
 }
