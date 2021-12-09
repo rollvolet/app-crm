@@ -97,3 +97,17 @@ services:
       - ./config/watermarks:/watermarks
     restart: always
     logging: *default-logging
+  cache:
+    image: semtech/mu-cache:2.0.0
+    links:
+    - resource:backend
+    restart: always
+    logging: *default-logging
+  resource:
+    image: semtech/mu-cl-resources:1.20.0
+    volumes:
+      - ./config/resources:/config
+    environment:
+      CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
+    restart: always
+    logging: *default-logging

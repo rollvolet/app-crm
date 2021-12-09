@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "ext": "http://mu.semte.ch/vocabularies/ext/",
+    "crm": "http://data.rollvolet.be/vocabularies/crm/"
+  },
+  "resources": {
+    "calculation-lines": {
+      "name": "calculation-line",
+      "class": "crm:CalculationLine",
+      "attributes": {
+        "amount": {
+          "type": "decimal",
+          "predicate": "schema:amount"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "offerline": {
+          "type": "url",
+          "predicate": "dct:isPartOf",
+          "_comment": "TODO Refactor to relation once offerline is defined as a resource"
+        }
+      }
+    }
+  }
+}
