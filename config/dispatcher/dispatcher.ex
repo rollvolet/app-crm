@@ -7,7 +7,7 @@ defmodule Dispatcher do
     any: [ "*/*" ]
   ]
 
-  define_layers [ :static, :monolith, :services ]
+  define_layers [ :static, :services ]
 
   get "/assets/*path", %{ layer: :static } do
     Proxy.forward conn, path, "http://frontend/assets/"
@@ -21,7 +21,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
-  match "/api/*path", %{ layer: :monolith, accept: %{ any: true } } do
+  match "/api/*path", %{ layer: :services, accept: %{ any: true } } do
     Proxy.forward conn, path, "http://monolith-backend/api/"
   end
 
