@@ -4,9 +4,32 @@
     "dct": "http://purl.org/dc/terms/",
     "schema": "http://schema.org/",
     "ext": "http://mu.semte.ch/vocabularies/ext/",
-    "crm": "http://data.rollvolet.be/vocabularies/crm/"
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
+    "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
+    "dbpedia": "http://dbpedia.org/resource/",
+    "dossier": "https://data.vlaanderen.be/ns/dossier#"
   },
   "resources": {
+    "cases": {
+      "name": "case",
+      "class": "dossier:Dossier",
+      "attributes": {
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        }
+      },
+      "relationships": {
+        "attachments": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "file",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/cases/",
+      "features": ["include-uri"]
+    },
     "calculation-lines": {
       "name": "calculation-line",
       "class": "crm:CalculationLine",
@@ -26,6 +49,92 @@
         }
       },
       "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
+      "features": ["include-uri"]
+    },
+    "files": {
+      "name": "file",
+      "class": "nfo:FileDataObject",
+      "attributes": {
+        "filename": {
+          "type": "string",
+          "predicate": "nfo:fileName"
+        },
+        "format": {
+          "type": "string",
+          "predicate": "dct:format"
+        },
+        "size": {
+          "type": "number",
+          "predicate": "nfo:fileSize"
+        },
+        "extension": {
+          "type": "string",
+          "predicate": "dbpedia:fileExtension"
+        },
+        "created": {
+          "type": "datetime",
+          "predicate": "nfo:fileCreated"
+        }
+      },
+      "relationships": {
+        "download": {
+          "predicate": "nie:dataSource",
+          "target": "remote-file",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "case": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/files/",
+      "features": ["include-uri"]
+    },
+    "remote-files": {
+      "name": "remote-file",
+      "class": "nfo:RemoteDataObject",
+      "_comment": "Subclass of nfo:FileDataObject",
+      "attributes": {
+        "filename": {
+          "type": "string",
+          "predicate": "nfo:fileName"
+        },
+        "format": {
+          "type": "string",
+          "predicate": "dct:format"
+        },
+        "size": {
+          "type": "number",
+          "predicate": "nfo:fileSize"
+        },
+        "extension": {
+          "type": "string",
+          "predicate": "dbpedia:fileExtension"
+        },
+        "created": {
+          "type": "datetime",
+          "predicate": "nfo:fileCreated"
+        },
+        "ms-identifier": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        },
+        "url": {
+          "type": "url",
+          "predicate": "nfo:fileUrl"
+        }
+      },
+      "relationships": {
+        "data-source": {
+          "predicate": "nie:dataSource",
+          "target": "file",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/files/",
       "features": ["include-uri"]
     }
   }

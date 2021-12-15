@@ -111,3 +111,9 @@ services:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     restart: always
     logging: *default-logging
+  ms-files:
+    image: rollvolet/ms-files-service:0.1.0
+    environment:
+      MS_DRIVE_ID: "my-microsoft-drive-id"
+    restart: always
+    logging: *default-logging
