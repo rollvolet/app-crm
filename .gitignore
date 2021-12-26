@@ -8,6 +8,7 @@
 /data/files/*
 /data/backups/*
 /data/token-cache
+/data/conversion
 docker-compose.override.yml
 .env
 /config/backend/config.override.json

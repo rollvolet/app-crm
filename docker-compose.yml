@@ -52,6 +52,12 @@ services:
       - ./config/delta:/config
     restart: always
     logging: *default-logging
+  data-conversion:
+    image: rollvolet/crm-data-conversion-service
+    volumes:
+      - ./data/conversion:/data
+    restart: always
+    logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service:0.7.0
     links:
