@@ -98,6 +98,8 @@ services:
     logging: *default-logging
   documents:
     image: rollvolet/document-generation-service:1.8.4
+    links:
+      - virtuoso:database
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
