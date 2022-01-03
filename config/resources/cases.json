@@ -3,12 +3,13 @@
   "prefixes": {
     "dct": "http://purl.org/dc/terms/",
     "schema": "http://schema.org/",
-    "ext": "http://mu.semte.ch/vocabularies/ext/",
-    "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
     "dbpedia": "http://dbpedia.org/resource/",
-    "dossier": "https://data.vlaanderen.be/ns/dossier#"
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
+    "ext": "http://mu.semte.ch/vocabularies/ext/",
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "price": "http://data.rollvolet.be/vocabularies/pricing/"
   },
   "resources": {
     "cases": {
@@ -30,6 +31,88 @@
       "new-resource-base": "http://data.rollvolet.be/cases/",
       "features": ["include-uri"]
     },
+    "vat-rates": {
+      "name": "vat-rate",
+      "class": "price:VatRate",
+      "_comment": "Subclass of schema:QuantitativeValue",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:name"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "schema:identifier",
+          "_comment": "Shorthand notation of the VAT rate"
+        },
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier",
+          "_comment": "Legacy ID of the VAT rate in SQL DB"
+        },
+        "value": {
+          "type": "decimal",
+          "predicate": "schema:value"
+        },
+        "position": {
+          "type": "number",
+          "predicate": "schema:position"
+        },
+        "unit-code": {
+          "type": "string",
+          "predicate": "schema:unitCode",
+          "_comment": "Will always be P1 = percentage"
+        }
+      },
+      "relationships": {
+        "offerlines": {
+          "predicate": "price:hasVatRate",
+          "target": "offerline",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/vat-rates/",
+      "features": ["include-uri"]
+    },
+    "offerlines": {
+      "name": "offerline",
+      "class": "crm:Offerline",
+      "attributes": {
+        "amount": {
+          "type": "decimal",
+          "predicate": "schema:amount"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "position": {
+          "type": "number",
+          "predicate": "schema:position"
+        },
+        "offer": {
+          "type": "url",
+          "predicate": "dct:isPartOf",
+          "_comment": "TODO Refactor to relation once offer is defined as a resource"
+        }
+      },
+      "relationships": {
+        "calculation-lines": {
+          "predicate": "dct:isPartOf",
+          "target": "calculation-line",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "vat-rate": {
+          "predicate": "price:hasVatRate",
+          "target": "vat-rate",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/offerlines/",
+      "features": ["include-uri"]
+    },
     "calculation-lines": {
       "name": "calculation-line",
       "class": "crm:CalculationLine",
@@ -41,11 +124,13 @@
         "description": {
           "type": "string",
           "predicate": "dct:description"
-        },
+        }
+      },
+      "relationships": {
         "offerline": {
-          "type": "url",
           "predicate": "dct:isPartOf",
-          "_comment": "TODO Refactor to relation once offerline is defined as a resource"
+          "target": "offerline",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/calculation-lines/",

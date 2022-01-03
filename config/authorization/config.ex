@@ -31,6 +31,7 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/public",
             constraint: %ResourceConstraint{
               resource_types: [
+                "http://data.rollvolet.be/vocabularies/pricing/VatRate"
               ]
             }
           },
@@ -51,6 +52,7 @@ defmodule Acl.UserGroups.Config do
                     graph: "http://mu.semte.ch/graphs/rollvolet",
                     constraint: %ResourceConstraint{
                       resource_types: [
+                        "http://data.rollvolet.be/vocabularies/crm/Offerline",
                         "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
