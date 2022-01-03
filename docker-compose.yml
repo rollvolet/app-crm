@@ -56,7 +56,7 @@ services:
     image: rollvolet/crm-data-conversion-service
     volumes:
       - ./data/conversion:/data
-    restart: always
+    restart: "no"
     logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service:0.7.0
