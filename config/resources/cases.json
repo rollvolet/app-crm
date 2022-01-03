@@ -50,13 +50,14 @@
           "predicate": "dct:identifier",
           "_comment": "Legacy ID of the VAT rate in SQL DB"
         },
-        "value": {
+        "rate": {
           "type": "decimal",
           "predicate": "schema:value"
         },
-        "position": {
+        "order": {
           "type": "number",
-          "predicate": "schema:position"
+          "predicate": "schema:position",
+          "_comment": "TODO: rename to 'position' once VAT rate is removed from SQL DB"
         },
         "unit-code": {
           "type": "string",
@@ -83,11 +84,15 @@
           "type": "decimal",
           "predicate": "schema:amount"
         },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
+        },
         "description": {
           "type": "string",
           "predicate": "dct:description"
         },
-        "position": {
+        "sequence-number": {
           "type": "number",
           "predicate": "schema:position"
         },
@@ -120,6 +125,10 @@
         "amount": {
           "type": "decimal",
           "predicate": "schema:amount"
+        },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
         },
         "description": {
           "type": "string",

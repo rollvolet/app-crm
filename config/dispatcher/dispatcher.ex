@@ -38,14 +38,19 @@ defmodule Dispatcher do
   ## Monolith exceptions (to be phased out in the long run)
 
   match "/api/cases/current/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://monolith-backend/api/cases/"
+    # Proxy.forward conn, path, "http://monolith-backend/api/cases/"
+    Proxy.forward conn, path, "http://172.17.0.1:5010/api/cases/"
   end
 
 
   ## Resources
-  ## TODO remove /api prefix of all routes to resources once monolith-backend is phased out
+  ## TODO remove /api-prefixed routes to resources once monolith-backend is phased out
 
   get "/api/cases/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/cases/"
+  end
+
+  get "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/cases/"
   end
 
@@ -53,7 +58,15 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/vat-rates/"
   end
 
+  get "/vat-rates/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/vat-rates/"
+  end
+
   match "/api/offerlines/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/offerlines/"
+  end
+
+  match "/offerlines/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/offerlines/"
   end
 
@@ -61,7 +74,15 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
+  match "/calculation-lines/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calculation-lines/"
+  end
+
   get "/api/files/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/files/"
+  end
+
+  get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/files/"
   end
 
@@ -69,9 +90,13 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/remote-files/"
   end
 
+  get "/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/remote-files/"
+  end
+
   match "/api/*path", %{ layer: :services, accept: %{ any: true } } do
-    Proxy.forward conn, path, "http://monolith-backend/api/"
-    # Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
+    # Proxy.forward conn, path, "http://monolith-backend/api/"
+    Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
   end
 
 
