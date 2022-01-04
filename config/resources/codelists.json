@@ -1,0 +1,55 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "price": "http://data.rollvolet.be/vocabularies/pricing/"
+  },
+  "resources": {
+    "vat-rates": {
+      "name": "vat-rate",
+      "class": "price:VatRate",
+      "_comment": "Subclass of schema:QuantitativeValue",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:name"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "schema:identifier",
+          "_comment": "Shorthand notation of the VAT rate"
+        },
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier",
+          "_comment": "Legacy ID of the VAT rate in SQL DB"
+        },
+        "rate": {
+          "type": "decimal",
+          "predicate": "schema:value"
+        },
+        "order": {
+          "type": "number",
+          "predicate": "schema:position",
+          "_comment": "TODO: rename to 'position' once VAT rate is removed from SQL DB"
+        },
+        "unit-code": {
+          "type": "string",
+          "predicate": "schema:unitCode",
+          "_comment": "Will always be P1 = percentage"
+        }
+      },
+      "relationships": {
+        "offerlines": {
+          "predicate": "price:hasVatRate",
+          "target": "offerline",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/vat-rates/",
+      "features": ["include-uri"]
+    }
+  }
+}

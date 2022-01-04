@@ -11,3 +11,5 @@
 (defparameter sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
 
 (read-domain-file "cases.json")
+(read-domain-file "codelists.json")
+(read-domain-file "files.json")
