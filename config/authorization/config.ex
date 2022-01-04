@@ -54,6 +54,7 @@ defmodule Acl.UserGroups.Config do
                       resource_types: [
                         "http://data.rollvolet.be/vocabularies/crm/Offerline",
                         "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
+                        "http://data.rollvolet.be/vocabularies/crm/Invoiceline",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
                         "https://data.vlaanderen.be/ns/dossier#Dossier"
