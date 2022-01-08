@@ -118,6 +118,11 @@
           "type": "number",
           "predicate": "schema:position"
         },
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "Used to indicate invoicelines that originate from supplements in Access"
+        },
         "order": {
           "type": "url",
           "predicate": "prov:wasDerivedFrom",
