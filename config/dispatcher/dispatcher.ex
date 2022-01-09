@@ -38,8 +38,8 @@ defmodule Dispatcher do
   ## Monolith exceptions (to be phased out in the long run)
 
   match "/api/cases/current/*path", %{ layer: :services, accept: %{ json: true } } do
-    # Proxy.forward conn, path, "http://monolith-backend/api/cases/"
-    Proxy.forward conn, path, "http://172.17.0.1:5010/api/cases/"
+    Proxy.forward conn, path, "http://monolith-backend/api/cases/"
+    # Proxy.forward conn, path, "http://172.17.0.1:5010/api/cases/"
   end
 
 
@@ -103,8 +103,8 @@ defmodule Dispatcher do
   end
 
   match "/api/*path", %{ layer: :services, accept: %{ any: true } } do
-    # Proxy.forward conn, path, "http://monolith-backend/api/"
-    Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
+    Proxy.forward conn, path, "http://monolith-backend/api/"
+    # Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
   end
 
 
