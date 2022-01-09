@@ -76,7 +76,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:2.0.0-beta.3
+    image: rollvolet/crm-api:2.0.0
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
@@ -97,7 +97,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:1.8.4
+    image: rollvolet/document-generation-service:2.0.0
     links:
       - virtuoso:database
     volumes:
