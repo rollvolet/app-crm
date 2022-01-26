@@ -1,0 +1,15 @@
+PREFIX schema: <http://schema.org/>
+
+DELETE WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/vat-rates/79b5aafb-d4da-49c4-a631-665f2dda807f> schema:name ?name .
+  }
+}
+
+;
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/vat-rates/79b5aafb-d4da-49c4-a631-665f2dda807f> schema:name "BTW verlegd" .
+  }
+}
