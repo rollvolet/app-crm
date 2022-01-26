@@ -312,6 +312,10 @@ form div.input-field {
     text-align: center;
 }
 
+.certificate-notification {
+    font-size: 7pt;
+}
+
 .certificate--description {
     border-top: 1px solid #1A1A1A;
     border-bottom: 1px solid #1A1A1A;
