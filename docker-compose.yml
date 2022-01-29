@@ -120,7 +120,7 @@ services:
     restart: always
     logging: *default-logging
   ms-files:
-    image: rollvolet/ms-files-service:0.1.0
+    image: rollvolet/ms-files-service:0.1.1
     environment:
       MS_DRIVE_ID: "my-microsoft-drive-id"
     restart: always
