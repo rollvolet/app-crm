@@ -34,6 +34,27 @@ defmodule Acl.UserGroups.Config do
                 "http://data.rollvolet.be/vocabularies/pricing/VatRate"
               ]
             }
+          }
+        ]
+      },
+
+      %GroupSpec{
+        name: "rollvolet",
+        useage: [:read, :write, :read_for_write],
+        access: authenticated_access(),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/rollvolet",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://data.rollvolet.be/vocabularies/crm/Offerline",
+                "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
+                "http://data.rollvolet.be/vocabularies/crm/Invoiceline",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
+                "https://data.vlaanderen.be/ns/dossier#Dossier"
+              ]
+            }
           },
           %GraphSpec{
             graph: "http://mu.semte.ch/graphs/sessions",
@@ -43,23 +64,6 @@ defmodule Acl.UserGroups.Config do
           }
         ]
       },
-
-      %GroupSpec{
-        name: "rollvolet",
-        useage: [:read, :write, :read_for_write],
-        access: authenticated_access(),
-        graphs: [ %GraphSpec{
-                    graph: "http://mu.semte.ch/graphs/rollvolet",
-                    constraint: %ResourceConstraint{
-                      resource_types: [
-                        "http://data.rollvolet.be/vocabularies/crm/Offerline",
-                        "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
-                        "http://data.rollvolet.be/vocabularies/crm/Invoiceline",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
-                        "https://data.vlaanderen.be/ns/dossier#Dossier"
-                      ]
-                    } } ] },
 
       # // CLEANUP
       #
