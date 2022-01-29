@@ -10,7 +10,6 @@ config/migrations/*
 *sensitive*
 
 /data/sql-db/*
-/data/shared/*
 /data/documents/*
 /data/files/*
 /data/backups/*
