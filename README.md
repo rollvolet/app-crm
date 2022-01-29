@@ -7,9 +7,9 @@ docker-compose up
 
 ## Configuration
 ### Migrations
-Location: `./config/migrations`
+Location: `./config/sql-migrations`
 
-Migrations to be executed in the database. The migrations need to be executed manually (see section 'Admin tasks').
+Migrations to be executed in the SQL database. The migrations need to be executed manually (see section 'Admin tasks').
 
 ### Templates
 Location: `./config/templates`
@@ -30,7 +30,7 @@ JSON configuration used by the [backend service providing a JSONAPI](https://git
 ### Create a backup
 Execute the following script
 ```bash
-docker-compose exec database /bin/bash /scripts/backup.sh
+docker-compose exec sql-database /bin/bash /scripts/backup.sh
 ```
 The backup is written to `./data/backups/YYMMDDThhmmss-klanten.bak`
 
@@ -39,14 +39,14 @@ Put the backup to be restored in `./data/backups/klanten.bak`
 
 Execute the following script
 ```bash
-docker-compose exec database /bin/bash /scripts/restore.sh
+docker-compose exec sql-database /bin/bash /scripts/restore.sh
 ```
 
 ### Executing a migration
-Make sure the migration is available in `./config/migrations`
+Make sure the migration is available in `./config/sql-migrations`
 
 Execute the following script
 ```bash
-docker-compose exec database /bin/bash /scripts/migrate.sh name-of-the-migration.sql
+docker-compose exec sql-database /bin/bash /scripts/migrate.sh name-of-the-migration.sql
 ```
 
