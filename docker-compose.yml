@@ -54,6 +54,8 @@ services:
     logging: *default-logging
   data-conversion:
     image: rollvolet/crm-data-conversion-service
+    links:
+      - virtuoso:database
     volumes:
       - ./data/conversion:/data
     restart: "no"
