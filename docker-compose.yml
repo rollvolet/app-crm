@@ -21,7 +21,7 @@ services:
     restart: always
     logging: *default-logging
   frontend:
-    image: rollvolet/frontend-crm:2.0.6
+    image: rollvolet/frontend-crm:2.0.7
     environment:
       EMBER_AUTH_CLIENT_ID: '552ea087-fcd9-4d53-911b-19b11ff6631a'
       EMBER_AUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
@@ -69,7 +69,7 @@ services:
     restart: always
     logging: *default-logging
   msal-login:
-    image: rollvolet/msal-login-service:0.2.0
+    image: rollvolet/msal-login-service:0.3.0
     environment:
       AUTH_SCOPES: "User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All"
       AUTH_REFRESH_TOKENS: "true"
