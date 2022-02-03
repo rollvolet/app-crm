@@ -382,6 +382,21 @@
         "note": {
           "type": "string",
           "predicate": "vcard:hasNote"
+        },
+        "customer": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation once customer is defined as a resource"
+        },
+        "contact": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation once contact is defined as a resource"
+        },
+        "building": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation once building is defined as a resource"
         }
       },
       "relationships": {
@@ -389,24 +404,6 @@
           "predicate": "vcard:hasCountryName",
           "target": "country",
           "cardinality": "one"
-        },
-        "customer": {
-          "predicate": "vcard:hasTelephone",
-          "target": "customer",
-          "cardinality": "one",
-          "inverse": true
-        },
-        "contact": {
-          "predicate": "vcard:hasTelephone",
-          "target": "contact",
-          "cardinality": "one",
-          "inverse": true
-        },
-        "building": {
-          "predicate": "vcard:hasTelephone",
-          "target": "building",
-          "cardinality": "one",
-          "inverse": true
         }
       },
       "features": [
