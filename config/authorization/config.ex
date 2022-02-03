@@ -31,7 +31,11 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/public",
             constraint: %ResourceConstraint{
               resource_types: [
-                "http://data.rollvolet.be/vocabularies/pricing/VatRate"
+                "http://data.rollvolet.be/vocabularies/pricing/VatRate",
+                "http://data.rollvolet.be/vocabularies/crm/HonorificPrefix",
+                "http://data.rollvolet.be/vocabularies/crm/PostalCode",
+                "http://schema.org/Country",
+                "http://schema.org/Language"
               ]
             }
           }
@@ -47,6 +51,12 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/rollvolet",
             constraint: %ResourceConstraint{
               resource_types: [
+                "http://www.w3.org/2006/vcard/ns#VCard",
+                "https://data.vlaanderen.be/ns/gebouw#Gebouw",
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
+                "http://www.w3.org/2006/vcard/ns#Address",
+                "http://www.w3.org/2006/vcard/ns#Email",
+                "http://www.w3.org/2006/vcard/ns#Telephone",
                 "http://data.rollvolet.be/vocabularies/crm/Offerline",
                 "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
                 "http://data.rollvolet.be/vocabularies/crm/Invoiceline",

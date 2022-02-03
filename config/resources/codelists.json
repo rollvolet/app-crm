@@ -1,9 +1,10 @@
 {
   "version": "0.1",
   "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
-    "schema": "http://schema.org/",
-    "price": "http://data.rollvolet.be/vocabularies/pricing/"
+    "price": "http://data.rollvolet.be/vocabularies/pricing/",
+    "schema": "http://schema.org/"
   },
   "resources": {
     "vat-rates": {
@@ -50,6 +51,140 @@
       },
       "new-resource-base": "http://data.rollvolet.be/vat-rates/",
       "features": ["include-uri"]
+    },
+    "honorific-prefixes": {
+      "name": "honorific-prefix",
+      "class": "crm:HonorificPrefix",
+      "attributes": {
+        "label": {
+          "type": "language-string",
+          "predicate": "skos:label"
+        }
+      },
+      "relationships": {
+        "customer": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "contact": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/honorific-prefixes/"
+    },
+    "postal-codes": {
+      "name": "postal-code",
+      "class": "crm:PostalCode",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:name"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "schema:identifier"
+        }
+      },
+      "relationships": {
+        "address": {
+          "predicate": "vcard:hasPostalCode",
+          "target": "address",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/postal-codes/"
+    },
+    "countries": {
+      "name": "country",
+      "class": "schema:Country",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:name"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "schema:identifier"
+        },
+        "telephone-prefix": {
+          "type": "string",
+          "predicate": "crm:telephonePrefix"
+        }
+      },
+      "relationships": {
+        "address": {
+          "predicate": "vcard:hasCountryName",
+          "target": "address",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "telephones": {
+          "predicate": "vcard:hasCountryName",
+          "target": "telephone",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/country/"
+    },
+    "languages": {
+      "name": "language",
+      "class": "schema:Language",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "schema:name"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "schema:identifier"
+        }
+      },
+      "relationships": {
+        "customer": {
+          "predicate": "vcard:hasLanguage",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "contact": {
+          "predicate": "vcard:hasLanguage",
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building": {
+          "predicate": "vcard:hasLanguage",
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/language/"
     }
   }
 }
