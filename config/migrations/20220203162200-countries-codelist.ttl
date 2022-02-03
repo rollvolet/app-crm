@@ -1,0 +1,131 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix crm: <http://data.rollvolet.be/vocabularies/crm/> .
+
+<http://data.rollvolet.be/countries/a181ff79-c47a-4cf6-9ed9-6305c02c0440> a schema:Country ;
+    mu:uuid "a181ff79-c47a-4cf6-9ed9-6305c02c0440" ;
+    dct:identifier "1" ;
+	  crm:telephonePrefix "0032" ;
+	  schema:identifier "BE" ;
+	  schema:name "België" .
+
+<http://data.rollvolet.be/countries/eb1571b6-469c-4db8-b99a-02fd29d1cb24> a schema:Country ;
+    mu:uuid "eb1571b6-469c-4db8-b99a-02fd29d1cb24" ;
+    dct:identifier "2" ;
+	  crm:telephonePrefix "0031" ;
+	  schema:identifier "NL" ;
+	  schema:name "Nederland" .
+
+<http://data.rollvolet.be/countries/67a980f1-edaa-4ffd-972b-632b29184c4a> a schema:Country ;
+    mu:uuid "67a980f1-edaa-4ffd-972b-632b29184c4a" ;
+    dct:identifier "3" ;
+	  crm:telephonePrefix "0033" ;
+	  schema:identifier "FR" ;
+	  schema:name "Frankrijk" .
+
+<http://data.rollvolet.be/countries/7d49bfdb-769f-4762-84ab-a8599723e8a1> a schema:Country ;
+    mu:uuid "7d49bfdb-769f-4762-84ab-a8599723e8a1" ;
+    dct:identifier "4" ;
+	  crm:telephonePrefix "0046" ;
+	  schema:identifier "SE" ;
+	  schema:name "Zweden" .
+
+<http://data.rollvolet.be/countries/ca62b739-ea81-4d99-a488-af533300d553> a schema:Country ;
+    mu:uuid "ca62b739-ea81-4d99-a488-af533300d553" ;
+    dct:identifier "5" ;
+	  crm:telephonePrefix "0035" ;
+	  schema:identifier "LU" ;
+	  schema:name "Luxemburg" .
+
+<http://data.rollvolet.be/countries/043f305a-f08f-4f28-a106-78b6bc325503> a schema:Country ;
+    mu:uuid "043f305a-f08f-4f28-a106-78b6bc325503" ;
+    dct:identifier "7" ;
+	  crm:telephonePrefix "0049" ;
+	  schema:identifier "DE" ;
+	  schema:name "Duitsland" .
+
+<http://data.rollvolet.be/countries/b9ec9c20-0082-44d6-8355-147d55250742> a schema:Country ;
+    mu:uuid "b9ec9c20-0082-44d6-8355-147d55250742" ;
+    dct:identifier "8" ;
+	  crm:telephonePrefix "0034" ;
+	  schema:identifier "SP" ;
+	  schema:name "Spanje" .
+
+<http://data.rollvolet.be/countries/637ca636-6322-40f1-95b4-3d44879351ba> a schema:Country ;
+    mu:uuid "637ca636-6322-40f1-95b4-3d44879351ba" ;
+    dct:identifier "9" ;
+	  crm:telephonePrefix "0039" ;
+	  schema:identifier "IT" ;
+	  schema:name "Italie" .
+
+<http://data.rollvolet.be/countries/5f099675-e44f-4d66-a8d4-5cdca4234a4d> a schema:Country ;
+    mu:uuid "5f099675-e44f-4d66-a8d4-5cdca4234a4d" ;
+    dct:identifier "10" ;
+	  crm:telephonePrefix "00351" ;
+	  schema:identifier "PO" ;
+	  schema:name "Portugal" .
+
+<http://data.rollvolet.be/countries/deeb8223-9e83-45f6-94a9-f9f65cafec4a> a schema:Country ;
+    mu:uuid "deeb8223-9e83-45f6-94a9-f9f65cafec4a" ;
+    dct:identifier "11" ;
+	  crm:telephonePrefix "0041" ;
+	  schema:identifier "CH" ;
+	  schema:name "Zwitserland" .
+
+<http://data.rollvolet.be/countries/4ce7770e-8087-46d8-8ae1-97b2efa83ed6> a schema:Country ;
+    mu:uuid "4ce7770e-8087-46d8-8ae1-97b2efa83ed6" ;
+    dct:identifier "12" ;
+	  crm:telephonePrefix "0043" ;
+	  schema:identifier "OO" ;
+	  schema:name "Oostenrijk" .
+
+<http://data.rollvolet.be/countries/2ad2524f-b414-48da-b3b8-588c608ef1a4> a schema:Country ;
+    mu:uuid "2ad2524f-b414-48da-b3b8-588c608ef1a4" ;
+    dct:identifier "14" ;
+	  crm:telephonePrefix "0048" ;
+	  schema:identifier "PL" ;
+	  schema:name "Polen" .
+
+<http://data.rollvolet.be/countries/d9d88fc6-9102-41a4-8e58-94f7933e1cc7> a schema:Country ;
+    mu:uuid "d9d88fc6-9102-41a4-8e58-94f7933e1cc7" ;
+    dct:identifier "15" ;
+	  crm:telephonePrefix "0040" ;
+	  schema:identifier "RO" ;
+	  schema:name "Roemenië" .
+
+<http://data.rollvolet.be/countries/cba75652-79d9-4a26-a123-ec3e9367b7eb> a schema:Country ;
+    mu:uuid "cba75652-79d9-4a26-a123-ec3e9367b7eb" ;
+    dct:identifier "16" ;
+	  crm:telephonePrefix "00961" ;
+	  schema:identifier "LB" ;
+	  schema:name "Libanon" .
+
+<http://data.rollvolet.be/countries/ee458e20-4f82-4048-9070-85375e113eac> a schema:Country ;
+    mu:uuid "ee458e20-4f82-4048-9070-85375e113eac" ;
+    dct:identifier "18" ;
+	  crm:telephonePrefix "00212" ;
+	  schema:identifier "MA" ;
+	  schema:name "Marokko" .
+
+<http://data.rollvolet.be/countries/130a9283-5d4e-47ba-a6d4-79ecf9ae5b6d> a schema:Country ;
+    mu:uuid "130a9283-5d4e-47ba-a6d4-79ecf9ae5b6d" ;
+    dct:identifier "20" ;
+	  crm:telephonePrefix "00" ;
+	  schema:identifier "VE" ;
+	  schema:name "United Arab Emirates" .
+
+<http://data.rollvolet.be/countries/81528cb4-38dd-4063-bfc4-a2aacb21094c> a schema:Country ;
+    mu:uuid "81528cb4-38dd-4063-bfc4-a2aacb21094c" ;
+    dct:identifier "21" ;
+	  crm:telephonePrefix "0000" ;
+	  schema:identifier "EN" ;
+	  schema:name "Engeland" .
+
+<http://data.rollvolet.be/countries/eef48fdb-ec20-4a19-80f9-22b78a7f7e3e> a schema:Country ;
+    mu:uuid "eef48fdb-ec20-4a19-80f9-22b78a7f7e3e" ;
+    dct:identifier "24" ;
+	  crm:telephonePrefix "00" ;
+	  schema:identifier "ME" ;
+	  schema:name "Mexico" .
