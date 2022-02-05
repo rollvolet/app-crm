@@ -386,17 +386,17 @@
         "customer": {
           "type": "url",
           "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation once customer is defined as a resource"
+          "_comment": "TODO Refactor to relation and inverse triples once customer is defined as a resource"
         },
         "contact": {
           "type": "url",
           "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation once contact is defined as a resource"
+          "_comment": "TODO Refactor to relation and inverse triples once contact is defined as a resource"
         },
         "building": {
           "type": "url",
           "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation once building is defined as a resource"
+          "_comment": "TODO Refactor to relation and inverse triples once building is defined as a resource"
         }
       },
       "relationships": {
