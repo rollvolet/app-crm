@@ -45,7 +45,7 @@
           "type": "string",
           "predicate": "dct:description"
         },
-        "sequence-number": {
+        "position": {
           "type": "number",
           "predicate": "schema:position"
         },
@@ -114,7 +114,7 @@
           "type": "string",
           "predicate": "dct:description"
         },
-        "sequence-number": {
+        "position": {
           "type": "number",
           "predicate": "schema:position"
         },
