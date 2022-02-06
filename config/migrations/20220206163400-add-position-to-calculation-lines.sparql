@@ -1,0 +1,15 @@
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?s schema:position "1"^^xsd:integer
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?s a <http://data.rollvolet.be/vocabularies/crm/CalculationLine> .
+    FILTER NOT EXISTS {
+      ?s schema:position ?o .
+    }
+  }
+}

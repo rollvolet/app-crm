@@ -75,9 +75,17 @@
       "name": "calculation-line",
       "class": "crm:CalculationLine",
       "attributes": {
+        "position": {
+          "type": "number",
+          "predicate": "schema:position"
+        },
         "amount": {
           "type": "decimal",
           "predicate": "schema:amount"
+        },
+        "reduction-rate": {
+          "type": "decimal",
+          "predicate": "price:hasReductionRate"
         },
         "currency": {
           "type": "string",
