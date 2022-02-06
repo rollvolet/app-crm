@@ -30,7 +30,7 @@
           "predicate": "schema:value"
         },
         "order": {
-          "type": "number",
+          "type": "integer",
           "predicate": "schema:position",
           "_comment": "TODO: rename to 'position' once VAT rate is removed from SQL DB"
         },
