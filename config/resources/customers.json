@@ -404,6 +404,11 @@
           "predicate": "vcard:hasCountryName",
           "target": "country",
           "cardinality": "one"
+        },
+        "telephone-type": {
+          "predicate": "dct:type",
+          "target": "telephone-type",
+          "cardinality": "one"
         }
       },
       "features": [

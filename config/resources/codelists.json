@@ -205,6 +205,37 @@
         "include-uri"
       ],
       "new-resource-base": "http://data.rollvolet.be/language/"
+    },
+    "telephone-types": {
+      "name": "telephone-type",
+      "class": "vcard:TelephoneType",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:label"
+        },
+        "code": {
+          "type": "string",
+          "predicate": "skos:notation"
+        },
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier",
+          "_comment": "Legacy ID in SQL DB"
+        }
+      },
+      "relationships": {
+        "telephones": {
+          "predicate": "dct:type",
+          "target": "telephone",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/telephone-types/"
     }
   }
 }

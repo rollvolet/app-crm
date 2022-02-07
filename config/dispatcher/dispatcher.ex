@@ -74,6 +74,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/countries/"
   end
 
+  get "/api/telephone-types/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/telephone-types/"
+  end
+
+  get "/telephone-types/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/telephone-types/"
+  end
+
   match "/api/telephones/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/telephones/"
   end

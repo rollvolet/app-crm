@@ -1,0 +1,16 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+vcard:Voice a vcard:TelephoneType ;
+    mu:uuid "b24e423d-f5b7-4b1f-99fd-76358476f987" ;
+    skos:label "Telefoon" ;
+    skos:notation "TEL" ;
+    dct:identifier "1" .
+
+vcard:Fax a vcard:TelephoneType ;
+    mu:uuid "a6dbf26d-d558-462c-8e01-2fbb08ca4def" ;
+    skos:label "Fax" ;
+    skos:notation "FAX" ;
+    dct:identifier "2" .

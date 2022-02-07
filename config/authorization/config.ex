@@ -35,7 +35,8 @@ defmodule Acl.UserGroups.Config do
                 "http://data.rollvolet.be/vocabularies/crm/HonorificPrefix",
                 "http://data.rollvolet.be/vocabularies/crm/PostalCode",
                 "http://schema.org/Country",
-                "http://schema.org/Language"
+                "http://schema.org/Language",
+                "http://www.w3.org/2006/vcard/ns#TelephoneType"
               ]
             }
           }
