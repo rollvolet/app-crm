@@ -21,7 +21,7 @@
           "predicate": "dct:format"
         },
         "size": {
-          "type": "number",
+          "type": "integer",
           "predicate": "nfo:fileSize"
         },
         "extension": {
@@ -64,7 +64,7 @@
           "predicate": "dct:format"
         },
         "size": {
-          "type": "number",
+          "type": "integer",
           "predicate": "nfo:fileSize"
         },
         "extension": {

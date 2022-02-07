@@ -46,7 +46,7 @@
           "predicate": "dct:description"
         },
         "position": {
-          "type": "number",
+          "type": "integer",
           "predicate": "schema:position"
         },
         "offer": {
@@ -75,9 +75,17 @@
       "name": "calculation-line",
       "class": "crm:CalculationLine",
       "attributes": {
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
         "amount": {
           "type": "decimal",
           "predicate": "schema:amount"
+        },
+        "reduction-rate": {
+          "type": "decimal",
+          "predicate": "price:hasReductionRate"
         },
         "currency": {
           "type": "string",
@@ -115,7 +123,7 @@
           "predicate": "dct:description"
         },
         "position": {
-          "type": "number",
+          "type": "integer",
           "predicate": "schema:position"
         },
         "type": {
