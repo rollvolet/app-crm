@@ -12,4 +12,5 @@
 
 (read-domain-file "cases.json")
 (read-domain-file "codelists.json")
+(read-domain-file "customers.json")
 (read-domain-file "files.json")

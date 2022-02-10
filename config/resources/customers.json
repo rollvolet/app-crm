@@ -1,0 +1,420 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "gebouw": "https://data.vlaanderen.be/ns/gebouw#",
+    "nco": "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#",
+    "schema": "http://schema.org/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#"
+  },
+  "resources": {
+    "customers": {
+      "name": "customer",
+      "class": "vcard:VCard",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "vcard:Individual or vcard:Organization"
+        },
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "prefix": {
+          "type": "string",
+          "predicate": "vcard:hasGivenName"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFamilyName"
+        },
+        "suffix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificSuffix"
+        },
+        "url": {
+          "type": "url",
+          "predicate": "vcard:hasUrl"
+        },
+        "vat-id": {
+          "type": "string",
+          "predicate": "schema:vatID"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "vcard:hasNote"
+        },
+        "memo": {
+          "type": "string",
+          "predicate": "crm:memo",
+          "_comment": "Subproperty of vcard:hasNote"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        },
+        "modified": {
+          "type": "dateTime",
+          "predicate": "dct:modified"
+        },
+        "print-prefix": {
+          "type": "boolean",
+          "predicate": "crm:printPrefix"
+        },
+        "print-suffix": {
+          "type": "boolean",
+          "predicate": "crm:printSuffix"
+        },
+        "print-in-front": {
+          "type": "boolean",
+          "predicate": "crm:printSuffixInFront"
+        }
+      },
+      "relationships": {
+        "honorific-prefix": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "honorific-prefix",
+          "cardinality": "one"
+        },
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "language": {
+          "predicate": "vcard:hasLanguage",
+          "target": "language",
+          "cardinality": "one"
+        },
+        "emails": {
+          "predicate": "vcard:hasEmail",
+          "target": "email",
+          "cardinality": "many"
+        },
+        "telephones": {
+          "predicate": "vcard:hasTelephone",
+          "target": "telephone",
+          "cardinality": "many"
+        },
+        "contacts": {
+          "predicate": "nco:representative",
+          "target": "contact",
+          "cardinality": "many"
+        },
+        "buildings": {
+          "predicate": "schema:affiliation",
+          "target": "building",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/customers/"
+    },
+    "contacts": {
+      "name": "contact",
+      "class": "nco:Contact",
+      "attributes": {
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
+        "prefix": {
+          "type": "string",
+          "predicate": "vcard:hasGivenName"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFamilyName"
+        },
+        "suffix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificSuffix"
+        },
+        "url": {
+          "type": "url",
+          "predicate": "vcard:hasUrl"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "vcard:hasNote"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        },
+        "modified": {
+          "type": "dateTime",
+          "predicate": "dct:modified"
+        },
+        "print-prefix": {
+          "type": "boolean",
+          "predicate": "crm:printPrefix"
+        },
+        "print-suffix": {
+          "type": "boolean",
+          "predicate": "crm:printSuffix"
+        },
+        "print-in-front": {
+          "type": "boolean",
+          "predicate": "crm:printSuffixInFront"
+        }
+      },
+      "relationships": {
+        "honorific-prefix": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "honorific-prefix",
+          "cardinality": "one"
+        },
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "language": {
+          "predicate": "vcard:hasLanguage",
+          "target": "language",
+          "cardinality": "one"
+        },
+        "emails": {
+          "predicate": "vcard:hasEmail",
+          "target": "email",
+          "cardinality": "many"
+        },
+        "telephones": {
+          "predicate": "vcard:hasTelephone",
+          "target": "telephone",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/contacts/"
+    },
+    "buildings": {
+      "name": "building",
+      "class": "gebouw:Gebouw",
+      "attributes": {
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
+        "prefix": {
+          "type": "string",
+          "predicate": "vcard:hasGivenName"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFamilyName"
+        },
+        "suffix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificSuffix"
+        },
+        "url": {
+          "type": "url",
+          "predicate": "vcard:hasUrl"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "vcard:hasNote"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        },
+        "modified": {
+          "type": "dateTime",
+          "predicate": "dct:modified"
+        },
+        "print-prefix": {
+          "type": "boolean",
+          "predicate": "crm:printPrefix"
+        },
+        "print-suffix": {
+          "type": "boolean",
+          "predicate": "crm:printSuffix"
+        },
+        "print-in-front": {
+          "type": "boolean",
+          "predicate": "crm:printSuffixInFront"
+        }
+      },
+      "relationships": {
+        "honorific-prefix": {
+          "predicate": "vcard:hasHonorificPrefix",
+          "target": "honorific-prefix",
+          "cardinality": "one"
+        },
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "language": {
+          "predicate": "vcard:hasLanguage",
+          "target": "language",
+          "cardinality": "one"
+        },
+        "emails": {
+          "predicate": "vcard:hasEmail",
+          "target": "email",
+          "cardinality": "many"
+        },
+        "telephones": {
+          "predicate": "vcard:hasTelephone",
+          "target": "telephone",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/buildings/"
+    },
+    "addresses": {
+      "name": "address",
+      "class": "vcard:Address",
+      "attributes": {
+        "street": {
+          "type": "string",
+          "predicate": "vcard:hasStreetAddress"
+        }
+      },
+      "relationships": {
+        "postal-code": {
+          "predicate": "vcard:hasPostalCode",
+          "target": "postal-code",
+          "cardinality": "one"
+        },
+        "country": {
+          "predicate": "vcard:hasCountryName",
+          "target": "country",
+          "cardinality": "one"
+        },
+        "customer": {
+          "predicate": "vcard:hasAddress",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "contact": {
+          "predicate": "vcard:hasAddress",
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building": {
+          "predicate": "vcard:hasAddress",
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/addresses/"
+    },
+    "emails": {
+      "name": "email",
+      "class": "vcard:Email",
+      "attributes": {
+        "value": {
+          "type": "url",
+          "predicate": "vcard:hasValue"
+        },
+        "note": {
+          "type": "string",
+          "predicate": "vcard:hasNote"
+        }
+      },
+      "relationships": {
+        "customer": {
+          "predicate": "vcard:hasEmail",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "contact": {
+          "predicate": "vcard:hasEmail",
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building": {
+          "predicate": "vcard:hasEmail",
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/emails/"
+    },
+    "telephones": {
+      "name": "telephone",
+      "class": "vcard:Telephone",
+      "attributes": {
+        "value": {
+          "type": "string",
+          "predicate": "vcard:hasValue",
+          "_comment": "Phone number without country code"
+        },
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
+        "note": {
+          "type": "string",
+          "predicate": "vcard:hasNote"
+        },
+        "customer": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation and inverse triples once customer is defined as a resource"
+        },
+        "contact": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation and inverse triples once contact is defined as a resource"
+        },
+        "building": {
+          "type": "url",
+          "predicate": "vcard:hasTelephone",
+          "_comment": "TODO Refactor to relation and inverse triples once building is defined as a resource"
+        }
+      },
+      "relationships": {
+        "country": {
+          "predicate": "vcard:hasCountryName",
+          "target": "country",
+          "cardinality": "one"
+        },
+        "telephone-type": {
+          "predicate": "dct:type",
+          "target": "telephone-type",
+          "cardinality": "one"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/telephones/"
+    }
+  }
+}
