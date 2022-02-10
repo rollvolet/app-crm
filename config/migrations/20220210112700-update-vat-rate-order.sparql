@@ -1,0 +1,19 @@
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/vat-rates/21a62531-b083-4f2b-a5e5-bb73c0f24646> schema:position ?position12 .
+    <http://data.rollvolet.be/vat-rates/bcf63076-30ab-45ce-b2f3-a743057d9929> schema:position ?position20 .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/vat-rates/21a62531-b083-4f2b-a5e5-bb73c0f24646> schema:position "42"^^xsd:integer .
+    <http://data.rollvolet.be/vat-rates/bcf63076-30ab-45ce-b2f3-a743057d9929> schema:position "44"^^xsd:integer .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/vat-rates/21a62531-b083-4f2b-a5e5-bb73c0f24646> schema:position ?position12 .
+    <http://data.rollvolet.be/vat-rates/bcf63076-30ab-45ce-b2f3-a743057d9929> schema:position ?position20 .
+  }
+}
