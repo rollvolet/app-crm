@@ -69,7 +69,7 @@ services:
     restart: always
     logging: *default-logging
   msal-login:
-    image: rollvolet/msal-login-service:0.3.2
+    image: rollvolet/msal-login-service:0.3.3
     environment:
       AUTH_SCOPES: "User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All"
       AUTH_REFRESH_TOKENS: "true"
