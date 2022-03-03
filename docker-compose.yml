@@ -21,7 +21,7 @@ services:
     restart: always
     logging: *default-logging
   frontend:
-    image: rollvolet/frontend-crm:2.2.0
+    image: rollvolet/frontend-crm:2.2.1
     environment:
       EMBER_AUTH_CLIENT_ID: '552ea087-fcd9-4d53-911b-19b11ff6631a'
       EMBER_AUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
@@ -78,7 +78,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:2.2.0
+    image: rollvolet/crm-api:2.2.1
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
