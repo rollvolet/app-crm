@@ -69,14 +69,16 @@ services:
     restart: always
     logging: *default-logging
   msal-login:
-    image: rollvolet/msal-login-service:0.3.3
+    image: rollvolet/msal-login-service:1.0.0
     environment:
       AUTH_SCOPES: "User.Read Calendars.ReadWrite.Shared Files.ReadWrite.All"
       AUTH_REFRESH_TOKENS: "true"
-    volumes:
-      - ./data/token-cache:/cache
     restart: always
     logging: *default-logging
+  token-cache:
+    image: redis:6.2.6
+    volumes:
+      - ./data/token-cache:/data
   monolith-backend:
     image: rollvolet/crm-api:2.2.1
     volumes:
