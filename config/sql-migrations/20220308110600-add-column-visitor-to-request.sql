@@ -1,0 +1,1 @@
+ALTER TABLE dbo.TblAanvraag ADD Bezoeker VARCHAR(100) DEFAULT (NULL);
