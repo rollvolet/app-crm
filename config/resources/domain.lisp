@@ -14,3 +14,4 @@
 (read-domain-file "codelists.json")
 (read-domain-file "customers.json")
 (read-domain-file "files.json")
+(read-domain-file "calendars.json")

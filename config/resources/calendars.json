@@ -1,0 +1,91 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "ncal": "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#",
+    "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
+    "crm": "http://data.rollvolet.be/vocabularies/crm/"
+  },
+  "resources": {
+    "calendar-events": {
+      "name": "calendar-event",
+      "class": "ncal:Event",
+      "attributes": {
+        "ms-identifier": {
+          "type": "string",
+          "predicate": "ncal:uid",
+          "_comment": "MS Object identifier of the calendar event"
+        },
+        "date": {
+          "type": "date",
+          "predicate": "ncal:date",
+          "_comment": "Should actually be modelled with intermediate ncal:NcalDate resource"
+        },
+        "subject": {
+          "type": "string",
+          "predicate": "ncal:summary"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "ncal:description"
+        },
+        "location": {
+          "type": "string",
+          "predicate": "ncal:location"
+        },
+        "url": {
+          "type": "url",
+          "predicate": "ncal:url"
+        },
+        "request": {
+          "type": "url",
+          "predicate": "dct:subject",
+          "_comment": "TODO Refactor to relation once request is defined as a resource"
+        },
+        "intervention": {
+          "type": "url",
+          "predicate": "dct:subject",
+          "_comment": "TODO Refactor to relation once intervention is defined as a resource"
+        },
+        "order": {
+          "type": "url",
+          "predicate": "dct:subject",
+          "_comment": "TODO Refactor to relation once order is defined as a resource"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "calendar": {
+          "predicate": "ncal:component",
+          "target": "calendar",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/calendar-events/",
+      "features": ["include-uri"]
+    },
+    "calendars": {
+      "name": "calendar",
+      "class": "ncal:Calendar",
+      "attributes": {
+        "title": {
+          "type": "string",
+          "predicate": "nie:title"
+        }
+      },
+      "relationships": {
+        "calendar-events": {
+          "predicate": "ncal:component",
+          "target": "calendar-event",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/calendars/",
+      "features": ["include-uri"]
+    }
+  }
+}

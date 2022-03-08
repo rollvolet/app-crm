@@ -114,6 +114,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/invoicelines/"
   end
 
+  get "/api/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calendar-events/"
+  end
+
+  get "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calendar-events/"
+  end
+
   get "/api/files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/files/"
   end

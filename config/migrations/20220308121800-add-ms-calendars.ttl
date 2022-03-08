@@ -1,0 +1,13 @@
+@prefix ncal: <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#> .
+
+<http://data.rollvolet.be/calendars/88e92b1b-c3e2-4a2e-a7a4-d34aee6c7746> a ncal:Calendar ;
+    mu:uuid "88e92b1b-c3e2-4a2e-a7a4-d34aee6c7746" ;
+    nie:title "Klantenbezoeken" ;
+    nie:identifier "5206ffd2-343d-4e77-b874-af5c8af357c5" .
+
+<http://data.rollvolet.be/calendars/0147d534-d7c2-49dc-bd8f-bb6951664017> a ncal:Calendar ;
+    mu:uuid "0147d534-d7c2-49dc-bd8f-bb6951664017" ;
+    nie:title "Planning" ;
+    nie:identifier "cd6bc716-0ed8-4185-abde-322b19554121" .
