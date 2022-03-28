@@ -129,3 +129,7 @@ services:
       MS_DRIVE_ID: "my-microsoft-drive-id"
     restart: always
     logging: *default-logging
+  ms-calendar:
+    image: rollvolte/ms-calendar-service:0.1.0
+    restart: always
+    logging: *default-logging
