@@ -62,7 +62,8 @@
         "calendar": {
           "predicate": "ncal:component",
           "target": "calendar",
-          "cardinality": "one"
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.rollvolet.be/calendar-events/",
