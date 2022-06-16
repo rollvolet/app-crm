@@ -103,7 +103,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:2.4.0
+    image: rollvolet/document-generation-service:2.4.1
     links:
       - virtuoso:database
     volumes:
