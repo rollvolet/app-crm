@@ -1,0 +1,16 @@
+DELETE {
+  GRAPH ?g {
+    ?s <http://purl.org/dc/terms/source> "Access" .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?s <http://purl.org/dc/terms/source> "RKB" .
+  }
+} WHERE  {
+  GRAPH ?g {
+    ?s a <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event> ;
+    <http://purl.org/dc/terms/source> "Access" ;
+    <http://purl.org/dc/terms/subject> ?subject .
+    FILTER(CONTAINS(STR(?subject), "intervention"))
+  }
+}
