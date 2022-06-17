@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+
+UPDATE TblAanvraag
+SET Beschrijving = req.Opmerking
+FROM TblAanvraag req
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
