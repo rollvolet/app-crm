@@ -52,6 +52,7 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/rollvolet",
             constraint: %ResourceConstraint{
               resource_types: [
+                "http://www.w3.org/ns/person#Person",
                 "http://www.w3.org/2006/vcard/ns#VCard",
                 "https://data.vlaanderen.be/ns/gebouw#Gebouw",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",

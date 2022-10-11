@@ -16,3 +16,4 @@
 (read-domain-file "invoices.json")
 (read-domain-file "files.json")
 (read-domain-file "calendars.json")
+(read-domain-file "users.json")

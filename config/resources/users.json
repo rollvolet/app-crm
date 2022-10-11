@@ -1,0 +1,50 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "frapo": "http://purl.org/cerif/frapo/",
+    "person": "http://www.w3.org/ns/person#",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "resources": {
+    "employees": {
+      "name": "employee",
+      "class": "person:Person",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "crm:employee/Administrative or crm:employee/Technician"
+        },
+        "first-name": {
+          "type": "string",
+          "predicate": "foaf:firstName"
+        },
+        "last-name": {
+          "type": "string",
+          "predicate": "foaf:givenName"
+        },
+        "initials": {
+          "type": "string",
+          "predicate": "frapo:initial"
+        },
+        "end-date": {
+          "type": "dateTime",
+          "predicate": "prov:invalidatedAtTime"
+        }
+      },
+      "relationships": {
+        "technical-work-activities": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "technical-work-activity",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/employees/"
+    }
+  }
+}
