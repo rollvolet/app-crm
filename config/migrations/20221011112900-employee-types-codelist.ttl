@@ -1,0 +1,16 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+
+<http://data.rollvolet.be/concept-schemes/894b0bab-f0f6-45b3-90a3-cbe04319d5b3> a skos:ConceptScheme ;
+    mu:uuid "894b0bab-f0f6-45b3-90a3-cbe04319d5b3" ;
+    skos:prefLabel "Employee types" .
+
+<http://data.rollvolet.be/employee-types/18734ab3-b8c4-428c-aca3-beb4d8e0e0ea> a skos:Concept ;
+    mu:uuid "18734ab3-b8c4-428c-aca3-beb4d8e0e0ea" ;
+    skos:prefLabel "Administratief bediende" ;
+    skos:inSchema <http://data.rollvolet.be/concept-schemes/894b0bab-f0f6-45b3-90a3-cbe04319d5b3> .
+
+<http://data.rollvolet.be/employee-types/4d6b2df9-e878-4b03-8d3d-801932c8b7f2> a skos:Concept ;
+    mu:uuid "4d6b2df9-e878-4b03-8d3d-801932c8b7f2" ;
+    skos:prefLabel "Technieker" ;
+    skos:inSchema <http://data.rollvolet.be/concept-schemes/894b0bab-f0f6-45b3-90a3-cbe04319d5b3> .
