@@ -11,6 +11,11 @@
       "name": "employee",
       "class": "person:Person",
       "attributes": {
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier",
+          "_comment": "Legacy ID in SQL DB"
+        },
         "type": {
           "type": "url",
           "predicate": "dct:type",
