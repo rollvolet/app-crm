@@ -1,0 +1,114 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "frapo": "http://purl.org/cerif/frapo/",
+    "price": "http://data.rollvolet.be/vocabularies/pricing/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/"
+  },
+  "resources": {
+    "invoices": {
+      "name": "invoice",
+      "class": "schema:Invoice",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "price:payment/Debit or price:payment/Credit"
+        },
+        "number": {
+          "type": "integer",
+          "predicate": "dct:identifier"
+        },
+        "invoice-date": {
+          "type": "dateTime",
+          "predicate": "frapo:hasInvoiceDate"
+        },
+        "due-date": {
+          "type": "dateTime",
+          "predicate": "schema:paymentDueDate"
+        },
+        "booking-date": {
+          "type": "dateTime",
+          "predicate": "crm:bookingDate",
+          "_comment": "Datetime of sending the invoice to the accountancy system"
+        },
+        "cancellation-date": {
+          "type": "dateTime",
+          "predicate": "prov:invalidatedAtTime",
+          "_comment": "TODO: shouldn't this be a closing date on the case?"
+        },
+        "total-amount-net": {
+          "type": "decimal",
+          "predicate": "schema:amount",
+          "_comment": "Total invoice amount (sum of invoicelines) excluding VAT"
+        },
+        "payment-amount-net": {
+          "type": "decimal",
+          "predicate": "schema:totalPaymentDue",
+          "_comment": "Total invoice amount minus all deposit-invoice amounts excluding VAT"
+        },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
+        },
+        "document-outro": {
+          "type": "string",
+          "predicate": "crm:documentOutro"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "technical-work-activities": {
+          "predicate": "prov:wasInfluencedBy",
+          "target": "technical-work-activity",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/invoices/"
+    },
+    "technical-work-activities": {
+      "name": "technical-work-activity",
+      "class": "crm:TechnicalWork",
+      "_comment": "Subclass of prov:Activity",
+      "attributes": {
+        "date": {
+          "type": "dateTime",
+          "predicate": "prov:startedAtTime"
+        }
+      },
+      "relationships": {
+        "invoice": {
+          "predicate": "prov:wasInfluencedBy",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "employee": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "employee ",
+          "cardinality": "one"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/technical-work-activities/"
+    }
+  }
+}

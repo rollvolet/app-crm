@@ -1,13 +1,15 @@
 {
   "version": "0.1",
   "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
-    "schema": "http://schema.org/",
     "dossier": "https://data.vlaanderen.be/ns/dossier#",
     "ext": "http://mu.semte.ch/vocabularies/ext/",
-    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "frapo": "http://purl.org/cerif/frapo/",
     "price": "http://data.rollvolet.be/vocabularies/pricing/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
   },
   "resources": {
     "cases": {
@@ -17,13 +19,66 @@
         "identifier": {
           "type": "string",
           "predicate": "dct:identifier"
+        },
+        "reference": {
+          "type": "string",
+          "predicate": "frapo:hasReferenceNumber"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "skos:comment"
+        },
+        "customer": {
+          "type": "url",
+          "predicate": "schema:customer",
+          "_comment": "TODO Refactor to relation once customer is defined as a resource"
+        },
+        "contact": {
+          "type": "url",
+          "predicate": "crm:contact",
+          "_comment": "TODO Refactor to relation once contact is defined as a resource"
+        },
+        "building": {
+          "type": "url",
+          "predicate": "crm:building",
+          "_comment": "TODO Refactor to relation once building is defined as a resource"
+        },
+        "request": {
+          "type": "url",
+          "predicate": "ext:request",
+          "_comment": "TODO Refactor to relation once request is defined as a resource"
+        },
+        "intervention": {
+          "type": "url",
+          "predicate": "ext:intervention",
+          "_comment": "TODO Refactor to relation once intervention is defined as a resource"
+        },
+        "order": {
+          "type": "url",
+          "predicate": "ext:order",
+          "_comment": "TODO Refactor to relation once order is defined as a resource"
         }
       },
       "relationships": {
+        "vat-rate": {
+          "predicate": "price:hasVatRate",
+          "target": "vat-rate",
+          "cardinality": "one"
+        },
         "attachments": {
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "file",
           "cardinality": "many"
+        },
+        "deposit-invoices": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "deposit-invoice",
+          "cardinality": "many"
+        },
+        "invoice": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "invoice",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",

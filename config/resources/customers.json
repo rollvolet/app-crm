@@ -107,6 +107,12 @@
           "predicate": "schema:affiliation",
           "target": "building",
           "cardinality": "many"
+        },
+        "cases": {
+          "predicate": "schema:customer",
+          "target": "case",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
@@ -192,6 +198,12 @@
           "predicate": "vcard:hasTelephone",
           "target": "telephone",
           "cardinality": "many"
+        },
+        "cases": {
+          "predicate": "crm:contact",
+          "target": "case",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
@@ -277,6 +289,12 @@
           "predicate": "vcard:hasTelephone",
           "target": "telephone",
           "cardinality": "many"
+        },
+        "cases": {
+          "predicate": "crm:building",
+          "target": "case",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
