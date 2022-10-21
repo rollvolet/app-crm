@@ -88,7 +88,7 @@
       "_comment": "Subclass of prov:Activity",
       "attributes": {
         "date": {
-          "type": "dateTime",
+          "type": "date",
           "predicate": "prov:startedAtTime"
         }
       },
