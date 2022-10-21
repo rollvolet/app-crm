@@ -101,7 +101,7 @@
         },
         "employee": {
           "predicate": "prov:wasAssociatedWith",
-          "target": "employee ",
+          "target": "employee",
           "cardinality": "one"
         }
       },
