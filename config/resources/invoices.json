@@ -90,15 +90,14 @@
         "date": {
           "type": "date",
           "predicate": "prov:startedAtTime"
+        },
+        "invoice": {
+          "type": "url",
+          "predicate": "prov:wasInfluencedBy",
+          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
         }
       },
       "relationships": {
-        "invoice": {
-          "predicate": "prov:wasInfluencedBy",
-          "target": "invoice",
-          "cardinality": "one",
-          "inverse": true
-        },
         "employee": {
           "predicate": "prov:wasAssociatedWith",
           "target": "employee",

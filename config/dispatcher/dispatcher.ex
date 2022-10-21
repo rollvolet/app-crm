@@ -130,13 +130,13 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
-  match "/api/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/invoices/"
-  end
+  # match "/api/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
+  #   Proxy.forward conn, path, "http://cache/invoices/"
+  # end
 
-  match "/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/invoices/"
-  end
+  # match "/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
+  #   Proxy.forward conn, path, "http://cache/invoices/"
+  # end
 
   match "/api/invoicelines/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/invoicelines/"
