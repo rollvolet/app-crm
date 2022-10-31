@@ -133,5 +133,7 @@ services:
     logging: *default-logging
   ms-calendar:
     image: rollvolet/ms-calendar-service:0.3.2
+    environment:
+      USE_PERSONAL_CALENDAR: "false"
     restart: always
     logging: *default-logging
