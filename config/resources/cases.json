@@ -53,10 +53,25 @@
           "predicate": "ext:intervention",
           "_comment": "TODO Refactor to relation once intervention is defined as a resource"
         },
+        "offer": {
+          "type": "url",
+          "predicate": "ext:offer",
+          "_comment": "TODO Refactor to relation once offer is defined as a resource"
+        },
         "order": {
           "type": "url",
           "predicate": "ext:order",
           "_comment": "TODO Refactor to relation once order is defined as a resource"
+        },
+        "deposit-invoices": {
+          "type": "uri-set",
+          "predicate": "ext:depositInvoice",
+          "_comment": "TODO Refactor to relation once deposit-invoice is defined as a resource"
+        },
+        "invoice": {
+          "type": "url",
+          "predicate": "ext:invoice",
+          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
         }
       },
       "relationships": {
@@ -69,16 +84,6 @@
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "file",
           "cardinality": "many"
-        },
-        "deposit-invoices": {
-          "predicate": "dossier:Dossier.bestaatUit",
-          "target": "deposit-invoice",
-          "cardinality": "many"
-        },
-        "invoice": {
-          "predicate": "dossier:Dossier.bestaatUit",
-          "target": "invoice",
-          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",
