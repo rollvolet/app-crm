@@ -41,20 +41,20 @@ defmodule Dispatcher do
 
   ## Monolith exceptions (to be phased out in the long run)
 
-  match "/api/cases/current/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://monolith-backend/api/cases/"
-    # Proxy.forward conn, path, "http://172.17.0.1:5010/api/cases/"
+  post "/api/cases/current/contact-and-building", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://monolith-backend/api/cases/contact-and-building"
+    # Proxy.forward conn, [], "http://172.17.0.1:5010/api/cases/contact-and-building"
   end
 
 
   ## Resources
   ## TODO remove /api-prefixed routes to resources once monolith-backend is phased out
 
-  get "/api/cases/*path", %{ layer: :services, accept: %{ json: true } } do
+  match "/api/cases/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/cases/"
   end
 
-  get "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
+  match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/cases/"
   end
 
