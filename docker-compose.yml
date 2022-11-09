@@ -23,8 +23,8 @@ services:
   frontend:
     image: rollvolet/frontend-crm:2.6.0
     environment:
-      EMBER_AUTH_CLIENT_ID: '552ea087-fcd9-4d53-911b-19b11ff6631a'
-      EMBER_AUTH_REDIRECT_URI: 'https://crm.rollvolet.info/torii/redirect.html'
+      EMBER_AUTH_CLIENT_ID: "552ea087-fcd9-4d53-911b-19b11ff6631a"
+      EMBER_AUTH_REDIRECT_URI: "https://crm.rollvolet.info/torii/redirect.html"
     restart: always
     logging: *default-logging
   database:
@@ -92,8 +92,8 @@ services:
   sql-database:
     image: mcr.microsoft.com/mssql/server:2017-GA-ubuntu
     environment:
-      ACCEPT_EULA: 'Y'
-      SA_PASSWORD: 'secret'
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "secret"
     volumes:
       - ./data/sql-db:/var/opt/mssql/data
       - ./logs/sql-database:/var/opt/mssql/log
