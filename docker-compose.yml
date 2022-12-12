@@ -82,7 +82,7 @@ services:
     restart: always
     logging: *default-logging
   monolith-backend:
-    image: rollvolet/crm-api:2.5.1
+    image: rollvolet/crm-api:2.5.3
     volumes:
       - ./config/backend/config.json:/app/config.json
       - ./logs/backend:/app/logs
