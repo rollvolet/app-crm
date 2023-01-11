@@ -312,7 +312,8 @@ form div.input-field {
     text-align: center;
 }
 
-.certificate-notification {
+.certificate-notification,
+.btw-verlegd {
     font-size: 7pt;
 }
 
