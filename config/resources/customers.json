@@ -309,14 +309,17 @@
         "street": {
           "type": "string",
           "predicate": "vcard:hasStreetAddress"
+        },
+        "postal-code": {
+          "type": "string",
+          "predicate": "vcard:hasPostalCode"
+        },
+        "city": {
+          "type": "string",
+          "predicate": "vcard:hasLocality"
         }
       },
       "relationships": {
-        "postal-code": {
-          "predicate": "vcard:hasPostalCode",
-          "target": "postal-code",
-          "cardinality": "one"
-        },
         "country": {
           "predicate": "vcard:hasCountryName",
           "target": "country",
@@ -328,15 +331,33 @@
           "cardinality": "one",
           "inverse": true
         },
+        "customer-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "customer-snapshot",
+          "cardinality": "one",
+          "inverse": true
+        },
         "contact": {
           "predicate": "vcard:hasAddress",
           "target": "contact",
           "cardinality": "one",
           "inverse": true
         },
+        "contact-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "contact-snapshot",
+          "cardinality": "one",
+          "inverse": true
+        },
         "building": {
           "predicate": "vcard:hasAddress",
           "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "building-snapshot",
           "cardinality": "one",
           "inverse": true
         }
@@ -427,6 +448,13 @@
           "predicate": "dct:type",
           "target": "telephone-type",
           "cardinality": "one"
+        },
+        "customer-snapshots": {
+          "predicate": "vcard:hasTelephone",
+          "target": "customer-snapshot",
+          "cardinality": "many",
+          "inverse": true,
+          "_comment": "TODO: remove once customers are converted to triplestore"
         }
       },
       "features": [

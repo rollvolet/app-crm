@@ -116,6 +116,18 @@
           "target": "offerline",
           "cardinality": "many",
           "inverse": true
+        },
+        "invoicelines": {
+          "predicate": "price:hasVatRate",
+          "target": "invoiceline",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "cases": {
+          "predicate": "p2poPrice:hasVATCategoryCode",
+          "target": "case",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.rollvolet.be/vat-rates/",
@@ -214,7 +226,7 @@
         }
       },
       "relationships": {
-        "address": {
+        "addresses": {
           "predicate": "vcard:hasCountryName",
           "target": "address",
           "cardinality": "many",

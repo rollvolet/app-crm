@@ -6,49 +6,61 @@
     "frapo": "http://purl.org/cerif/frapo/",
     "price": "http://data.rollvolet.be/vocabularies/pricing/",
     "prov": "http://www.w3.org/ns/prov#",
-    "schema": "http://schema.org/"
+    "schema": "http://schema.org/",
+    "p2poDocument": "https://purl.org/p2p-o/document#",
+    "p2poInvoice": "https://purl.org/p2p-o/invoice#"
   },
   "resources": {
     "invoices": {
       "name": "invoice",
-      "class": "schema:Invoice",
+      "class": "p2poDocument:E-Invoice",
       "attributes": {
         "type": {
           "type": "url",
           "predicate": "dct:type",
-          "_comment": "price:payment/Debit or price:payment/Credit"
+          "_comment": "p2poInvoice:E-CreditNote, p2poInvoice:E-FinalInvoice, p2poInvoice:E-PrePaymentInvoice"
         },
         "number": {
           "type": "integer",
-          "predicate": "dct:identifier"
+          "predicate": "p2poInvoice:invoiceNumber"
         },
         "invoice-date": {
-          "type": "dateTime",
-          "predicate": "frapo:hasInvoiceDate"
+          "type": "date",
+          "predicate": "p2poInvoice:dateOfIssue"
         },
         "due-date": {
-          "type": "dateTime",
-          "predicate": "schema:paymentDueDate"
+          "type": "date",
+          "predicate": "p2poInvoice:paymentDueDate"
         },
         "booking-date": {
-          "type": "dateTime",
+          "type": "date",
           "predicate": "crm:bookingDate",
           "_comment": "Datetime of sending the invoice to the accountancy system"
         },
+        "payment-date": {
+          "type": "date",
+          "predicate": "crm:paymentDate",
+          "_comment": "Datetime the payment is received on the bank account"
+        },
         "cancellation-date": {
-          "type": "dateTime",
+          "type": "date",
           "predicate": "prov:invalidatedAtTime",
           "_comment": "TODO: shouldn't this be a closing date on the case?"
         },
         "total-amount-net": {
           "type": "decimal",
-          "predicate": "schema:amount",
+          "predicate": "p2poInvoice:hasTotalLineNetAmount",
           "_comment": "Total invoice amount (sum of invoicelines) excluding VAT"
         },
         "payment-amount-net": {
           "type": "decimal",
-          "predicate": "schema:totalPaymentDue",
+          "predicate": "p2poInvoice:hasTotalDueForPaymentAmount",
           "_comment": "Total invoice amount minus all deposit-invoice amounts excluding VAT"
+        },
+        "vat-amount": {
+          "type": "decimal",
+          "predicate": "p2poInvoice:hasTotalVATAmount",
+          "_comment": "VAT calculated on payment-amount-net"
         },
         "currency": {
           "type": "string",
@@ -56,7 +68,7 @@
         },
         "document-outro": {
           "type": "string",
-          "predicate": "crm:documentOutro"
+          "predicate": "p2poInvoice:paymentTerms"
         },
         "source": {
           "type": "string",
@@ -71,16 +83,95 @@
           "cardinality": "one",
           "inverse": true
         },
+        "invoicelines": {
+          "predicate": "p2poInvoice:hasInvoiceLine",
+          "target": "invoiceline",
+          "cardinality": "many"
+        },
+        "credit-note": {
+          "predicate": "p2poInvoice:followsInvoice",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "credited-invoice": {
+          "predicate": "p2poInvoice:followsInvoice",
+          "target": "invoice",
+          "cardinality": "one"
+        },
         "technical-work-activities": {
           "predicate": "prov:wasInfluencedBy",
           "target": "technical-work-activity",
-          "cardinality": "many"
+          "cardinality": "many",
+          "inverse": true
+        },
+        "customer": {
+          "predicate": "p2poInvoice:hasBuyer",
+          "target": "customer-snapshot",
+          "cardinality": "one"
+        },
+        "contact": {
+          "predicate": "p2poInvoice:hasBuyerContactPoint",
+          "target": "contact-snapshot",
+          "cardinality": "one"
+        },
+        "building": {
+          "predicate": "crm:hasBuyerBuilding",
+          "target": "building-snapshot",
+          "cardinality": "one"
         }
       },
       "features": [
         "include-uri"
       ],
       "new-resource-base": "http://data.rollvolet.be/invoices/"
+    },
+    "invoicelines": {
+      "name": "invoiceline",
+      "class": "crm:Invoiceline",
+      "attributes": {
+        "amount": {
+          "type": "decimal",
+          "predicate": "schema:amount"
+        },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "Used to indicate invoicelines that originate from supplements in Access"
+        },
+        "order": {
+          "type": "url",
+          "predicate": "prov:wasDerivedFrom",
+          "_comment": "TODO Refactor to relation once order is defined as a resource"
+        }
+      },
+      "relationships": {
+        "vat-rate": {
+          "predicate": "price:hasVatRate",
+          "target": "vat-rate",
+          "cardinality": "one"
+        },
+        "invoice": {
+          "predicate": "p2poInvoice:hasInvoiceLine",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/invoicelines/",
+      "features": ["include-uri"]
     },
     "technical-work-activities": {
       "name": "technical-work-activity",
@@ -90,11 +181,6 @@
         "date": {
           "type": "date",
           "predicate": "prov:startedAtTime"
-        },
-        "invoice": {
-          "type": "url",
-          "predicate": "prov:wasInfluencedBy",
-          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
         }
       },
       "relationships": {
@@ -102,12 +188,140 @@
           "predicate": "prov:wasAssociatedWith",
           "target": "employee",
           "cardinality": "one"
+        },
+        "invoice": {
+          "predicate": "prov:wasInfluencedBy",
+          "target": "invoice",
+          "cardinality": "one"
         }
       },
       "features": [
         "include-uri"
       ],
       "new-resource-base": "http://data.rollvolet.be/technical-work-activities/"
+    },
+    "customer-snapshots": {
+      "name": "customer-snapshot",
+      "class": "crm:CustomerSnapshot",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "vcard:Individual or vcard:Organization"
+        },
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFN",
+          "_comment": "Full name as it appears on the invoice document"
+        },
+        "vat-number": {
+          "type": "string",
+          "predicate": "schema:vatID"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        }
+      },
+      "relationships": {
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "invoice": {
+          "predicate": "p2poInvoice:hasBuyer",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "telephones": {
+          "predicate": "vcard:hasTelephone",
+          "target": "telephone",
+          "cardinality": "many",
+          "_comment": "TODO: remove once customers are converted to triplestore"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/customer-snapshots/"
+    },
+    "contact-snapshots": {
+      "name": "contact-snapshot",
+      "class": "crm:ContactSnapshot",
+      "attributes": {
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFN",
+          "_comment": "Full name as it appears on the invoice document"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        }
+      },
+      "relationships": {
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "invoice": {
+          "predicate": "p2poInvoice:hasBuyerContactPoint",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/customer-snapshots/"
+    },
+    "building-snapshots": {
+      "name": "building-snapshot",
+      "class": "crm:BuildingSnapshot",
+      "attributes": {
+        "number": {
+          "type": "integer",
+          "predicate": "vcard:hasUID"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "vcard:hasFN",
+          "_comment": "Full name as it appears on the invoice document"
+        },
+        "created": {
+          "type": "dateTime",
+          "predicate": "dct:created"
+        }
+      },
+      "relationships": {
+        "address": {
+          "predicate": "vcard:hasAddress",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "invoice": {
+          "predicate": "crm:hasBuyerBuilding",
+          "target": "invoice",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/customer-snapshots/"
     }
   }
 }

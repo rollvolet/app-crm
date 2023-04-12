@@ -9,7 +9,8 @@
     "price": "http://data.rollvolet.be/vocabularies/pricing/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#"
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "p2poPrice": "https://purl.org/p2p-o/document#"
   },
   "resources": {
     "cases": {
@@ -27,6 +28,20 @@
         "comment": {
           "type": "string",
           "predicate": "skos:comment"
+        },
+        "has-production-ticket": {
+          "type": "boolean",
+          "predicate": "crm:hasProductionTicket",
+          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
+        },
+        "certificate-required": {
+          "type": "boolean",
+          "predicate": "crm:requiresVatCertificate"
+        },
+        "certificate-received": {
+          "type": "boolean",
+          "predicate": "crm:hasVatCertificate",
+          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
         },
         "customer": {
           "type": "url",
@@ -62,27 +77,22 @@
           "type": "url",
           "predicate": "ext:order",
           "_comment": "TODO Refactor to relation once order is defined as a resource"
-        },
-        "deposit-invoices": {
-          "type": "uri-set",
-          "predicate": "ext:depositInvoice",
-          "_comment": "TODO Refactor to relation once deposit-invoice is defined as a resource"
-        },
-        "invoice": {
-          "type": "url",
-          "predicate": "ext:invoice",
-          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
         }
       },
       "relationships": {
         "vat-rate": {
-          "predicate": "price:hasVatRate",
+          "predicate": "p2poPrice:hasVATCategoryCode",
           "target": "vat-rate",
           "cardinality": "one"
         },
         "attachments": {
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "file",
+          "cardinality": "many"
+        },
+        "invoices": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "invoice",
           "cardinality": "many"
         }
       },
@@ -164,52 +174,6 @@
         }
       },
       "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
-      "features": ["include-uri"]
-    },
-    "invoicelines": {
-      "name": "invoiceline",
-      "class": "crm:Invoiceline",
-      "attributes": {
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        },
-        "position": {
-          "type": "integer",
-          "predicate": "schema:position"
-        },
-        "type": {
-          "type": "url",
-          "predicate": "dct:type",
-          "_comment": "Used to indicate invoicelines that originate from supplements in Access"
-        },
-        "order": {
-          "type": "url",
-          "predicate": "prov:wasDerivedFrom",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
-        },
-        "invoice": {
-          "type": "url",
-          "predicate": "dct:isPartOf",
-          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
-        }
-      },
-      "relationships": {
-        "vat-rate": {
-          "predicate": "price:hasVatRate",
-          "target": "vat-rate",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.rollvolet.be/invoicelines/",
       "features": ["include-uri"]
     }
   }

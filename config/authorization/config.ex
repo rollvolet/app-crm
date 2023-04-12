@@ -63,7 +63,7 @@ defmodule Acl.UserGroups.Config do
                 "http://www.w3.org/2006/vcard/ns#Telephone",
                 "http://data.rollvolet.be/vocabularies/crm/Offerline",
                 "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
-                "http://schema.org/Invoice",
+                "https://purl.org/p2p-o/document#E-Invoice",
                 "http://data.rollvolet.be/vocabularies/crm/Invoiceline",
                 "http://data.rollvolet.be/vocabularies/crm/TechnicalWork",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
