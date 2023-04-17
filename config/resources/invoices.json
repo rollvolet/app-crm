@@ -11,14 +11,14 @@
     "p2poInvoice": "https://purl.org/p2p-o/invoice#"
   },
   "resources": {
-    "invoices": {
-      "name": "invoice",
+    "invoice-documents": {
+      "name": "invoice-document",
       "class": "p2poDocument:E-Invoice",
       "attributes": {
         "type": {
           "type": "url",
           "predicate": "dct:type",
-          "_comment": "p2poInvoice:E-CreditNote, p2poInvoice:E-FinalInvoice, p2poInvoice:E-PrePaymentInvoice"
+          "_comment": "Possibly p2poInvoice:E-CreditNote"
         },
         "number": {
           "type": "integer",
@@ -55,7 +55,7 @@
         "payment-amount-net": {
           "type": "decimal",
           "predicate": "p2poInvoice:hasTotalDueForPaymentAmount",
-          "_comment": "Total invoice amount minus all deposit-invoice amounts excluding VAT"
+          "_comment": "Total invoice amount minus all deposit-(invoice) amounts excluding VAT"
         },
         "vat-amount": {
           "type": "decimal",
@@ -70,6 +70,15 @@
           "type": "string",
           "predicate": "p2poInvoice:paymentTerms"
         },
+        "certificate-required": {
+          "type": "boolean",
+          "predicate": "crm:requiresVatCertificate"
+        },
+        "certificate-received": {
+          "type": "boolean",
+          "predicate": "crm:hasVatCertificate",
+          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
+        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
@@ -77,33 +86,16 @@
         }
       },
       "relationships": {
-        "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
-          "target": "case",
-          "cardinality": "one",
-          "inverse": true
-        },
-        "invoicelines": {
-          "predicate": "p2poInvoice:hasInvoiceLine",
-          "target": "invoiceline",
-          "cardinality": "many"
-        },
         "credit-note": {
           "predicate": "p2poInvoice:followsInvoice",
-          "target": "invoice",
+          "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
         },
         "credited-invoice": {
           "predicate": "p2poInvoice:followsInvoice",
-          "target": "invoice",
+          "target": "invoice-document",
           "cardinality": "one"
-        },
-        "technical-work-activities": {
-          "predicate": "prov:wasInfluencedBy",
-          "target": "technical-work-activity",
-          "cardinality": "many",
-          "inverse": true
         },
         "customer": {
           "predicate": "p2poInvoice:hasBuyer",
@@ -119,6 +111,58 @@
           "predicate": "crm:hasBuyerBuilding",
           "target": "building-snapshot",
           "cardinality": "one"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/invoice-documents/"
+    },
+    "deposit-invoices": {
+      "name": "deposit-invoice",
+      "class": "p2poInvoice:E-PrePaymentInvoice",
+      "super": ["invoice-document"],
+      "relationships": {
+        "case": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/deposit-invoices/"
+    },
+    "invoices": {
+      "name": "invoice",
+      "class": "p2poInvoice:E-FinalInvoice",
+      "super": ["invoice-document"],
+      "attributes": {
+        "paid-deposits": {
+          "type": "decimal",
+          "predicate": "crm:paidDeposits",
+          "_comment": "Legacy deposits paid in cash"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "invoicelines": {
+          "predicate": "p2poInvoice:hasInvoiceLine",
+          "target": "invoiceline",
+          "cardinality": "many"
+        },
+        "technical-work-activities": {
+          "predicate": "prov:wasInfluencedBy",
+          "target": "technical-work-activity",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
@@ -225,6 +269,11 @@
         "created": {
           "type": "dateTime",
           "predicate": "dct:created"
+        },
+        "source": {
+          "type": "url",
+          "predicate": "prov:hadPrimarySource",
+          "_comment": "TODO: refactor to relation once customers are in triplestore"
         }
       },
       "relationships": {
@@ -235,7 +284,7 @@
         },
         "invoice": {
           "predicate": "p2poInvoice:hasBuyer",
-          "target": "invoice",
+          "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
         },
@@ -267,6 +316,11 @@
         "created": {
           "type": "dateTime",
           "predicate": "dct:created"
+        },
+        "source": {
+          "type": "url",
+          "predicate": "prov:hadPrimarySource",
+          "_comment": "TODO: refactor to relation once contacts are in triplestore"
         }
       },
       "relationships": {
@@ -277,7 +331,7 @@
         },
         "invoice": {
           "predicate": "p2poInvoice:hasBuyerContactPoint",
-          "target": "invoice",
+          "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
         }
@@ -303,6 +357,11 @@
         "created": {
           "type": "dateTime",
           "predicate": "dct:created"
+        },
+        "source": {
+          "type": "url",
+          "predicate": "prov:hadPrimarySource",
+          "_comment": "TODO: refactor to relation once buildings are in triplestore"
         }
       },
       "relationships": {
@@ -313,7 +372,7 @@
         },
         "invoice": {
           "predicate": "crm:hasBuyerBuilding",
-          "target": "invoice",
+          "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
         }

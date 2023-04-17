@@ -10,7 +10,7 @@
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "p2poPrice": "https://purl.org/p2p-o/document#"
+    "p2poPrice": "https://purl.org/p2p-o/price#"
   },
   "resources": {
     "cases": {
@@ -32,15 +32,6 @@
         "has-production-ticket": {
           "type": "boolean",
           "predicate": "crm:hasProductionTicket",
-          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
-        },
-        "certificate-required": {
-          "type": "boolean",
-          "predicate": "crm:requiresVatCertificate"
-        },
-        "certificate-received": {
-          "type": "boolean",
-          "predicate": "crm:hasVatCertificate",
           "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
         },
         "customer": {
@@ -90,10 +81,16 @@
           "target": "file",
           "cardinality": "many"
         },
-        "invoices": {
+        "deposit-invoices": {
           "predicate": "dossier:Dossier.bestaatUit",
-          "target": "invoice",
+          "target": "deposit-invoice",
           "cardinality": "many"
+        },
+        "invoice": {
+          "predicate": "ext:invoice",
+          "target": "invoice",
+          "cardinality": "one",
+          "_comment": "TODO: update predicate to dossier:Dossier.bestaatUit once mu-cl-resource bug is fixed"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",
