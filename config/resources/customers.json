@@ -357,26 +357,21 @@
         "note": {
           "type": "string",
           "predicate": "vcard:hasNote"
-        }
-      },
-      "relationships": {
+        },
         "customer": {
+          "type": "url",
           "predicate": "vcard:hasEmail",
-          "target": "customer",
-          "cardinality": "one",
-          "inverse": true
+          "_comment": "TODO Refactor to relation and inverse triples once customer is defined as a resource"
         },
         "contact": {
+          "type": "url",
           "predicate": "vcard:hasEmail",
-          "target": "contact",
-          "cardinality": "one",
-          "inverse": true
+          "_comment": "TODO Refactor to relation and inverse triples once contact is defined as a resource"
         },
         "building": {
+          "type": "url",
           "predicate": "vcard:hasEmail",
-          "target": "building",
-          "cardinality": "one",
-          "inverse": true
+          "_comment": "TODO Refactor to relation and inverse triples once building is defined as a resource"
         }
       },
       "features": [
