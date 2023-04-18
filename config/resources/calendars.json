@@ -4,7 +4,8 @@
     "dct": "http://purl.org/dc/terms/",
     "ncal": "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
-    "crm": "http://data.rollvolet.be/vocabularies/crm/"
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "schema": "http://schema.org/"
   },
   "resources": {
     "calendar-events": {
@@ -36,6 +37,22 @@
         "url": {
           "type": "url",
           "predicate": "ncal:url"
+        },
+        "creator": {
+          "type": "url",
+          "predicate": "dct:creator"
+        },
+        "editor": {
+          "type": "url",
+          "predicate": "schema:editor"
+        },
+        "created": {
+          "type": "datetime",
+          "predicate": "dct:created"
+        },
+        "modified": {
+          "type": "datetime",
+          "predicate": "dct:modified"
         },
         "request": {
           "type": "url",

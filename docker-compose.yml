@@ -132,7 +132,7 @@ services:
     restart: always
     logging: *default-logging
   ms-calendar:
-    image: rollvolet/ms-calendar-service:0.3.2
+    image: rollvolet/ms-calendar-service:0.4.0
     environment:
       USE_PERSONAL_CALENDAR: "false"
     restart: always
