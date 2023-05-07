@@ -106,12 +106,28 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/employees/"
   end
 
+  get "/api/users/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/users/"
+  end
+
+  get "/users/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/users/"
+  end
+
   match "/api/telephones/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/telephones/"
   end
 
   match "/telephones/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/telephones/"
+  end
+
+  match "/api/emails/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/emails/"
+  end
+
+  match "/emails/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/emails/"
   end
 
   match "/api/offerlines/*path", %{ layer: :services, accept: %{ json: true } } do

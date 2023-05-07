@@ -7,6 +7,25 @@
     "prov": "http://www.w3.org/ns/prov#"
   },
   "resources": {
+    "users": {
+      "name": "user",
+      "class": "foaf:Person",
+      "attributes": {
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier",
+          "_comment": "MS identifier"
+        },
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/users/"
+    },
     "employees": {
       "name": "employee",
       "class": "person:Person",

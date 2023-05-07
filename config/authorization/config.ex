@@ -46,7 +46,7 @@ defmodule Acl.UserGroups.Config do
       },
 
       %GroupSpec{
-        name: "rollvolet",
+        name: "rollvolet-write",
         useage: [:read, :write, :read_for_write],
         access: authenticated_access(),
         graphs: [
@@ -73,6 +73,23 @@ defmodule Acl.UserGroups.Config do
                 "https://data.vlaanderen.be/ns/dossier#Dossier",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event"
+              ]
+            }
+          }
+        ]
+      },
+
+      %GroupSpec{
+        name: "rollvolet-read",
+        useage: [:read, :read_for_write],
+        access: authenticated_access(),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/users",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://www.w3.org/ns/person#Person",
+                "http://xmlns.com/foaf/0.1/OnlineAccount"
               ]
             }
           },
