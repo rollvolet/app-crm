@@ -21,7 +21,7 @@ services:
     restart: always
     logging: *default-logging
   frontend:
-    image: rollvolet/frontend-crm:2.6.0
+    image: rollvolet/frontend-crm:2.7.3
     environment:
       EMBER_AUTH_CLIENT_ID: "552ea087-fcd9-4d53-911b-19b11ff6631a"
       EMBER_AUTH_REDIRECT_URI: "https://crm.rollvolet.info/torii/redirect.html"
@@ -103,7 +103,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:2.7.0
+    image: rollvolet/document-generation-service:2.8.1
     links:
       - virtuoso:database
     volumes:
@@ -132,7 +132,7 @@ services:
     restart: always
     logging: *default-logging
   ms-calendar:
-    image: rollvolet/ms-calendar-service:0.3.2
+    image: rollvolet/ms-calendar-service:0.4.1
     environment:
       USE_PERSONAL_CALENDAR: "false"
     restart: always
