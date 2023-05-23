@@ -293,6 +293,11 @@
           "target": "telephone",
           "cardinality": "many",
           "_comment": "TODO: remove once customers are converted to triplestore"
+        },
+        "language": {
+          "predicate": "vcard:hasLanguage",
+          "target": "language",
+          "cardinality": "one"
         }
       },
       "features": [
@@ -334,6 +339,11 @@
           "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
+        },
+        "language": {
+          "predicate": "vcard:hasLanguage",
+          "target": "language",
+          "cardinality": "one"
         }
       },
       "features": [

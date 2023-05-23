@@ -263,22 +263,34 @@
         }
       },
       "relationships": {
-        "customer": {
+        "customers": {
           "predicate": "vcard:hasLanguage",
           "target": "customer",
-          "cardinality": "one",
+          "cardinality": "many",
           "inverse": true
         },
-        "contact": {
+        "contacts": {
           "predicate": "vcard:hasLanguage",
           "target": "contact",
-          "cardinality": "one",
+          "cardinality": "many",
           "inverse": true
         },
-        "building": {
+        "buildings": {
           "predicate": "vcard:hasLanguage",
           "target": "building",
-          "cardinality": "one",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "customer-snapshots": {
+          "predicate": "vcard:hasLanguage",
+          "target": "customer",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "contact-snapshots": {
+          "predicate": "vcard:hasLanguage",
+          "target": "contacts-snapshot",
+          "cardinality": "many",
           "inverse": true
         }
       },
