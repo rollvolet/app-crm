@@ -111,6 +111,12 @@
           "predicate": "crm:hasBuyerBuilding",
           "target": "building-snapshot",
           "cardinality": "one"
+        },
+        "document": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "file",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "features": [

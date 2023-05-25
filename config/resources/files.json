@@ -45,6 +45,11 @@
           "target": "case",
           "cardinality": "one",
           "inverse": true
+        },
+        "invoice": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "invoice-document",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/files/",

@@ -3,6 +3,7 @@ defmodule Dispatcher do
 
   define_accept_types [
     json: [ "application/json", "application/vnd.api+json" ],
+    pdf: [ "application/pdf" ],
     html: [ "text/html", "application/xhtml+html" ],
     any: [ "*/*" ]
   ]
@@ -38,6 +39,20 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://ms-files/files/" <> id <> "/download"
   end
 
+
+  ## Document generation
+
+  post "/invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/invoices/" <> id <> "/documents"
+  end
+
+  post "/invoices/:id/files", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://ms-files/invoices/" <> id <> "/files"
+  end
+
+  post "/deposit-invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/deposit-invoices/" <> id <> "/documents"
+  end
 
   ## Monolith exceptions (to be phased out in the long run)
 
@@ -154,12 +169,20 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
+  get "/deposit-invoices/:id/document", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://resource/deposit-invoices/" <> id <> "/document"
+  end
+
   match "/api/deposit-invoices/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/deposit-invoices/"
   end
 
   match "/deposit-invoices/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/deposit-invoices/"
+  end
+
+  get "/invoices/:id/document", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://resource/invoices/" <> id <> "/document"
   end
 
   match "/api/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
@@ -170,16 +193,32 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/invoices/"
   end
 
+  match "/api/customer-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/customer-snapshots/"
+  end
+
   match "/customer-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/customer-snapshots/"
+  end
+
+  match "/api/contact-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/contact-snapshots/"
   end
 
   match "/contact-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/contact-snapshots/"
   end
 
+  match "/api/building-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/building-snapshots/"
+  end
+
   match "/building-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/building-snapshots/"
+  end
+
+  match "/api/addresses/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/addresses/"
   end
 
   match "/addresses/*path", %{ layer: :services, accept: %{ json: true } } do
