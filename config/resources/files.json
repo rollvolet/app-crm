@@ -16,6 +16,10 @@
           "type": "string",
           "predicate": "nfo:fileName"
         },
+        "type": {
+          "type": "url",
+          "predicate": "dct:type"
+        },
         "format": {
           "type": "string",
           "predicate": "dct:format"
