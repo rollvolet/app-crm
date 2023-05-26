@@ -64,11 +64,6 @@
           "predicate": "dct:subject",
           "_comment": "TODO Refactor to relation once intervention is defined as a resource"
         },
-        "order": {
-          "type": "url",
-          "predicate": "dct:subject",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
-        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
@@ -81,6 +76,11 @@
           "target": "calendar",
           "cardinality": "one",
           "inverse": true
+        },
+        "order": {
+          "predicate": "dct:subject",
+          "target": "order",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/calendar-events/",

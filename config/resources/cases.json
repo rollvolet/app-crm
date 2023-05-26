@@ -21,6 +21,10 @@
           "type": "string",
           "predicate": "dct:identifier"
         },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
         "reference": {
           "type": "string",
           "predicate": "frapo:hasReferenceNumber"
@@ -28,6 +32,10 @@
         "comment": {
           "type": "string",
           "predicate": "skos:comment"
+        },
+        "cancellation-reason": {
+          "type": "string",
+          "predicate": "crm:cancellationReason"
         },
         "has-production-ticket": {
           "type": "boolean",
@@ -58,19 +66,14 @@
           "type": "url",
           "predicate": "ext:intervention",
           "_comment": "TODO Refactor to relation once intervention is defined as a resource"
-        },
-        "offer": {
-          "type": "url",
-          "predicate": "ext:offer",
-          "_comment": "TODO Refactor to relation once offer is defined as a resource"
-        },
-        "order": {
-          "type": "url",
-          "predicate": "ext:order",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
         }
       },
       "relationships": {
+        "delivery-method": {
+          "predicate": "schema:deliveryMethod",
+          "target": "concept",
+          "cardinality": "one"
+        },
         "vat-rate": {
           "predicate": "p2poPrice:hasVATCategoryCode",
           "target": "vat-rate",
@@ -80,6 +83,16 @@
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "file",
           "cardinality": "many"
+        },
+        "offer": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "offer",
+          "cardinality": "one"
+        },
+        "order": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "order",
+          "cardinality": "one"
         },
         "deposit-invoices": {
           "predicate": "dossier:Dossier.bestaatUit",
@@ -94,83 +107,6 @@
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",
-      "features": ["include-uri"]
-    },
-    "offerlines": {
-      "name": "offerline",
-      "class": "crm:Offerline",
-      "attributes": {
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        },
-        "position": {
-          "type": "integer",
-          "predicate": "schema:position"
-        },
-        "offer": {
-          "type": "url",
-          "predicate": "dct:isPartOf",
-          "_comment": "TODO Refactor to relation once offer is defined as a resource"
-        }
-      },
-      "relationships": {
-        "calculation-lines": {
-          "predicate": "dct:isPartOf",
-          "target": "calculation-line",
-          "cardinality": "many",
-          "inverse": true
-        },
-        "vat-rate": {
-          "predicate": "price:hasVatRate",
-          "target": "vat-rate",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.rollvolet.be/offerlines/",
-      "features": ["include-uri"]
-    },
-    "calculation-lines": {
-      "name": "calculation-line",
-      "class": "crm:CalculationLine",
-      "attributes": {
-        "position": {
-          "type": "integer",
-          "predicate": "schema:position"
-        },
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "reduction-rate": {
-          "type": "decimal",
-          "predicate": "price:hasReductionRate"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        }
-      },
-      "relationships": {
-        "offerline": {
-          "predicate": "dct:isPartOf",
-          "target": "offerline",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
       "features": ["include-uri"]
     }
   }

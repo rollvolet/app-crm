@@ -63,6 +63,12 @@
           "target": "technical-work-activity",
           "cardinality": "many",
           "inverse": true
+        },
+        "orders": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "order",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
