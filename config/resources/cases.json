@@ -33,10 +33,6 @@
           "type": "string",
           "predicate": "skos:comment"
         },
-        "cancellation-reason": {
-          "type": "string",
-          "predicate": "crm:cancellationReason"
-        },
         "has-production-ticket": {
           "type": "boolean",
           "predicate": "crm:hasProductionTicket",
@@ -69,6 +65,11 @@
         }
       },
       "relationships": {
+        "invalidation": {
+          "predicate": "prov:wasInvalidatedBy",
+          "target": "activity",
+          "cardinality": "one"
+        },
         "delivery-method": {
           "predicate": "schema:deliveryMethod",
           "target": "concept",

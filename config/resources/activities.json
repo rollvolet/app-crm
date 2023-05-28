@@ -1,0 +1,35 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "resources": {
+    "activities": {
+      "name": "activity",
+      "class": "prov:Activity",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type"
+        },
+        "date": {
+          "type": "dateTime",
+          "predicate": "prov:startedAtTime"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "prov:wasInvalidatedBy",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        }
+      }
+    }
+  }
+}

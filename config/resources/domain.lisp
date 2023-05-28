@@ -17,3 +17,4 @@
 (read-domain-file "files.json")
 (read-domain-file "calendars.json")
 (read-domain-file "users.json")
+(read-domain-file "activities.json")
