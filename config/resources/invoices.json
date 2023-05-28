@@ -200,17 +200,17 @@
           "type": "url",
           "predicate": "dct:type",
           "_comment": "Used to indicate invoicelines that originate from supplements in Access"
-        },
-        "order": {
-          "type": "url",
-          "predicate": "prov:wasDerivedFrom",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
         }
       },
       "relationships": {
         "vat-rate": {
           "predicate": "price:hasVatRate",
           "target": "vat-rate",
+          "cardinality": "one"
+        },
+        "order": {
+          "predicate": "dct:isPartOf",
+          "target": "order",
           "cardinality": "one"
         },
         "invoice": {

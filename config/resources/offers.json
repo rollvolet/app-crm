@@ -6,12 +6,13 @@
     "owl": "http://www.w3.org/2002/07/owl#",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "p2poDocument": "https://purl.org/p2p-o/document#"
+    "p2poDocument": "https://purl.org/p2p-o/document#",
+    "tmo": "http://www.semanticdesktop.org/ontologies/2008/05/20/tmo#"
   },
   "resources": {
     "offers": {
       "name": "offer",
-      "class": "",
+      "class": "schema:Offer",
       "attributes": {
         "offer-date": {
           "type": "date",
@@ -84,6 +85,10 @@
           "type": "boolean",
           "predicate": "crm:requiresDeposit"
         },
+        "product-is-finished": {
+          "type": "boolean",
+          "predicate": "crm:productFinished"
+        },
         "scheduled-nb-of-hours": {
           "type": "number",
           "predicate": "crm:scheduledNbOfHours"
@@ -120,6 +125,12 @@
           "predicate": "prov:wasDerivedFrom",
           "target": "file",
           "cardinality": "one",
+          "inverse": true
+        },
+        "invoicelines": {
+          "predicate": "dct:isPartOf",
+          "target": "invoicelines",
+          "cardinality": "many",
           "inverse": true
         }
       },
