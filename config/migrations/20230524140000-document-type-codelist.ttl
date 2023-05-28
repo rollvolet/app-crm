@@ -2,6 +2,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> a skos:ConceptScheme ;
     mu:uuid "01899093-1d0a-47fd-bb12-b0a485c352fa" ;
