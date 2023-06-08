@@ -103,7 +103,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:2.8.1
+    image: rollvolet/document-generation-service:2.8.2
     links:
       - virtuoso:database
     volumes:
@@ -132,7 +132,7 @@ services:
     restart: always
     logging: *default-logging
   ms-calendar:
-    image: rollvolet/ms-calendar-service:0.4.1
+    image: rollvolet/ms-calendar-service:0.4.2
     environment:
       USE_PERSONAL_CALENDAR: "false"
     restart: always
