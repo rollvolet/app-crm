@@ -1,6 +1,7 @@
 {
   "version": "0.1",
   "prefixes": {
+    "adms": "http://www.w3.org/ns/adms#",
     "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
     "dossier": "https://data.vlaanderen.be/ns/dossier#",
@@ -37,34 +38,24 @@
           "type": "boolean",
           "predicate": "crm:hasProductionTicket",
           "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
-        },
-        "customer": {
-          "type": "url",
-          "predicate": "schema:customer",
-          "_comment": "TODO Refactor to relation once customer is defined as a resource"
-        },
-        "contact": {
-          "type": "url",
-          "predicate": "crm:contact",
-          "_comment": "TODO Refactor to relation once contact is defined as a resource"
-        },
-        "building": {
-          "type": "url",
-          "predicate": "crm:building",
-          "_comment": "TODO Refactor to relation once building is defined as a resource"
-        },
-        "request": {
-          "type": "url",
-          "predicate": "ext:request",
-          "_comment": "TODO Refactor to relation once request is defined as a resource"
-        },
-        "intervention": {
-          "type": "url",
-          "predicate": "ext:intervention",
-          "_comment": "TODO Refactor to relation once intervention is defined as a resource"
         }
       },
       "relationships": {
+        "customer": {
+          "predicate": "schema:customer",
+          "target": "customer",
+          "cardinality": "one"
+        },
+        "contact": {
+          "predicate": "crm:contact",
+          "target": "contact",
+          "cardinality": "one"
+        },
+        "building": {
+          "predicate": "crm:building",
+          "target": "building",
+          "cardinality": "one"
+        },
         "invalidation": {
           "predicate": "prov:wasInvalidatedBy",
           "target": "activity",
@@ -85,6 +76,16 @@
           "target": "file",
           "cardinality": "many"
         },
+        "intervention": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "intervention",
+          "cardinality": "one"
+        },
+        "request": {
+          "predicate": "dossier:Dossier.bestaatUit",
+          "target": "request",
+          "cardinality": "one"
+        },
         "offer": {
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "offer",
@@ -101,10 +102,9 @@
           "cardinality": "many"
         },
         "invoice": {
-          "predicate": "ext:invoice",
+          "predicate": "dossier:Dossier.bestaatUit",
           "target": "invoice",
-          "cardinality": "one",
-          "_comment": "TODO: update predicate to dossier:Dossier.bestaatUit once mu-cl-resource bug is fixed"
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",

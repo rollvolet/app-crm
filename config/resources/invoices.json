@@ -3,6 +3,7 @@
   "prefixes": {
     "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
     "frapo": "http://purl.org/cerif/frapo/",
     "price": "http://data.rollvolet.be/vocabularies/pricing/",
     "prov": "http://www.w3.org/ns/prov#",
@@ -41,11 +42,6 @@
           "type": "date",
           "predicate": "crm:paymentDate",
           "_comment": "Datetime the payment is received on the bank account"
-        },
-        "cancellation-date": {
-          "type": "date",
-          "predicate": "prov:invalidatedAtTime",
-          "_comment": "TODO: shouldn't this be a closing date on the case?"
         },
         "total-amount-net": {
           "type": "decimal",
@@ -273,13 +269,8 @@
           "predicate": "schema:vatID"
         },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
-        },
-        "source": {
-          "type": "url",
-          "predicate": "prov:hadPrimarySource",
-          "_comment": "TODO: refactor to relation once customers are in triplestore"
         }
       },
       "relationships": {
@@ -294,15 +285,14 @@
           "cardinality": "one",
           "inverse": true
         },
-        "telephones": {
-          "predicate": "vcard:hasTelephone",
-          "target": "telephone",
-          "cardinality": "many",
-          "_comment": "TODO: remove once customers are converted to triplestore"
-        },
         "language": {
           "predicate": "vcard:hasLanguage",
           "target": "language",
+          "cardinality": "one"
+        },
+        "source": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "customer",
           "cardinality": "one"
         }
       },
@@ -315,9 +305,9 @@
       "name": "contact-snapshot",
       "class": "crm:ContactSnapshot",
       "attributes": {
-        "number": {
+        "position": {
           "type": "integer",
-          "predicate": "vcard:hasUID"
+          "predicate": "schema:position"
         },
         "name": {
           "type": "string",
@@ -325,13 +315,8 @@
           "_comment": "Full name as it appears on the invoice document"
         },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
-        },
-        "source": {
-          "type": "url",
-          "predicate": "prov:hadPrimarySource",
-          "_comment": "TODO: refactor to relation once contacts are in triplestore"
         }
       },
       "relationships": {
@@ -350,20 +335,25 @@
           "predicate": "vcard:hasLanguage",
           "target": "language",
           "cardinality": "one"
+        },
+        "source": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "contact",
+          "cardinality": "one"
         }
       },
       "features": [
         "include-uri"
       ],
-      "new-resource-base": "http://data.rollvolet.be/customer-snapshots/"
+      "new-resource-base": "http://data.rollvolet.be/contact-snapshots/"
     },
     "building-snapshots": {
       "name": "building-snapshot",
       "class": "crm:BuildingSnapshot",
       "attributes": {
-        "number": {
+        "position": {
           "type": "integer",
-          "predicate": "vcard:hasUID"
+          "predicate": "schema:position"
         },
         "name": {
           "type": "string",
@@ -371,13 +361,8 @@
           "_comment": "Full name as it appears on the invoice document"
         },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
-        },
-        "source": {
-          "type": "url",
-          "predicate": "prov:hadPrimarySource",
-          "_comment": "TODO: refactor to relation once buildings are in triplestore"
         }
       },
       "relationships": {
@@ -391,12 +376,17 @@
           "target": "invoice-document",
           "cardinality": "one",
           "inverse": true
+        },
+        "source": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "building",
+          "cardinality": "one"
         }
       },
       "features": [
         "include-uri"
       ],
-      "new-resource-base": "http://data.rollvolet.be/customer-snapshots/"
+      "new-resource-base": "http://data.rollvolet.be/building-snapshots/"
     }
   }
 }

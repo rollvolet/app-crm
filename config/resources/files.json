@@ -5,7 +5,8 @@
     "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
     "dbpedia": "http://dbpedia.org/resource/",
-    "dossier": "https://data.vlaanderen.be/ns/dossier#"
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "resources": {
     "files": {
@@ -63,6 +64,16 @@
         "offer": {
           "predicate": "prov:wasDerivedFrom",
           "target": "offer",
+          "cardinality": "one"
+        },
+        "request": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "request",
+          "cardinality": "one"
+        },
+        "intervention": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "intervention",
           "cardinality": "one"
         }
       },

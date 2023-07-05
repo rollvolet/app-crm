@@ -32,7 +32,6 @@ defmodule Acl.UserGroups.Config do
             constraint: %ResourceConstraint{
               resource_types: [
                 "http://data.rollvolet.be/vocabularies/pricing/VatRate",
-                "http://data.rollvolet.be/vocabularies/crm/HonorificPrefix",
                 "http://data.rollvolet.be/vocabularies/crm/PostalCode",
                 "http://schema.org/Country",
                 "http://schema.org/Language",
@@ -61,8 +60,12 @@ defmodule Acl.UserGroups.Config do
                 "http://www.w3.org/2006/vcard/ns#Address",
                 "http://www.w3.org/2006/vcard/ns#Email",
                 "http://www.w3.org/2006/vcard/ns#Telephone",
+                "http://data.rollvolet.be/vocabularies/crm/Intervention",
+                "http://data.rollvolet.be/vocabularies/crm/Request",
+                "http://schema.org/Offer",
                 "http://data.rollvolet.be/vocabularies/crm/Offerline",
                 "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
+                "https://purl.org/p2p-o/document#PurchaseOrder",
                 "https://purl.org/p2p-o/invoice#E-FinalInvoice",
                 "https://purl.org/p2p-o/invoice#E-PrePaymentInvoice",
                 "https://purl.org/p2p-o/document#E-Invoice",

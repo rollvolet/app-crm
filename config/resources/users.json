@@ -53,7 +53,7 @@
           "predicate": "frapo:initial"
         },
         "end-date": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "prov:invalidatedAtTime"
         }
       },
@@ -61,6 +61,30 @@
         "technical-work-activities": {
           "predicate": "prov:wasAssociatedWith",
           "target": "technical-work-activity",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "visited-requests": {
+          "predicate": "crm:visitor",
+          "target": "request",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "accepted-requests": {
+          "predicate": "crm:employee",
+          "target": "request",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "accepted-interventions": {
+          "predicate": "crm:employee",
+          "target": "intervention",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "interventions": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "intervention",
           "cardinality": "many",
           "inverse": true
         },

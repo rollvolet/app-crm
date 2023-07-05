@@ -54,16 +54,6 @@
           "type": "datetime",
           "predicate": "dct:modified"
         },
-        "request": {
-          "type": "url",
-          "predicate": "dct:subject",
-          "_comment": "TODO Refactor to relation once request is defined as a resource"
-        },
-        "intervention": {
-          "type": "url",
-          "predicate": "dct:subject",
-          "_comment": "TODO Refactor to relation once intervention is defined as a resource"
-        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
@@ -76,6 +66,16 @@
           "target": "calendar",
           "cardinality": "one",
           "inverse": true
+        },
+        "intervention": {
+          "predicate": "dct:subject",
+          "target": "intervention",
+          "cardinality": "one"
+        },
+        "request": {
+          "predicate": "dct:subject",
+          "target": "request",
+          "cardinality": "one"
         },
         "order": {
           "predicate": "dct:subject",

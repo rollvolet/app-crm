@@ -14,7 +14,7 @@
           "predicate": "dct:type"
         },
         "date": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "prov:startedAtTime"
         },
         "description": {
@@ -29,7 +29,11 @@
           "cardinality": "one",
           "inverse": true
         }
-      }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/activities/"
     }
   }
 }

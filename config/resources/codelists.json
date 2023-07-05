@@ -15,6 +15,10 @@
           "type": "string",
           "predicate": "skos:prefLabel"
         },
+        "lang-label": {
+          "type": "language-string-set",
+          "predicate": "skos:prefLabel"
+        },
         "alt-label": {
           "type": "string",
           "predicate": "skos:altLabel"
@@ -99,10 +103,9 @@
           "type": "decimal",
           "predicate": "schema:value"
         },
-        "order": {
+        "position": {
           "type": "integer",
-          "predicate": "schema:position",
-          "_comment": "TODO: rename to 'position' once VAT rate is removed from SQL DB"
+          "predicate": "schema:position"
         },
         "unit-code": {
           "type": "string",
@@ -255,6 +258,10 @@
         "code": {
           "type": "string",
           "predicate": "schema:identifier"
+        },
+        "lang-tag": {
+          "type": "string",
+          "predicate": "schema:alternateName"
         },
         "identifier": {
           "type": "string",
