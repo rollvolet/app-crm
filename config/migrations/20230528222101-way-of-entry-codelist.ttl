@@ -8,8 +8,8 @@
     mu:uuid "9d8087db-4307-4f6d-82f3-a414a5cb2076" ;
     skos:prefLabel "Manieren van aanmelding" .
 
-<http://data.rollvolet.be/concepts/bc2c375e-4b41-4b92-aec2-b1dac6205921> a skos:Concept ;
-    mu:uuid "bc2c375e-4b41-4b92-aec2-b1dac6205921" ;
+<http://data.rollvolet.be/concepts/3d1a75db-c683-4b61-859b-3cae4da72df6> a skos:Concept ;
+    mu:uuid "3d1a75db-c683-4b61-859b-3cae4da72df6" ;
     skos:prefLabel "Telefoon" ;
     schema:position 1 ;
     dct:identifier 1 ;
