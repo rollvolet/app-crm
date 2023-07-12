@@ -65,112 +65,56 @@ defmodule Dispatcher do
   ## Resources
   ## TODO remove /api-prefixed routes to resources once monolith-backend is phased out
 
-  match "/api/cases/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/cases/"
-  end
-
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/cases/"
-  end
-
-  get "/api/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/concepts/"
   end
 
   get "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
-  get "/api/concept-schemes/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/concept-schemes/"
-  end
-
   get "/concept-schemes/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
-  end
-
-  get "/api/vat-rates/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/vat-rates/"
   end
 
   get "/vat-rates/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/vat-rates/"
   end
 
-  get "/api/countries/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/countries/"
-  end
-
   get "/countries/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/countries/"
-  end
-
-  get "/api/languages/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/languages/"
   end
 
   get "/languages/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/languages/"
   end
 
-  get "/api/telephone-types/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/telephone-types/"
-  end
-
   get "/telephone-types/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/telephone-types/"
-  end
-
-  get "/api/employees/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/employees/"
   end
 
   get "/employees/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/employees/"
   end
 
-  match "/api/activities/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/activities/"
-  end
-
   match "/activities/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/activities/"
-  end
-
-  get "/api/users/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/users/"
   end
 
   get "/users/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/users/"
   end
 
-  match "/api/telephones/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/telephones/"
-  end
-
   match "/telephones/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/telephones/"
-  end
-
-  match "/api/emails/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/emails/"
   end
 
   match "/emails/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/emails/"
   end
 
-  match "/api/offerlines/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/offerlines/"
-  end
-
   match "/offerlines/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/offerlines/"
-  end
-
-  match "/api/calculation-lines/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
   match "/calculation-lines/*path", %{ layer: :services, accept: %{ json: true } } do
@@ -181,16 +125,8 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/interventions/" <> id <> "/visit"
   end
 
-  match "/api/interventions/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/interventions/"
-  end
-
   match "/interventions/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/interventions/"
-  end
-
-  match "/api/requests/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/requests/"
   end
 
   get "/requests/:id/visit", %{ layer: :services, accept: %{ json: true } } do
@@ -201,16 +137,8 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/requests/"
   end
 
-  match "/api/offers/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/offers/"
-  end
-
   match "/offers/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/offers/"
-  end
-
-  match "/api/orders/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/orders/"
   end
 
   match "/orders/*path", %{ layer: :services, accept: %{ json: true } } do
@@ -221,10 +149,6 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/deposit-invoices/" <> id <> "/document"
   end
 
-  match "/api/deposit-invoices/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/deposit-invoices/"
-  end
-
   match "/deposit-invoices/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/deposit-invoices/"
   end
@@ -233,120 +157,56 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/invoices/" <> id <> "/document"
   end
 
-  match "/api/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/invoices/"
-  end
-
   match "/invoices/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/invoices/"
-  end
-
-  match "/api/customers/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/customers/"
   end
 
   match "/customers/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/customers/"
   end
 
-  match "/api/contacts/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/contacts/"
-  end
-
   match "/contacts/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/contacts/"
-  end
-
-  match "/api/buildings/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/buildings/"
   end
 
   match "/buildings/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/buildings/"
   end
 
-  match "/api/customer-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/customer-snapshots/"
-  end
-
   match "/customer-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/customer-snapshots/"
-  end
-
-  match "/api/contact-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/contact-snapshots/"
   end
 
   match "/contact-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/contact-snapshots/"
   end
 
-  match "/api/building-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/building-snapshots/"
-  end
-
   match "/building-snapshots/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/building-snapshots/"
-  end
-
-  match "/api/addresses/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/addresses/"
   end
 
   match "/addresses/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/addresses/"
   end
 
-  match "/api/invoicelines/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/invoicelines/"
-  end
-
   match "/invoicelines/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/invoicelines/"
-  end
-
-  match "/api/technical-work-activities/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/technical-work-activities/"
   end
 
   match "/technical-work-activities/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/technical-work-activities/"
   end
 
-  post "/api/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
-  patch "/api/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
-  delete "/api/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
   get "/calendar-events/:id/ms-event", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, [], "http://ms-calendar/calendar-events/" <> id <> "/ms-event"
-  end
-
-  get "/api/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/calendar-events/"
   end
 
   get "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/calendar-events/"
   end
 
-  get "/api/files/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/files/"
-  end
-
   get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/files/"
-  end
-
-  get "/api/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/remote-files/"
   end
 
   get "/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
