@@ -177,6 +177,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/calculation-lines/"
   end
 
+  get "/interventions/:id/visit", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://resource/interventions/" <> id <> "/visit"
+  end
+
   match "/api/interventions/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/interventions/"
   end
@@ -187,6 +191,10 @@ defmodule Dispatcher do
 
   match "/api/requests/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/requests/"
+  end
+
+  get "/requests/:id/visit", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://resource/requests/" <> id <> "/visit"
   end
 
   match "/requests/*path", %{ layer: :services, accept: %{ json: true } } do
