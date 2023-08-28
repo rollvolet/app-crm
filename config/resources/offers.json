@@ -38,7 +38,7 @@
       },
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:request",
           "target": "case",
           "cardinality": "one",
           "inverse": true
@@ -113,7 +113,7 @@
       },
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:offer",
           "target": "case",
           "cardinality": "one",
           "inverse": true
@@ -176,7 +176,7 @@
       },
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:order",
           "target": "case",
           "cardinality": "one",
           "inverse": true
@@ -200,7 +200,7 @@
         },
         "invoicelines": {
           "predicate": "dct:isPartOf",
-          "target": "invoicelines",
+          "target": "invoiceline",
           "cardinality": "many",
           "inverse": true
         },

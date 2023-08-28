@@ -77,34 +77,40 @@
           "cardinality": "many"
         },
         "intervention": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:intervention",
           "target": "intervention",
-          "cardinality": "one"
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         },
         "request": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:request",
           "target": "request",
-          "cardinality": "one"
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         },
         "offer": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:offer",
           "target": "offer",
-          "cardinality": "one"
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         },
         "order": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:order",
           "target": "order",
-          "cardinality": "one"
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         },
         "deposit-invoices": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:depositInvoice",
           "target": "deposit-invoice",
-          "cardinality": "many"
+          "cardinality": "many",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         },
         "invoice": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:invoice",
           "target": "invoice",
-          "cardinality": "one"
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",

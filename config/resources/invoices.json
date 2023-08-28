@@ -126,7 +126,7 @@
       "super": ["invoice-document"],
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:depositInvoice",
           "target": "case",
           "cardinality": "one",
           "inverse": true
@@ -150,7 +150,7 @@
       },
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:invoice",
           "target": "case",
           "cardinality": "one",
           "inverse": true

@@ -41,7 +41,7 @@
       },
       "relationships": {
         "case": {
-          "predicate": "dossier:Dossier.bestaatUit",
+          "predicate": "ext:intervention",
           "target": "case",
           "cardinality": "one",
           "inverse": true
