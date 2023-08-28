@@ -237,6 +237,13 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://msal-login/sessions/"
   end
 
+  match "/mock-sessions/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://mock-login/sessions/"
+  end
+
+  get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/accounts/"
+  end
 
   ## Fallback
 
