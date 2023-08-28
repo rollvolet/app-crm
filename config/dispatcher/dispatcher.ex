@@ -197,6 +197,18 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/technical-work-activities/"
   end
 
+  post "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
+  patch "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
+  delete "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
   get "/calendar-events/:id/ms-event", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, [], "http://ms-calendar/calendar-events/" <> id <> "/ms-event"
   end

@@ -78,7 +78,8 @@ defmodule Acl.UserGroups.Config do
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
                 "https://data.vlaanderen.be/ns/dossier#Dossier",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
-                "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event"
+                "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event",
+                "http://www.w3.org/ns/prov#Activity"
               ]
             }
           }
