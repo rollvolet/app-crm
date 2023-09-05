@@ -66,11 +66,6 @@
           "target": "offer",
           "cardinality": "one"
         },
-        "request": {
-          "predicate": "prov:wasDerivedFrom",
-          "target": "request",
-          "cardinality": "one"
-        },
         "intervention": {
           "predicate": "prov:wasDerivedFrom",
           "target": "intervention",

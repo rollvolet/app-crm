@@ -64,12 +64,6 @@
           "target": "employee",
           "cardinality": "one"
         },
-        "document": {
-          "predicate": "prov:wasDerivedFrom",
-          "target": "file",
-          "cardinality": "one",
-          "inverse": true
-        },
         "origin": {
           "predicate": "prov:hadPrimarySource",
           "target": "intervention",
