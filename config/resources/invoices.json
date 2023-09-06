@@ -66,15 +66,6 @@
           "type": "string",
           "predicate": "p2poInvoice:paymentTerms"
         },
-        "certificate-required": {
-          "type": "boolean",
-          "predicate": "crm:requiresVatCertificate"
-        },
-        "certificate-received": {
-          "type": "boolean",
-          "predicate": "crm:hasVatCertificate",
-          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
-        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
