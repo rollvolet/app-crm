@@ -115,6 +115,12 @@
       "name": "deposit-invoice",
       "class": "p2poInvoice:E-PrePaymentInvoice",
       "super": ["invoice-document"],
+      "attributes": {
+        "comment": {
+          "type": "string",
+          "predicate": "skos:comment"
+        }
+      },
       "relationships": {
         "case": {
           "predicate": "ext:depositInvoice",
