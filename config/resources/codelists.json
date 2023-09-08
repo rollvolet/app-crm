@@ -26,6 +26,10 @@
         "position": {
           "type": "integer",
           "predicate": "schema:position"
+        },
+        "notation": {
+          "type": "string",
+          "predicate": "skos:notation"
         }
       },
       "relationships": {

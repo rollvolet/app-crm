@@ -11,6 +11,7 @@
 <http://data.rollvolet.be/concepts/e8ac5c18-628f-435a-ac36-3c6704c3ff19> a skos:Concept ;
     mu:uuid "e8ac5c18-628f-435a-ac36-3c6704c3ff19" ;
     skos:prefLabel "Te leveren" ;
+    skos:notation "Lev" ;
     schema:position 1 ;
     skos:inScheme <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> ;
     skos:topConceptOf <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> .
@@ -18,6 +19,7 @@
 <http://data.rollvolet.be/concepts/89db0214-65d1-444d-9c19-a0e772113b8a> a skos:Concept ;
     mu:uuid "89db0214-65d1-444d-9c19-a0e772113b8a" ;
     skos:prefLabel "Te plaatsen" ;
+    skos:notation "Pla" ;
     schema:position 2 ;
     skos:inScheme <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> ;
     skos:topConceptOf <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> .
@@ -25,6 +27,7 @@
 <http://data.rollvolet.be/concepts/d6ed14a0-ff4d-4ee0-8b61-9ccc57155ba3> a skos:Concept ;
     mu:uuid "d6ed14a0-ff4d-4ee0-8b61-9ccc57155ba3" ;
     skos:prefLabel "Af te halen" ;
+    skos:notation "Oph" ;
     schema:position 3 ;
     skos:inScheme <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> ;
     skos:topConceptOf <http://data.rollvolet.be/concept-scheme/5ea87803-699c-4f83-801c-34add5be9baa> .
