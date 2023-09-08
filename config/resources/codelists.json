@@ -197,14 +197,6 @@
           "_comment": "Legacy ID in SQL DB"
         }
       },
-      "relationships": {
-        "address": {
-          "predicate": "vcard:hasPostalCode",
-          "target": "address",
-          "cardinality": "many",
-          "inverse": true
-        }
-      },
       "features": [
         "include-uri"
       ],
