@@ -1,0 +1,15 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concepts/6fbc15d2-11c0-4868-8b11-d15b8f1a3802> a skos:Concept ;
+    mu:uuid "6fbc15d2-11c0-4868-8b11-d15b8f1a3802" ;
+    skos:prefLabel "Invoice accountancy export" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/7afecda8-f128-4043-a69c-a68cbaaedac5> a skos:Concept ;
+    mu:uuid "7afecda8-f128-4043-a69c-a68cbaaedac5" ;
+    skos:prefLabel "Customer accountancy export" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .

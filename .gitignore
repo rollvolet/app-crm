@@ -12,6 +12,7 @@ config/migrations/*
 /data/sql-db/*
 /data/documents/*
 /data/files/*
+/data/filedrop/*
 /data/backups/*
 /data/token-cache
 /data/conversion

@@ -131,3 +131,9 @@ services:
       USE_PERSONAL_CALENDAR: "false"
     restart: always
     logging: *default-logging
+  accountancy-export:
+    image: rollvolet/accountancy-export-service
+    volumes:
+      - ./data/filedrop:/share
+    restart: always
+    logging: *default-logging

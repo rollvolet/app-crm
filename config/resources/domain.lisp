@@ -21,3 +21,4 @@
 (read-domain-file "calendars.json")
 (read-domain-file "users.json")
 (read-domain-file "activities.json")
+(read-domain-file "accountancy.json")
