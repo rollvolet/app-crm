@@ -25,7 +25,22 @@ defmodule Dispatcher do
   end
 
 
-  ## MS Files service
+  ## Authentication / login
+
+  match "/sessions/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://msal-login/sessions/"
+  end
+
+  match "/mock-sessions/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://mock-login/sessions/"
+  end
+
+  get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/accounts/"
+  end
+
+
+  ## File upload
 
   post "/cases/:id/attachments", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, [], "http://ms-files/cases/" <> id <> "/attachments"
@@ -37,6 +52,37 @@ defmodule Dispatcher do
 
   get "/files/:id/download", %{ layer: :services, accept: %{ any: true } } do
     Proxy.forward conn, [], "http://ms-files/files/" <> id <> "/download"
+  end
+
+  get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/files/"
+  end
+
+  get "/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/remote-files/"
+  end
+
+
+  ## Calendar events
+
+  post "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
+  patch "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
+  delete "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
+  end
+
+  get "/calendar-events/:id/ms-event", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://ms-calendar/calendar-events/" <> id <> "/ms-event"
+  end
+
+  get "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calendar-events/"
   end
 
 
@@ -77,7 +123,7 @@ defmodule Dispatcher do
   end
 
 
-  ## Resources
+  ## Regular resources
   ## TODO remove /api-prefixed routes to resources once monolith-backend is phased out
 
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
@@ -216,55 +262,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/technical-work-activities/"
   end
 
-  post "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
-  patch "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
-  delete "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://ms-calendar/calendar-events/"
-  end
-
-  get "/calendar-events/:id/ms-event", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, [], "http://ms-calendar/calendar-events/" <> id <> "/ms-event"
-  end
-
-  get "/calendar-events/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/calendar-events/"
-  end
-
-  get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/files/"
-  end
-
-  get "/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/remote-files/"
-  end
-
   match "/api/*path", %{ layer: :services, accept: %{ any: true } } do
     Proxy.forward conn, path, "http://monolith-backend/api/"
     # Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
   end
 
 
-  ## Authentication / login
-
-  match "/sessions/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://msal-login/sessions/"
-  end
-
-  match "/mock-sessions/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://mock-login/sessions/"
-  end
-
-  get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/accounts/"
-  end
-
   ## Fallback
+
 
   get "/*_path", %{ layer: :services, accept: %{ html: true } } do
     Proxy.forward conn, [], "http://frontend/index.html"
