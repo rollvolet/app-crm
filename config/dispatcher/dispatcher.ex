@@ -115,16 +115,8 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://documents/deposit-invoices/" <> id <> "/documents"
   end
 
-  ## Monolith exceptions (to be phased out in the long run)
-
-  post "/api/cases/current/contact-and-building", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, [], "http://monolith-backend/api/cases/contact-and-building"
-    # Proxy.forward conn, [], "http://172.17.0.1:5010/api/cases/contact-and-building"
-  end
-
 
   ## Regular resources
-  ## TODO remove /api-prefixed routes to resources once monolith-backend is phased out
 
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/cases/"
@@ -260,11 +252,6 @@ defmodule Dispatcher do
 
   match "/technical-work-activities/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/technical-work-activities/"
-  end
-
-  match "/api/*path", %{ layer: :services, accept: %{ any: true } } do
-    Proxy.forward conn, path, "http://monolith-backend/api/"
-    # Proxy.forward conn, path, "http://172.17.0.1:5010/api/"
   end
 
 

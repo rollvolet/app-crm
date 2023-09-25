@@ -1,1 +1,0 @@
-ALTER TABLE dbo.TblFactuur ADD Origin VARCHAR(100) DEFAULT (NULL);
