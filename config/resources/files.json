@@ -51,6 +51,12 @@
           "cardinality": "one",
           "inverse": true
         },
+        "accountancy-export": {
+          "predicate": "prov:generated",
+          "target": "accountancy-export",
+          "cardinality": "one",
+          "inverse": true
+        },
         "invoice": {
           "predicate": "prov:wasDerivedFrom",
           "target": "invoice-document",

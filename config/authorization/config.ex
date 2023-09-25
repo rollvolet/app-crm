@@ -79,6 +79,7 @@ defmodule Acl.UserGroups.Config do
                 "https://data.vlaanderen.be/ns/dossier#Dossier",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event",
+                "http://data.rollvolet.be/vocabularies/crm/AccountancyExport",
                 "http://www.w3.org/ns/prov#Activity"
               ]
             }

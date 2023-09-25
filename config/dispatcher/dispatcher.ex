@@ -40,6 +40,17 @@ defmodule Dispatcher do
   end
 
 
+  ## Accountancy exports service
+
+  post "/accountancy-exports/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://accountancy-export/accountancy-exports/"
+  end
+
+  get "/accountancy-exports/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/accountancy-exports/"
+  end
+
+
   ## Document generation
 
   post "/requests/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
