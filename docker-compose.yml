@@ -103,6 +103,7 @@ services:
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
+      - ./data/filedrop:/share
     restart: always
     logging: *default-logging
   cache:
@@ -123,6 +124,8 @@ services:
     image: rollvolet/ms-files-service:0.2.0
     environment:
       MS_DRIVE_ID: "my-microsoft-drive-id"
+    volumes:
+      - ./data/filedrop:/upload
     restart: always
     logging: *default-logging
   ms-calendar:
