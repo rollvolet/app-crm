@@ -99,7 +99,7 @@ services:
     restart: always
     logging: *default-logging
   documents:
-    image: rollvolet/document-generation-service:feature/all-data-to-triplestore
+    image: rollvolet/document-generation-service:feature-all-data-to-triplestore
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
