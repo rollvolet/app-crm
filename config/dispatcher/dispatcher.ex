@@ -40,7 +40,7 @@ defmodule Dispatcher do
   end
 
 
-  ## File upload
+  ## File upload and download
 
   post "/cases/:id/attachments", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, [], "http://ms-files/cases/" <> id <> "/attachments"
@@ -52,6 +52,10 @@ defmodule Dispatcher do
 
   get "/files/:id/download", %{ layer: :services, accept: %{ any: true } } do
     Proxy.forward conn, [], "http://ms-files/files/" <> id <> "/download"
+  end
+
+  get "/downloads/*path", %{ layer: :services, accept: %{ any: true } } do
+    Proxy.forward conn, path, "http://ms-files/downloads/"
   end
 
   get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
