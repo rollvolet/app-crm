@@ -46,6 +46,10 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://ms-files/cases/" <> id <> "/attachments"
   end
 
+  post "/cases/:id/production-tickets", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://ms-files/cases/" <> id <> "/production-tickets"
+  end
+
   delete "/files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://ms-files/files/"
   end
@@ -58,12 +62,59 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://ms-files/downloads/"
   end
 
+  delete "/downloads/*path", %{ layer: :services, accept: %{ any: true } } do
+    Proxy.forward conn, path, "http://ms-files/downloads/"
+  end
+
   get "/files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/files/"
   end
 
   get "/remote-files/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/remote-files/"
+  end
+
+
+  ## Document generation
+
+  post "/visit-summary-documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/visit-summary-documents"
+  end
+
+  post "/requests/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/requests/" <> id <> "/documents"
+  end
+
+  post "/interventions/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/interventions/" <> id <> "/documents"
+  end
+
+  post "/offers/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/offers/" <> id <> "/documents"
+  end
+
+  post "/orders/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/orders/" <> id <> "/documents"
+  end
+
+  post "/orders/:id/delivery-notes", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/orders/" <> id <> "/delivery-notes"
+  end
+
+  post "/deposit-invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/deposit-invoices/" <> id <> "/documents"
+  end
+
+  post "/invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/invoices/" <> id <> "/documents"
+  end
+
+  post "/cases/:id/production-ticket-templates", %{ layer: :services, accept: %{ pdf: true } } do
+    Proxy.forward conn, [], "http://documents/cases/" <> id <> "/production-ticket-templates"
+  end
+
+  post "/cases/:id/watermarked-production-tickets", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://documents/cases/" <> id <> "/watermarked-production-tickets"
   end
 
 
@@ -100,52 +151,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/accountancy-exports/"
   end
 
-
-  ## Document generation
-
-  post "/visit-summary-documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/visit-summary-documents"
-  end
-
-  post "/requests/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/requests/" <> id <> "/documents"
-  end
-
-  post "/interventions/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/interventions/" <> id <> "/documents"
-  end
-
-  post "/offers/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/offers/" <> id <> "/documents"
-  end
-
-  post "/orders/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/orders/" <> id <> "/documents"
-  end
-
-  post "/orders/:id/delivery-notes", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/orders/" <> id <> "/delivery-notes"
-  end
-
-  post "/invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/invoices/" <> id <> "/documents"
-  end
-
-  post "/invoices/:id/files", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, [], "http://ms-files/invoices/" <> id <> "/files"
-  end
-
-  post "/deposit-invoices/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/deposit-invoices/" <> id <> "/documents"
-  end
-
-  post "/cases/:id/production-tickets", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/cases/" <> id <> "/production-tickets"
-  end
-
-  post "/cases/:id/production-ticket-templates", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/cases/" <> id <> "/production-ticket-templates"
-  end
 
   ## Regular resources
 

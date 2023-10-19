@@ -57,10 +57,11 @@
           "cardinality": "one",
           "inverse": true
         },
-        "invoice": {
+        "invoices": {
           "predicate": "prov:wasDerivedFrom",
           "target": "invoice-document",
-          "cardinality": "one"
+          "cardinality": "many",
+          "_comment": "Contains both, invoices and deposit-invoices"
         },
         "order": {
           "predicate": "prov:wasDerivedFrom",
@@ -70,6 +71,11 @@
         "offer": {
           "predicate": "prov:wasDerivedFrom",
           "target": "offer",
+          "cardinality": "one"
+        },
+        "request": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "request",
           "cardinality": "one"
         },
         "intervention": {
