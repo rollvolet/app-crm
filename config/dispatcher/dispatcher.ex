@@ -77,10 +77,6 @@ defmodule Dispatcher do
 
   ## Document generation
 
-  post "/visit-summary-documents", %{ layer: :services, accept: %{ pdf: true } } do
-    Proxy.forward conn, [], "http://documents/visit-summary-documents"
-  end
-
   post "/requests/:id/documents", %{ layer: :services, accept: %{ pdf: true } } do
     Proxy.forward conn, [], "http://documents/requests/" <> id <> "/documents"
   end
