@@ -1,6 +1,7 @@
 {
   "version": "0.1",
   "prefixes": {
+    "generiek": "https://data.vlaanderen.be/ns/generiek#",
     "adms": "http://www.w3.org/ns/adms#",
     "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
@@ -41,6 +42,11 @@
         }
       },
       "relationships": {
+        "structured-identifier": {
+          "target": "structured-identifier",
+          "predicate": "generiek:gestructureerdeIdentificator",
+          "cardinality": "one"
+        },
         "customer": {
           "predicate": "schema:customer",
           "target": "customer",
@@ -115,6 +121,32 @@
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",
       "features": ["include-uri"]
+    },
+    "structured-identifiers": {
+      "name": "structured-identifier",
+      "class": "generiek:GestructureerdeIdentificator",
+      "attributes": {
+        "identifier": {
+          "type": "integer",
+          "predicate": "generiek:lokaleIdentificator"
+        },
+        "namespace": {
+          "type": "string",
+          "predicate": "generiek:naamruimte"
+        }
+      },
+      "relationships": {
+        "case": {
+          "target": "case",
+          "predicate": "generiek:gestructureerdeIdentificator",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://themis.vlaanderen.be/id/structured-identificator/"
     }
   }
 }
