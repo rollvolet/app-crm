@@ -30,6 +30,12 @@
           "predicate": "foaf:account",
           "target": "account",
           "cardinality": "one"
+        },
+        "activities": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "activity",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [

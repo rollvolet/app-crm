@@ -23,6 +23,11 @@
         }
       },
       "relationships": {
+        "user": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "user",
+          "cardinality": "one"
+        },
         "case": {
           "predicate": "prov:wasInvalidatedBy",
           "target": "case",
