@@ -140,3 +140,9 @@ services:
       - ./data/filedrop:/share
     restart: always
     logging: *default-logging
+  reporting:
+    image: rollvolet/reporting-service:0.1.0
+    volumes:
+      - ./data/logs:/share
+    restart: always
+    logging: *default-logging

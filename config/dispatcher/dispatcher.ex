@@ -148,6 +148,17 @@ defmodule Dispatcher do
   end
 
 
+  ## Reporting service
+
+  post "/revenue-reports/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://reporting/revenue-reports/"
+  end
+
+  post "/error-notifications/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://reporting/error-notifications/"
+  end
+
+
   ## Regular resources
 
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
