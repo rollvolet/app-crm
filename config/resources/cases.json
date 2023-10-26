@@ -146,7 +146,7 @@
       "features": [
         "include-uri"
       ],
-      "new-resource-base": "http://themis.vlaanderen.be/id/structured-identificator/"
+      "new-resource-base": "http://data.rollvolet.be/structured-identifiers/"
     }
   }
 }
