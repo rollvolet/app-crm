@@ -77,6 +77,7 @@ defmodule Acl.UserGroups.Config do
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
                 "https://data.vlaanderen.be/ns/dossier#Dossier",
+                "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event",
                 "http://data.rollvolet.be/vocabularies/crm/AccountancyExport",
