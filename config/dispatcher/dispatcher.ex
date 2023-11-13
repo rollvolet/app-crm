@@ -159,6 +159,12 @@ defmodule Dispatcher do
   end
 
 
+  ## Search
+  get "/:index/search", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, [], "http://search/" <> index <> "/search"
+  end
+
+
   ## Regular resources
 
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do

@@ -70,6 +70,16 @@ services:
       - ./config/migrations:/data/migrations
     restart: always
     logging: *default-logging
+  search:
+    image: semtech/mu-search:0.10.0-beta.1
+    volumes:
+      - ./config/search:/config
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.1.0
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
   msal-login:
     image: rollvolet/msal-login-service:1.0.0
     environment:
