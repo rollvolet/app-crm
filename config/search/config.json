@@ -18,6 +18,655 @@
   ],
   "types": [
     {
+      "type": "intervention",
+      "on_path": "interventions",
+      "rdf_type": "http://data.rollvolet.be/vocabularies/crm/Intervention",
+      "properties": {
+        "interventionDate": "http://purl.org/dc/terms/issued",
+        "number": "http://schema.org/identifier",
+        "description": "http://purl.org/dc/terms/description",
+        "comment": "http://www.w3.org/2004/02/skos/core#comment",
+        "scheduledNbOfPersons": "http://data.rollvolet.be/vocabularies/crm/scheduledNbOfPersons",
+        "plannedDate": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#date"
+        ],
+        "reference": [
+          "^http://mu.semte.ch/vocabularies/ext/intervention",
+          "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "invoiceId": [
+          "^http://mu.semte.ch/vocabularies/ext/intervention",
+          "http://mu.semte.ch/vocabularies/ext/invoice"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/intervention",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
+        "customer": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/intervention",
+            "http://schema.org/customer"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "type": "http://purl.org/dc/terms/type",
+            "number": "http://www.w3.org/2006/vcard/ns#hasUID",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "building": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/intervention",
+            "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "interventionDate": { "type": "date" },
+          "number": { "type": "integer" },
+          "description": {
+            "type": "text",
+            "analyzer": "rebuilt_dutch"
+          },
+          "comment": {
+            "type": "text",
+            "analyzer": "rebuilt_dutch"
+          },
+          "scheduledNbOfPersons": {"type": "integer" },
+          "plannedDate": { "type": "date" },
+          "reference": { "type": "keyword" },
+          "invoiceId": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
+          "customer.type": { "type": "keyword" },
+          "customer.number": { "type": "integer" },
+          "customer.honorificPrefix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.printPrefix": { "type": "boolean" },
+          "customer.printSuffix": { "type": "boolean" },
+          "customer.printInFront": { "type": "boolean" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "customer.country": { "type": "keyword" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
+          "building.honorificPrefix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.printPrefix": { "type": "boolean" },
+          "building.printSuffix": { "type": "boolean" },
+          "building.printInFront": { "type": "boolean" },
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
+      "type": "request",
+      "on_path": "requests",
+      "rdf_type": "http://data.rollvolet.be/vocabularies/crm/Request",
+      "properties": {
+        "requestDate": "http://purl.org/dc/terms/issued",
+        "number": "http://schema.org/identifier",
+        "description": "http://purl.org/dc/terms/description",
+        "comment": "http://www.w3.org/2004/02/skos/core#comment",
+        "plannedDate": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#date"
+        ],
+        "reference": [
+          "^http://mu.semte.ch/vocabularies/ext/request",
+          "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "offerId": [
+          "^http://mu.semte.ch/vocabularies/ext/request",
+          "http://mu.semte.ch/vocabularies/ext/offer"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/request",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
+        "customer": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/request",
+            "http://schema.org/customer"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "type": "http://purl.org/dc/terms/type",
+            "number": "http://www.w3.org/2006/vcard/ns#hasUID",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "building": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/request",
+            "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "requestDate": { "type": "date" },
+          "number": { "type": "integer" },
+          "description": {
+            "type": "text",
+            "analyzer": "rebuilt_dutch"
+          },
+          "comment": {
+            "type": "text",
+            "analyzer": "rebuilt_dutch"
+          },
+          "plannedDate": { "type": "date" },
+          "reference": { "type": "keyword" },
+          "offerId": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
+          "customer.type": { "type": "keyword" },
+          "customer.number": { "type": "integer" },
+          "customer.honorificPrefix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.printPrefix": { "type": "boolean" },
+          "customer.printSuffix": { "type": "boolean" },
+          "customer.printInFront": { "type": "boolean" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "customer.country": { "type": "keyword" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
+          "building.honorificPrefix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.printPrefix": { "type": "boolean" },
+          "building.printSuffix": { "type": "boolean" },
+          "building.printInFront": { "type": "boolean" },
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
+      "type": "offer",
+      "on_path": "offers",
+      "rdf_type": "http://schema.org/Offer",
+      "properties": {
+        "offerDate": "http://purl.org/dc/terms/issued",
+        "reference": [
+          "^http://mu.semte.ch/vocabularies/ext/offer",
+          "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "visitorName": [
+          "^http://mu.semte.ch/vocabularies/ext/offer",
+          "http://mu.semte.ch/vocabularies/ext/request",
+          "http://data.rollvolet.be/vocabularies/crm/visitor",
+          "http://xmlns.com/foaf/0.1/firstName"
+        ],
+        "orderId": [
+          "^http://mu.semte.ch/vocabularies/ext/offer",
+          "http://mu.semte.ch/vocabularies/ext/order"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/offer",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
+        "customer": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/offer",
+            "http://schema.org/customer"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "type": "http://purl.org/dc/terms/type",
+            "number": "http://www.w3.org/2006/vcard/ns#hasUID",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "building": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/offer",
+            "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "offerDate": { "type": "date" },
+          "visitorName": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "reference": { "type": "keyword" },
+          "invoiceId": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
+          "customer.type": { "type": "keyword" },
+          "customer.number": { "type": "integer" },
+          "customer.honorificPrefix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.printPrefix": { "type": "boolean" },
+          "customer.printSuffix": { "type": "boolean" },
+          "customer.printInFront": { "type": "boolean" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "customer.country": { "type": "keyword" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
+          "building.honorificPrefix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.printPrefix": { "type": "boolean" },
+          "building.printSuffix": { "type": "boolean" },
+          "building.printInFront": { "type": "boolean" },
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
       "type": "order",
       "on_path": "orders",
       "rdf_type": "https://purl.org/p2p-o/document#PurchaseOrder",
@@ -53,28 +702,6 @@
           "^http://mu.semte.ch/vocabularies/ext/order",
           "http://purl.org/cerif/frapo/hasReferenceNumber"
         ],
-        "invoiceId": [
-          "^http://mu.semte.ch/vocabularies/ext/order",
-          "http://mu.semte.ch/vocabularies/ext/invoice"
-        ],
-        "caseId": [
-          "^http://mu.semte.ch/vocabularies/ext/order",
-          "http://purl.org/dc/terms/identifier"
-        ],
-        "caseIdNamespace": [
-          "^http://mu.semte.ch/vocabularies/ext/order",
-          "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
-          "https://data.vlaanderen.be/ns/generiek#naamruimte"
-        ],
-        "caseIdNumber": [
-          "^http://mu.semte.ch/vocabularies/ext/order",
-          "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
-          "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
-        ],
-        "caseStatus": [
-          "^http://mu.semte.ch/vocabularies/ext/order",
-          "http://www.w3.org/ns/adms#status"
-        ],
         "visitorName": [
           "^http://mu.semte.ch/vocabularies/ext/order",
           "http://mu.semte.ch/vocabularies/ext/request",
@@ -85,6 +712,26 @@
           "http://data.rollvolet.be/vocabularies/crm/plannedTechnicians",
           "http://xmlns.com/foaf/0.1/firstName"
         ],
+        "invoiceId": [
+          "^http://mu.semte.ch/vocabularies/ext/order",
+          "http://mu.semte.ch/vocabularies/ext/invoice"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/order",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
         "customer": {
           "via": [
             "^http://mu.semte.ch/vocabularies/ext/order",
@@ -115,9 +762,12 @@
             ],
             "country": [
               "http://www.w3.org/2006/vcard/ns#hasAddress",
-              "http://www.w3.org/2006/vcard/ns#hasLocality",
               "http://www.w3.org/2006/vcard/ns#hasCountryName",
               "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
             ]
           }
         },
@@ -125,6 +775,195 @@
           "via": [
             "^http://mu.semte.ch/vocabularies/ext/order",
             "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "orderDate": { "type": "date" },
+          "expectedDate": { "type": "date" },
+          "dueDate": { "type": "date" },
+          "plannedDate": { "type": "date" },
+          "scheduledNbOfHours": {"type": "integer" },
+          "scheduledNbOfPersons": {"type": "integer" },
+          "comment": {
+            "type": "text",
+            "analyzer": "rebuilt_dutch"
+          },
+          "deliveryMethodUri": { "type": "keyword"},
+          "deliveryMethodLabel": { "type": "keyword"},
+          "isReady": {"type": "boolean" },
+          "hasProductionTicket": {"type": "boolean" },
+          "reference": { "type": "keyword" },
+          "visitorName": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "technicianNames": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "invoiceId": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
+          "customer.type": { "type": "keyword" },
+          "customer.number": { "type": "integer" },
+          "customer.honorificPrefix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.printPrefix": { "type": "boolean" },
+          "customer.printSuffix": { "type": "boolean" },
+          "customer.printInFront": { "type": "boolean" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "customer.country": { "type": "keyword" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
+          "building.honorificPrefix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.printPrefix": { "type": "boolean" },
+          "building.printSuffix": { "type": "boolean" },
+          "building.printInFront": { "type": "boolean" },
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
+      "type": "deposit-invoice",
+      "on_path": "deposit-invoices",
+      "rdf_type": "https://purl.org/p2p-o/invoice#E-PrePaymentInvoice",
+      "properties": {
+        "type": "http://purl.org/dc/terms/type",
+        "number": "https://purl.org/p2p-o/invoice#invoiceNumber",
+        "invoiceDate": "https://purl.org/p2p-o/invoice#dateOfIssue",
+        "dueDate": "https://purl.org/p2p-o/invoice#paymentDueDate",
+        "bookingDate": "http://data.rollvolet.be/vocabularies/crm/bookingDate",
+        "paymentDate": "http://data.rollvolet.be/vocabularies/crm/paymentDate",
+        "totalAmountNet": "https://purl.org/p2p-o/invoice#hasTotalLineNetAmount",
+        "reference": [
+          "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "invoiceId": [
+          "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "http://mu.semte.ch/vocabularies/ext/invoice"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
+        "customer": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+            "http://schema.org/customer"
           ],
           "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
           "properties": {
@@ -151,65 +990,583 @@
             ],
             "country": [
               "http://www.w3.org/2006/vcard/ns#hasAddress",
-              "http://www.w3.org/2006/vcard/ns#hasLocality",
               "http://www.w3.org/2006/vcard/ns#hasCountryName",
               "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "building": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+            "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
             ]
           }
         }
       },
       "mappings": {
         "properties": {
-          "orderDate" : { "type": "date" },
-          "expectedDate" : { "type": "date" },
-          "dueDate" : { "type": "date" },
-          "plannedDate" : { "type": "date" },
-          "scheduledNbOfHours": {"type": "integer" },
-          "scheduledNbOfPersons": {"type": "integer" },
-          "comment": {
-            "type": "text",
-            "analyzer": "rebuilt_dutch"
-          },
-          "deliveryMethodUri": { "type": "keyword"},
-          "deliveryMethodLabel": { "type": "keyword"},
-          "isReady": {"type": "boolean" },
-          "hasProductionTicket": {"type": "boolean" },
+          "type": {"type": "keyword" },
+          "number": {"type": "integer" },
+          "invoiceDate": { "type": "date" },
+          "dueDate": { "type": "date" },
+          "bookingDate": { "type": "date" },
+          "paymentDate": { "type": "date" },
           "reference": { "type": "keyword" },
-          "caseId": { "type": "keyword" },
-          "caseIdNamespace": { "type": "keyword" },
-          "caseIdNumber": { "type": "keyword" },
-          "caseStatus": { "type": "keyword" },
-          "visitorName": { "type": "keyword" },
-          "technicianNames": {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "invoiceId": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix": { "type": "keyword" },
-          "customer.name": { "type": "keyword" },
-          "customer.suffix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
-          "customer.street": { "type": "keyword" },
-          "customer.postalCode": { "type": "keyword" },
-          "customer.city": { "type": "keyword" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
           "customer.country": { "type": "keyword" },
-          "building.type": { "type": "keyword" },
-          "building.number": { "type": "integer" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix": { "type": "keyword" },
-          "building.name": { "type": "keyword" },
-          "building.suffix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
-          "building.street": { "type": "keyword" },
-          "building.postalCode": { "type": "keyword" },
-          "building.city": { "type": "keyword" },
-          "building.country": { "type": "keyword" }
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
+      "type": "invoice",
+      "on_path": "invoices",
+      "rdf_type": "https://purl.org/p2p-o/invoice#E-FinalInvoice",
+      "properties": {
+        "type": "http://purl.org/dc/terms/type",
+        "number": "https://purl.org/p2p-o/invoice#invoiceNumber",
+        "invoiceDate": "https://purl.org/p2p-o/invoice#dateOfIssue",
+        "dueDate": "https://purl.org/p2p-o/invoice#paymentDueDate",
+        "bookingDate": "http://data.rollvolet.be/vocabularies/crm/bookingDate",
+        "paymentDate": "http://data.rollvolet.be/vocabularies/crm/paymentDate",
+        "totalAmountNet": "https://purl.org/p2p-o/invoice#hasTotalLineNetAmount",
+        "reference": [
+          "^http://mu.semte.ch/vocabularies/ext/invoice",
+          "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "case": {
+          "via": "^http://mu.semte.ch/vocabularies/ext/invoice",
+          "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
+          "properties": {
+            "identifier": "http://purl.org/dc/terms/identifier",
+            "idNamespace": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#naamruimte"
+            ],
+            "idNumber": [
+              "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+              "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+            ],
+            "status": "http://www.w3.org/ns/adms#status"
+          }
+        },
+        "customer": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/invoice",
+            "http://schema.org/customer"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "type": "http://purl.org/dc/terms/type",
+            "number": "http://www.w3.org/2006/vcard/ns#hasUID",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "building": {
+          "via": [
+            "^http://mu.semte.ch/vocabularies/ext/invoice",
+            "http://data.rollvolet.be/vocabularies/crm/building"
+          ],
+          "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "type": {"type": "keyword" },
+          "number": {"type": "integer" },
+          "invoiceDate": { "type": "date" },
+          "dueDate": { "type": "date" },
+          "bookingDate": { "type": "date" },
+          "paymentDate": { "type": "date" },
+          "reference": { "type": "keyword" },
+          "case.identifier": { "type": "keyword" },
+          "case.idNamespace": { "type": "keyword" },
+          "case.idNumber": { "type": "integer" },
+          "case.status": { "type": "keyword" },
+          "customer.type": { "type": "keyword" },
+          "customer.number": { "type": "integer" },
+          "customer.honorificPrefix": { "type": "keyword" },
+          "customer.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "customer.printPrefix": { "type": "boolean" },
+          "customer.printSuffix": { "type": "boolean" },
+          "customer.printInFront": { "type": "boolean" },
+          "customer.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "customer.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "customer.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "customer.country": { "type": "keyword" },
+          "customer.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "building.position": { "type": "integer" },
+          "building.honorificPrefix": { "type": "keyword" },
+          "building.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "building.printPrefix": { "type": "boolean" },
+          "building.printSuffix": { "type": "boolean" },
+          "building.printInFront": { "type": "boolean" },
+          "building.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "building.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "building.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "building.country": { "type": "keyword" },
+          "building.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
+        }
+      }
+    },
+    {
+      "type": "customer",
+      "on_path": "customers",
+      "rdf_type": "http://www.w3.org/2006/vcard/ns#VCard",
+      "properties": {
+        "type": "http://purl.org/dc/terms/type",
+        "number": "http://www.w3.org/2006/vcard/ns#hasUID",
+        "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+        "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+        "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+        "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+        "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+        "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+        "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+        "street": [
+          "http://www.w3.org/2006/vcard/ns#hasAddress",
+          "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+        ],
+        "postalCode": [
+          "http://www.w3.org/2006/vcard/ns#hasAddress",
+          "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+        ],
+        "city": [
+          "http://www.w3.org/2006/vcard/ns#hasAddress",
+          "http://www.w3.org/2006/vcard/ns#hasLocality"
+        ],
+        "country": [
+          "http://www.w3.org/2006/vcard/ns#hasAddress",
+          "http://www.w3.org/2006/vcard/ns#hasCountryName",
+          "http://schema.org/name"
+        ],
+        "telephones": [
+          "http://www.w3.org/2006/vcard/ns#hasTelephone",
+          "http://www.w3.org/2006/vcard/ns#hasValue"
+        ],
+        "buildings": {
+          "via": "http://schema.org/affiliation",
+          "rdf_type": "https://data.vlaanderen.be/ns/gebouw#Gebouw",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        },
+        "contacts": {
+          "via": "http://schema.org/affiliation",
+          "rdf_type": "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
+          "properties": {
+            "position": "http://schema.org/position",
+            "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+            "prefix": "http://www.w3.org/2006/vcard/ns#hasGivenName",
+            "name": "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+            "suffix": "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+            "printPrefix": "http://data.rollvolet.be/vocabularies/crm/printPrefix",
+            "printSuffix": "http://data.rollvolet.be/vocabularies/crm/printSuffix",
+            "printInFront": "http://data.rollvolet.be/vocabularies/crm/printSuffixInFront",
+            "street": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasStreetAddress"
+            ],
+            "postalCode": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasPostalCode"
+            ],
+            "city": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasLocality"
+            ],
+            "country": [
+              "http://www.w3.org/2006/vcard/ns#hasAddress",
+              "http://www.w3.org/2006/vcard/ns#hasCountryName",
+              "http://schema.org/name"
+            ],
+            "telephones": [
+              "http://www.w3.org/2006/vcard/ns#hasTelephone",
+              "http://www.w3.org/2006/vcard/ns#hasValue"
+            ]
+          }
+        }
+      },
+      "mappings": {
+        "properties": {
+          "type": { "type": "keyword" },
+          "number": { "type": "integer" },
+          "honorificPrefix": { "type": "keyword" },
+          "prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "printPrefix": { "type": "boolean" },
+          "printSuffix": { "type": "boolean" },
+          "printInFront": { "type": "boolean" },
+          "street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "country": { "type": "keyword" },
+          "telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "buildings.position": { "type": "integer" },
+          "buildings.honorificPrefix": { "type": "keyword" },
+          "buildings.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "buildings.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "buildings.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "buildings.printPrefix": { "type": "boolean" },
+          "buildings.printSuffix": { "type": "boolean" },
+          "buildings.printInFront": { "type": "boolean" },
+          "buildings.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "buildings.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "buildings.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "buildings.country": { "type": "keyword" },
+          "buildings.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "contacts.position": { "type": "integer" },
+          "contacts.honorificPrefix": { "type": "keyword" },
+          "contacts.prefix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "contacts.name":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "contacts.suffix":  {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "contacts.printPrefix": { "type": "boolean" },
+          "contacts.printSuffix": { "type": "boolean" },
+          "contacts.printInFront": { "type": "boolean" },
+          "contacts.street": {
+            "type": "keyword",
+            "copy_to": "searchStreet"
+          },
+          "contacts.postalCode": {
+            "type": "keyword",
+            "copy_to": "searchPostalCode"
+          },
+          "contacts.city": {
+            "type": "text",
+            "analyzer": "names",
+            "copy_to": "searchCity"
+          },
+          "contacts.country": { "type": "keyword" },
+          "contacts.telephones": {
+            "type": "keyword",
+            "copy_to": "searchTelephones"
+          },
+          "searchStreet": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchPostalCode": { "type": "keyword" },
+          "searchCity": {
+            "type": "text",
+            "analyzer": "names"
+          },
+          "searchTelephones": { "type": "keyword" }
         }
       }
     }

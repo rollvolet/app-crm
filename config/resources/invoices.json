@@ -46,7 +46,7 @@
         "total-amount-net": {
           "type": "decimal",
           "predicate": "p2poInvoice:hasTotalLineNetAmount",
-          "_comment": "Total invoice amount (sum of invoicelines) excluding VAT. TODO Must be kept in sync by a backend service."
+          "_comment": "Total invoice amount (sum of invoicelines) excluding VAT."
         },
         "payment-amount-net": {
           "type": "decimal",
@@ -56,7 +56,7 @@
         "vat-amount": {
           "type": "decimal",
           "predicate": "p2poInvoice:hasTotalVATAmount",
-          "_comment": "VAT calculated on payment-amount-net"
+          "_comment": "VAT calculated on payment-amount-net. TODO Must be kept in sync by a backend service."
         },
         "currency": {
           "type": "string",
