@@ -146,7 +146,7 @@
             "type": "text",
             "analyzer": "rebuilt_dutch"
           },
-          "scheduledNbOfPersons": {"type": "integer" },
+          "scheduledNbOfPersons": { "type": "integer" },
           "plannedDate": { "type": "date" },
           "reference": { "type": "keyword" },
           "invoiceId": { "type": "keyword" },
@@ -841,16 +841,16 @@
           "expectedDate": { "type": "date" },
           "dueDate": { "type": "date" },
           "plannedDate": { "type": "date" },
-          "scheduledNbOfHours": {"type": "integer" },
-          "scheduledNbOfPersons": {"type": "integer" },
+          "scheduledNbOfHours": { "type": "integer" },
+          "scheduledNbOfPersons": { "type": "integer" },
           "comment": {
             "type": "text",
             "analyzer": "rebuilt_dutch"
           },
           "deliveryMethodUri": { "type": "keyword"},
           "deliveryMethodLabel": { "type": "keyword"},
-          "isReady": {"type": "boolean" },
-          "hasProductionTicket": {"type": "boolean" },
+          "isReady": { "type": "boolean" },
+          "hasProductionTicket": { "type": "boolean" },
           "reference": { "type": "keyword" },
           "visitorName": {
             "type": "text",
@@ -1073,8 +1073,11 @@
       },
       "mappings": {
         "properties": {
-          "type": {"type": "keyword" },
-          "number": {"type": "integer" },
+          "type": { "type": "keyword" },
+          "number": {
+            "type": "integer",
+            "copy_to": "searchNumber"
+          },
           "invoiceDate": { "type": "date" },
           "dueDate": { "type": "date" },
           "bookingDate": { "type": "date" },
@@ -1159,6 +1162,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "searchNumber": { "type": "keyword" },
           "searchName": {
             "type": "text",
             "analyzer": "names"
@@ -1288,8 +1292,11 @@
       },
       "mappings": {
         "properties": {
-          "type": {"type": "keyword" },
-          "number": {"type": "integer" },
+          "type": { "type": "keyword" },
+          "number": {
+            "type": "integer",
+            "copy_to": "searchNumber"
+          },
           "invoiceDate": { "type": "date" },
           "dueDate": { "type": "date" },
           "bookingDate": { "type": "date" },
@@ -1373,6 +1380,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "searchNumber": { "type": "keyword" },
           "searchName": {
             "type": "text",
             "analyzer": "names"
