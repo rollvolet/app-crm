@@ -158,15 +158,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -223,6 +226,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -376,15 +383,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -441,6 +451,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -587,15 +601,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -652,6 +669,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -845,15 +866,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -910,6 +934,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -1057,15 +1085,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -1122,6 +1153,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -1264,15 +1299,18 @@
           "customer.honorificPrefix": { "type": "keyword" },
           "customer.prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
@@ -1329,6 +1367,10 @@
           "building.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
@@ -1452,19 +1494,25 @@
       "mappings": {
         "properties": {
           "type": { "type": "keyword" },
-          "number": { "type": "integer" },
+          "number": {
+            "type": "integer",
+            "copy_to": "searchNumber"
+          },
           "honorificPrefix": { "type": "keyword" },
           "prefix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "name":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "suffix":  {
             "type": "text",
-            "analyzer": "names"
+            "analyzer": "names",
+            "copy_to": "searchName"
           },
           "printPrefix": { "type": "boolean" },
           "printSuffix": { "type": "boolean" },
@@ -1556,6 +1604,11 @@
           "contacts.telephones": {
             "type": "keyword",
             "copy_to": "searchTelephones"
+          },
+          "searchNumber": { "type": "keyword" },
+          "searchName": {
+            "type": "text",
+            "analyzer": "names"
           },
           "searchStreet": {
             "type": "text",
