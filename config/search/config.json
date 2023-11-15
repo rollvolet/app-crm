@@ -37,7 +37,8 @@
         ],
         "invoiceId": [
           "^http://mu.semte.ch/vocabularies/ext/intervention",
-          "http://mu.semte.ch/vocabularies/ext/invoice"
+          "http://mu.semte.ch/vocabularies/ext/invoice",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/intervention",
@@ -263,7 +264,8 @@
         ],
         "offerId": [
           "^http://mu.semte.ch/vocabularies/ext/request",
-          "http://mu.semte.ch/vocabularies/ext/offer"
+          "http://mu.semte.ch/vocabularies/ext/offer",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/request",
@@ -487,7 +489,8 @@
         ],
         "orderId": [
           "^http://mu.semte.ch/vocabularies/ext/offer",
-          "http://mu.semte.ch/vocabularies/ext/order"
+          "http://mu.semte.ch/vocabularies/ext/order",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/offer",
@@ -735,7 +738,8 @@
         ],
         "invoiceId": [
           "^http://mu.semte.ch/vocabularies/ext/order",
-          "http://mu.semte.ch/vocabularies/ext/invoice"
+          "http://mu.semte.ch/vocabularies/ext/invoice",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/order",
@@ -970,7 +974,8 @@
         ],
         "invoiceId": [
           "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
-          "http://mu.semte.ch/vocabularies/ext/invoice"
+          "http://mu.semte.ch/vocabularies/ext/invoice",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
