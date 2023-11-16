@@ -148,7 +148,10 @@
           },
           "scheduledNbOfPersons": { "type": "integer" },
           "plannedDate": { "type": "date" },
-          "reference": { "type": "keyword" },
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "invoiceId": { "type": "keyword" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
@@ -242,6 +245,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit (null) }"
+            }
+          }
         }
       }
     },
@@ -261,6 +272,10 @@
         "reference": [
           "^http://mu.semte.ch/vocabularies/ext/request",
           "http://purl.org/cerif/frapo/hasReferenceNumber"
+        ],
+        "visitorName": [
+          "http://data.rollvolet.be/vocabularies/crm/visitor",
+          "http://xmlns.com/foaf/0.1/firstName"
         ],
         "offerId": [
           "^http://mu.semte.ch/vocabularies/ext/request",
@@ -374,7 +389,14 @@
             "analyzer": "rebuilt_dutch"
           },
           "plannedDate": { "type": "date" },
-          "reference": { "type": "keyword" },
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
+          "visitorName": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "offerId": { "type": "keyword" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
@@ -589,11 +611,14 @@
       "mappings": {
         "properties": {
           "offerDate": { "type": "date" },
-          "visitorName": {
-            "type": "text",
-            "analyzer": "names"
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "reference": { "type": "keyword" },
+          "visitorName": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "invoiceId": { "type": "keyword" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
@@ -851,10 +876,13 @@
           "deliveryMethodLabel": { "type": "keyword"},
           "isReady": { "type": "boolean" },
           "hasProductionTicket": { "type": "boolean" },
-          "reference": { "type": "keyword" },
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "visitorName": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "technicianNames": {
             "type": "text",
@@ -969,16 +997,16 @@
         "paymentDate": "http://data.rollvolet.be/vocabularies/crm/paymentDate",
         "totalAmountNet": "https://purl.org/p2p-o/invoice#hasTotalLineNetAmount",
         "reference": [
-          "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "^http://mu.semte.ch/vocabularies/ext/depositInvoice",
           "http://purl.org/cerif/frapo/hasReferenceNumber"
         ],
         "invoiceId": [
-          "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "^http://mu.semte.ch/vocabularies/ext/depositInvoice",
           "http://mu.semte.ch/vocabularies/ext/invoice",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "case": {
-          "via": "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+          "via": "^http://mu.semte.ch/vocabularies/ext/depositInvoice",
           "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
           "properties": {
             "identifier": "http://purl.org/dc/terms/identifier",
@@ -995,7 +1023,7 @@
         },
         "customer": {
           "via": [
-            "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+            "^http://mu.semte.ch/vocabularies/ext/depositInvoice",
             "http://schema.org/customer"
           ],
           "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
@@ -1034,7 +1062,7 @@
         },
         "building": {
           "via": [
-            "^http://mu.semte.ch/vocabularies/ext/deposit-invoice",
+            "^http://mu.semte.ch/vocabularies/ext/depositInvoice",
             "http://data.rollvolet.be/vocabularies/crm/building"
           ],
           "rdf_type": "http://www.w3.org/2006/vcard/ns#Vcard",
@@ -1082,7 +1110,10 @@
           "dueDate": { "type": "date" },
           "bookingDate": { "type": "date" },
           "paymentDate": { "type": "date" },
-          "reference": { "type": "keyword" },
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "invoiceId": { "type": "keyword" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
@@ -1301,7 +1332,10 @@
           "dueDate": { "type": "date" },
           "bookingDate": { "type": "date" },
           "paymentDate": { "type": "date" },
-          "reference": { "type": "keyword" },
+          "reference": {
+            "type": "keyword",
+            "normalizer": "names"
+          },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
           "case.idNumber": { "type": "integer" },
@@ -1469,7 +1503,7 @@
           }
         },
         "contacts": {
-          "via": "http://schema.org/affiliation",
+          "via": "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#representative",
           "rdf_type": "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
           "properties": {
             "position": "http://schema.org/position",
@@ -1513,18 +1547,15 @@
           },
           "honorificPrefix": { "type": "keyword" },
           "prefix":  {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
             "copy_to": "searchName"
           },
           "name":  {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
             "copy_to": "searchName"
           },
           "suffix":  {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
             "copy_to": "searchName"
           },
           "printPrefix": { "type": "boolean" },
@@ -1639,6 +1670,15 @@
   ],
   "default_settings": {
     "analysis": {
+      "normalizer": {
+        "names": {
+          "filter": [
+           "asciifolding",
+            "lowercase",
+            "trim"
+          ]
+        }
+      },
       "filter": {
         "dutch_stemmer": {
           "type": "stemmer",
