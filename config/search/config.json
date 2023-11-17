@@ -40,6 +40,11 @@
           "http://mu.semte.ch/vocabularies/ext/invoice",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
+        "invoiceDate": [
+          "^http://mu.semte.ch/vocabularies/ext/intervention",
+          "http://mu.semte.ch/vocabularies/ext/invoice",
+          "https://purl.org/p2p-o/invoice#dateOfIssue"
+        ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/intervention",
           "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
@@ -153,6 +158,7 @@
             "normalizer": "names"
           },
           "invoiceId": { "type": "keyword" },
+          "invoiceDate": { "type": "date" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
           "case.idNumber": { "type": "integer" },
@@ -782,6 +788,11 @@
           "http://mu.semte.ch/vocabularies/ext/invoice",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
+        "invoiceDate": [
+          "^http://mu.semte.ch/vocabularies/ext/order",
+          "http://mu.semte.ch/vocabularies/ext/invoice",
+          "https://purl.org/p2p-o/invoice#dateOfIssue"
+        ],
         "case": {
           "via": "^http://mu.semte.ch/vocabularies/ext/order",
           "rdf_type": "https://data.vlaanderen.be/ns/dossier#Dossier",
@@ -905,6 +916,7 @@
             "analyzer": "names"
           },
           "invoiceId": { "type": "keyword" },
+          "invoiceDate": { "type": "date" },
           "case.identifier": { "type": "keyword" },
           "case.idNamespace": { "type": "keyword" },
           "case.idNumber": { "type": "integer" },
