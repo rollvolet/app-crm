@@ -250,7 +250,7 @@
           "sortPostalCode": {
             "type": "keyword",
             "script": {
-              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit (null) }"
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
             }
           }
         }
@@ -490,6 +490,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
+            }
+          }
         }
       }
     },
@@ -712,6 +720,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
+            }
+          }
         }
       }
     },
@@ -981,6 +997,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
+            }
+          }
         }
       }
     },
@@ -1208,6 +1232,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
+            }
+          }
         }
       }
     },
@@ -1429,6 +1461,14 @@
             "analyzer": "names"
           },
           "searchTelephones": { "type": "keyword" }
+        },
+        "runtime": {
+          "sortPostalCode": {
+            "type": "keyword",
+            "script": {
+              "source": "if (doc['building.postalCode'].size() > 0) { emit(doc['building.postalCode'].value) } else if (doc['customer.postalCode'].size() > 0) { emit(doc['customer.postalCode'].value) } else { emit ('') }"
+            }
+          }
         }
       }
     },
