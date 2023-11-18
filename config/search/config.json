@@ -1489,6 +1489,7 @@
       "on_path": "customers",
       "rdf_type": "http://www.w3.org/2006/vcard/ns#VCard",
       "properties": {
+        "status": "http://www.w3.org/ns/adms#status",
         "type": "http://purl.org/dc/terms/type",
         "number": "http://www.w3.org/2006/vcard/ns#hasUID",
         "honorificPrefix": "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
@@ -1592,6 +1593,7 @@
       },
       "mappings": {
         "properties": {
+          "status": { "type": "keyword" },
           "type": { "type": "keyword" },
           "number": {
             "type": "integer",

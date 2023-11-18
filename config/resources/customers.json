@@ -13,6 +13,10 @@
       "name": "customer",
       "class": "vcard:VCard",
       "attributes": {
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
         "type": {
           "type": "url",
           "predicate": "dct:type",
