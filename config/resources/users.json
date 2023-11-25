@@ -31,6 +31,12 @@
           "target": "account",
           "cardinality": "one"
         },
+        "employee": {
+          "predicate": "prov:alternateOf",
+          "target": "employee",
+          "cardinality": "one",
+          "inverse": true
+        },
         "activities": {
           "predicate": "prov:wasAssociatedWith",
           "target": "activity",
@@ -101,6 +107,11 @@
         }
       },
       "relationships": {
+        "user": {
+          "predicate": "prov:alternateOf",
+          "target": "user",
+          "cardinality": "one"
+        },
         "technical-work-activities": {
           "predicate": "prov:wasAssociatedWith",
           "target": "technical-work-activity",
