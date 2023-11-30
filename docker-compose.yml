@@ -14,12 +14,16 @@ services:
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"name\":\"clean\", \"variables\":[]}, {\"name\":\"public\", \"variables\":[]}]"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   dispatcher:
     image: semtech/mu-dispatcher:2.1.0-beta.2
     volumes:
       - ./config/dispatcher:/config
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   frontend:
     image: rollvolet/frontend-crm:3.0.0-beta.1
     environment:
@@ -27,6 +31,8 @@ services:
       EMBER_AUTH_REDIRECT_URI: "https://crm.rollvolet.info/torii/redirect.html"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   database:
     image: semtech/mu-authorization:0.6.0-beta.8
     environment:
@@ -36,6 +42,8 @@ services:
       - ./config/authorization:/config
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   virtuoso:
     image: redpencil/virtuoso:1.2.0-rc.1
     environment:
@@ -47,12 +55,16 @@ services:
       - ./data/db:/data
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   delta-notifier:
     image: semtech/mu-delta-notifier:0.2.0
     volumes:
       - ./config/delta:/config
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   data-conversion:
     image: rollvolet/crm-data-conversion-service:1.0.4
     links:
@@ -71,16 +83,26 @@ services:
       - ./config/migrations:/data/migrations
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   search:
     image: semtech/mu-search:0.10.0-beta.1
     volumes:
       - ./config/search:/config
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
   elasticsearch:
     image: semtech/mu-search-elastic-backend:1.1.0
     volumes:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
   msal-login:
     image: rollvolet/msal-login-service:1.0.0
     environment:
@@ -88,12 +110,16 @@ services:
       AUTH_REFRESH_TOKENS: "true"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   token-cache:
     image: redis:6.2.6
     volumes:
       - ./data/token-cache:/data
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   registration:
     image: semtech/mu-registration-service:2.7.3
     entrypoint: echo "Only needed for mu script"
@@ -102,6 +128,8 @@ services:
       SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
     restart: "no"
     logging: *default-logging
+    labels:
+      - "logging=true"
   mock-login:
     image: semtech/mu-login-service:3.0.0
     environment:
@@ -109,6 +137,8 @@ services:
       SESSIONS_GRAPH: "http://mu.semte.ch/graphs/sessions"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   documents:
     image: rollvolet/document-generation-service:3.0.0-beta.1
     volumes:
@@ -117,12 +147,16 @@ services:
       - ./data/filedrop:/share
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   cache:
     image: semtech/mu-cache:2.0.2
     links:
     - resource:backend
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   resource:
     image: semtech/mu-cl-resources:1.22.2
     volumes:
@@ -131,6 +165,8 @@ services:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   ms-files:
     image: rollvolet/ms-files-service:0.3.0-beta.1
     environment:
@@ -139,21 +175,29 @@ services:
       - ./data/filedrop:/upload
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   ms-calendar:
     image: rollvolet/ms-calendar-service:0.5.0
     environment:
       USE_PERSONAL_CALENDAR: "false"
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   accountancy-export:
     image: rollvolet/accountancy-export-service:0.1.0-beta.1
     volumes:
       - ./data/filedrop:/share
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
   reporting:
     image: rollvolet/reporting-service:0.1.0
     volumes:
       - ./data/logs:/share
     restart: always
     logging: *default-logging
+    labels:
+      - "logging=true"
