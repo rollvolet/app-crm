@@ -20,6 +20,19 @@ defmodule Acl.UserGroups.Config do
     }
   end
 
+  defp has_group_access(group_uri) do
+    %AccessByQuery{
+      vars: [],
+      query: "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+          ?user foaf:account ?account ; foaf:member <#{group_uri}> .
+      } LIMIT 1"
+    }
+  end
+
   def user_groups do
     [
       %GroupSpec{
@@ -53,7 +66,6 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/rollvolet",
             constraint: %ResourceConstraint{
               resource_types: [
-                "http://www.w3.org/ns/person#Person",
                 "http://www.w3.org/2006/vcard/ns#VCard",
                 "https://data.vlaanderen.be/ns/gebouw#Gebouw",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
@@ -94,11 +106,20 @@ defmodule Acl.UserGroups.Config do
         access: authenticated_access(),
         graphs: [
           %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/rollvolet",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://www.w3.org/ns/person#Person" # employees
+              ]
+            }
+          },
+          %GraphSpec{
             graph: "http://mu.semte.ch/graphs/users",
             constraint: %ResourceConstraint{
               resource_types: [
-                "http://www.w3.org/ns/person#Person",
-                "http://xmlns.com/foaf/0.1/OnlineAccount"
+                "http://xmlns.com/foaf/0.1/Person", # users
+                "http://xmlns.com/foaf/0.1/OnlineAccount",
+                "http://xmlns.com/foaf/0.1/Group"
               ]
             }
           },
@@ -106,6 +127,40 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/sessions",
             constraint: %ResourceFormatConstraint{
               resource_prefix: "http://mu.semte.ch/sessions/"
+            }
+          }
+        ]
+      },
+
+      # %GroupSpec{
+      #   name: "board-write",
+      #   useage: [:write],
+      #   access: has_group_access("http://data.rollvolet.be/user-groups/board"),
+      #   graphs: [
+      #   ]
+      # },
+
+      %GroupSpec{
+        name: "admin-write",
+        useage: [:write],
+        access: has_group_access("http://data.rollvolet.be/user-groups/admin"),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/rollvolet",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://www.w3.org/ns/person#Person" # employees
+              ]
+            }
+          },
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/users",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://xmlns.com/foaf/0.1/Person", # users
+                "http://xmlns.com/foaf/0.1/OnlineAccount",
+                "http://xmlns.com/foaf/0.1/Group"
+              ]
             }
           }
         ]
