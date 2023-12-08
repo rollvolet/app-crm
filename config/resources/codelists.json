@@ -292,7 +292,7 @@
         },
         "contact-snapshots": {
           "predicate": "vcard:hasLanguage",
-          "target": "contacts-snapshot",
+          "target": "contact-snapshot",
           "cardinality": "many",
           "inverse": true
         }
