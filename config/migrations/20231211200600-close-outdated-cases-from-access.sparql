@@ -1,0 +1,47 @@
+DELETE {
+   GRAPH ?g {
+      ?s  <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2fb2bd3f-1df3-4c45-94a0-69a6af2ab735>  .
+   }
+} INSERT {
+   GRAPH ?g {
+      ?s  <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2ffb1b3c-7932-4369-98ac-37539efd2cbe>  .
+   }
+} WHERE {
+   GRAPH ?g {
+    ?s a <https://data.vlaanderen.be/ns/dossier#Dossier> ;
+       <http://mu.semte.ch/vocabularies/ext/order> ?order ;
+       <http://purl.org/dc/terms/identifier> ?identifier ;
+        <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2fb2bd3f-1df3-4c45-94a0-69a6af2ab735> .
+    ?order <http://purl.org/dc/terms/source> "Access" ;
+        <http://purl.org/dc/terms/source> ?date .
+    FILTER NOT EXISTS {
+      ?s <http://mu.semte.ch/vocabularies/ext/invoice> ?invoice .
+    }
+   }
+}
+
+;
+
+
+
+DELETE {
+   GRAPH ?g {
+      ?s  <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2fb2bd3f-1df3-4c45-94a0-69a6af2ab735>  .
+   }
+} INSERT {
+   GRAPH ?g {
+      ?s  <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2ffb1b3c-7932-4369-98ac-37539efd2cbe>  .
+   }
+} WHERE {
+   GRAPH ?g {
+    ?s a <https://data.vlaanderen.be/ns/dossier#Dossier> ;
+       <http://mu.semte.ch/vocabularies/ext/offer> ?offer ;
+       <http://purl.org/dc/terms/identifier> ?identifier ;
+        <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/2fb2bd3f-1df3-4c45-94a0-69a6af2ab735> .
+    ?offer <http://purl.org/dc/terms/source> "Access" ;
+        <http://purl.org/dc/terms/source> ?date .
+    FILTER NOT EXISTS {
+      ?s <http://mu.semte.ch/vocabularies/ext/order> ?order .
+    }
+   }
+}
