@@ -39,6 +39,10 @@
           "type": "boolean",
           "predicate": "crm:hasProductionTicket",
           "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
+        },
+        "deposit-required": {
+          "type": "boolean",
+          "predicate": "crm:requiresDeposit"
         }
       },
       "relationships": {

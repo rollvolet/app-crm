@@ -146,10 +146,6 @@
           "type": "date",
           "predicate": "tmo:dueDate"
         },
-        "deposit-required": {
-          "type": "boolean",
-          "predicate": "crm:requiresDeposit"
-        },
         "is-ready": {
           "type": "boolean",
           "predicate": "crm:productFinished"
