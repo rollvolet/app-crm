@@ -141,6 +141,10 @@
           "type": "integer",
           "predicate": "schema:position"
         },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
         "honorific-prefix": {
           "type": "string",
           "predicate": "vcard:hasHonorificPrefix"
@@ -235,13 +239,17 @@
       "name": "building",
       "class": "gebouw:Gebouw",
       "attributes": {
-        "honorific-prefix": {
-          "type": "string",
-          "predicate": "vcard:hasHonorificPrefix"
-        },
         "position": {
           "type": "integer",
           "predicate": "schema:position"
+        },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
+        "honorific-prefix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificPrefix"
         },
         "prefix": {
           "type": "string",

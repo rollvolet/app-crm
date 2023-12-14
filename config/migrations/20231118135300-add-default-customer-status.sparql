@@ -1,9 +1,0 @@
-INSERT {
-  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
-    ?customer <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/28feacd2-62cf-4ae9-843c-1da595aebf65> .
-  }
-} WHERE {
-  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
-    ?customer a <http://www.w3.org/2006/vcard/ns#VCard> .
-  }
-}

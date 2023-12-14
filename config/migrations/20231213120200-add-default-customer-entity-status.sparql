@@ -1,0 +1,17 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?customer <http://www.w3.org/ns/adms#status> <http://data.rollvolet.be/concepts/28feacd2-62cf-4ae9-843c-1da595aebf65> .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?customer a ?type .
+    VALUES ?type {
+      <http://www.w3.org/2006/vcard/ns#VCard>
+      <https://data.vlaanderen.be/ns/gebouw#Gebouw>
+      <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact>
+    }
+    FILTER NOT EXISTS {
+      ?customer <http://www.w3.org/ns/adms#status> ?status .
+    }
+  }
+}
