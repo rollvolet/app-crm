@@ -172,26 +172,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -199,8 +191,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -210,23 +202,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -234,8 +221,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -243,18 +230,14 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -417,26 +400,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -444,8 +419,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -455,23 +430,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -479,8 +449,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -488,18 +458,14 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -647,26 +613,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -674,8 +632,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -685,23 +643,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -709,8 +662,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -718,18 +671,14 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -918,8 +867,8 @@
             "normalizer": "names"
           },
           "technicianNames": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "invoiceId": { "type": "keyword" },
           "invoiceDate": { "type": "date" },
@@ -930,26 +879,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -957,8 +898,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -968,23 +909,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -992,8 +928,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -1001,18 +937,14 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -1164,26 +1096,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -1191,8 +1115,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -1202,23 +1126,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -1226,8 +1145,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -1236,18 +1155,14 @@
             "copy_to": "searchTelephones"
           },
           "searchNumber": { "type": "keyword" },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -1393,26 +1308,18 @@
           "customer.type": { "type": "keyword" },
           "customer.number": { "type": "integer" },
           "customer.honorificPrefix": { "type": "keyword" },
-          "customer.prefix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.prefix":  { "type": "keyword" },
           "customer.name":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "customer.suffix":  {
-            "type": "text",
-            "analyzer": "names",
-            "copy_to": "searchName"
-          },
+          "customer.suffix":  { "type": "keyword" },
           "customer.printPrefix": { "type": "boolean" },
           "customer.printSuffix": { "type": "boolean" },
           "customer.printInFront": { "type": "boolean" },
           "customer.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "customer.postalCode": {
@@ -1420,8 +1327,8 @@
             "copy_to": "searchPostalCode"
           },
           "customer.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "customer.country": { "type": "keyword" },
@@ -1431,23 +1338,18 @@
           },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
-          "building.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.prefix":  { "type": "keyword" },
           "building.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "building.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "building.suffix":  { "type": "keyword" },
           "building.printPrefix": { "type": "boolean" },
           "building.printSuffix": { "type": "boolean" },
           "building.printInFront": { "type": "boolean" },
           "building.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "building.postalCode": {
@@ -1455,8 +1357,8 @@
             "copy_to": "searchPostalCode"
           },
           "building.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "building.country": { "type": "keyword" },
@@ -1465,18 +1367,14 @@
             "copy_to": "searchTelephones"
           },
           "searchNumber": { "type": "keyword" },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         },
@@ -1606,23 +1504,18 @@
             "copy_to": "searchNumber"
           },
           "honorificPrefix": { "type": "keyword" },
-          "prefix":  {
-            "type": "keyword",
-            "copy_to": "searchName"
-          },
+          "prefix": { "type": "keyword" },
           "name":  {
             "type": "keyword",
-            "copy_to": "searchName"
+            "normalizer": "names"
           },
-          "suffix":  {
-            "type": "keyword",
-            "copy_to": "searchName"
-          },
+          "suffix": { "type": "keyword" },
           "printPrefix": { "type": "boolean" },
           "printSuffix": { "type": "boolean" },
           "printInFront": { "type": "boolean" },
           "street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "postalCode": {
@@ -1630,8 +1523,8 @@
             "copy_to": "searchPostalCode"
           },
           "city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "country": { "type": "keyword" },
@@ -1641,23 +1534,18 @@
           },
           "buildings.position": { "type": "integer" },
           "buildings.honorificPrefix": { "type": "keyword" },
-          "buildings.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "buildings.prefix":  { "type": "keyword" },
           "buildings.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "buildings.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "buildings.suffix":  { "type": "keyword" },
           "buildings.printPrefix": { "type": "boolean" },
           "buildings.printSuffix": { "type": "boolean" },
           "buildings.printInFront": { "type": "boolean" },
           "buildings.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "buildings.postalCode": {
@@ -1665,8 +1553,8 @@
             "copy_to": "searchPostalCode"
           },
           "buildings.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "buildings.country": { "type": "keyword" },
@@ -1676,23 +1564,18 @@
           },
           "contacts.position": { "type": "integer" },
           "contacts.honorificPrefix": { "type": "keyword" },
-          "contacts.prefix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "contacts.prefix":  { "type": "keyword" },
           "contacts.name":  {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
-          "contacts.suffix":  {
-            "type": "text",
-            "analyzer": "names"
-          },
+          "contacts.suffix":  { "type": "keyword" },
           "contacts.printPrefix": { "type": "boolean" },
           "contacts.printSuffix": { "type": "boolean" },
           "contacts.printInFront": { "type": "boolean" },
           "contacts.street": {
             "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchStreet"
           },
           "contacts.postalCode": {
@@ -1700,8 +1583,8 @@
             "copy_to": "searchPostalCode"
           },
           "contacts.city": {
-            "type": "text",
-            "analyzer": "names",
+            "type": "keyword",
+            "normalizer": "names",
             "copy_to": "searchCity"
           },
           "contacts.country": { "type": "keyword" },
@@ -1710,18 +1593,14 @@
             "copy_to": "searchTelephones"
           },
           "searchNumber": { "type": "keyword" },
-          "searchName": {
-            "type": "text",
-            "analyzer": "names"
-          },
           "searchStreet": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchPostalCode": { "type": "keyword" },
           "searchCity": {
-            "type": "text",
-            "analyzer": "names"
+            "type": "keyword",
+            "normalizer": "names"
           },
           "searchTelephones": { "type": "keyword" }
         }
@@ -1733,7 +1612,7 @@
       "normalizer": {
         "names": {
           "filter": [
-           "asciifolding",
+            "asciifolding",
             "lowercase",
             "trim"
           ]
@@ -1749,7 +1628,7 @@
         "names": {
           "tokenizer": "standard",
           "filter": [
-           "asciifolding",
+            "asciifolding",
             "lowercase",
             "trim"
           ]
