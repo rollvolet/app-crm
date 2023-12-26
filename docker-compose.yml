@@ -25,7 +25,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: rollvolet/frontend-crm:3.0.0-beta.3
+    image: rollvolet/frontend-crm:3.0.0
     environment:
       EMBER_AUTH_CLIENT_ID: "552ea087-fcd9-4d53-911b-19b11ff6631a"
       EMBER_AUTH_REDIRECT_URI: "https://crm.rollvolet.info/torii/redirect.html"
@@ -140,7 +140,7 @@ services:
     labels:
       - "logging=true"
   documents:
-    image: rollvolet/document-generation-service:3.0.0-beta.1
+    image: rollvolet/document-generation-service:3.0.0
     volumes:
       - ./config/templates:/templates
       - ./config/watermarks:/watermarks
@@ -168,7 +168,7 @@ services:
     labels:
       - "logging=true"
   ms-files:
-    image: rollvolet/ms-files-service:0.3.0-beta.1
+    image: rollvolet/ms-files-service:0.3.0
     environment:
       MS_DRIVE_ID: "my-microsoft-drive-id"
     volumes:
@@ -186,7 +186,7 @@ services:
     labels:
       - "logging=true"
   accountancy-export:
-    image: rollvolet/accountancy-export-service:0.1.0-beta.1
+    image: rollvolet/accountancy-export-service:0.1.0-beta.2
     volumes:
       - ./data/filedrop:/share
     restart: always
