@@ -1,0 +1,15 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/9ce97bc9-3346-48c2-aa05-735c2d666e13> a skos:ConceptScheme ;
+    mu:uuid "9ce97bc9-3346-48c2-aa05-735c2d666e13" ;
+    skos:prefLabel "Dossier statuses" .
+
+<http://data.rollvolet.be/concepts/5b0eb3d6-bbfb-449a-88c1-ec23ae341dca> a skos:Concept ;
+    mu:uuid "5b0eb3d6-bbfb-449a-88c1-ec23ae341dca" ;
+    skos:prefLabel "Dossier afsluiting" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9ce97bc9-3346-48c2-aa05-735c2d666e13> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9ce97bc9-3346-48c2-aa05-735c2d666e13> .

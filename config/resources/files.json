@@ -5,7 +5,8 @@
     "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
     "dbpedia": "http://dbpedia.org/resource/",
-    "dossier": "https://data.vlaanderen.be/ns/dossier#"
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "resources": {
     "files": {
@@ -15,6 +16,10 @@
         "filename": {
           "type": "string",
           "predicate": "nfo:fileName"
+        },
+        "type": {
+          "type": "url",
+          "predicate": "dct:type"
         },
         "format": {
           "type": "string",
@@ -45,6 +50,38 @@
           "target": "case",
           "cardinality": "one",
           "inverse": true
+        },
+        "accountancy-export": {
+          "predicate": "prov:generated",
+          "target": "accountancy-export",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "invoices": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "invoice-document",
+          "cardinality": "many",
+          "_comment": "Contains both, invoices and deposit-invoices"
+        },
+        "order": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "order",
+          "cardinality": "one"
+        },
+        "offer": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "offer",
+          "cardinality": "one"
+        },
+        "request": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "request",
+          "cardinality": "one"
+        },
+        "intervention": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "intervention",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/files/",

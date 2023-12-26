@@ -1,0 +1,26 @@
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?employee <http://www.w3.org/ns/prov#alternateOf> ?user .
+  }
+}
+WHERE {
+  {
+    GRAPH <http://mu.semte.ch/graphs/users> {
+      ?user a foaf:Person ; foaf:name ?userName .
+    }
+    GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+      ?employee a <http://www.w3.org/ns/person#Person> ;  foaf:firstName ?employeeName .
+    }
+    FILTER(STRSTARTS(LCASE(?userName), LCASE(?employeeName)))
+  }
+  UNION
+  {
+    GRAPH <http://mu.semte.ch/graphs/users> {
+      ?user a foaf:Person ; foaf:name ?userName .
+    }
+    GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+      ?employee a <http://www.w3.org/ns/person#Person> ;  foaf:firstName ?employeeName .
+    }
+    VALUES (?userName ?employeeName) { ("Kevin Suetens" "Kevin S.") }
+  }
+}

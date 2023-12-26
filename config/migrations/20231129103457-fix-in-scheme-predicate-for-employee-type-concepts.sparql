@@ -1,0 +1,15 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?concept skos:inSchema ?schema .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?concept skos:inScheme ?schema .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?concept a skos:Concept ; skos:inSchema ?schema .
+  }
+}

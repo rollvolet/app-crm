@@ -1,0 +1,44 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "resources": {
+    "activities": {
+      "name": "activity",
+      "class": "prov:Activity",
+      "attributes": {
+        "type": {
+          "type": "url",
+          "predicate": "dct:type"
+        },
+        "date": {
+          "type": "datetime",
+          "predicate": "prov:startedAtTime"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
+      "relationships": {
+        "user": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "user",
+          "cardinality": "one"
+        },
+        "case": {
+          "predicate": "prov:wasInvalidatedBy",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/activities/"
+    }
+  }
+}

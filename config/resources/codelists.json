@@ -15,6 +15,10 @@
           "type": "string",
           "predicate": "skos:prefLabel"
         },
+        "lang-label": {
+          "type": "language-string-set",
+          "predicate": "skos:prefLabel"
+        },
         "alt-label": {
           "type": "string",
           "predicate": "skos:altLabel"
@@ -22,6 +26,10 @@
         "position": {
           "type": "integer",
           "predicate": "schema:position"
+        },
+        "notation": {
+          "type": "string",
+          "predicate": "skos:notation"
         }
       },
       "relationships": {
@@ -99,10 +107,9 @@
           "type": "decimal",
           "predicate": "schema:value"
         },
-        "order": {
+        "position": {
           "type": "integer",
-          "predicate": "schema:position",
-          "_comment": "TODO: rename to 'position' once VAT rate is removed from SQL DB"
+          "predicate": "schema:position"
         },
         "unit-code": {
           "type": "string",
@@ -114,6 +121,18 @@
         "offerlines": {
           "predicate": "price:hasVatRate",
           "target": "offerline",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "invoicelines": {
+          "predicate": "price:hasVatRate",
+          "target": "invoiceline",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "cases": {
+          "predicate": "p2poPrice:hasVATCategoryCode",
+          "target": "case",
           "cardinality": "many",
           "inverse": true
         }
@@ -178,14 +197,6 @@
           "_comment": "Legacy ID in SQL DB"
         }
       },
-      "relationships": {
-        "address": {
-          "predicate": "vcard:hasPostalCode",
-          "target": "address",
-          "cardinality": "many",
-          "inverse": true
-        }
-      },
       "features": [
         "include-uri"
       ],
@@ -214,7 +225,7 @@
         }
       },
       "relationships": {
-        "address": {
+        "addresses": {
           "predicate": "vcard:hasCountryName",
           "target": "address",
           "cardinality": "many",
@@ -244,6 +255,10 @@
           "type": "string",
           "predicate": "schema:identifier"
         },
+        "lang-tag": {
+          "type": "string",
+          "predicate": "schema:alternateName"
+        },
         "identifier": {
           "type": "string",
           "predicate": "dct:identifier",
@@ -251,22 +266,34 @@
         }
       },
       "relationships": {
-        "customer": {
+        "customers": {
           "predicate": "vcard:hasLanguage",
           "target": "customer",
-          "cardinality": "one",
+          "cardinality": "many",
           "inverse": true
         },
-        "contact": {
+        "contacts": {
           "predicate": "vcard:hasLanguage",
           "target": "contact",
-          "cardinality": "one",
+          "cardinality": "many",
           "inverse": true
         },
-        "building": {
+        "buildings": {
           "predicate": "vcard:hasLanguage",
           "target": "building",
-          "cardinality": "one",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "customer-snapshots": {
+          "predicate": "vcard:hasLanguage",
+          "target": "customer",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "contact-snapshots": {
+          "predicate": "vcard:hasLanguage",
+          "target": "contact-snapshot",
+          "cardinality": "many",
           "inverse": true
         }
       },

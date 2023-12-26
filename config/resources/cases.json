@@ -1,6 +1,8 @@
 {
   "version": "0.1",
   "prefixes": {
+    "generiek": "https://data.vlaanderen.be/ns/generiek#",
+    "adms": "http://www.w3.org/ns/adms#",
     "crm": "http://data.rollvolet.be/vocabularies/crm/",
     "dct": "http://purl.org/dc/terms/",
     "dossier": "https://data.vlaanderen.be/ns/dossier#",
@@ -9,7 +11,8 @@
     "price": "http://data.rollvolet.be/vocabularies/pricing/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#"
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "p2poPrice": "https://purl.org/p2p-o/price#"
   },
   "resources": {
     "cases": {
@@ -20,6 +23,10 @@
           "type": "string",
           "predicate": "dct:identifier"
         },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
         "reference": {
           "type": "string",
           "predicate": "frapo:hasReferenceNumber"
@@ -28,55 +35,49 @@
           "type": "string",
           "predicate": "skos:comment"
         },
-        "customer": {
-          "type": "url",
-          "predicate": "schema:customer",
-          "_comment": "TODO Refactor to relation once customer is defined as a resource"
+        "has-production-ticket": {
+          "type": "boolean",
+          "predicate": "crm:hasProductionTicket",
+          "_comment": "TODO Refactor to relation to a nfo:FileDataObject"
         },
-        "contact": {
-          "type": "url",
-          "predicate": "crm:contact",
-          "_comment": "TODO Refactor to relation once contact is defined as a resource"
-        },
-        "building": {
-          "type": "url",
-          "predicate": "crm:building",
-          "_comment": "TODO Refactor to relation once building is defined as a resource"
-        },
-        "request": {
-          "type": "url",
-          "predicate": "ext:request",
-          "_comment": "TODO Refactor to relation once request is defined as a resource"
-        },
-        "intervention": {
-          "type": "url",
-          "predicate": "ext:intervention",
-          "_comment": "TODO Refactor to relation once intervention is defined as a resource"
-        },
-        "offer": {
-          "type": "url",
-          "predicate": "ext:offer",
-          "_comment": "TODO Refactor to relation once offer is defined as a resource"
-        },
-        "order": {
-          "type": "url",
-          "predicate": "ext:order",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
-        },
-        "deposit-invoices": {
-          "type": "uri-set",
-          "predicate": "ext:depositInvoice",
-          "_comment": "TODO Refactor to relation once deposit-invoice is defined as a resource"
-        },
-        "invoice": {
-          "type": "url",
-          "predicate": "ext:invoice",
-          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
+        "deposit-required": {
+          "type": "boolean",
+          "predicate": "crm:requiresDeposit"
         }
       },
       "relationships": {
+        "structured-identifier": {
+          "target": "structured-identifier",
+          "predicate": "generiek:gestructureerdeIdentificator",
+          "cardinality": "one"
+        },
+        "customer": {
+          "predicate": "schema:customer",
+          "target": "customer",
+          "cardinality": "one"
+        },
+        "contact": {
+          "predicate": "crm:contact",
+          "target": "contact",
+          "cardinality": "one"
+        },
+        "building": {
+          "predicate": "crm:building",
+          "target": "building",
+          "cardinality": "one"
+        },
+        "invalidation": {
+          "predicate": "prov:wasInvalidatedBy",
+          "target": "activity",
+          "cardinality": "one"
+        },
+        "delivery-method": {
+          "predicate": "schema:deliveryMethod",
+          "target": "concept",
+          "cardinality": "one"
+        },
         "vat-rate": {
-          "predicate": "price:hasVatRate",
+          "predicate": "p2poPrice:hasVATCategoryCode",
           "target": "vat-rate",
           "cardinality": "one"
         },
@@ -84,133 +85,72 @@
           "predicate": "dossier:Dossier.bestaatUit",
           "target": "file",
           "cardinality": "many"
+        },
+        "intervention": {
+          "predicate": "ext:intervention",
+          "target": "intervention",
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
+        },
+        "request": {
+          "predicate": "ext:request",
+          "target": "request",
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
+        },
+        "offer": {
+          "predicate": "ext:offer",
+          "target": "offer",
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
+        },
+        "order": {
+          "predicate": "ext:order",
+          "target": "order",
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
+        },
+        "deposit-invoices": {
+          "predicate": "ext:depositInvoice",
+          "target": "deposit-invoice",
+          "cardinality": "many",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
+        },
+        "invoice": {
+          "predicate": "ext:invoice",
+          "target": "invoice",
+          "cardinality": "one",
+          "_comment": "TODO replace with dossier:Dossier.bestaatUit"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/cases/",
       "features": ["include-uri"]
     },
-    "offerlines": {
-      "name": "offerline",
-      "class": "crm:Offerline",
+    "structured-identifiers": {
+      "name": "structured-identifier",
+      "class": "generiek:GestructureerdeIdentificator",
       "attributes": {
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        },
-        "position": {
+        "identifier": {
           "type": "integer",
-          "predicate": "schema:position"
+          "predicate": "generiek:lokaleIdentificator"
         },
-        "offer": {
-          "type": "url",
-          "predicate": "dct:isPartOf",
-          "_comment": "TODO Refactor to relation once offer is defined as a resource"
+        "namespace": {
+          "type": "string",
+          "predicate": "generiek:naamruimte"
         }
       },
       "relationships": {
-        "calculation-lines": {
-          "predicate": "dct:isPartOf",
-          "target": "calculation-line",
-          "cardinality": "many",
+        "case": {
+          "target": "case",
+          "predicate": "generiek:gestructureerdeIdentificator",
+          "cardinality": "one",
           "inverse": true
-        },
-        "vat-rate": {
-          "predicate": "price:hasVatRate",
-          "target": "vat-rate",
-          "cardinality": "one"
         }
       },
-      "new-resource-base": "http://data.rollvolet.be/offerlines/",
-      "features": ["include-uri"]
-    },
-    "calculation-lines": {
-      "name": "calculation-line",
-      "class": "crm:CalculationLine",
-      "attributes": {
-        "position": {
-          "type": "integer",
-          "predicate": "schema:position"
-        },
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "reduction-rate": {
-          "type": "decimal",
-          "predicate": "price:hasReductionRate"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        }
-      },
-      "relationships": {
-        "offerline": {
-          "predicate": "dct:isPartOf",
-          "target": "offerline",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
-      "features": ["include-uri"]
-    },
-    "invoicelines": {
-      "name": "invoiceline",
-      "class": "crm:Invoiceline",
-      "attributes": {
-        "amount": {
-          "type": "decimal",
-          "predicate": "schema:amount"
-        },
-        "currency": {
-          "type": "string",
-          "predicate": "schema:currency"
-        },
-        "description": {
-          "type": "string",
-          "predicate": "dct:description"
-        },
-        "position": {
-          "type": "integer",
-          "predicate": "schema:position"
-        },
-        "type": {
-          "type": "url",
-          "predicate": "dct:type",
-          "_comment": "Used to indicate invoicelines that originate from supplements in Access"
-        },
-        "order": {
-          "type": "url",
-          "predicate": "prov:wasDerivedFrom",
-          "_comment": "TODO Refactor to relation once order is defined as a resource"
-        },
-        "invoice": {
-          "type": "url",
-          "predicate": "dct:isPartOf",
-          "_comment": "TODO Refactor to relation once invoice is defined as a resource"
-        }
-      },
-      "relationships": {
-        "vat-rate": {
-          "predicate": "price:hasVatRate",
-          "target": "vat-rate",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.rollvolet.be/invoicelines/",
-      "features": ["include-uri"]
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/structured-identifiers/"
     }
   }
 }

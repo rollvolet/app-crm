@@ -1,0 +1,38 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<http://data.rollvolet.be/languages/20b7a74c-22ef-41e2-b98f-f85b12570540> a schema:Language ;
+    mu:uuid "20b7a74c-22ef-41e2-b98f-f85b12570540" ;
+    dct:identifier "1" ;
+	  schema:identifier "NED" ;
+	  schema:name "Nederlands" ;
+    schema:alternateName "nl" .
+
+<http://data.rollvolet.be/languages/7326f8c6-3d35-405b-8353-ee3c1aa2f640> a schema:Language ;
+    mu:uuid "7326f8c6-3d35-405b-8353-ee3c1aa2f640" ;
+    dct:identifier "2" ;
+	  schema:identifier "FRA" ;
+	  schema:name "Frans" ;
+    schema:alternateName "fr" .
+
+<http://data.rollvolet.be/languages/7c6d0b73-9a29-4894-bea9-9af5fd7e2724> a schema:Language ;
+    mu:uuid "7c6d0b73-9a29-4894-bea9-9af5fd7e2724" ;
+    dct:identifier "3" ;
+	  schema:identifier "ONB" ;
+	  schema:name "Onbekend" .
+
+<http://data.rollvolet.be/languages/5cc15bab-8c91-4c73-aa55-8d7d17d96c86> a schema:Language ;
+    mu:uuid "5cc15bab-8c91-4c73-aa55-8d7d17d96c86" ;
+    dct:identifier "4" ;
+	  schema:identifier "DUI" ;
+	  schema:name "Duits" ;
+    schema:alternateName "du" .
+
+<http://data.rollvolet.be/languages/3bc33eb9-dfb0-4e15-8a64-9202a04459ce> a schema:Language ;
+    mu:uuid "3bc33eb9-dfb0-4e15-8a64-9202a04459ce" ;
+    dct:identifier "5" ;
+	  schema:identifier "ENG" ;
+	  schema:name "Engels" ;
+    schema:alternateName "en" .

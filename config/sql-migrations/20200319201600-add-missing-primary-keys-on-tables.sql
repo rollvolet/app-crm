@@ -1,5 +1,0 @@
-ALTER TABLE klanten.dbo.TblIntervention ADD CONSTRAINT TblIntervention$PrimaryKeyConstraint PRIMARY KEY (Id)
-ALTER TABLE klanten.dbo.TblPlanningEvent ADD CONSTRAINT TblPlanningEvent$PrimaryKeyConstraint PRIMARY KEY (Id)
-ALTER TABLE klanten.dbo.TblInvoiceline ADD CONSTRAINT TblInvoiceline$PrimaryKeyConstraint PRIMARY KEY (Id)
-ALTER TABLE klanten.dbo.TblProductUnit ADD CONSTRAINT TblProductUnit$PrimaryKeyConstraint PRIMARY KEY (Id)
-ALTER TABLE klanten.dbo.TblOfferline ADD CONSTRAINT TblOfferline$PrimaryKeyConstraint PRIMARY KEY (Id)

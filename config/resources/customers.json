@@ -13,6 +13,10 @@
       "name": "customer",
       "class": "vcard:VCard",
       "attributes": {
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
         "type": {
           "type": "url",
           "predicate": "dct:type",
@@ -21,6 +25,10 @@
         "number": {
           "type": "integer",
           "predicate": "vcard:hasUID"
+        },
+        "honorific-prefix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificPrefix"
         },
         "prefix": {
           "type": "string",
@@ -35,10 +43,10 @@
           "predicate": "vcard:hasHonorificSuffix"
         },
         "url": {
-          "type": "url",
+          "type": "string",
           "predicate": "vcard:hasUrl"
         },
-        "vat-id": {
+        "vat-number": {
           "type": "string",
           "predicate": "schema:vatID"
         },
@@ -51,12 +59,16 @@
           "predicate": "crm:memo",
           "_comment": "Subproperty of vcard:hasNote"
         },
+        "tags": {
+          "type": "string-set",
+          "predicate": "schema:keywords"
+        },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
         },
         "modified": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:modified"
         },
         "print-prefix": {
@@ -73,11 +85,6 @@
         }
       },
       "relationships": {
-        "honorific-prefix": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "honorific-prefix",
-          "cardinality": "one"
-        },
         "address": {
           "predicate": "vcard:hasAddress",
           "target": "address",
@@ -113,6 +120,12 @@
           "target": "case",
           "cardinality": "many",
           "inverse": true
+        },
+        "snapshots": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "customer-snapshot",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
@@ -124,13 +137,17 @@
       "name": "contact",
       "class": "nco:Contact",
       "attributes": {
-        "number": {
-          "type": "integer",
-          "predicate": "vcard:hasUID"
-        },
         "position": {
           "type": "integer",
           "predicate": "schema:position"
+        },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
+        "honorific-prefix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificPrefix"
         },
         "prefix": {
           "type": "string",
@@ -145,7 +162,7 @@
           "predicate": "vcard:hasHonorificSuffix"
         },
         "url": {
-          "type": "url",
+          "type": "string",
           "predicate": "vcard:hasUrl"
         },
         "comment": {
@@ -153,11 +170,11 @@
           "predicate": "vcard:hasNote"
         },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
         },
         "modified": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:modified"
         },
         "print-prefix": {
@@ -174,11 +191,6 @@
         }
       },
       "relationships": {
-        "honorific-prefix": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "honorific-prefix",
-          "cardinality": "one"
-        },
         "address": {
           "predicate": "vcard:hasAddress",
           "target": "address",
@@ -199,9 +211,21 @@
           "target": "telephone",
           "cardinality": "many"
         },
+        "customer": {
+          "predicate": "nco:representative",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
         "cases": {
           "predicate": "crm:contact",
           "target": "case",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "snapshots": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "contact-snapshot",
           "cardinality": "many",
           "inverse": true
         }
@@ -215,13 +239,17 @@
       "name": "building",
       "class": "gebouw:Gebouw",
       "attributes": {
-        "number": {
-          "type": "integer",
-          "predicate": "vcard:hasUID"
-        },
         "position": {
           "type": "integer",
           "predicate": "schema:position"
+        },
+        "status": {
+          "type": "url",
+          "predicate": "adms:status"
+        },
+        "honorific-prefix": {
+          "type": "string",
+          "predicate": "vcard:hasHonorificPrefix"
         },
         "prefix": {
           "type": "string",
@@ -236,7 +264,7 @@
           "predicate": "vcard:hasHonorificSuffix"
         },
         "url": {
-          "type": "url",
+          "type": "string",
           "predicate": "vcard:hasUrl"
         },
         "comment": {
@@ -244,11 +272,11 @@
           "predicate": "vcard:hasNote"
         },
         "created": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:created"
         },
         "modified": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "dct:modified"
         },
         "print-prefix": {
@@ -265,11 +293,6 @@
         }
       },
       "relationships": {
-        "honorific-prefix": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "honorific-prefix",
-          "cardinality": "one"
-        },
         "address": {
           "predicate": "vcard:hasAddress",
           "target": "address",
@@ -290,9 +313,21 @@
           "target": "telephone",
           "cardinality": "many"
         },
+        "customer": {
+          "predicate": "schema:affiliation",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
         "cases": {
           "predicate": "crm:building",
           "target": "case",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "snapshots": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "building-snapshot",
           "cardinality": "many",
           "inverse": true
         }
@@ -309,14 +344,17 @@
         "street": {
           "type": "string",
           "predicate": "vcard:hasStreetAddress"
+        },
+        "postal-code": {
+          "type": "string",
+          "predicate": "vcard:hasPostalCode"
+        },
+        "city": {
+          "type": "string",
+          "predicate": "vcard:hasLocality"
         }
       },
       "relationships": {
-        "postal-code": {
-          "predicate": "vcard:hasPostalCode",
-          "target": "postal-code",
-          "cardinality": "one"
-        },
         "country": {
           "predicate": "vcard:hasCountryName",
           "target": "country",
@@ -328,15 +366,33 @@
           "cardinality": "one",
           "inverse": true
         },
+        "customer-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "customer-snapshot",
+          "cardinality": "one",
+          "inverse": true
+        },
         "contact": {
           "predicate": "vcard:hasAddress",
           "target": "contact",
           "cardinality": "one",
           "inverse": true
         },
+        "contact-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "contact-snapshot",
+          "cardinality": "one",
+          "inverse": true
+        },
         "building": {
           "predicate": "vcard:hasAddress",
           "target": "building",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building-snapshot": {
+          "predicate": "vcard:hasAddress",
+          "target": "building-snapshot",
           "cardinality": "one",
           "inverse": true
         }
@@ -357,21 +413,26 @@
         "note": {
           "type": "string",
           "predicate": "vcard:hasNote"
-        },
+        }
+      },
+      "relationships": {
         "customer": {
-          "type": "url",
           "predicate": "vcard:hasEmail",
-          "_comment": "TODO Refactor to relation and inverse triples once customer is defined as a resource"
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
         },
         "contact": {
-          "type": "url",
           "predicate": "vcard:hasEmail",
-          "_comment": "TODO Refactor to relation and inverse triples once contact is defined as a resource"
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
         },
         "building": {
-          "type": "url",
           "predicate": "vcard:hasEmail",
-          "_comment": "TODO Refactor to relation and inverse triples once building is defined as a resource"
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "features": [
@@ -395,21 +456,6 @@
         "note": {
           "type": "string",
           "predicate": "vcard:hasNote"
-        },
-        "customer": {
-          "type": "url",
-          "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation and inverse triples once customer is defined as a resource"
-        },
-        "contact": {
-          "type": "url",
-          "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation and inverse triples once contact is defined as a resource"
-        },
-        "building": {
-          "type": "url",
-          "predicate": "vcard:hasTelephone",
-          "_comment": "TODO Refactor to relation and inverse triples once building is defined as a resource"
         }
       },
       "relationships": {
@@ -422,6 +468,24 @@
           "predicate": "dct:type",
           "target": "telephone-type",
           "cardinality": "one"
+        },
+        "customer": {
+          "predicate": "vcard:hasTelephone",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "contact": {
+          "predicate": "vcard:hasTelephone",
+          "target": "contact",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "building": {
+          "predicate": "vcard:hasTelephone",
+          "target": "building",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "features": [

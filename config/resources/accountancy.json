@@ -1,0 +1,44 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "resources": {
+    "accountancy-exports": {
+      "name": "accountancy-export",
+      "class": "crm:AccountancyExport",
+      "attributes": {
+        "date": {
+          "type": "datetime",
+          "predicate": "prov:startedAtTime"
+        },
+        "type": {
+          "type": "url",
+          "predicate": "dct:type",
+          "_comment": "crm:FinalAccountancyExport or crm:DryRunAccountancyExport"
+        },
+        "from-number": {
+          "type": "integer",
+          "predicate": "crm:fromNumber"
+        },
+        "until-number": {
+          "type": "integer",
+          "predicate": "crm:untilNumber"
+        }
+      },
+      "relationships": {
+        "files": {
+          "predicate": "prov:generated",
+          "target": "file",
+          "cardinality": "many"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/accountancy-exports/"
+    }
+  }
+}

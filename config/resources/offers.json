@@ -1,0 +1,287 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "tmo": "http://www.semanticdesktop.org/ontologies/2008/05/20/tmo#"
+  },
+  "resources": {
+    "requests": {
+      "name": "request",
+      "class": "crm:Request",
+      "attributes": {
+        "request-date": {
+          "type": "date",
+          "predicate": "dct:issued"
+        },
+        "number": {
+          "type": "number",
+          "predicate": "schema:identifier"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "skos:comment"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "ext:request",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "visit": {
+          "predicate": "dct:subject",
+          "target": "calendar-event",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "way-of-entry": {
+          "predicate": "crm:wayOfEntry",
+          "target": "concept",
+          "cardinality": "one"
+        },
+        "employee": {
+          "predicate": "crm:employee",
+          "target": "employee",
+          "cardinality": "one"
+        },
+        "visitor": {
+          "predicate": "crm:visitor",
+          "target": "employee",
+          "cardinality": "one"
+        },
+        "origin": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "intervention",
+          "cardinality": "one"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/requests/"
+    },
+    "offers": {
+      "name": "offer",
+      "class": "schema:Offer",
+      "attributes": {
+        "offer-date": {
+          "type": "date",
+          "predicate": "dct:issued"
+        },
+        "number": {
+          "type": "string",
+          "predicate": "schema:identifier"
+        },
+        "document-intro": {
+          "type": "string",
+          "predicate": "crm:documentIntro"
+        },
+        "document-outro": {
+          "type": "string",
+          "predicate": "crm:documentOutro"
+        },
+        "document-version": {
+          "type": "string",
+          "predicate": "owl:versionInfo"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "ext:offer",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "offerlines": {
+          "predicate": "dct:isPartOf",
+          "target": "offerline",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "document": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "file",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/offers/"
+    },
+    "orders": {
+      "name": "order",
+      "class": "p2poDocument:PurchaseOrder",
+      "attributes": {
+        "order-date": {
+          "type": "date",
+          "predicate": "dct:issued"
+        },
+        "expected-date": {
+          "type": "date",
+          "predicate": "tmo:targetTime"
+        },
+        "due-date": {
+          "type": "date",
+          "predicate": "tmo:dueDate"
+        },
+        "is-ready": {
+          "type": "boolean",
+          "predicate": "crm:productFinished"
+        },
+        "scheduled-nb-of-hours": {
+          "type": "number",
+          "predicate": "crm:scheduledNbOfHours"
+        },
+        "scheduled-nb-of-persons": {
+          "type": "number",
+          "predicate": "crm:scheduledNbOfPersons"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "ext:order",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "planning": {
+          "predicate": "dct:subject",
+          "target": "calendar-event",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "technicians": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "employee",
+          "cardinality": "many"
+        },
+        "documents": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "file",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "invoicelines": {
+          "predicate": "dct:isPartOf",
+          "target": "invoiceline",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "interventions": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "intervention",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/orders/"
+    },
+    "offerlines": {
+      "name": "offerline",
+      "class": "crm:Offerline",
+      "attributes": {
+        "amount": {
+          "type": "decimal",
+          "predicate": "schema:amount"
+        },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        }
+      },
+      "relationships": {
+        "offer": {
+          "predicate": "dct:isPartOf",
+          "target": "offer",
+          "cardinality": "one"
+        },
+        "calculation-lines": {
+          "predicate": "dct:isPartOf",
+          "target": "calculation-line",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "vat-rate": {
+          "predicate": "price:hasVatRate",
+          "target": "vat-rate",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/offerlines/",
+      "features": ["include-uri"]
+    },
+    "calculation-lines": {
+      "name": "calculation-line",
+      "class": "crm:CalculationLine",
+      "attributes": {
+        "position": {
+          "type": "integer",
+          "predicate": "schema:position"
+        },
+        "amount": {
+          "type": "decimal",
+          "predicate": "schema:amount"
+        },
+        "reduction-rate": {
+          "type": "decimal",
+          "predicate": "price:hasReductionRate"
+        },
+        "currency": {
+          "type": "string",
+          "predicate": "schema:currency"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
+      "relationships": {
+        "offerline": {
+          "predicate": "dct:isPartOf",
+          "target": "offerline",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/calculation-lines/",
+      "features": ["include-uri"]
+    }
+  }
+}

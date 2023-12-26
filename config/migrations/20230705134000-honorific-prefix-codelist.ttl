@@ -1,0 +1,145 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> a skos:ConceptScheme ;
+    mu:uuid "e3297128-117c-4a73-bed1-08a797554897" ;
+    skos:prefLabel "Aanspreektitels" .
+
+<http://data.rollvolet.be/concepts/bc2c375e-4b41-4b92-aec2-b1dac6205921> a skos:Concept ;
+    mu:uuid "bc2c375e-4b41-4b92-aec2-b1dac6205921" ;
+    skos:prefLabel "De Heer"@nl, "Monsieur"@fr, "Herr"@du ;
+    schema:position 1 ;
+    dct:identifier 1 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/1e79aaf6-0fdc-4284-9f64-7d8c4de0e10b> a skos:Concept ;
+    mu:uuid "1e79aaf6-0fdc-4284-9f64-7d8c4de0e10b" ;
+    skos:prefLabel "Mevrouw"@nl, "Madame"@fr ;
+    schema:position 2 ;
+    dct:identifier 2 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/f41aa80f-6773-4d91-9b7c-9c4cf50d2cd5> a skos:Concept ;
+    mu:uuid "f41aa80f-6773-4d91-9b7c-9c4cf50d2cd5" ;
+    skos:prefLabel "De Heer en Mevr."@nl, "Monsieur et Mme"@fr, "Mr and Mrs"@en ;
+    schema:position 3 ;
+    dct:identifier 3 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/816dc6e4-0062-46ab-8d39-34bd4886db80> a skos:Concept ;
+    mu:uuid "816dc6e4-0062-46ab-8d39-34bd4886db80" ;
+    skos:prefLabel "Juffrouw"@nl, "Mademoiselle"@fr ;
+    schema:position 4 ;
+    dct:identifier 4 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/7707949b-e10a-40d4-83ab-4f07209f87e0> a skos:Concept ;
+    mu:uuid "7707949b-e10a-40d4-83ab-4f07209f87e0" ;
+    skos:prefLabel "Dokter"@nl, "Docteur"@fr ;
+    schema:position 5 ;
+    dct:identifier 5 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/961f997c-4fcd-4d09-8b95-f50749154899> a skos:Concept ;
+    mu:uuid "961f997c-4fcd-4d09-8b95-f50749154899" ;
+    skos:prefLabel "Eerwaarde Heer"@nl, "le Révérend Père"@fr ;
+    schema:position 6 ;
+    dct:identifier 6 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/0c2dbb17-db91-404d-af1a-a9d0e4c7da5f> a skos:Concept ;
+    mu:uuid "0c2dbb17-db91-404d-af1a-a9d0e4c7da5f" ;
+    skos:prefLabel "Notaris"@nl, "Notaire"@fr ;
+    schema:position 7 ;
+    dct:identifier 7 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/fca59b3e-bd8c-48df-af30-23b2a0c93fe7> a skos:Concept ;
+    mu:uuid "fca59b3e-bd8c-48df-af30-23b2a0c93fe7" ;
+    skos:prefLabel "Dames"@nl, "Dames"@fr ;
+    schema:position 8 ;
+    dct:identifier 8 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/769bb76b-c07e-4efb-9f78-0780108669f0> a skos:Concept ;
+    mu:uuid "769bb76b-c07e-4efb-9f78-0780108669f0" ;
+    skos:prefLabel "Dokter en Mevr."@nl, "Docteur et Mme"@fr ;
+    schema:position 9 ;
+    dct:identifier 9 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/446ddc81-11aa-449d-8180-95d4e2df5f93> a skos:Concept ;
+    mu:uuid "446ddc81-11aa-449d-8180-95d4e2df5f93" ;
+    skos:prefLabel "nv"@nl, "sa"@fr ;
+    schema:position 10 ;
+    dct:identifier 10 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/fd618aa0-27f2-4f58-aee7-88990a12e018> a skos:Concept ;
+    mu:uuid "fd618aa0-27f2-4f58-aee7-88990a12e018" ;
+    skos:prefLabel "Firma"@nl, "Firme"@fr ;
+    schema:position 11 ;
+    dct:identifier 11 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/6328a9de-1eab-4831-a66b-bbdd1c0894e7> a skos:Concept ;
+    mu:uuid "6328a9de-1eab-4831-a66b-bbdd1c0894e7" ;
+    skos:prefLabel "bv"@nl, "srl"@fr, "Gmbh"@du ;
+    schema:position 12 ;
+    dct:identifier 12 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/92eb3629-2249-4f7e-a54c-796ac1ad3ad0> a skos:Concept ;
+    mu:uuid "92eb3629-2249-4f7e-a54c-796ac1ad3ad0" ;
+    skos:prefLabel "Architect"@nl, "Architect"@fr ;
+    schema:position 13 ;
+    dct:identifier 13 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/5aee5300-ded3-4d65-a405-34a6ac9096c1> a skos:Concept ;
+    mu:uuid "5aee5300-ded3-4d65-a405-34a6ac9096c1" ;
+    skos:prefLabel "Architecte"@nl, "Architecte"@fr ;
+    schema:position 14 ;
+    dct:identifier 14 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/a1504d89-7e26-44e7-ab7c-7a7d72e26a99> a skos:Concept ;
+    mu:uuid "a1504d89-7e26-44e7-ab7c-7a7d72e26a99" ;
+    skos:prefLabel "Advokaat"@nl, "Avocat"@fr ;
+    schema:position 15 ;
+    dct:identifier 15 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/a153bec0-b6dc-4297-9ab3-45022d13f1ff> a skos:Concept ;
+    mu:uuid "a153bec0-b6dc-4297-9ab3-45022d13f1ff" ;
+    skos:prefLabel "Familie"@nl, "Famille"@fr ;
+    schema:position 16 ;
+    dct:identifier 16 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .
+
+<http://data.rollvolet.be/concepts/630fa29c-271a-44f0-9810-e827e672f5c9> a skos:Concept ;
+    mu:uuid "630fa29c-271a-44f0-9810-e827e672f5c9" ;
+    skos:prefLabel "vzw"@nl, "asbl"@fr ;
+    schema:position 17 ;
+    dct:identifier 17 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/e3297128-117c-4a73-bed1-08a797554897> .

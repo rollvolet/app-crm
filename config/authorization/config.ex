@@ -20,6 +20,19 @@ defmodule Acl.UserGroups.Config do
     }
   end
 
+  defp has_group_access(group_uri) do
+    %AccessByQuery{
+      vars: [],
+      query: "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+      SELECT ?account WHERE {
+          <SESSION_ID> session:account ?account .
+          ?user foaf:account ?account ; foaf:member <#{group_uri}> .
+      } LIMIT 1"
+    }
+  end
+
   def user_groups do
     [
       %GroupSpec{
@@ -32,7 +45,6 @@ defmodule Acl.UserGroups.Config do
             constraint: %ResourceConstraint{
               resource_types: [
                 "http://data.rollvolet.be/vocabularies/pricing/VatRate",
-                "http://data.rollvolet.be/vocabularies/crm/HonorificPrefix",
                 "http://data.rollvolet.be/vocabularies/crm/PostalCode",
                 "http://schema.org/Country",
                 "http://schema.org/Language",
@@ -54,23 +66,34 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/rollvolet",
             constraint: %ResourceConstraint{
               resource_types: [
-                "http://www.w3.org/ns/person#Person",
                 "http://www.w3.org/2006/vcard/ns#VCard",
                 "https://data.vlaanderen.be/ns/gebouw#Gebouw",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
                 "http://www.w3.org/2006/vcard/ns#Address",
                 "http://www.w3.org/2006/vcard/ns#Email",
                 "http://www.w3.org/2006/vcard/ns#Telephone",
+                "http://data.rollvolet.be/vocabularies/crm/Intervention",
+                "http://data.rollvolet.be/vocabularies/crm/Request",
+                "http://schema.org/Offer",
                 "http://data.rollvolet.be/vocabularies/crm/Offerline",
                 "http://data.rollvolet.be/vocabularies/crm/CalculationLine",
-                "http://schema.org/Invoice",
+                "https://purl.org/p2p-o/document#PurchaseOrder",
+                "https://purl.org/p2p-o/invoice#E-FinalInvoice",
+                "https://purl.org/p2p-o/invoice#E-PrePaymentInvoice",
+                "https://purl.org/p2p-o/document#E-Invoice",
                 "http://data.rollvolet.be/vocabularies/crm/Invoiceline",
                 "http://data.rollvolet.be/vocabularies/crm/TechnicalWork",
+                "http://data.rollvolet.be/vocabularies/crm/CustomerSnapshot",
+                "http://data.rollvolet.be/vocabularies/crm/ContactSnapshot",
+                "http://data.rollvolet.be/vocabularies/crm/BuildingSnapshot",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
                 "https://data.vlaanderen.be/ns/dossier#Dossier",
+                "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
-                "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event"
+                "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event",
+                "http://data.rollvolet.be/vocabularies/crm/AccountancyExport",
+                "http://www.w3.org/ns/prov#Activity"
               ]
             }
           }
@@ -83,11 +106,20 @@ defmodule Acl.UserGroups.Config do
         access: authenticated_access(),
         graphs: [
           %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/rollvolet",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://www.w3.org/ns/person#Person" # employees
+              ]
+            }
+          },
+          %GraphSpec{
             graph: "http://mu.semte.ch/graphs/users",
             constraint: %ResourceConstraint{
               resource_types: [
-                "http://www.w3.org/ns/person#Person",
-                "http://xmlns.com/foaf/0.1/OnlineAccount"
+                "http://xmlns.com/foaf/0.1/Person", # users
+                "http://xmlns.com/foaf/0.1/OnlineAccount",
+                "http://xmlns.com/foaf/0.1/Group"
               ]
             }
           },
@@ -95,6 +127,40 @@ defmodule Acl.UserGroups.Config do
             graph: "http://mu.semte.ch/graphs/sessions",
             constraint: %ResourceFormatConstraint{
               resource_prefix: "http://mu.semte.ch/sessions/"
+            }
+          }
+        ]
+      },
+
+      # %GroupSpec{
+      #   name: "board-write",
+      #   useage: [:write],
+      #   access: has_group_access("http://data.rollvolet.be/user-groups/board"),
+      #   graphs: [
+      #   ]
+      # },
+
+      %GroupSpec{
+        name: "admin-write",
+        useage: [:write],
+        access: has_group_access("http://data.rollvolet.be/user-groups/admin"),
+        graphs: [
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/rollvolet",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://www.w3.org/ns/person#Person" # employees
+              ]
+            }
+          },
+          %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/users",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://xmlns.com/foaf/0.1/Person", # users
+                "http://xmlns.com/foaf/0.1/OnlineAccount",
+                "http://xmlns.com/foaf/0.1/Group"
+              ]
             }
           }
         ]

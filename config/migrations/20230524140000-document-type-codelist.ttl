@@ -1,0 +1,87 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> a skos:ConceptScheme ;
+    mu:uuid "01899093-1d0a-47fd-bb12-b0a485c352fa" ;
+    skos:prefLabel "Document types" .
+
+<http://data.rollvolet.be/concepts/3abc9905-29b9-47f2-a77d-e94a4025f8c3> a skos:Concept ;
+    mu:uuid "3abc9905-29b9-47f2-a77d-e94a4025f8c3" ;
+    skos:prefLabel "Factuur" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/5c93373f-30f3-454c-8835-15140ff6d1d4> a skos:Concept ;
+    mu:uuid "5c93373f-30f3-454c-8835-15140ff6d1d4" ;
+    skos:prefLabel "Voorschotfactuur" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/dcf1aa80-6b1b-4423-8ce1-4df7ffe85684> a skos:Concept ;
+    mu:uuid "dcf1aa80-6b1b-4423-8ce1-4df7ffe85684" ;
+    skos:prefLabel "Leveringsbon" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/6d080a6b-41f1-45f1-9698-7cbd3c846494> a skos:Concept ;
+    mu:uuid "6d080a6b-41f1-45f1-9698-7cbd3c846494" ;
+    skos:prefLabel "Orderbevestiging" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/51577f19-9d90-4abf-a0d2-187770f76fc9> a skos:Concept ;
+    mu:uuid "51577f19-9d90-4abf-a0d2-187770f76fc9" ;
+    skos:prefLabel "Offerte" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/f5b9c371-a0ed-4476-90a1-3e73d5d4f09e> a skos:Concept ;
+    mu:uuid "f5b9c371-a0ed-4476-90a1-3e73d5d4f09e" ;
+    skos:prefLabel "Bezoekrapport" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/77d93b44-ad8a-4c10-8df1-bbb36dd79137> a skos:Concept ;
+    mu:uuid "77d93b44-ad8a-4c10-8df1-bbb36dd79137" ;
+    skos:prefLabel "Lijst van bezoeken" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/5d7f3d76-b78e-4481-ba66-89879ea1b3eb> a skos:Concept ;
+    mu:uuid "5d7f3d76-b78e-4481-ba66-89879ea1b3eb" ;
+    skos:prefLabel "Interventierapport" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/bcc644a0-eff3-4cf6-a60a-9d4e490d47f0> a skos:Concept ;
+    mu:uuid "bcc644a0-eff3-4cf6-a60a-9d4e490d47f0" ;
+    skos:prefLabel "Productiebon" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/0b49fae8-3546-4211-9c1e-64f359993c82> a skos:Concept ;
+    mu:uuid "0b49fae8-3546-4211-9c1e-64f359993c82" ;
+    skos:prefLabel "Productiebon template" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/d8c99464-dc06-4569-8ecb-9253e9dece5a> a skos:Concept ;
+    mu:uuid "d8c99464-dc06-4569-8ecb-9253e9dece5a" ;
+    skos:prefLabel "BTW attest" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/adb1836b-e310-47d2-8c98-31dee64c94ec> a skos:Concept ;
+    mu:uuid "adb1836b-e310-47d2-8c98-31dee64c94ec" ;
+    skos:prefLabel "BTW attest template" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .
+
+<http://data.rollvolet.be/concepts/44e7a6a6-b0e6-4a9c-ae4c-1f66275f730d> a skos:Concept ;
+    mu:uuid "44e7a6a6-b0e6-4a9c-ae4c-1f66275f730d" ;
+    skos:prefLabel "Bijlage" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/01899093-1d0a-47fd-bb12-b0a485c352fa> .

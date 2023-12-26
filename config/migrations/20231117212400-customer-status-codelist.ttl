@@ -1,0 +1,21 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/293c2876-12d2-46d3-8174-59afceed42e3> a skos:ConceptScheme ;
+    mu:uuid "293c2876-12d2-46d3-8174-59afceed42e3" ;
+    skos:prefLabel "Customer statuses" .
+
+<http://data.rollvolet.be/concepts/28feacd2-62cf-4ae9-843c-1da595aebf65> a skos:Concept ;
+    mu:uuid "28feacd2-62cf-4ae9-843c-1da595aebf65" ;
+    skos:prefLabel "Actief" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/293c2876-12d2-46d3-8174-59afceed42e3> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/293c2876-12d2-46d3-8174-59afceed42e3> .
+
+<http://data.rollvolet.be/concepts/2ffb1b3c-7932-4369-98ac-37539efd2cbe> a skos:Concept ;
+    mu:uuid "02589912-d71a-4773-bebb-b6feda0a1da4" ;
+    skos:prefLabel "Inactief" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/293c2876-12d2-46d3-8174-59afceed42e3> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/293c2876-12d2-46d3-8174-59afceed42e3> .

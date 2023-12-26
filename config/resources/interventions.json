@@ -1,0 +1,94 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "crm": "http://data.rollvolet.be/vocabularies/crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "dossier": "https://data.vlaanderen.be/ns/dossier#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "resources": {
+    "interventions": {
+      "name": "intervention",
+      "class": "crm:Intervention",
+      "attributes": {
+        "intervention-date": {
+          "type": "date",
+          "predicate": "dct:issued"
+        },
+        "number": {
+          "type": "number",
+          "predicate": "schema:identifier"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "skos:comment"
+        },
+        "scheduled-nb-of-persons": {
+          "type": "number",
+          "predicate": "crm:scheduledNbOfPersons"
+        },
+        "source": {
+          "type": "string",
+          "predicate": "dct:source",
+          "_comment": "Either 'Access' or 'RKB'"
+        }
+      },
+      "relationships": {
+        "case": {
+          "predicate": "ext:intervention",
+          "target": "case",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "visit": {
+          "predicate": "dct:subject",
+          "target": "calendar-event",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "way-of-entry": {
+          "predicate": "crm:wayOfEntry",
+          "target": "concept",
+          "cardinality": "one"
+        },
+        "employee": {
+          "predicate": "crm:employee",
+          "target": "employee",
+          "cardinality": "one"
+        },
+        "technicians": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "employee",
+          "cardinality": "many"
+        },
+        "document": {
+          "predicate": "prov:wasDerivedFrom",
+          "target": "file",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "follow-up-request": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "request",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "origin": {
+          "predicate": "prov:hadPrimarySource",
+          "target": "order",
+          "cardinality": "one"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/interventions/"
+    }
+  }
+}

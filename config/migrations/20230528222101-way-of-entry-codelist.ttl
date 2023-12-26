@@ -1,0 +1,81 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> a skos:ConceptScheme ;
+    mu:uuid "9d8087db-4307-4f6d-82f3-a414a5cb2076" ;
+    skos:prefLabel "Manieren van aanmelding" .
+
+<http://data.rollvolet.be/concepts/3d1a75db-c683-4b61-859b-3cae4da72df6> a skos:Concept ;
+    mu:uuid "3d1a75db-c683-4b61-859b-3cae4da72df6" ;
+    skos:prefLabel "Telefoon" ;
+    schema:position 1 ;
+    dct:identifier 1 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/fb3e4301-cc14-46ad-adb7-9c6c05ad22a7> a skos:Concept ;
+    mu:uuid "fb3e4301-cc14-46ad-adb7-9c6c05ad22a7" ;
+    skos:prefLabel "Toonzaal" ;
+    schema:position 2 ;
+    dct:identifier 2 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/ed83eeb6-8de9-4676-bab7-6cfb2d012afc> a skos:Concept ;
+    mu:uuid "ed83eeb6-8de9-4676-bab7-6cfb2d012afc" ;
+    skos:prefLabel "Fax" ;
+    schema:position 7 ;
+    dct:identifier 3 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/f475702b-af34-4db2-9316-aeecb267ab61> a skos:Concept ;
+    mu:uuid "f475702b-af34-4db2-9316-aeecb267ab61" ;
+    skos:prefLabel "Mondeling" ;
+    schema:position 5 ;
+    dct:identifier 4 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/365fc76f-6527-4825-ac49-da580fe99f29> a skos:Concept ;
+    mu:uuid "365fc76f-6527-4825-ac49-da580fe99f29" ;
+    skos:prefLabel "Brief" ;
+    schema:position 6 ;
+    dct:identifier 5 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/0b22a3a2-425f-46c5-b320-d87e698ee81e> a skos:Concept ;
+    mu:uuid "0b22a3a2-425f-46c5-b320-d87e698ee81e" ;
+    skos:prefLabel "Te bezoeken" ;
+    schema:position 9 ;
+    dct:identifier 6 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/71238482-bc81-49a2-b419-064e2194b4a6> a skos:Concept ;
+    mu:uuid "71238482-bc81-49a2-b419-064e2194b4a6" ;
+    skos:prefLabel "Onbekend" ;
+    schema:position 8 ;
+    dct:identifier 7 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/d7e8af97-a371-4cdf-b7b7-f7a224e51295> a skos:Concept ;
+    mu:uuid "d7e8af97-a371-4cdf-b7b7-f7a224e51295" ;
+    skos:prefLabel "E-post" ;
+    schema:position 3 ;
+    dct:identifier 8 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .
+
+<http://data.rollvolet.be/concepts/96764fde-a3d1-4e66-9169-4e231b3b5d59> a skos:Concept ;
+    mu:uuid "96764fde-a3d1-4e66-9169-4e231b3b5d59" ;
+    skos:prefLabel "Website" ;
+    schema:position 4 ;
+    dct:identifier 9 ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/9d8087db-4307-4f6d-82f3-a414a5cb2076> .

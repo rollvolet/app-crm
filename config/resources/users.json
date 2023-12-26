@@ -21,10 +21,82 @@
           "predicate": "foaf:name"
         }
       },
+      "relationships": {
+        "account": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "one"
+        },
+        "user-groups": {
+          "predicate": "foaf:member",
+          "target": "user-group",
+          "cardinality": "many"
+        },
+        "employee": {
+          "predicate": "prov:alternateOf",
+          "target": "employee",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "activities": {
+          "predicate": "prov:wasAssociatedWith",
+          "target": "activity",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
       "features": [
         "include-uri"
       ],
       "new-resource-base": "http://data.rollvolet.be/users/"
+    },
+    "accounts": {
+      "name": "account",
+      "class": "foaf:OnlineAccount",
+      "attributes": {
+        "account-name": {
+          "type": "string",
+          "predicate": "foaf:accountName"
+        },
+        "account-service-url": {
+          "type": "string",
+          "predicate": "foaf:accountServiceHomepage"
+        }
+      },
+      "relationships": {
+        "user": {
+          "predicate": "foaf:account",
+          "target": "user",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/accounts/"
+    },
+    "user-groups": {
+      "name": "user-group",
+      "class": "foaf:Group",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        }
+      },
+      "relationships": {
+        "users": {
+          "predicate": "foaf:member",
+          "target": "user",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/user-groups/"
     },
     "employees": {
       "name": "employee",
@@ -53,14 +125,49 @@
           "predicate": "frapo:initial"
         },
         "end-date": {
-          "type": "dateTime",
+          "type": "datetime",
           "predicate": "prov:invalidatedAtTime"
         }
       },
       "relationships": {
+        "user": {
+          "predicate": "prov:alternateOf",
+          "target": "user",
+          "cardinality": "one"
+        },
         "technical-work-activities": {
           "predicate": "prov:wasAssociatedWith",
           "target": "technical-work-activity",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "visited-requests": {
+          "predicate": "crm:visitor",
+          "target": "request",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "accepted-requests": {
+          "predicate": "crm:employee",
+          "target": "request",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "accepted-interventions": {
+          "predicate": "crm:employee",
+          "target": "intervention",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "interventions": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "intervention",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "orders": {
+          "predicate": "crm:plannedTechnicians",
+          "target": "order",
           "cardinality": "many",
           "inverse": true
         }
