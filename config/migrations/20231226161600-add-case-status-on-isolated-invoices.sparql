@@ -1,0 +1,13 @@
+PREFIX adms: <http://www.w3.org/ns/adms#>
+
+INSERT {
+  GRAPH ?g {
+    ?s adms:status <http://data.rollvolet.be/concepts/2fb2bd3f-1df3-4c45-94a0-69a6af2ab735> .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?s <https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator> ?id .
+    ?id <https://data.vlaanderen.be/ns/generiek#naamruimte> "F" .
+    FILTER NOT EXISTS { ?s adms:status ?status . }
+  }
+}
