@@ -67,6 +67,7 @@ services:
       - "logging=true"
   data-conversion:
     image: rollvolet/crm-data-conversion-service:1.0.5
+    entrypoint: "echo 'Service disabled'"
     links:
       - virtuoso:database
     volumes:
@@ -196,7 +197,7 @@ services:
   reporting:
     image: rollvolet/reporting-service:0.1.0
     volumes:
-      - ./data/logs:/share
+      - ./data/logs/frontend-errors:/share
     restart: always
     logging: *default-logging
     labels:
