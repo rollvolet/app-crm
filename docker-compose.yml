@@ -159,7 +159,7 @@ services:
     labels:
       - "logging=true"
   resource:
-    image: semtech/mu-cl-resources:1.22.2
+    image: semtech/mu-cl-resources:feature-enhanced-cache-keys
     volumes:
       - ./config/resources:/config
     environment:
