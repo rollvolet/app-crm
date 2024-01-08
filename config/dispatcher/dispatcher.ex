@@ -36,7 +36,7 @@ defmodule Dispatcher do
   end
 
   get "/accounts/*path", %{ layer: :services, accept: %{ json: true } } do
-    Proxy.forward conn, path, "http://cache/accounts/"
+    Proxy.forward conn, path, "http://resource/accounts/"
   end
 
 
