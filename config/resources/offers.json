@@ -30,6 +30,10 @@
           "type": "string",
           "predicate": "skos:comment"
         },
+        "legacy-id": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
@@ -99,6 +103,10 @@
           "type": "string",
           "predicate": "owl:versionInfo"
         },
+        "legacy-id": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
@@ -157,6 +165,10 @@
         "scheduled-nb-of-persons": {
           "type": "number",
           "predicate": "crm:scheduledNbOfPersons"
+        },
+        "legacy-id": {
+          "type": "string",
+          "predicate": "dct:identifier"
         },
         "source": {
           "type": "string",

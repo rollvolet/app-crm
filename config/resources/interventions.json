@@ -33,6 +33,10 @@
           "type": "number",
           "predicate": "crm:scheduledNbOfPersons"
         },
+        "legacy-id": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        },
         "source": {
           "type": "string",
           "predicate": "dct:source",
