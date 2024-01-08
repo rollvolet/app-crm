@@ -1,0 +1,5 @@
+DELETE DATA {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    <http://data.rollvolet.be/employees/644fd5d00f9a610008641463>  <http://www.w3.org/ns/prov#alternateOf> <http://data.rollvolet.be/persons/f4be8c50-e8b0-11ed-99dd-f9b64cd2d841> .
+  }
+}
