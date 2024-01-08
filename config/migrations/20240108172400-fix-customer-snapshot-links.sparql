@@ -1,0 +1,21 @@
+PREFIX crm: <http://data.rollvolet.be/vocabularies/crm/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+
+DELETE {
+  GRAPH ?g {
+    ?snapshot prov:hadPrimarySource ?legacyUri .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?snapshot prov:hadPrimarySource ?customer .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?snapshot a crm:CustomerSnapshot ;
+      prov:hadPrimarySource ?legacyUri .
+    ?legacyUri vcard:hasUID ?number .
+    ?customer a vcard:VCard ;
+      vcard:hasUID ?number .
+  }
+}
