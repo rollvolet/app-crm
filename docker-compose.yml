@@ -160,7 +160,7 @@ services:
     labels:
       - "logging=true"
   ms-files:
-    image: rollvolet/ms-files-service:0.3.0
+    image: rollvolet/ms-files-service:0.3.1
     environment:
       MS_DRIVE_ID: "my-microsoft-drive-id"
     volumes:
