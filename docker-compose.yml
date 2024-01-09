@@ -25,7 +25,7 @@ services:
     labels:
       - "logging=true"
   frontend:
-    image: rollvolet/frontend-crm:3.1.1
+    image: rollvolet/frontend-crm:3.1.2
     environment:
       EMBER_AUTH_CLIENT_ID: "552ea087-fcd9-4d53-911b-19b11ff6631a"
       EMBER_AUTH_REDIRECT_URI: "https://crm.rollvolet.info/torii/redirect.html"
