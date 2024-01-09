@@ -1,0 +1,58 @@
+PREFIX crm: <http://data.rollvolet.be/vocabularies/crm/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX gebouw: <https://data.vlaanderen.be/ns/gebouw#>
+PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#>
+
+INSERT {
+  GRAPH ?g {
+    ?snapshot prov:hadPrimarySource ?customer .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?snapshot a crm:CustomerSnapshot ;
+      vcard:hasUID ?number .
+    FILTER NOT EXISTS {
+      ?snapshot prov:hadPrimarySource ?legacyUri .
+    }
+    ?customer a vcard:VCard ;
+      vcard:hasUID ?number .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH ?g {
+    ?snapshot prov:hadPrimarySource ?contact .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?snapshot a crm:BuildingSnapshot ;
+      dct:identifier ?id .
+    FILTER NOT EXISTS {
+      ?snapshot prov:hadPrimarySource ?legacyUri .
+    }
+    ?contact a gebouw:Gebouw ;
+      dct:identifier ?id .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH ?g {
+    ?snapshot prov:hadPrimarySource ?contact .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?snapshot a crm:ContactSnapshot ;
+      dct:identifier ?id .
+    FILTER NOT EXISTS {
+      ?snapshot prov:hadPrimarySource ?legacyUri .
+    }
+    ?contact a nco:Contact ;
+      dct:identifier ?id .
+  }
+}
