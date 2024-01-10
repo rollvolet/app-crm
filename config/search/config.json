@@ -485,6 +485,7 @@
       "rdf_type": "http://schema.org/Offer",
       "properties": {
         "offerDate": "http://purl.org/dc/terms/issued",
+        "number": "http://schema.org/identifier",
         "reference": [
           "^http://mu.semte.ch/vocabularies/ext/offer",
           "http://purl.org/cerif/frapo/hasReferenceNumber"
@@ -597,6 +598,7 @@
       "mappings": {
         "properties": {
           "offerDate": { "type": "date" },
+          "number": { "type": "keyword" },
           "reference": {
             "type": "keyword",
             "normalizer": "names"
