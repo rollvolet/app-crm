@@ -140,45 +140,6 @@
       "new-resource-base": "http://data.rollvolet.be/vat-rates/",
       "features": ["include-uri"]
     },
-    "honorific-prefixes": {
-      "name": "honorific-prefix",
-      "class": "crm:HonorificPrefix",
-      "attributes": {
-        "label": {
-          "type": "language-string",
-          "predicate": "skos:label"
-        },
-        "identifier": {
-          "type": "string",
-          "predicate": "dct:identifier",
-          "_comment": "Legacy ID in SQL DB"
-        }
-      },
-      "relationships": {
-        "customer": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "customer",
-          "cardinality": "one",
-          "inverse": true
-        },
-        "contact": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "contact",
-          "cardinality": "one",
-          "inverse": true
-        },
-        "building": {
-          "predicate": "vcard:hasHonorificPrefix",
-          "target": "building",
-          "cardinality": "one",
-          "inverse": true
-        }
-      },
-      "features": [
-        "include-uri"
-      ],
-      "new-resource-base": "http://data.rollvolet.be/honorific-prefixes/"
-    },
     "postal-codes": {
       "name": "postal-code",
       "class": "crm:PostalCode",
