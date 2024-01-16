@@ -18,7 +18,7 @@
           "predicate": "dct:issued"
         },
         "number": {
-          "type": "number",
+          "type": "integer",
           "predicate": "schema:identifier"
         },
         "description": {
