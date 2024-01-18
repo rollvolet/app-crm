@@ -9,7 +9,7 @@
 (defparameter *cache-model-properties* t)
 (defparameter *log-delta-clear-keys* t)
 (defparameter sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
-(defparameter *max-group-sorted-properties* nil)
+(defparameter *max-group-sorted-properties* t)
 
 (read-domain-file "cases.json")
 (read-domain-file "codelists.json")
