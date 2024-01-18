@@ -131,6 +131,12 @@ services:
     logging: *default-logging
     labels:
       - "logging=true"
+  sequence-numbers:
+    image: rollvolet/crm-sequence-numbers-service:0.1.0
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
   documents:
     image: rollvolet/document-generation-service:3.0.0
     volumes:

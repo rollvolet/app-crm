@@ -165,6 +165,12 @@ defmodule Dispatcher do
   end
 
 
+  ## Sequence numbers
+  post "/sequence-numbers/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://sequence-numbers/sequence-numbers/"
+  end
+
+
   ## Regular resources
 
   match "/cases/*path", %{ layer: :services, accept: %{ json: true } } do
