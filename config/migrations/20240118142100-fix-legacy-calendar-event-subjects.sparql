@@ -1,0 +1,69 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?event <http://purl.org/dc/terms/subject> ?resource .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?event <http://purl.org/dc/terms/subject> ?order
+  }
+} WHERE {
+  ?event a <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event> ;
+    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#summary> ?summary ;
+    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#url> ?href ;
+    <http://purl.org/dc/terms/subject> ?resource .
+  FILTER(CONTAINS(STR(?href), "order"))
+  FILTER NOT EXISTS {
+    ?resource a <https://purl.org/p2p-o/document#PurchaseOrder>
+  }
+  ?resource a ?type ;
+    <http://purl.org/dc/terms/identifier> ?resourceId .
+
+  ?order  a <https://purl.org/p2p-o/document#PurchaseOrder> ;
+    <http://purl.org/dc/terms/identifier> ?resourceId .
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?event <http://purl.org/dc/terms/subject> ?resource .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?event <http://purl.org/dc/terms/subject> ?intervention .
+  }
+} WHERE {
+  ?event a <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event> ;
+    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#summary> ?summary ;
+    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#url> ?href ;
+    <http://purl.org/dc/terms/subject> ?resource .
+  FILTER(CONTAINS(STR(?href), "intervention"))
+  FILTER NOT EXISTS {
+    ?resource a <http://data.rollvolet.be/vocabularies/crm/Intervention> .
+  }
+  ?resource a ?type ;
+    <http://purl.org/dc/terms/identifier> ?resourceId .
+
+  ?intervention a <http://data.rollvolet.be/vocabularies/crm/Intervention> ;
+    <http://purl.org/dc/terms/identifier> ?resourceId .
+}
+
+;
+
+DELETE {
+  GRAPH ?g {
+    ?event ?p ?o .
+  }
+}
+WHERE {
+  GRAPH ?g {
+  ?event a <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event> ;
+    <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#url> ?href ;
+    <http://purl.org/dc/terms/subject> ?resource ;
+    ?p ?o .
+  FILTER(CONTAINS(STR(?href), "request"))
+  FILTER NOT EXISTS {
+    ?resource a <http://data.rollvolet.be/vocabularies/crm/Request>
+  }
+  }
+}
