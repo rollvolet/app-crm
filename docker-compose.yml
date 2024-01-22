@@ -132,7 +132,7 @@ services:
     labels:
       - "logging=true"
   sequence-numbers:
-    image: rollvolet/crm-sequence-numbers-service:0.1.1
+    image: rollvolet/crm-sequence-numbers-service:0.1.2
     restart: always
     logging: *default-logging
     labels:
