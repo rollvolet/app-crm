@@ -1,0 +1,27 @@
+PREFIX schema: <http://schema.org/>
+
+DELETE {
+  GRAPH ?g {
+    ?v schema:name ?name .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?v schema:name ?newName .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?v a <http://data.rollvolet.be/vocabularies/pricing/VatRate> ;
+      schema:name ?name .
+    VALUES (?v ?newName) {
+(<http://data.rollvolet.be/vat-rates/5c369912-f881-4928-ae50-0a51ecd5777d> "6% BTW")
+(<http://data.rollvolet.be/vat-rates/21a62531-b083-4f2b-a5e5-bb73c0f24646> "12% BTW")
+(<http://data.rollvolet.be/vat-rates/93c1ba2d-3226-441f-bb65-fc498f420a56> "21% BTW")
+(<http://data.rollvolet.be/vat-rates/79b5aafb-d4da-49c4-a631-665f2dda807f> "Medecontractant (0% BTW)")
+(<http://data.rollvolet.be/vat-rates/39e0537a-91c4-4779-bd55-b0ec90fd80f0> "Uitvoer Eurolanden (0% BTW)")
+(<http://data.rollvolet.be/vat-rates/bdb79563-7f77-47d1-9f2f-78c7b0cedc1e> "Uitvoer andere (0% BTW)")
+(<http://data.rollvolet.be/vat-rates/11305003-62bc-4f6f-9846-7294cd29cbe7> "Vrijgesteld (0% BTW)")
+(<http://data.rollvolet.be/vat-rates/d1290892-4255-42e8-8095-c35aa6367a11> "Nultarief (0% BTW)")
+(<http://data.rollvolet.be/vat-rates/bcf63076-30ab-45ce-b2f3-a743057d9929> "20.5% BTW")
+    }
+  }
+}
