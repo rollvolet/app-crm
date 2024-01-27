@@ -1,0 +1,27 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX users: <http://data.rollvolet.be/users/>
+PREFIX accounts: <http://data.rollvolet.be/accounts/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX mu:      <http://mu.semte.ch/vocabularies/core/>
+PREFIX account: <http://mu.semte.ch/vocabularies/account/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+   GRAPH <http://mu.semte.ch/graphs/users> {
+     users:bb82f217-089c-4032-bd3b-6e1938c4094d a foaf:Person ;
+                   foaf:name "John Doe" ;
+                   foaf:account accounts:3f5d1d03-9707-4eae-83f8-40eddcc5da28 ;
+                   mu:uuid "bb82f217-089c-4032-bd3b-6e1938c4094d" ;
+                   dcterms:created "2023-08-28T10:09:22+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2023-08-28T10:09:22+00:00"^^xsd:dateTime .
+     accounts:3f5d1d03-9707-4eae-83f8-40eddcc5da28 a foaf:OnlineAccount ;
+                   foaf:accountName "john.doe" ;
+                   mu:uuid "3f5d1d03-9707-4eae-83f8-40eddcc5da28" ;
+                   account:password """$2a$12$BSAgCtXwmMRHLeLct7Pgleuzj4h5D/s/YsaKzedpajePcgZh5NPtq""" ;
+                   account:salt "899c06794db522cc475f029cdb0d8afa" ;
+                   account:status <http://mu.semte.ch/vocabularies/account/status/active> ;
+                   dcterms:created "2023-08-28T10:09:22+00:00"^^xsd:dateTime ;
+                   dcterms:modified "2023-08-28T10:09:22+00:00"^^xsd:dateTime .
+     users:bb82f217-089c-4032-bd3b-6e1938c4094d foaf:member <http://data.rollvolet.be/user-groups/admin>, <http://data.rollvolet.be/user-groups/board>, <http://data.rollvolet.be/user-groups/employee> .
+    }
+}

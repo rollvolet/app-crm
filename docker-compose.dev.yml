@@ -1,0 +1,60 @@
+version: "3.4"
+
+services:
+  identifier:
+    ports:
+      - "80:80"
+    restart: "no"
+  dispatcher:
+    restart: "no"
+  frontend:
+    restart: "no"
+    entrypoint: ["echo", "Service disabled"]
+  database:
+    restart: "no"
+    environment:
+      ERROR_ON_UNWRITTEN_DATA: "true"
+  virtuoso:
+    restart: "no"
+    ports:
+      - "8890:8890"
+    volumes:
+      - ./config/virtuoso/virtuoso.development.ini:/data/virtuoso.ini
+  delta-notifier:
+    restart: "no"
+  migrations:
+    restart: "no"
+    volumes:
+      - ./config/development/migrations:/data/migrations/development
+  msal-login:
+    restart: "no"
+    entrypoint: ["echo", "Service disabled"]
+  token-cache:
+    restart: "no"
+    entrypoint: ["echo", "Service disabled"]
+  mock-login:
+    restart: "no"
+  search:
+    restart: "no"
+    environment:
+      JRUBY_OPTIONS: "-J-Xmx4g"
+  elasticsearch:
+    restart: "no"
+  sequence-numbers:
+    restart: "no"
+  documents:
+    restart: "no"
+  cache:
+    restart: "no"
+  resource:
+    restart: "no"
+  ms-files:
+    restart: "no"
+  ms-calendar:
+    restart: "no"
+    environment:
+      USE_PERSONAL_CALENDAR: "true"
+  accountancy-export:
+    restart: "no"
+  reporting:
+    restart: "no"
