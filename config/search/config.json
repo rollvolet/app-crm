@@ -1607,6 +1607,21 @@
           "searchTelephones": { "type": "keyword" }
         }
       }
+    },
+    {
+      "type": "postal-code",
+      "on_path": "postal-codes",
+      "rdf_type": "http://data.rollvolet.be/vocabularies/crm/PostalCode",
+      "properties": {
+        "city": "http://schema.org/name",
+        "code": "http://schema.org/identifier"
+      },
+      "mappings": {
+        "properties": {
+          "city": { "type": "keyword" },
+          "code": { "type": "keyword" }
+        }
+      }
     }
   ],
   "default_settings": {
