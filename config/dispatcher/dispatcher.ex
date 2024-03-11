@@ -301,6 +301,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/building-snapshots/"
   end
 
+  match "/customer-profiles/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/customer-profiles/"
+  end
+
   match "/addresses/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/addresses/"
   end

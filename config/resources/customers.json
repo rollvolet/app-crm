@@ -126,6 +126,11 @@
           "target": "customer-snapshot",
           "cardinality": "many",
           "inverse": true
+        },
+        "profile": {
+          "predicate": "crm:hasCustomerProfile",
+          "target": "customer-profile",
+          "cardinality": "one"
         }
       },
       "features": [
@@ -492,6 +497,43 @@
         "include-uri"
       ],
       "new-resource-base": "http://data.rollvolet.be/telephones/"
+    },
+    "customer-profiles": {
+      "name": "customer-profile",
+      "class": "crm:CustomerProfile",
+      "attributes": {
+        "invoice-payment-period": {
+          "type": "integer",
+          "predicate": "crm:invoicePaymentPeriod",
+          "_comment": "Number of days the customer has to pay the invoice"
+        },
+        "deposit-required": {
+          "type": "boolean",
+          "predicate": "crm:requiresDeposit"
+        }
+      },
+      "relationships": {
+        "vat-rate": {
+          "predicate": "p2poPrice:hasVATCategoryCode",
+          "target": "vat-rate",
+          "cardinality": "one"
+        },
+        "delivery-method": {
+          "predicate": "schema:deliveryMethod",
+          "target": "concept",
+          "cardinality": "one"
+        },
+        "customer": {
+          "predicate": "crm:hasCustomerProfile",
+          "target": "customer",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://data.rollvolet.be/customer-profiles/"
     }
   }
 }

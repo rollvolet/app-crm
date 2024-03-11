@@ -69,6 +69,7 @@ defmodule Acl.UserGroups.Config do
                 "http://www.w3.org/2006/vcard/ns#VCard",
                 "https://data.vlaanderen.be/ns/gebouw#Gebouw",
                 "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#Contact",
+                "http://data.rollvolet.be/vocabularies/crm/CustomerProfile",
                 "http://www.w3.org/2006/vcard/ns#Address",
                 "http://www.w3.org/2006/vcard/ns#Email",
                 "http://www.w3.org/2006/vcard/ns#Telephone",
