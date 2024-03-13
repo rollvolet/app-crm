@@ -16,7 +16,9 @@ config/migrations/*
 
 # Search data
 data/elasticsearch/*
+data/next-elasticsearch/*
 config/search/*.store
+config/next-search/*.store
 
 docker-compose.override.yml
 .env

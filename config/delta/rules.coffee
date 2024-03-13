@@ -6,7 +6,8 @@ export default [
       method: 'POST'
     options:
       resourceFormat: 'v0.0.1'
-      gracePeriod: 250
+      gracePeriod: 2500
+      foldEffectiveChanges: true
       ignoreFromSelf: true
   }, {
     match: {}
@@ -15,7 +16,8 @@ export default [
       method: 'POST'
     options:
       resourceFormat: 'v0.0.1'
-      gracePeriod: 250
+      gracePeriod: 3000
+      foldEffectiveChanges: true
       ignoreFromSelf: true
   }
 ]
