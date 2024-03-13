@@ -1426,6 +1426,10 @@
           "http://www.w3.org/2006/vcard/ns#hasTelephone",
           "http://www.w3.org/2006/vcard/ns#hasValue"
         ],
+        "keywords": [
+          "http://schema.org/keywords",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
         "buildings": {
           "via": "http://schema.org/affiliation",
           "rdf_type": "https://data.vlaanderen.be/ns/gebouw#Gebouw",
@@ -1534,6 +1538,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "keywords": { "type": "keyword" },
           "buildings.position": { "type": "integer" },
           "buildings.honorificPrefix": { "type": "keyword" },
           "buildings.prefix":  { "type": "keyword" },

@@ -177,7 +177,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/cases/"
   end
 
-  get "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
+  match "/concepts/*path", %{ layer: :services, accept: %{ json: true } } do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 

@@ -147,6 +147,19 @@ defmodule Acl.UserGroups.Config do
         access: has_group_access("http://data.rollvolet.be/user-groups/admin"),
         graphs: [
           %GraphSpec{
+            graph: "http://mu.semte.ch/graphs/public",
+            constraint: %ResourceConstraint{
+              resource_types: [
+                "http://data.rollvolet.be/vocabularies/pricing/VatRate",
+                "http://data.rollvolet.be/vocabularies/crm/PostalCode",
+                "http://schema.org/Country",
+                "http://schema.org/Language",
+                "http://www.w3.org/2006/vcard/ns#TelephoneType",
+                "http://www.w3.org/2004/02/skos/core#Concept"
+              ]
+            }
+          },
+          %GraphSpec{
             graph: "http://mu.semte.ch/graphs/rollvolet",
             constraint: %ResourceConstraint{
               resource_types: [

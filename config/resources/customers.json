@@ -59,10 +59,6 @@
           "predicate": "crm:memo",
           "_comment": "Subproperty of vcard:hasNote"
         },
-        "tags": {
-          "type": "string-set",
-          "predicate": "schema:keywords"
-        },
         "created": {
           "type": "datetime",
           "predicate": "dct:created"
@@ -131,6 +127,11 @@
           "predicate": "crm:hasCustomerProfile",
           "target": "customer-profile",
           "cardinality": "one"
+        },
+        "keywords": {
+          "predicate": "schema:keywords",
+          "target": "concept",
+          "cardinality": "many"
         }
       },
       "features": [

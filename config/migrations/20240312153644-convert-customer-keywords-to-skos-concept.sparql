@@ -1,0 +1,57 @@
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX schema: <http://schema.org/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.rollvolet.be/concept-scheme/acad0bff-d13d-47d1-92f3-a3625a0a9e44> a skos:ConceptScheme ;
+    mu:uuid "acad0bff-d13d-47d1-92f3-a3625a0a9e44" ;
+    skos:prefLabel "Customer keywords" .
+  }
+}
+
+;
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?keywordConcept a skos:Concept ;
+    mu:uuid ?uuid ;
+    skos:prefLabel ?keyword ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/acad0bff-d13d-47d1-92f3-a3625a0a9e44> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/acad0bff-d13d-47d1-92f3-a3625a0a9e44> .
+  }
+} WHERE {
+  {
+    SELECT DISTINCT ?keyword
+    WHERE {
+      GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+        ?customer a vcard:VCard ;
+        schema:keywords ?keyword .
+      }
+    }
+  }
+  BIND(STRUUID() AS ?uuid)
+  BIND(IRI(CONCAT("http://data.rollvolet.be/concepts/", ?uuid)) as ?keywordConcept)
+}
+
+;
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?customer schema:keywords ?keyword .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?customer schema:keywords ?keywordConcept .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?customer a vcard:VCard ;
+    schema:keywords ?keyword .
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?keywordConcept a skos:Concept ; skos:prefLabel ?keyword .
+  }
+}
