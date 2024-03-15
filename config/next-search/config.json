@@ -11,7 +11,8 @@
       { "name": "public", "variables": [] }
     ],
     [
-      { "name": "logged-in", "variables": [] }
+      { "name": "logged-in", "variables": [] },
+      { "name": "public", "variables": [] }
     ],
     [
       { "name": "admin", "variables": [] }
