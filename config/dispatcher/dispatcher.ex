@@ -147,6 +147,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/accountancy-exports/"
   end
 
+  get "/accountancy-export-warnings/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://accountancy-export/accountancy-export-warnings/"
+  end
+
 
   ## Reporting service
 

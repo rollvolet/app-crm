@@ -181,7 +181,7 @@ services:
     labels:
       - "logging=true"
   accountancy-export:
-    image: rollvolet/accountancy-export-service:0.1.0
+    image: rollvolet/accountancy-export-service:0.2.0
     volumes:
       - ./data/filedrop:/share
     restart: always
