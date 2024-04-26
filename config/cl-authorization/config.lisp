@@ -39,9 +39,9 @@
   :gebouw "https://data.vlaanderen.be/ns/gebouw#"
   :generiek "https://data.vlaanderen.be/ns/generiek#"
   :nco "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#"
-  :p2poDocument "https://purl.org/p2p-o/document#"
-  :p2poInvoice "https://purl.org/p2p-o/invoice#"
-  :p2poPrice "https://purl.org/p2p-o/price#"
+  :p2podocument "https://purl.org/p2p-o/document#"
+  :p2poinvoice "https://purl.org/p2p-o/invoice#"
+  :p2poprice "https://purl.org/p2p-o/price#"
   :person "http://www.w3.org/ns/person#"
   :price "http://data.rollvolet.be/vocabularies/pricing/"
   :prov "http://www.w3.org/ns/prov#"
@@ -87,10 +87,10 @@
   ("schema:Offer" -> _)
   ("schema:Offerline" -> _)
   ("schema:CalculationLine" -> _)
-  ("p2poDocument:PurchasesOrder" -> _)
-  ("p2poInvoice:E-FinalInvoice" -> _)
-  ("p2poInvoice:PrePaymentInvoice" -> _)
-  ("p2poDocument:E-Invoice" -> _)
+  ("p2podocument:PurchasesOrder" -> _)
+  ("p2poinvoice:E-FinalInvoice" -> _)
+  ("p2poinvoice:PrePaymentInvoice" -> _)
+  ("p2podocument:E-Invoice" -> _)
   ("crm:Invoiceline" -> _)
   ("crm:TechnicalWork" -> _)
   ("crm:CustomerSnapshot" -> _)
