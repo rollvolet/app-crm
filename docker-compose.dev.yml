@@ -12,8 +12,6 @@ services:
     entrypoint: ["echo", "Service disabled"]
   database:
     restart: "no"
-    environment:
-      ERROR_ON_UNWRITTEN_DATA: "true"
   virtuoso:
     restart: "no"
     ports:
