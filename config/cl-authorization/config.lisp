@@ -39,6 +39,8 @@
   :gebouw "https://data.vlaanderen.be/ns/gebouw#"
   :generiek "https://data.vlaanderen.be/ns/generiek#"
   :nco "http://www.semanticdesktop.org/ontologies/2007/03/22/nco#"
+  :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
+  :ncal "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#"
   :p2podocument "https://purl.org/p2p-o/document#"
   :p2poinvoice "https://purl.org/p2p-o/invoice#"
   :p2poprice "https://purl.org/p2p-o/price#"
