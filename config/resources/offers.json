@@ -22,6 +22,14 @@
           "type": "integer",
           "predicate": "schema:identifier"
         },
+        "indicative-visit-date": {
+          "type": "date",
+          "predicate": "ext:indicativeVisitDate"
+        },
+        "indicative-visit-period": {
+          "type": "string",
+          "predicate": "ext:indicativeVisitPeriod"
+        },
         "description": {
           "type": "string",
           "predicate": "dct:description"
