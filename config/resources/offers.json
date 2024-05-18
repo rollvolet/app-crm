@@ -47,6 +47,11 @@
           "cardinality": "one",
           "inverse": true
         },
+        "time-slot": {
+          "predicate": "ncal:dateTime",
+          "target": "time-slot",
+          "cardinality": "one"
+        }
         "visit": {
           "predicate": "dct:subject",
           "target": "calendar-event",

@@ -102,6 +102,7 @@
   ("nfo:RemoteDataObject" -> _)
   ("dossier:Dossier" -> _)
   ("generiek:GestructureerdeIdentificator" -> _)
+  ("ncal:NcalDateTime" -> _)
   ("ncal:Calendar" -> _)
   ("ncal:Event" -> _)
   ("crm:AccountancyExport" -> _)

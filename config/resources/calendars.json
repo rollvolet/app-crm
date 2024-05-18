@@ -8,6 +8,30 @@
     "schema": "http://schema.org/"
   },
   "resources": {
+    "time-slots": {
+      "name": "time-slot",
+      "class": "ncal:NcalDateTime",
+      "attributes": {
+        "start": {
+          "type": "datetime",
+          "predicate": "ncal:dtstart"
+        },
+        "end": {
+          "type": "datetime",
+          "predicate": "ncal:dtend"
+        }
+      }
+      "relationships": {
+        "request": {
+          "predicate": "ncal:dateTime",
+          "target": "request",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.rollvolet.be/time-slots/",
+      "features": ["include-uri"]
+    },
     "calendar-events": {
       "name": "calendar-event",
       "class": "ncal:Event",

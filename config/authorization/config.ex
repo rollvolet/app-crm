@@ -93,6 +93,7 @@ defmodule Acl.UserGroups.Config do
                 "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Calendar",
                 "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#Event",
+                "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#NcalDateTime",
                 "http://data.rollvolet.be/vocabularies/crm/AccountancyExport",
                 "http://www.w3.org/ns/prov#Activity"
               ]
