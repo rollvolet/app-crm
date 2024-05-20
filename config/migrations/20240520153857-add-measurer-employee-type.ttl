@@ -1,0 +1,7 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+
+<http://data.rollvolet.be/employee-types/923a201e-ee9b-4846-8267-15e4aa4fe247> a skos:Concept ;
+    mu:uuid "923a201e-ee9b-4846-8267-15e4aa4fe247" ;
+    skos:prefLabel "Opmeter" ;
+    skos:inScheme <http://data.rollvolet.be/concept-schemes/894b0bab-f0f6-45b3-90a3-cbe04319d5b3> .
