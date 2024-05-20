@@ -107,10 +107,10 @@
           "predicate": "dct:identifier",
           "_comment": "Legacy ID in SQL DB"
         },
-        "type": {
-          "type": "url",
+        "types": {
+          "type": "uri-set",
           "predicate": "dct:type",
-          "_comment": "crm:employee/Administrative or crm:employee/Technician"
+          "_comment": "Administratief bediende, Technieker en/of Opmeter"
         },
         "first-name": {
           "type": "string",
