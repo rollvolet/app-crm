@@ -55,7 +55,9 @@ services:
     labels:
       - "logging=true"
   delta-notifier:
-    image: semtech/mu-delta-notifier:0.3.1
+    image: semtech/mu-delta-notifier:0.4.0
+    environment:
+      NORMALIZE_DATETIME_IN_QUAD: "true"
     volumes:
       - ./config/delta:/config
     restart: always
