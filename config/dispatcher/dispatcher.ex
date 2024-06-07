@@ -329,6 +329,9 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/time-slots/"
   end
 
+  match "/calendar-days/*path", %{ layer: :services, accept: %{ json: true } } do
+    Proxy.forward conn, path, "http://cache/calendar-days/"
+  end
 
   ## Fallback
 
