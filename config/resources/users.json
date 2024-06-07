@@ -170,6 +170,12 @@
           "target": "order",
           "cardinality": "many",
           "inverse": true
+        },
+        "time-slots": {
+          "predicate": "ncal:attendee",
+          "target": "time-slot",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "features": [
