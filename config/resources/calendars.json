@@ -5,9 +5,42 @@
     "ncal": "http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
     "crm": "http://data.rollvolet.be/vocabularies/crm/",
-    "schema": "http://schema.org/"
+    "schema": "http://schema.org/",
+    "time": "http://www.w3.org/2006/time#"
   },
   "resources": {
+    "calendar-days": {
+      "name": "calendar-day",
+      "class": "time:DateTimeDescription",
+      "attributes": {
+        "day": {
+          "type": "integer",
+          "predicate": "time:day"
+        },
+        "month": {
+          "type": "integer",
+          "predicate": "time:month"
+        },
+        "year": {
+          "type": "integer",
+          "predicate": "time:year"
+        },
+        "unit-type": {
+          "type": "url",
+          "predicate": "time:unitType"
+        },
+        "comment": {
+          "type": "string",
+          "predicate": "dct:description"
+        },
+        "visit-status": {
+          "type": "url",
+          "predicate": "crm:visitStatus"
+        },
+      },
+      "new-resource-base": "http://data.rollvolet.be/calendar-days/",
+      "features": ["include-uri"]
+    },
     "time-slots": {
       "name": "time-slot",
       "class": "ncal:NcalDateTime",
@@ -19,6 +52,14 @@
         "end": {
           "type": "datetime",
           "predicate": "ncal:dtend"
+        },
+        "title": {
+          "type": "string",
+          "predicate": "ncal:summary"
+        },
+        "description": {
+          "type": "string",
+          "predicate": "ncal:description"
         }
       }
       "relationships": {
@@ -27,6 +68,11 @@
           "target": "request",
           "cardinality": "one",
           "inverse": true
+        },
+        "employee": {
+          "predicate": "ncal:attendee",
+          "target": "employee",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.rollvolet.be/time-slots/",

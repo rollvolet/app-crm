@@ -1,0 +1,21 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.rollvolet.be/concept-scheme/7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2> a skos:ConceptScheme ;
+    mu:uuid "7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2" ;
+    skos:prefLabel "Calendar day statuses" .
+
+<http://data.rollvolet.be/concepts/9fe17240-2fbe-41b5-93e3-86697a28aa43> a skos:Concept ;
+    mu:uuid "9fe17240-2fbe-41b5-93e3-86697a28aa43" ;
+    skos:prefLabel "Vrij" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2> .
+
+<http://data.rollvolet.be/concepts/be1d947d-5b56-4676-8728-aebabee7853f> a skos:Concept ;
+    mu:uuid "be1d947d-5b56-4676-8728-aebabee7853f" ;
+    skos:prefLabel "Volzet" ;
+    skos:inScheme <http://data.rollvolet.be/concept-scheme/7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2> ;
+    skos:topConceptOf <http://data.rollvolet.be/concept-scheme/7de65891-8b0a-4c1c-8f5a-a19d8cbf99d2> .

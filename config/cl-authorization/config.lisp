@@ -50,6 +50,7 @@
   :schema "http://schema.org/"
   :session "http://mu.semte.ch/vocabularies/session/"
   :skos "http://www.w3.org/2004/02/skos/core#"
+  :time "http://www.w3.org/2006/time#"
   :vcard "http://www.w3.org/2006/vcard/ns#")
 
 (type-cache::add-type-for-prefix "http://mu.semte.ch/sessions/" "http://mu.semte.ch/vocabularies/session/Session")
@@ -105,6 +106,7 @@
   ("ncal:NcalDateTime" -> _)
   ("ncal:Calendar" -> _)
   ("ncal:Event" -> _)
+  ("time:DateTimeDescription" -> _)
   ("crm:AccountancyExport" -> _)
   ("prov:Activity" -> _))
 
