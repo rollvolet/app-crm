@@ -59,7 +59,7 @@
           "predicate": "ncal:dateTime",
           "target": "time-slot",
           "cardinality": "one"
-        }
+        },
         "visit": {
           "predicate": "dct:subject",
           "target": "calendar-event",
@@ -167,6 +167,14 @@
           "type": "date",
           "predicate": "tmo:dueDate"
         },
+        "indicative-planning-date": {
+          "type": "date",
+          "predicate": "ext:indicativePlanningDate"
+        },
+        "indicative-planning-period": {
+          "type": "string",
+          "predicate": "ext:indicativePlanningPeriod"
+        },
         "is-ready": {
           "type": "boolean",
           "predicate": "crm:productFinished"
@@ -195,6 +203,11 @@
           "target": "case",
           "cardinality": "one",
           "inverse": true
+        },
+        "time-slot": {
+          "predicate": "ncal:dateTime",
+          "target": "time-slot",
+          "cardinality": "one"
         },
         "planning": {
           "predicate": "dct:subject",

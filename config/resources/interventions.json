@@ -29,6 +29,14 @@
           "type": "string",
           "predicate": "skos:comment"
         },
+        "indicative-planning-date": {
+          "type": "date",
+          "predicate": "ext:indicativePlanningDate"
+        },
+        "indicative-planning-period": {
+          "type": "string",
+          "predicate": "ext:indicativePlanningPeriod"
+        },
         "scheduled-nb-of-persons": {
           "type": "number",
           "predicate": "crm:scheduledNbOfPersons"
@@ -49,6 +57,11 @@
           "target": "case",
           "cardinality": "one",
           "inverse": true
+        },
+        "time-slot": {
+          "predicate": "ncal:dateTime",
+          "target": "time-slot",
+          "cardinality": "one"
         },
         "visit": {
           "predicate": "dct:subject",

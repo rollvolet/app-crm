@@ -38,6 +38,14 @@
           "predicate": "crm:visitStatus"
         },
       },
+      "relationships": {
+        "calendar": {
+          "predicate": "nie:hasPart",
+          "target": "calendar",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
       "new-resource-base": "http://data.rollvolet.be/calendar-days/",
       "features": ["include-uri"]
     },
@@ -63,9 +71,27 @@
         }
       }
       "relationships": {
+        "calendar": {
+          "predicate": "ncal:component",
+          "target": "calendar",
+          "cardinality": "one",
+          "inverse": true
+        },
         "request": {
           "predicate": "ncal:dateTime",
           "target": "request",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "intervention": {
+          "predicate": "ncal:dateTime",
+          "target": "intervention",
+          "cardinality": "one",
+          "inverse": true
+        },
+        "order": {
+          "predicate": "ncal:dateTime",
+          "target": "order",
           "cardinality": "one",
           "inverse": true
         },
@@ -166,9 +192,19 @@
         }
       },
       "relationships": {
+        "calendar-days": {
+          "predicate": "nie:hasPart",
+          "target": "calendar-day",
+          "cardinality": "many"
+        },
         "calendar-events": {
           "predicate": "ncal:component",
           "target": "calendar-event",
+          "cardinality": "many"
+        },
+        "time-slots": {
+          "predicate": "ncal:component",
+          "target": "time-slot",
           "cardinality": "many"
         }
       },
