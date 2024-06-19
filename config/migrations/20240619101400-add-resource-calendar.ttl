@@ -1,0 +1,7 @@
+@prefix ncal: <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#> .
+
+<http://data.rollvolet.be/calendars/5ec85589-73f2-47a8-b0fc-2716caf59729> a ncal:Calendar ;
+    mu:uuid "5ec85589-73f2-47a8-b0fc-2716caf59729" ;
+    nie:title "Werknemers" .
