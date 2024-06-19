@@ -1,0 +1,22 @@
+PREFIX crm: <http://data.rollvolet.be/vocabularies/crm/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX ncal: <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?intervention ext:indicativePlanningDate ?date ;
+      ext:indicativePlanningPeriod ?period .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/rollvolet> {
+    ?event a ncal:Event ;
+      dct:subject ?intervention ;
+      ncal:date ?date ;
+      ncal:summary ?subject .
+    ?intervention a crm:Intervention .
+
+    BIND(STRBEFORE(?subject, "|") as ?period)
+  }
+}
