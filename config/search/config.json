@@ -8,18 +8,14 @@
   "automatic_index_updates": true,
   "eager_indexing_groups": [
     [
-      { "name": "public", "variables": [] },
-      { "name": "rollvolet-read", "variables": [] },
-      { "name": "rollvolet-write", "variables": [] }
+      { "name": "public", "variables": [] }
     ],
     [
-      { "name": "board-write", "variables": [] }
+      { "name": "logged-in", "variables": [] },
+      { "name": "public", "variables": [] }
     ],
     [
-      { "name": "admin-write", "variables": [] }
-    ],
-    [
-      { "name": "clean", "variables": [] }
+      { "name": "admin", "variables": [] }
     ]
   ],
   "types": [

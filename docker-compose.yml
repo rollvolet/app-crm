@@ -36,7 +36,7 @@ services:
   database:
     image: semtech/sparql-parser:0.0.5
     volumes:
-      - ./config/cl-authorization:/config
+      - ./config/authorization:/config
     restart: always
     logging: *default-logging
     labels:
@@ -79,7 +79,7 @@ services:
   search:
     image: semtech/mu-search:0.10.0-beta.5
     volumes:
-      - ./config/next-search:/config
+      - ./config/search:/config
     restart: always
     logging: *default-logging
     labels:
@@ -87,7 +87,7 @@ services:
   elasticsearch:
     image: semtech/mu-search-elastic-backend:1.1.0
     volumes:
-      - ./data/next-elasticsearch/:/usr/share/elasticsearch/data
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
     restart: always
