@@ -10,6 +10,8 @@
 (defparameter *log-delta-clear-keys* t)
 (defparameter sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
 (defparameter *max-group-sorted-properties* t)
+(defparameter sparql:*query-log-types* nil)
+;;(defparameter sparql:*query-log-types* '(:default :update-group :update :query :ask))
 
 (read-domain-file "cases.json")
 (read-domain-file "codelists.json")
