@@ -57,12 +57,12 @@ INSERT {
   GRAPH <http://mu.semte.ch/graphs/rollvolet> {
     ?customer a vcard:VCard .
     {
-      SELECT ?customer (STRUUID() AS ?uuid) WHERE {
-        ?customer a vcard:VCard .
+      SELECT ?customer (MAX(?customerUuid) as ?id) (STRUUID() AS ?uuid) WHERE {
+        ?customer a vcard:VCard ; mu:uuid ?customerUuid .
         FILTER NOT EXISTS {
           ?customer crm:hasCustomerProfile ?profile .
         }
-      }
+      } GROUP BY ?customer
     }
     BIND(IRI(CONCAT("http://data.rollvolet.be/customer-profiles/", ?uuid)) as ?profile)
   }
