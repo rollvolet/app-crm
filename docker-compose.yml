@@ -34,7 +34,7 @@ services:
     labels:
       - "logging=true"
   database:
-    image: semtech/sparql-parser:0.0.7
+    image: semtech/sparql-parser:0.0.8
     volumes:
       - ./config/authorization:/config
       - ./data/authorization:/data
@@ -156,7 +156,7 @@ services:
     labels:
       - "logging=true"
   resource:
-    image: semtech/mu-cl-resources:feature-handle-tries-harder
+    image: semtech/mu-cl-resources:1.25.0
     volumes:
       - ./config/resources:/config
     environment:
