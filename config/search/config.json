@@ -99,6 +99,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -196,6 +200,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
@@ -325,6 +330,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -424,6 +433,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
@@ -549,6 +559,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -639,6 +653,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
@@ -798,6 +813,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -905,6 +924,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
@@ -1029,6 +1049,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -1122,6 +1146,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
@@ -1242,6 +1267,10 @@
             "telephones": [
               "http://www.w3.org/2006/vcard/ns#hasTelephone",
               "http://www.w3.org/2006/vcard/ns#hasValue"
+            ],
+            "keywords": [
+              "http://schema.org/keywords",
+              "http://www.w3.org/2004/02/skos/core#prefLabel"
             ]
           }
         },
@@ -1334,6 +1363,7 @@
             "type": "keyword",
             "copy_to": "searchTelephones"
           },
+          "customer.keywords": { "type": "keyword" },
           "building.position": { "type": "integer" },
           "building.honorificPrefix": { "type": "keyword" },
           "building.prefix":  { "type": "keyword" },
