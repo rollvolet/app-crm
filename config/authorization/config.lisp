@@ -125,7 +125,8 @@
       PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
       SELECT ?account WHERE {
           <SESSION_ID> session:account ?account .
-          ?user foaf:account ?account ; foaf:member <http://data.rollvolet.be/user-groups/admin> .
+          ?user foaf:account ?account .
+          <http://data.rollvolet.be/user-groups/admin> foaf:member ?user .
       } LIMIT 1")
 
 (grant (read)

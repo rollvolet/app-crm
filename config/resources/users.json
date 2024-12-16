@@ -30,7 +30,8 @@
         "user-groups": {
           "predicate": "foaf:member",
           "target": "user-group",
-          "cardinality": "many"
+          "cardinality": "many",
+          "inverse": true
         },
         "employee": {
           "predicate": "prov:alternateOf",
@@ -89,8 +90,7 @@
         "users": {
           "predicate": "foaf:member",
           "target": "user",
-          "cardinality": "many",
-          "inverse": true
+          "cardinality": "many"
         }
       },
       "features": [
