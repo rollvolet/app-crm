@@ -1,0 +1,44 @@
+PREFIX schema: <http://schema.org/>
+PREFIX crm: <http://data.rollvolet.be/vocabularies/crm/>
+
+PREFIX schema: <http://schema.org/>
+PREFIX crm: <http://data.rollvolet.be/vocabularies/crm/>
+
+DELETE {
+  GRAPH ?g {
+    ?s schema:name ?cityName .
+  }
+} INSERT {
+  GRAPH ?g {
+    ?s schema:name ?mergedCity .
+  }
+} WHERE {
+  GRAPH ?g {
+    ?s a crm:PostalCode ;
+    schema:name ?cityName ;
+    schema:identifier ?postalCode .
+    VALUES (?cityName ?mergedCity) {
+      ("BEVEREN" "BEVEREN-KRUIBEKE-ZWIJNDRECHT")
+      ("KRUIBEKE" "BEVEREN-KRUIBEKE-ZWIJNDRECHT")
+      ("ZWIJNDRECHT" "BEVEREN-KRUIBEKE-ZWIJNDRECHT")
+      ("BILZEN" "BILZEN-HOESELT")
+      ("HOESELT" "BILZEN-HOESELT")
+      ("BORGLOON" "TONGEREN-BORGLOON")
+      ("TONGEREN" "TONGEREN-BORGLOON")
+      ("DE PINTE" "NAZARETH-DE PINTE")
+      ("NAZARETH" "NAZARETH-DE PINTE")
+      ("GALMAARDEN" "PAJOTTEGEM")
+      ("GOOIK" "PAJOTTEGEM")
+      ("HERNE" "PAJOTTEGEM")
+      ("HAM" "TESSENDERLO-HAM")
+      ("TESSENDERLO" "TESSENDERLO-HAM")
+      ("KORTESSEM" "HASSELT")
+      ("WACHTEBEKE" "LOCHRISTI")
+      ("MOERBEKE" "LOKEREN")
+      ("MELLE" "MERELBEKE-MELLE")
+      ("MERELBEKE" "MERELBEKE-MELLE")
+      ("MEULEBEKE" "TIELT")
+      ("RUISELEDE" "WINGENE")
+    }
+  }
+}
